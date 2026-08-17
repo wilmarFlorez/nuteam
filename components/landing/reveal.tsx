@@ -14,9 +14,8 @@ export default function Reveal({
   delay = 0,
 }: RevealProps) {
   const ref = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(
-    () => typeof IntersectionObserver === "undefined",
-  );
+  // Keep the initial render identical on the server and the client.
+  const [visible, setVisible] = useState(false);
 
   useEffect(() => {
     const el = ref.current;
@@ -28,7 +27,10 @@ export default function Reveal({
     // Deferring to the next frame guarantees the observer callback runs after
     // hydration completes, avoiding a server/client class mismatch on mount.
     frame = requestAnimationFrame(() => {
-      if (!("IntersectionObserver" in window)) return;
+      if (!("IntersectionObserver" in window)) {
+        setVisible(true);
+        return;
+      }
 
       observer = new IntersectionObserver(
         (entries) => {
