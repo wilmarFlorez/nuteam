@@ -11,7 +11,7 @@ import Footer from "@/components/landing/footer";
 
 export default function Home() {
   return (
-    <main className="bg-black">
+    <main className="bg-ink">
       <Navbar />
 
       <Hero />

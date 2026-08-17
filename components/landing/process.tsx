@@ -1,60 +1,90 @@
+import Eyebrow from "./eyebrow";
+import Reveal from "./reveal";
+
 const steps = [
-    {
-      number: "01",
-      title: "Analizamos tu operación",
-      description:
-        "Entendemos cómo funciona actualmente el proceso y dónde se concentra el trabajo manual.",
-    },
-    {
-      number: "02",
-      title: "Identificamos la oportunidad",
-      description:
-        "Determinamos qué tareas pueden ser ejecutadas por IA y cuál sería su impacto potencial.",
-    },
-    {
-      number: "03",
-      title: "Diseñamos e integramos",
-      description:
-        "Construimos la solución alrededor de tus procesos y la conectamos con tus sistemas.",
-    },
-    {
-      number: "04",
-      title: "Medimos el impacto",
-      description:
-        "Evaluamos resultados mediante métricas operativas y económicas concretas.",
-    },
-  ];
-  
-  export default function Process() {
-    return (
-      <section id="como-funciona" className="bg-white py-24 text-black lg:py-32">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+  {
+    number: "01",
+    tag: "Diagnóstico",
+    title: "Analizamos tu operación",
+    description:
+      "Entendemos cómo funciona actualmente el proceso y dónde se concentra el trabajo manual.",
+  },
+  {
+    number: "02",
+    tag: "Análisis",
+    title: "Identificamos la oportunidad",
+    description:
+      "Determinamos qué tareas pueden ser ejecutadas por IA y cuál sería su impacto potencial.",
+  },
+  {
+    number: "03",
+    tag: "Implementación",
+    title: "Diseñamos e integramos",
+    description:
+      "Construimos la solución alrededor de tus procesos y la conectamos con tus sistemas.",
+  },
+  {
+    number: "04",
+    tag: "Medición",
+    title: "Medimos el impacto",
+    description:
+      "Evaluamos resultados mediante métricas operativas y económicas concretas.",
+  },
+];
+
+export default function Process() {
+  return (
+    <section id="como-funciona" className="bg-paper py-24 text-ink lg:py-36">
+      <div className="mx-auto max-w-[1440px] px-6 lg:px-10">
+        <div className="flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
           <div className="max-w-3xl">
-            <p className="text-sm font-medium uppercase tracking-[0.2em] text-black/40">
-              Cómo funciona
-            </p>
-  
-            <h2 className="mt-5 text-4xl font-semibold tracking-[-0.03em] sm:text-5xl lg:text-6xl">
-              No empezamos por la tecnología. Empezamos por el problema.
-            </h2>
+            <Reveal>
+              <Eyebrow index="04" tone="light">
+                Cómo funciona
+              </Eyebrow>
+            </Reveal>
+
+            <Reveal delay={80}>
+              <h2 className="mt-7 text-4xl font-semibold tracking-[-0.03em] sm:text-5xl lg:text-6xl">
+                No empezamos por la tecnología. Empezamos por el problema.
+              </h2>
+            </Reveal>
           </div>
-  
-          <div className="mt-16 grid gap-12 md:grid-cols-2 lg:grid-cols-4">
-            {steps.map((step) => (
-              <article key={step.number}>
-                <span className="text-sm text-black/30">{step.number}</span>
-  
-                <div className="mt-6 h-px w-full bg-black/10" />
-  
-                <h3 className="mt-8 text-xl font-semibold">{step.title}</h3>
-  
-                <p className="mt-4 leading-7 text-black/50">
+
+          <Reveal delay={160}>
+            <p className="max-w-sm leading-7 text-ink/55">
+              Un proceso de cuatro pasos que convierte un problema operativo en
+              un agente de IA medible.
+            </p>
+          </Reveal>
+        </div>
+
+        <div className="mt-16 grid gap-10 md:grid-cols-2 lg:grid-cols-4 lg:gap-8">
+          {steps.map((step, index) => (
+            <Reveal key={step.number} delay={index * 90}>
+              <article className="group h-full">
+                <div className="flex items-center gap-4">
+                  <div className="flex h-10 w-10 items-center justify-center border border-ink/25 font-mono text-sm text-ink/60 transition-colors duration-300 group-hover:border-volt group-hover:bg-volt group-hover:text-ink">
+                    {step.number}
+                  </div>
+
+                  <span className="font-mono text-[10px] font-medium uppercase tracking-[0.22em] text-ink/40">
+                    {step.tag}
+                  </span>
+                </div>
+
+                <h3 className="mt-8 text-xl font-semibold tracking-tight lg:mt-10">
+                  {step.title}
+                </h3>
+
+                <p className="mt-4 max-w-xs leading-7 text-ink/55">
                   {step.description}
                 </p>
               </article>
-            ))}
-          </div>
+            </Reveal>
+          ))}
         </div>
-      </section>
-    );
-  }
+      </div>
+    </section>
+  );
+}

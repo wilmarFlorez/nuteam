@@ -1,51 +1,75 @@
+import Eyebrow from "./eyebrow";
+import Reveal from "./reveal";
+
 const differentiators = [
-    {
-      title: "Diseñado para tu operación",
-      description:
-        "La solución se adapta a tus procesos, reglas y necesidades específicas.",
-    },
-    {
-      title: "Integrado con tus sistemas",
-      description:
-        "La IA trabaja con las herramientas que tu equipo ya utiliza.",
-    },
-    {
-      title: "Impacto medible",
-      description:
-        "Cada implementación debe tener una métrica operativa o económica que permita evaluar el resultado.",
-    },
-  ];
-  
-  export default function Differentiators() {
-    return (
-      <section className="bg-black py-24 text-white lg:py-32">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="grid gap-16 lg:grid-cols-[1fr_1.5fr]">
-            <div>
-              <p className="text-sm font-medium uppercase tracking-[0.2em] text-white/40">
-                Por qué Nu Team
-              </p>
-  
-              <h2 className="mt-5 text-4xl font-semibold tracking-[-0.03em] sm:text-5xl">
-                No vendemos IA.
-                <br />
-                Automatizamos operaciones.
-              </h2>
+  {
+    title: "Diseñado para tu operación",
+    description:
+      "La solución se adapta a tus procesos, reglas y necesidades específicas.",
+  },
+  {
+    title: "Integrado con tus sistemas",
+    description:
+      "La IA trabaja con las herramientas que tu equipo ya utiliza.",
+  },
+  {
+    title: "Impacto medible",
+    description:
+      "Cada implementación debe tener una métrica operativa o económica que permita evaluar el resultado.",
+  },
+];
+
+export default function Differentiators() {
+  return (
+    <section className="relative overflow-hidden bg-ink py-24 text-white lg:py-36">
+      <div className="absolute inset-0 bg-dots" />
+      <div className="absolute -left-48 bottom-0 h-[460px] w-[460px] rounded-full bg-volt/[0.04] blur-3xl" />
+
+      <div className="relative mx-auto grid max-w-[1440px] gap-14 px-6 lg:grid-cols-12 lg:gap-10 lg:px-10">
+        <div className="lg:col-span-5">
+          <Reveal>
+            <Eyebrow index="05">Por qué Nu Team</Eyebrow>
+          </Reveal>
+
+          <Reveal delay={80}>
+            <h2 className="mt-7 text-4xl font-semibold leading-[1.02] tracking-[-0.03em] sm:text-5xl lg:text-6xl">
+              No vendemos IA.
+              <br />
+              Automatizamos <span className="text-volt">operaciones.</span>
+            </h2>
+          </Reveal>
+
+          <Reveal delay={160}>
+            <div className="mt-10 flex items-center gap-3 font-mono text-[10px] font-medium uppercase tracking-[0.26em] text-white/40">
+              <span className="h-2 w-2 bg-volt" aria-hidden />
+              Enfoque en impacto operativo
             </div>
-  
-            <div className="divide-y divide-white/10 border-y border-white/10">
+          </Reveal>
+        </div>
+
+        <div className="lg:col-span-7">
+          <Reveal delay={120}>
+            <div className="border-t border-white/10">
               {differentiators.map((item, index) => (
                 <article
                   key={item.title}
-                  className="grid gap-6 py-8 md:grid-cols-[80px_1fr]"
+                  className="grid gap-4 border-b border-white/10 py-8 md:grid-cols-[64px_1fr] md:gap-8 md:py-10"
                 >
-                  <span className="text-sm text-white/25">
-                    0{index + 1}
-                  </span>
-  
+                  <div className="flex items-start gap-4">
+                    <span className="flex h-8 w-8 items-center justify-center border border-white/15 font-mono text-sm text-volt">
+                      ✓
+                    </span>
+
+                    <span className="font-mono text-xs text-white/25">
+                      0{index + 1}
+                    </span>
+                  </div>
+
                   <div>
-                    <h3 className="text-xl font-semibold">{item.title}</h3>
-  
+                    <h3 className="text-xl font-semibold tracking-tight sm:text-2xl">
+                      {item.title}
+                    </h3>
+
                     <p className="mt-3 max-w-xl leading-7 text-white/45">
                       {item.description}
                     </p>
@@ -53,8 +77,9 @@ const differentiators = [
                 </article>
               ))}
             </div>
-          </div>
+          </Reveal>
         </div>
-      </section>
-    );
-  }
+      </div>
+    </section>
+  );
+}

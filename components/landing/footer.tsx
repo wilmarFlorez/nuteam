@@ -1,28 +1,64 @@
 export default function Footer() {
-    return (
-      <footer className="border-t border-white/10 bg-black text-white">
-        <div className="mx-auto flex max-w-7xl flex-col gap-6 px-6 py-10 sm:flex-row sm:items-center sm:justify-between lg:px-8">
+  return (
+    <footer className="relative overflow-hidden border-t border-white/10 bg-ink text-white">
+      <div className="mx-auto max-w-[1440px] px-6 pb-8 pt-14 lg:px-10">
+        <div className="flex flex-col gap-10 lg:flex-row lg:items-start lg:justify-between">
           <div>
-            <p className="text-lg font-semibold">Nu Team</p>
-            <p className="mt-1 text-sm text-white/35">
-              AI para operaciones.
+            <a href="#" className="flex items-center gap-2.5" aria-label="Nu Team">
+              <span className="block h-2.5 w-2.5 bg-volt" />
+              <span className="text-lg font-semibold tracking-tight">
+                Nu<span className="text-white/45">Team</span>
+              </span>
+            </a>
+
+            <p className="mt-2 font-mono text-[10px] font-medium uppercase tracking-[0.26em] text-white/30">
+              AI para operaciones
             </p>
           </div>
-  
-          <div className="flex gap-6 text-sm text-white/40">
-            <a href="#" className="transition hover:text-white">
-              Privacidad
-            </a>
-  
-            <a href="#" className="transition hover:text-white">
-              Términos
-            </a>
+
+          <div>
+            <p className="font-mono text-[10px] font-medium uppercase tracking-[0.26em] text-white/30">
+              Legal
+            </p>
+
+            <div className="mt-4 flex gap-8">
+              <a
+                href="#"
+                className="text-sm text-white/50 transition-colors hover:text-volt"
+              >
+                Privacidad
+              </a>
+
+              <a
+                href="#"
+                className="text-sm text-white/50 transition-colors hover:text-volt"
+              >
+                Términos
+              </a>
+            </div>
           </div>
-  
-          <p className="text-sm text-white/25">
+
+          <p className="font-mono text-xs text-white/30">
             © {new Date().getFullYear()} Nu Team
           </p>
         </div>
-      </footer>
-    );
-  }
+
+        <div className="mt-14 flex items-center gap-3 border-t border-white/10 pt-6">
+          <span className="h-1.5 w-1.5 shrink-0 bg-volt" aria-hidden />
+          <p className="font-mono text-[10px] font-medium uppercase tracking-[0.24em] text-white/25">
+            Diseñamos agentes de IA que ejecutan procesos operativos
+          </p>
+        </div>
+
+        <div className="pointer-events-none mt-12 select-none overflow-hidden">
+          <p
+            className="whitespace-nowrap text-center text-[17vw] font-bold leading-[0.75] tracking-[-0.05em] text-white/[0.03]"
+            aria-hidden
+          >
+            Nu Team
+          </p>
+        </div>
+      </div>
+    </footer>
+  );
+}

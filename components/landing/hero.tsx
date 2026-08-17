@@ -1,95 +1,174 @@
-export default function Hero() {
-    return (
-      <section className="relative overflow-hidden bg-black pb-20 pt-32 sm:pb-24 sm:pt-40 lg:pb-32 lg:pt-52">
-        <div className="absolute inset-0">
-          <div className="absolute left-1/2 top-20 h-[400px] w-[400px] -translate-x-1/2 rounded-full bg-white/[0.04] blur-3xl sm:h-[500px] sm:w-[500px]" />
+import Reveal from "./reveal";
+
+const channels = ["Voz", "WhatsApp", "Email", "Workflows"];
+
+const logLines = [
+  {
+    time: "12:41:07",
+    tag: "ENTRADA",
+    text: "WhatsApp · \"¿Estado de mi pedido?\"",
+  },
+  {
+    time: "12:41:08",
+    tag: "CONTEXTO",
+    text: "CRM verificado · cliente #2841",
+  },
+  {
+    time: "12:41:09",
+    tag: "ACCIÓN",
+    text: "Ticket creado · prioridad alta",
+  },
+  {
+    time: "12:41:09",
+    tag: "SALIDA",
+    text: "Respuesta enviada",
+  },
+];
+
+function AgentPanel() {
+  return (
+    <div className="relative border border-white/10 bg-coal">
+      <span className="absolute -left-px -top-px h-3 w-3 border-l border-t border-volt" />
+      <span className="absolute -right-px -top-px h-3 w-3 border-r border-t border-volt" />
+      <span className="absolute -bottom-px -left-px h-3 w-3 border-b border-l border-volt" />
+      <span className="absolute -bottom-px -right-px h-3 w-3 border-b border-r border-volt" />
+
+      <div className="flex items-center justify-between border-b border-white/10 px-5 py-3.5">
+        <div className="flex items-center gap-2.5">
+          <span className="relative flex h-2 w-2">
+            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-volt opacity-50" />
+            <span className="relative inline-flex h-2 w-2 rounded-full bg-volt" />
+          </span>
+          <span className="font-mono text-[10px] font-medium uppercase tracking-[0.22em] text-white/50">
+            Agente en vivo
+          </span>
         </div>
-  
-        <div className="relative mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-4xl text-center">  
-            <h1 className="text-4xl font-semibold leading-[1.05] tracking-[-0.04em] text-white sm:text-6xl lg:text-8xl">
+
+        <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-volt">
+          ● ejecutando
+        </span>
+      </div>
+
+      <div className="space-y-2.5 px-5 py-6 font-mono text-[11px] leading-5 sm:text-xs">
+        {logLines.map((line) => (
+          <p key={line.text} className="flex flex-wrap gap-x-3 gap-y-1">
+            <span className="text-white/25">{line.time}</span>
+            <span className="text-white/60">{line.tag}</span>
+            <span className="text-volt">→</span>
+            <span className="text-white/40">{line.text}</span>
+          </p>
+        ))}
+      </div>
+
+      <div className="relative mx-5 h-px overflow-hidden bg-white/10">
+        <span className="absolute inset-y-0 w-1/3 animate-scan bg-gradient-to-r from-transparent via-volt to-transparent" />
+      </div>
+
+      <div className="mt-5 grid grid-cols-3 divide-x divide-white/10 border-t border-white/10">
+        <div className="px-5 py-4">
+          <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-white/30">
+            Modo
+          </p>
+          <p className="mt-1 text-sm font-medium text-white/90">Autónomo</p>
+        </div>
+
+        <div className="px-5 py-4">
+          <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-white/30">
+            Canales
+          </p>
+          <p className="mt-1 text-sm font-medium text-white/90">Voz · WhatsApp</p>
+        </div>
+
+        <div className="px-5 py-4">
+          <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-white/30">
+            Sistemas
+          </p>
+          <p className="mt-1 text-sm font-medium text-white/90">Conectados</p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default function Hero() {
+  return (
+    <section className="relative overflow-hidden bg-ink pt-32 sm:pt-36 lg:pt-44">
+      <div className="absolute inset-0 bg-dots" />
+      <div className="absolute -right-48 top-16 h-[520px] w-[520px] rounded-full bg-volt/[0.05] blur-3xl" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-36 bg-gradient-to-b from-transparent to-ink" />
+
+      <div className="relative mx-auto grid max-w-[1440px] gap-14 px-6 pb-24 lg:grid-cols-12 lg:gap-10 lg:px-10 lg:pb-32">
+        <div className="lg:col-span-7 xl:pr-12">
+          <Reveal>
+            <p className="flex items-center gap-3 font-mono text-[11px] font-medium uppercase tracking-[0.26em] text-white/40">
+              <span className="h-2 w-2 shrink-0 bg-volt" aria-hidden />
+              IA aplicada a operaciones
+            </p>
+          </Reveal>
+
+          <Reveal delay={80}>
+            <h1 className="mt-8 text-[2.75rem] font-semibold leading-[0.95] tracking-[-0.04em] sm:text-6xl lg:text-7xl xl:text-[5.25rem]">
               Tu próximo equipo
               <br />
-              también trabaja con IA.
+              también trabaja con{" "}
+              <span className="text-volt">IA.</span>
             </h1>
-  
-            <p className="mx-auto mt-7 max-w-2xl text-base leading-7 text-white/55 sm:mt-8 sm:text-xl sm:leading-8">
+          </Reveal>
+
+          <Reveal delay={160}>
+            <p className="mt-8 max-w-xl text-lg leading-8 text-white/55">
               Diseñamos agentes de IA que ejecutan procesos operativos,
               interactúan con clientes y trabajan junto a tu equipo.
             </p>
-  
-            <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:mt-10 sm:flex-row sm:gap-4">
+          </Reveal>
+
+          <Reveal delay={240}>
+            <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
               <a
                 href="#contacto"
-                className="w-full max-w-[260px] rounded-full bg-white px-7 py-4 text-sm font-semibold text-black transition hover:bg-white/90 sm:w-auto"
+                className="group inline-flex items-center justify-center gap-2 bg-volt px-7 py-4 text-sm font-semibold text-ink transition-colors hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-volt"
               >
                 Analizar mi operación
+                <span className="transition-transform group-hover:translate-x-0.5">
+                  →
+                </span>
               </a>
-  
+
               <a
                 href="#como-funciona"
-                className="w-full max-w-[260px] rounded-full border border-white/15 px-7 py-4 text-sm font-medium text-white transition hover:border-white/30 hover:bg-white/5 sm:w-auto"
+                className="inline-flex items-center justify-center gap-2 border border-white/20 px-7 py-4 text-sm font-medium text-white transition-colors hover:border-white/40 hover:bg-white/5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-volt"
               >
                 Cómo funciona
               </a>
             </div>
-          </div>
-  
-          {/* Visual */}
-          <div className="mx-auto mt-14 max-w-5xl sm:mt-20">
-            <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-white/10 bg-white/[0.02] sm:aspect-[16/7]">
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.08),transparent_55%)]" />
-  
-              {/* Desktop connection line */}
-              <div className="absolute left-[10%] top-1/2 hidden h-px w-[80%] bg-white/10 sm:block" />
-  
-              {/* Desktop nodes */}
-              <div className="absolute left-[18%] top-1/2 hidden h-3 w-3 -translate-y-1/2 rounded-full bg-white shadow-[0_0_30px_rgba(255,255,255,0.5)] sm:block" />
-  
-              <div className="absolute left-1/2 top-1/2 hidden h-3 w-3 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white shadow-[0_0_30px_rgba(255,255,255,0.5)] sm:block" />
-  
-              <div className="absolute right-[18%] top-1/2 hidden h-3 w-3 -translate-y-1/2 rounded-full bg-white shadow-[0_0_30px_rgba(255,255,255,0.5)] sm:block" />
-  
-              {/* Desktop cards */}
-              <div className="absolute left-[11%] top-[30%] hidden rounded-lg border border-white/10 bg-black/80 px-4 py-3 sm:block">
-                <p className="text-xs text-white/40">Cliente</p>
-                <p className="mt-1 text-sm text-white">Solicitud</p>
-              </div>
-  
-              <div className="absolute left-1/2 top-[20%] hidden -translate-x-1/2 rounded-lg border border-white/10 bg-black/80 px-4 py-3 sm:block">
-                <p className="text-xs text-white/40">Nu Team</p>
-                <p className="mt-1 text-sm text-white">IA ejecutando</p>
-              </div>
-  
-              <div className="absolute right-[11%] top-[30%] hidden rounded-lg border border-white/10 bg-black/80 px-4 py-3 sm:block">
-                <p className="text-xs text-white/40">Sistema</p>
-                <p className="mt-1 text-sm text-white">Acción ejecutada</p>
-              </div>
-  
-              {/* Mobile visual */}
-              <div className="absolute inset-0 flex flex-col items-center justify-center gap-5 sm:hidden">
-                <div className="rounded-xl border border-white/10 bg-black/80 px-8 py-4 text-center">
-                  <p className="text-xs text-white/40">Cliente</p>
-                  <p className="mt-1 text-sm text-white">Solicitud</p>
-                </div>
-  
-                <div className="h-8 w-px bg-white/10" />
-  
-                <div className="rounded-xl border border-white/10 bg-black/80 px-8 py-4 text-center shadow-[0_0_40px_rgba(255,255,255,0.04)]">
-                  <p className="text-xs text-white/40">Nu Team</p>
-                  <p className="mt-1 text-sm text-white">IA ejecutando</p>
-                </div>
-  
-                <div className="h-8 w-px bg-white/10" />
-  
-                <div className="rounded-xl border border-white/10 bg-black/80 px-8 py-4 text-center">
-                  <p className="text-xs text-white/40">Sistema</p>
-                  <p className="mt-1 text-sm text-white">Acción ejecutada</p>
-                </div>
-              </div>
+          </Reveal>
+
+          <Reveal delay={320}>
+            <div className="mt-14 flex flex-wrap items-center gap-x-6 gap-y-3 border-t border-white/10 pt-6">
+              <span className="font-mono text-[10px] uppercase tracking-[0.24em] text-white/30">
+                Canales
+              </span>
+
+              {channels.map((channel) => (
+                <span
+                  key={channel}
+                  className="font-mono text-xs font-medium text-white/60"
+                >
+                  {channel}
+                </span>
+              ))}
             </div>
-          </div>
+          </Reveal>
         </div>
-      </section>
-    );
-  }
+
+        <div className="lg:col-span-5 lg:pt-8">
+          <Reveal delay={200} className="lg:sticky lg:top-28">
+            <div className="animate-float">
+              <AgentPanel />
+            </div>
+          </Reveal>
+        </div>
+      </div>
+    </section>
+  );
+}

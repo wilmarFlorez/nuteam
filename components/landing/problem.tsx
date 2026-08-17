@@ -1,60 +1,97 @@
+import Eyebrow from "./eyebrow";
+import Reveal from "./reveal";
+
 const problems = [
-    {
-      number: "01",
-      title: "Tareas repetitivas",
-      description:
-        "Procesos que consumen horas de tu equipo cada semana y requieren poca intervención humana.",
-    },
-    {
-      number: "02",
-      title: "Alto volumen",
-      description:
-        "Miles de llamadas, mensajes, correos o solicitudes que necesitan ser atendidos.",
-    },
-    {
-      number: "03",
-      title: "Procesos manuales",
-      description:
-        "Información que todavía se copia, revisa y transfiere entre diferentes herramientas.",
-    },
-    {
-      number: "04",
-      title: "Operaciones fragmentadas",
-      description:
-        "Equipos trabajando entre WhatsApp, correo, Excel, CRM y múltiples sistemas.",
-    },
-  ];
-  
-  export default function Problem() {
-    return (
-      <section className="bg-white py-24 text-black lg:py-32">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <p className="text-sm font-medium uppercase tracking-[0.2em] text-black/40">
+  {
+    number: "01",
+    title: "Tareas repetitivas",
+    description:
+      "Procesos que consumen horas de tu equipo cada semana y requieren poca intervención humana.",
+  },
+  {
+    number: "02",
+    title: "Alto volumen",
+    description:
+      "Miles de llamadas, mensajes, correos o solicitudes que necesitan ser atendidos.",
+  },
+  {
+    number: "03",
+    title: "Procesos manuales",
+    description:
+      "Información que todavía se copia, revisa y transfiere entre diferentes herramientas.",
+  },
+  {
+    number: "04",
+    title: "Operaciones fragmentadas",
+    description:
+      "Equipos trabajando entre WhatsApp, correo, Excel, CRM y múltiples sistemas.",
+  },
+];
+
+export default function Problem() {
+  return (
+    <section className="relative overflow-hidden bg-paper py-24 text-ink lg:py-36">
+      <div className="mx-auto grid max-w-[1440px] gap-14 px-6 lg:grid-cols-12 lg:gap-10 lg:px-10">
+        <div className="lg:col-span-5">
+          <Reveal>
+            <Eyebrow index="01" tone="light">
               El problema
-            </p>
-  
-            <h2 className="mt-5 text-4xl font-semibold tracking-[-0.03em] sm:text-5xl lg:text-6xl">
-              Tu equipo no debería dedicar horas a tareas que una IA puede ejecutar.
+            </Eyebrow>
+          </Reveal>
+
+          <Reveal delay={80}>
+            <h2 className="mt-7 text-4xl font-semibold tracking-[-0.03em] sm:text-5xl lg:text-[3.4rem] lg:leading-[1.02]">
+              Tu equipo no debería dedicar horas a tareas que una IA puede
+              ejecutar.
             </h2>
-          </div>
-  
-          <div className="mt-16 grid gap-px overflow-hidden rounded-2xl border border-black/10 bg-black/10 md:grid-cols-2">
-            {problems.map((problem) => (
-              <article key={problem.number} className="bg-white p-8 lg:p-10">
-                <span className="text-sm text-black/30">{problem.number}</span>
-  
-                <h3 className="mt-12 text-2xl font-semibold">
-                  {problem.title}
-                </h3>
-  
-                <p className="mt-4 max-w-md leading-7 text-black/55">
-                  {problem.description}
-                </p>
-              </article>
-            ))}
-          </div>
+          </Reveal>
+
+          <Reveal delay={160}>
+            <p className="mt-7 max-w-md text-lg leading-8 text-ink/60">
+              Hay procesos que crecen más rápido que tu equipo. Se repiten cada
+              semana, acumulan volumen y consumen horas que deberían dedicarse a
+              decisiones.
+            </p>
+          </Reveal>
+
+          <Reveal delay={240}>
+            <div className="mt-10 flex max-w-md items-center gap-4 border border-ink/15 px-5 py-4">
+              <span className="h-2 w-2 shrink-0 bg-volt" />
+              <p className="font-mono text-[11px] font-medium uppercase leading-5 tracking-[0.14em] text-ink/50">
+                Horas de equipo invertidas en trabajo que no crece
+              </p>
+            </div>
+          </Reveal>
         </div>
-      </section>
-    );
-  }
+
+        <div className="lg:col-span-7">
+          <Reveal delay={120}>
+            <div className="border-t border-ink/15">
+              {problems.map((problem, index) => (
+                <article
+                  key={problem.number}
+                  className="group relative grid gap-2 border-b border-ink/15 py-7 transition-colors hover:bg-ink/[0.02] md:grid-cols-[64px_230px_1fr] md:items-baseline md:gap-6 md:py-8"
+                >
+                  <span
+                    className="absolute left-0 top-0 h-full w-[2px] origin-top scale-y-0 bg-volt transition-transform duration-300 group-hover:scale-y-100"
+                    aria-hidden
+                  />
+
+                  <span className="font-mono text-sm text-ink/35 transition-colors group-hover:text-ink/60">
+                    0{index + 1}
+                  </span>
+
+                  <h3 className="text-xl font-semibold tracking-tight sm:text-2xl">
+                    {problem.title}
+                  </h3>
+
+                  <p className="leading-7 text-ink/55">{problem.description}</p>
+                </article>
+              ))}
+            </div>
+          </Reveal>
+        </div>
+      </div>
+    </section>
+  );
+}
