@@ -23,6 +23,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   const measurementId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
+  const isProduction = process.env.NODE_ENV === "production";
 
   return (
     <html
@@ -31,7 +32,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <body className="min-h-full bg-ink font-sans text-white">
         {children}
-        {measurementId ? (
+        {measurementId && isProduction ? (
           <>
             <Script
               src={`https://www.googletagmanager.com/gtag/js?id=${measurementId}`}

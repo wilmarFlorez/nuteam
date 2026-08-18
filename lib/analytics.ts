@@ -28,7 +28,11 @@ declare global {
 }
 
 export function trackEvent(name: string, params: AnalyticsParams = {}) {
-  if (!process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || typeof window === "undefined") {
+  if (
+    process.env.NODE_ENV !== "production" ||
+    !process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID ||
+    typeof window === "undefined"
+  ) {
     return;
   }
 
