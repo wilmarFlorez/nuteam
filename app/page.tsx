@@ -8,10 +8,12 @@ import Differentiators from "@/components/landing/differentiators";
 import CTA from "@/components/landing/cta";
 import ContactSection from "@/components/landing/contact_section";
 import Footer from "@/components/landing/footer";
+import AnalyticsTracker from "@/components/analytics_tracker";
 
 export default function Home() {
   return (
     <main className="bg-ink">
+      <AnalyticsTracker />
       <Navbar />
 
       <Hero />

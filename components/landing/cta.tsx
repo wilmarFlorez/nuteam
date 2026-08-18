@@ -1,4 +1,5 @@
 import Reveal from "./reveal";
+import TrackedLink from "./tracked_link";
 
 export default function CTA() {
   return (
@@ -35,15 +36,17 @@ export default function CTA() {
 
         <Reveal delay={240}>
           <div className="mt-10 flex justify-center">
-            <a
+            <TrackedLink
               href="#contacto"
+              ctaName="analizar_operacion"
+              location="final_cta"
               className="group inline-flex items-center justify-center gap-2 bg-ink px-7 py-4 text-sm font-semibold text-white transition-colors hover:bg-black focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink"
             >
               Analizar mi operación
               <span className="transition-transform group-hover:translate-x-0.5">
                 →
               </span>
-            </a>
+            </TrackedLink>
           </div>
         </Reveal>
 

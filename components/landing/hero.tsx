@@ -1,4 +1,5 @@
 import Reveal from "./reveal";
+import TrackedLink from "./tracked_link";
 
 const channels = ["Voz", "WhatsApp", "Email", "Workflows"];
 
@@ -124,15 +125,17 @@ export default function Hero() {
 
           <Reveal delay={240}>
             <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
-              <a
+              <TrackedLink
                 href="#contacto"
+                ctaName="analizar_operacion"
+                location="hero"
                 className="group inline-flex items-center justify-center gap-2 bg-volt px-7 py-4 text-sm font-semibold text-ink transition-colors hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-volt"
               >
                 Analizar mi operación
                 <span className="transition-transform group-hover:translate-x-0.5">
                   →
                 </span>
-              </a>
+              </TrackedLink>
 
               <a
                 href="#como-funciona"

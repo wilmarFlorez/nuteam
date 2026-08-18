@@ -1,6 +1,7 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+import { FormEvent, useRef, useState } from "react";
+import { getAttribution, trackEvent } from "@/lib/analytics";
 
 const inputClass =
   "w-full border-b border-white/15 bg-transparent pb-3 text-white outline-none transition-colors placeholder:text-white/20 focus:border-volt";
@@ -12,6 +13,7 @@ export default function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [hasError, setHasError] = useState(false);
+  const hasStarted = useRef(false);
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -26,14 +28,16 @@ export default function ContactForm() {
 
     const form = event.currentTarget;
     const formData = new FormData(form);
-    const params = new URLSearchParams(window.location.search);
-    const utm = {
-      source: params.get("utm_source") || "",
-      medium: params.get("utm_medium") || "",
-      campaign: params.get("utm_campaign") || "",
-      term: params.get("utm_term") || "",
-      content: params.get("utm_content") || "",
-    };
+    const attribution = getAttribution();
+    const utm = attribution
+      ? {
+          source: attribution.source,
+          medium: attribution.medium,
+          campaign: attribution.campaign,
+          term: attribution.term,
+          content: attribution.content,
+        }
+      : { source: "", medium: "", campaign: "", term: "", content: "" };
 
     setIsSubmitting(true);
     setHasError(false);
@@ -53,6 +57,7 @@ export default function ContactForm() {
           impact: formData.get("impact"),
           source: utm.source || "landing",
           utm,
+          ...(attribution ? { attribution } : {}),
         }),
       });
 
@@ -68,6 +73,10 @@ export default function ContactForm() {
         throw new Error("Lead was not accepted");
       }
 
+      trackEvent("form_submit", {
+        form_name: "contacto",
+        process_type: "evaluacion_operativa",
+      });
       setSubmitted(true);
     } catch {
       setHasError(true);
@@ -100,7 +109,15 @@ export default function ContactForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-9">
+    <form
+      onSubmit={handleSubmit}
+      onFocusCapture={() => {
+        if (hasStarted.current) return;
+        hasStarted.current = true;
+        trackEvent("form_start", { form_name: "contacto" });
+      }}
+      className="space-y-9"
+    >
       <div className="grid gap-9 sm:grid-cols-2">
         <div>
           <label htmlFor="name" className={labelClass}>

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { trackEvent } from "@/lib/analytics";
 
 const links = [
   { label: "Soluciones", href: "#soluciones" },
@@ -46,6 +47,7 @@ export default function Navbar() {
 
             <a
               href="#contacto"
+              onClick={() => trackEvent("cta_click", { cta_name: "analizar_operacion", location: "navbar" })}
               className="group inline-flex items-center gap-2 bg-volt px-5 py-2.5 text-sm font-semibold text-ink transition-colors hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-volt"
             >
               Analizar mi operación
@@ -122,7 +124,10 @@ export default function Navbar() {
 
             <a
               href="#contacto"
-              onClick={() => setOpen(false)}
+              onClick={() => {
+                setOpen(false);
+                trackEvent("cta_click", { cta_name: "analizar_operacion", location: "navbar_mobile" });
+              }}
               className="mt-auto inline-flex items-center justify-center gap-2 bg-volt px-7 py-4 text-sm font-semibold text-ink"
             >
               Analizar mi operación

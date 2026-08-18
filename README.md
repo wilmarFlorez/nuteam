@@ -49,7 +49,8 @@ NEXT_PUBLIC_GOOGLE_SHEETS_ENDPOINT=https://script.google.com/macros/s/TU_DEPLOYM
 1. Crea un Google Sheet y una pestaña llamada `Leads`.
 2. En la primera fila agrega estas columnas, en este orden: `Fecha`, `Nombre`,
    `Empresa`, `Cargo`, `Email`, `Teléfono`, `Proceso`, `Volumen`, `Impacto`,
-   `Fuente`.
+   `Fuente`, `Fuente UTM`, `Medio`, `Campaña`, `Término`, `Contenido`,
+   `Landing Page`, `Referrer`, `Timestamp atribución`.
 3. En el Sheet abre `Extensiones > Apps Script`.
 4. Reemplaza el contenido del editor con el código de
    [`integrations/google_apps_script.gs`](integrations/google_apps_script.gs) y guarda.
@@ -62,10 +63,8 @@ NEXT_PUBLIC_GOOGLE_SHEETS_ENDPOINT=https://script.google.com/macros/s/TU_DEPLOYM
    `NEXT_PUBLIC_GOOGLE_SHEETS_ENDPOINT`.
 
 El script valida los campos permitidos y obligatorios, genera `Fecha` en el
-servidor y agrega una fila. `Fuente` es `landing` por defecto. El frontend ya
-envía `utm_source`, `utm_medium`, `utm_campaign`, `utm_term` y `utm_content`
-dentro de `utm` para futuras campañas. La función `doGet` permite que Google
-complete correctamente la redirección de su respuesta POST.
+servidor y agrega una fila. `Fuente` es `landing` por defecto. La atribución se
+captura en `sessionStorage` y se envía junto al lead sin incluirla en GA4.
 
 ### Probar localmente
 
@@ -75,7 +74,22 @@ Con `.env.local` configurado, ejecuta:
 pnpm dev
 ```
 
-Abre `http://localhost:3000/#contacto`, completa el formulario y envíalo.
-Comprueba `Enviando...`, el mensaje de éxito tras recibir `{ "success": true }`
-y una nueva fila en `Leads`. Si falla, el botón muestra el error y permite
-reintentar sin borrar los campos.
+Abre `http://localhost:3000/?utm_source=prueba#contacto`, completa el formulario
+y envíalo. Comprueba `Enviando...`, el mensaje de éxito tras recibir
+`{ "success": true }` y una nueva fila en `Leads` con la atribución. Si falla,
+el botón muestra el error y permite reintentar sin borrar los campos.
+
+## Google Analytics 4
+
+Configura `NEXT_PUBLIC_GA_MEASUREMENT_ID` con el Measurement ID de la propiedad
+GA4, tanto en `.env.local` para desarrollo como en las variables de entorno de
+producción. Si no está definida, la landing continúa funcionando sin analytics.
+
+Se registran `page_view`, `cta_click`, `form_start`, `form_submit`, `scroll_50`
+y `scroll_90`. `form_submit` solo se registra después de una respuesta exitosa
+de Google Sheets y ningún evento envía datos personales.
+
+Para verificar eventos en producción, usa GA4 > DebugView con una sesión de
+prueba y el panel Network del navegador para confirmar las solicitudes a
+`google-analytics.com`. Para validar atribución, usa una URL con UTM y revisa
+las columnas nuevas de `Leads`.
