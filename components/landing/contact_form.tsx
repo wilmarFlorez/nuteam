@@ -10,13 +10,70 @@ const labelClass =
 
 export default function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [hasError, setHasError] = useState(false);
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
-    // Temporalmente solo mostramos el estado de éxito.
-    // Posteriormente conectaremos este formulario con el sistema de leads.
-    setSubmitted(true);
+    if (isSubmitting) return;
+
+    const endpoint = process.env.NEXT_PUBLIC_GOOGLE_SHEETS_ENDPOINT;
+    if (!endpoint) {
+      setHasError(true);
+      return;
+    }
+
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+    const params = new URLSearchParams(window.location.search);
+    const utm = {
+      source: params.get("utm_source") || "",
+      medium: params.get("utm_medium") || "",
+      campaign: params.get("utm_campaign") || "",
+      term: params.get("utm_term") || "",
+      content: params.get("utm_content") || "",
+    };
+
+    setIsSubmitting(true);
+    setHasError(false);
+
+    try {
+      const response = await fetch(endpoint, {
+        method: "POST",
+        headers: { "Content-Type": "text/plain;charset=utf-8" },
+        body: JSON.stringify({
+          name: formData.get("name"),
+          company: formData.get("company"),
+          role: formData.get("role"),
+          email: formData.get("email"),
+          phone: formData.get("phone"),
+          process: formData.get("process"),
+          volume: formData.get("volume"),
+          impact: formData.get("impact"),
+          source: utm.source || "landing",
+          utm,
+        }),
+      });
+
+      if (!response.ok) throw new Error("Request failed");
+
+      const result: unknown = await response.json();
+      if (
+        !result ||
+        typeof result !== "object" ||
+        !("success" in result) ||
+        result.success !== true
+      ) {
+        throw new Error("Lead was not accepted");
+      }
+
+      setSubmitted(true);
+    } catch {
+      setHasError(true);
+    } finally {
+      setIsSubmitting(false);
+    }
   }
 
   if (submitted) {
@@ -203,12 +260,19 @@ export default function ContactForm() {
 
       <button
         type="submit"
+        disabled={isSubmitting}
         className="group inline-flex w-full items-center justify-center gap-2 bg-volt px-7 py-4 text-sm font-semibold text-ink transition-colors hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-volt"
       >
-        Quiero analizar este proceso
-        <span className="transition-transform group-hover:translate-x-0.5">
-          →
-        </span>
+        {isSubmitting
+          ? "Enviando..."
+          : hasError
+            ? "No pudimos enviar tu solicitud. Inténtalo nuevamente."
+            : "Quiero analizar este proceso"}
+        {!isSubmitting && !hasError && (
+          <span className="transition-transform group-hover:translate-x-0.5">
+            →
+          </span>
+        )}
       </button>
 
       <p className="text-center font-mono text-[11px] leading-5 text-white/30">

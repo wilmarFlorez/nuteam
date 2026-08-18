@@ -34,3 +34,48 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## Captura de leads
+
+El formulario envía los leads directamente a un Google Apps Script Web App. La
+URL pública se configura en `.env.local`:
+
+```bash
+NEXT_PUBLIC_GOOGLE_SHEETS_ENDPOINT=https://script.google.com/macros/s/TU_DEPLOYMENT_ID/exec
+```
+
+### Configurar Google Sheets
+
+1. Crea un Google Sheet y una pestaña llamada `Leads`.
+2. En la primera fila agrega estas columnas, en este orden: `Fecha`, `Nombre`,
+   `Empresa`, `Cargo`, `Email`, `Teléfono`, `Proceso`, `Volumen`, `Impacto`,
+   `Fuente`.
+3. En el Sheet abre `Extensiones > Apps Script`.
+4. Reemplaza el contenido del editor con el código de
+   [`integrations/google_apps_script.gs`](integrations/google_apps_script.gs) y guarda.
+5. Selecciona `Implementar > Nueva implementación`, elige `Aplicación web`,
+   configura `Ejecutar como: Yo` y `Quién tiene acceso: Cualquier persona`, y
+   pulsa `Implementar`.
+6. Autoriza el acceso solicitado a Google Sheets y copia la URL que termina en
+   `/exec`.
+7. Crea `.env.local` en la raíz y pega allí la URL en
+   `NEXT_PUBLIC_GOOGLE_SHEETS_ENDPOINT`.
+
+El script valida los campos permitidos y obligatorios, genera `Fecha` en el
+servidor y agrega una fila. `Fuente` es `landing` por defecto. El frontend ya
+envía `utm_source`, `utm_medium`, `utm_campaign`, `utm_term` y `utm_content`
+dentro de `utm` para futuras campañas. La función `doGet` permite que Google
+complete correctamente la redirección de su respuesta POST.
+
+### Probar localmente
+
+Con `.env.local` configurado, ejecuta:
+
+```bash
+pnpm dev
+```
+
+Abre `http://localhost:3000/#contacto`, completa el formulario y envíalo.
+Comprueba `Enviando...`, el mensaje de éxito tras recibir `{ "success": true }`
+y una nueva fila en `Leads`. Si falla, el botón muestra el error y permite
+reintentar sin borrar los campos.
