@@ -3,25 +3,21 @@ import Reveal from "./reveal";
 
 const problems = [
   {
-    number: "01",
     title: "Tareas repetitivas",
     description:
       "Procesos que consumen horas de tu equipo cada semana y requieren poca intervención humana.",
   },
   {
-    number: "02",
     title: "Alto volumen",
     description:
       "Miles de llamadas, mensajes, correos o solicitudes que necesitan ser atendidos.",
   },
   {
-    number: "03",
     title: "Procesos manuales",
     description:
       "Información que todavía se copia, revisa y transfiere entre diferentes herramientas.",
   },
   {
-    number: "04",
     title: "Operaciones fragmentadas",
     description:
       "Equipos trabajando entre WhatsApp, correo, Excel, CRM y múltiples sistemas.",
@@ -67,19 +63,15 @@ export default function Problem() {
         <div className="lg:col-span-7">
           <Reveal delay={120}>
             <div className="border-t border-ink/15">
-              {problems.map((problem, index) => (
+              {problems.map((problem) => (
                 <article
-                  key={problem.number}
-                  className="group relative grid gap-2 border-b border-ink/15 py-7 transition-colors hover:bg-ink/[0.02] md:grid-cols-[64px_230px_1fr] md:items-baseline md:gap-6 md:py-8"
+                  key={problem.title}
+                  className="group relative grid gap-2 border-b border-ink/15 py-7 pl-6 transition-colors hover:bg-ink/[0.02] md:grid-cols-[230px_1fr] md:items-baseline md:gap-6 md:py-8"
                 >
                   <span
                     className="absolute left-0 top-0 h-full w-[2px] origin-top scale-y-0 bg-volt transition-transform duration-300 group-hover:scale-y-100"
                     aria-hidden
                   />
-
-                  <span className="font-mono text-sm text-ink/35 transition-colors group-hover:text-ink/60">
-                    0{index + 1}
-                  </span>
 
                   <h3 className="text-xl font-semibold tracking-tight sm:text-2xl">
                     {problem.title}
