@@ -7,17 +7,17 @@ export default function Footer() {
             <a href="#" className="flex items-center gap-2.5" aria-label="Nu Team">
               <span className="block h-2.5 w-2.5 bg-volt" />
               <span className="text-lg font-semibold tracking-tight">
-                Nu<span className="text-white/45">Team</span>
+                Nu<span className="text-white/60">Team</span>
               </span>
             </a>
 
-            <p className="mt-2 font-mono text-[10px] font-medium uppercase tracking-[0.26em] text-white/30">
+            <p className="mt-2 font-mono text-[10px] font-medium uppercase tracking-[0.26em] text-white/60">
               AI para operaciones
             </p>
           </div>
 
           <div>
-            <p className="font-mono text-[10px] font-medium uppercase tracking-[0.26em] text-white/30">
+            <p className="font-mono text-[10px] font-medium uppercase tracking-[0.26em] text-white/60">
               Legal
             </p>
 
@@ -38,21 +38,21 @@ export default function Footer() {
             </div>
           </div>
 
-          <p className="font-mono text-xs text-white/30">
+          <p className="font-mono text-xs text-white/60">
             © {new Date().getFullYear()} Nu Team
           </p>
         </div>
 
         <div className="mt-14 flex items-center gap-3 border-t border-white/10 pt-6">
           <span className="h-1.5 w-1.5 shrink-0 bg-volt" aria-hidden />
-          <p className="font-mono text-[10px] font-medium uppercase tracking-[0.24em] text-white/25">
+          <p className="font-mono text-[10px] font-medium uppercase tracking-[0.24em] text-white/60">
             Diseñamos agentes de IA que ejecutan procesos operativos
           </p>
         </div>
 
         <div className="pointer-events-none mt-12 select-none overflow-hidden">
           <p
-            className="whitespace-nowrap text-center text-[17vw] font-bold leading-[0.75] tracking-[-0.05em] text-white/[0.03]"
+            className="whitespace-nowrap text-center text-[17vw] font-bold leading-[0.75] tracking-[-0.05em] text-white/[0.35]"
             aria-hidden
           >
             Nu Team
