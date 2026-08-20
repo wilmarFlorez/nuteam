@@ -53,30 +53,17 @@ export default function UseCases() {
           </Reveal>
         </div>
 
-        <div className="mt-16 border-t border-white/10">
+        <div className="mt-16 grid gap-px border-y border-white/10 bg-white/10 lg:grid-cols-3">
           {useCases.map((useCase, index) => (
             <Reveal key={useCase.title} delay={index * 60}>
-              <article className="group grid gap-3 border-b border-white/10 py-7 transition-colors hover:bg-white/[0.02] md:grid-cols-[72px_1fr_auto] md:items-baseline md:gap-8 md:py-9">
-                <span className="font-mono text-sm text-white/25 transition-colors group-hover:text-volt">
-                  0{index + 1}
-                </span>
+              <article className="group flex min-h-56 flex-col bg-coal p-7 transition-colors duration-300 hover:bg-white/[0.04] lg:p-8">
+                <h3 className="mt-auto text-2xl font-semibold tracking-tight transition-colors duration-300 group-hover:text-volt sm:text-[1.75rem]">
+                  {useCase.title}
+                </h3>
 
-                <div>
-                  <h3 className="text-2xl font-semibold tracking-tight transition-transform duration-300 group-hover:translate-x-2 sm:text-[1.75rem]">
-                    {useCase.title}
-                  </h3>
-
-                  <p className="mt-2 max-w-lg leading-7 text-white/45">
-                    {useCase.description}
-                  </p>
-                </div>
-
-                <span
-                  className="hidden font-mono text-lg text-white/20 transition-all duration-300 group-hover:translate-x-0.5 group-hover:text-volt md:block"
-                  aria-hidden
-                >
-                  →
-                </span>
+                <p className="mt-3 max-w-lg leading-7 text-white/55">
+                  {useCase.description}
+                </p>
               </article>
             </Reveal>
           ))}
