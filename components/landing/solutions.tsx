@@ -6,25 +6,21 @@ const solutions = [
     title: "Voz",
     description:
       "Agentes capaces de realizar y recibir llamadas para ejecutar procesos y atender solicitudes.",
-    label: "01",
   },
   {
     title: "WhatsApp",
     description:
       "Automatiza conversaciones y procesos operativos directamente desde el canal que tus clientes ya utilizan.",
-    label: "02",
   },
   {
     title: "Email",
     description:
       "Procesa mensajes, clasifica solicitudes y ejecuta acciones sin intervención manual en cada paso.",
-    label: "03",
   },
   {
     title: "Workflows",
     description:
       "Conecta agentes de IA con las herramientas y sistemas que ya utiliza tu empresa.",
-    label: "04",
   },
 ];
 
@@ -56,21 +52,11 @@ export default function Solutions() {
         <div className="mt-16 grid gap-px border border-white/10 bg-white/10 md:grid-cols-2">
           {solutions.map((solution, index) => (
             <Reveal
-              key={solution.label}
+              key={solution.title}
               delay={index * 90}
               className="group relative bg-ink p-8 transition-colors hover:bg-coal lg:p-10"
             >
-              <div className="flex items-start justify-between">
-                <span className="font-mono text-[11px] font-medium uppercase tracking-[0.22em] text-white/30 transition-colors group-hover:text-volt">
-                  Canal {solution.label}
-                </span>
-
-                <span className="font-mono text-lg text-white/20 transition-all duration-300 group-hover:translate-x-0.5 group-hover:text-volt">
-                  →
-                </span>
-              </div>
-
-              <h3 className="mt-16 text-2xl font-semibold tracking-tight lg:text-[1.75rem]">
+              <h3 className="mt-6 text-2xl font-semibold tracking-tight lg:text-[1.75rem]">
                 {solution.title}
               </h3>
 
