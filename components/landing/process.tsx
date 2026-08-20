@@ -36,7 +36,7 @@ export default function Process() {
   return (
     <section id="como-funciona" className="bg-paper py-24 text-ink lg:py-36">
       <div className="mx-auto max-w-[1440px] px-6 lg:px-10">
-        <div className="flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
+        <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(18rem,0.48fr)] lg:items-center lg:gap-16">
           <div className="max-w-3xl">
             <Reveal>
               <Eyebrow index="04" tone="light">
@@ -52,7 +52,7 @@ export default function Process() {
           </div>
 
           <Reveal delay={160}>
-            <p className="max-w-sm leading-7 text-ink/55">
+            <p className="max-w-sm border-t border-ink/20 pt-6 leading-7 text-ink/60 lg:max-w-md lg:border-l lg:border-t-0 lg:pl-6 lg:pt-0">
               Un proceso de cuatro pasos que convierte un problema operativo en
               un agente de IA medible.
             </p>

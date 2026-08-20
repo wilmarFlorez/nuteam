@@ -32,7 +32,7 @@ export default function UseCases() {
   return (
     <section id="casos-de-uso" className="border-t border-white/10 bg-coal py-24 text-white lg:py-36">
       <div className="mx-auto max-w-[1440px] px-6 lg:px-10">
-        <div className="flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
+        <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(18rem,0.48fr)] lg:items-center lg:gap-16">
           <div className="max-w-3xl">
             <Reveal>
               <Eyebrow index="03">Casos de uso</Eyebrow>
@@ -46,7 +46,7 @@ export default function UseCases() {
           </div>
 
           <Reveal delay={160}>
-            <p className="max-w-sm leading-7 text-white/45">
+            <p className="max-w-sm border-t border-white/15 pt-6 leading-7 text-white/55 lg:max-w-md lg:border-l lg:border-t-0 lg:pl-6 lg:pt-0">
               Cada implementación comienza con un proceso concreto y una
               oportunidad de impacto medible.
             </p>
