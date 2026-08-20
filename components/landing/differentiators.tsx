@@ -21,7 +21,7 @@ const differentiators = [
 
 export default function Differentiators() {
   return (
-    <section className="relative overflow-hidden bg-ink py-24 text-white lg:py-36">
+    <section className="relative overflow-hidden bg-ink pb-28 pt-24 text-white lg:pb-40 lg:pt-36">
       <div className="absolute inset-0 bg-dots" />
       <div className="absolute -left-48 bottom-0 h-[460px] w-[460px] rounded-full bg-volt/[0.04] blur-3xl" />
 
@@ -50,27 +50,23 @@ export default function Differentiators() {
         <div className="lg:col-span-7">
           <Reveal delay={120}>
             <div className="border-t border-white/10">
-              {differentiators.map((item, index) => (
+              {differentiators.map((item) => (
                 <article
                   key={item.title}
-                  className="grid gap-4 border-b border-white/10 py-8 md:grid-cols-[64px_1fr] md:gap-8 md:py-10"
+                  className="group relative grid gap-4 border-b border-white/10 py-8 pl-4 transition-colors duration-300 hover:bg-white/[0.03] md:grid-cols-[40px_1fr] md:gap-6 md:py-10"
                 >
-                  <div className="flex items-start gap-4">
-                    <span className="flex h-8 w-8 items-center justify-center border border-white/15 font-mono text-sm text-volt">
+                  <div>
+                    <span className="flex h-8 w-8 items-center justify-center border border-white/20 bg-white/[0.02] font-mono text-sm text-volt transition-colors duration-300 group-hover:border-volt/60 group-hover:bg-volt/[0.06]" aria-hidden>
                       ✓
-                    </span>
-
-                    <span className="font-mono text-xs text-white/25">
-                      0{index + 1}
                     </span>
                   </div>
 
                   <div>
-                    <h3 className="text-xl font-semibold tracking-tight sm:text-2xl">
+                    <h3 className="text-xl font-semibold tracking-tight transition-colors duration-300 group-hover:text-volt sm:text-2xl">
                       {item.title}
                     </h3>
 
-                    <p className="mt-3 max-w-xl leading-7 text-white/45">
+                    <p className="mt-3 max-w-xl leading-7 text-white/60">
                       {item.description}
                     </p>
                   </div>
