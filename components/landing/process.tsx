@@ -53,8 +53,8 @@ export default function Process() {
 
           <Reveal delay={160}>
             <p className="max-w-sm border-t border-ink/20 pt-6 leading-7 text-ink/60 lg:max-w-md lg:border-l lg:border-t-0 lg:pl-6 lg:pt-0">
-              Un proceso de cuatro pasos que convierte un problema operativo en
-              un agente de IA medible.
+              Evaluamos si una automatización es viable, qué parte del proceso
+              conviene intervenir y cómo medir su resultado.
             </p>
           </Reveal>
         </div>

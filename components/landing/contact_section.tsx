@@ -4,7 +4,7 @@ import Reveal from "./reveal";
 
 const outcomes = [
   "Evaluación de viabilidad sobre tu proceso real",
-  "Estimación del impacto en horas y costos",
+  "Evaluación preliminar del proceso",
   "Un siguiente paso claro, sin compromisos",
 ];
 
@@ -19,7 +19,7 @@ export default function ContactSection() {
 
           <Reveal delay={80}>
             <h2 className="mt-7 text-4xl font-semibold tracking-[-0.03em] sm:text-5xl">
-              Cuéntanos qué proceso quieres automatizar.
+              Cuéntanos qué proceso genera más trabajo manual o demoras.
             </h2>
           </Reveal>
 

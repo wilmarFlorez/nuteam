@@ -70,7 +70,7 @@ function AgentPanel() {
           <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-white/30">
             Modo
           </p>
-          <p className="mt-1 text-sm font-medium text-white/90">Autónomo</p>
+          <p className="mt-1 text-sm font-medium text-white/90">Proceso definido</p>
         </div>
 
         <div className="px-5 py-4">
@@ -84,7 +84,7 @@ function AgentPanel() {
           <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-white/30">
             Sistemas
           </p>
-          <p className="mt-1 text-sm font-medium text-white/90">Conectados</p>
+          <p className="mt-1 text-sm font-medium text-white/90">Por evaluar</p>
         </div>
       </div>
     </div>
@@ -109,17 +109,15 @@ export default function Hero() {
 
           <Reveal delay={80}>
             <h1 className="mt-8 text-[2.75rem] font-semibold leading-[0.95] tracking-[-0.04em] sm:text-6xl lg:text-7xl xl:text-[5.25rem]">
-              Tu próximo equipo
-              <br />
-              también trabaja con{" "}
-              <span className="text-volt">IA.</span>
+              ¿Cuánto trabajo manual se acumula en tu operación?
             </h1>
           </Reveal>
 
           <Reveal delay={160}>
             <p className="mt-8 max-w-xl text-lg leading-8 text-white/55">
-              Diseñamos agentes de IA que ejecutan procesos operativos,
-              interactúan con clientes y trabajan junto a tu equipo.
+              Evaluamos procesos repetitivos, de alto volumen o repartidos entre
+              varios sistemas para determinar si una automatización con IA puede
+              ser viable.
             </p>
           </Reveal>
 
@@ -131,7 +129,7 @@ export default function Hero() {
                 location="hero"
                 className="group inline-flex items-center justify-center gap-2 bg-volt px-7 py-4 text-sm font-semibold text-ink transition-colors hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-volt"
               >
-                Analizar mi operación
+                Evaluar un proceso
                 <span className="transition-transform group-hover:translate-x-0.5">
                   →
                 </span>

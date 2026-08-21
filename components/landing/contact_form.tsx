@@ -191,7 +191,6 @@ export default function ContactForm() {
           id="phone"
           name="phone"
           type="tel"
-          required
           className={inputClass}
           placeholder="+57 300 000 0000"
         />
@@ -199,7 +198,7 @@ export default function ContactForm() {
 
       <div>
         <label htmlFor="process" className={labelClass}>
-          ¿Qué proceso te gustaría automatizar?
+          ¿Qué proceso genera más trabajo manual o demoras?
         </label>
 
         <textarea
@@ -208,13 +207,13 @@ export default function ContactForm() {
           required
           rows={5}
           className={`${inputClass} resize-none`}
-          placeholder="Cuéntanos cómo funciona actualmente el proceso..."
+          placeholder="Describe qué ocurre hoy, quién participa, con qué frecuencia ocurre y qué parte se repite."
         />
       </div>
 
       <div>
         <label htmlFor="volume" className={labelClass}>
-          ¿Cuánto trabajo representa aproximadamente?
+          ¿Qué volumen maneja aproximadamente este proceso?
         </label>
 
         <div className="relative">
@@ -284,7 +283,7 @@ export default function ContactForm() {
           ? "Enviando..."
           : hasError
             ? "No pudimos enviar tu solicitud. Inténtalo nuevamente."
-            : "Quiero analizar este proceso"}
+            : "Evaluar este proceso"}
         {!isSubmitting && !hasError && (
           <span className="transition-transform group-hover:translate-x-0.5">
             →

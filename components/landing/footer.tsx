@@ -46,7 +46,7 @@ export default function Footer() {
         <div className="mt-14 flex items-center gap-3 border-t border-white/10 pt-6">
           <span className="h-1.5 w-1.5 shrink-0 bg-volt" aria-hidden />
           <p className="font-mono text-[10px] font-medium uppercase tracking-[0.24em] text-white/60">
-            Diseñamos agentes de IA que ejecutan procesos operativos
+            Evaluamos procesos operativos y automatizamos cuando es viable
           </p>
         </div>
 

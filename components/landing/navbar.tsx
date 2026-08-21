@@ -50,7 +50,7 @@ export default function Navbar() {
               onClick={() => trackEvent("cta_click", { cta_name: "analizar_operacion", location: "navbar" })}
               className="group inline-flex items-center gap-2 bg-volt px-5 py-2.5 text-sm font-semibold text-ink transition-colors hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-volt"
             >
-              Analizar mi operación
+              Evaluar un proceso
               <span className="transition-transform group-hover:translate-x-0.5">
                 →
               </span>
@@ -130,7 +130,7 @@ export default function Navbar() {
               }}
               className="mt-auto inline-flex items-center justify-center gap-2 bg-volt px-7 py-4 text-sm font-semibold text-ink"
             >
-              Analizar mi operación
+              Evaluar un proceso
               <span>→</span>
             </a>
           </div>

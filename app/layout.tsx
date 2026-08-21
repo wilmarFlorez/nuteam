@@ -16,9 +16,9 @@ const plexMono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Nu Team | Tu próximo equipo también trabaja con IA",
+  title: "Automatización de procesos operativos con IA | NuTeam",
   description:
-    "Nu Team diseña agentes de IA que ejecutan procesos operativos, interactúan con clientes y trabajan junto a tu equipo.",
+    "NuTeam evalúa procesos operativos repetitivos y de alto volumen para determinar dónde una automatización con IA puede ser viable.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

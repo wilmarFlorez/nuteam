@@ -23,14 +23,14 @@ export default function CTA() {
 
         <Reveal delay={80}>
           <h2 className="mx-auto mt-7 max-w-4xl text-5xl font-semibold leading-[1.02] tracking-[-0.04em] sm:text-6xl lg:text-7xl">
-            Descubre qué procesos puedes automatizar.
+            Evalúa un proceso operativo.
           </h2>
         </Reveal>
 
         <Reveal delay={160}>
           <p className="mx-auto mt-8 max-w-2xl text-lg leading-8 text-ink/60">
-            Cuéntanos cómo funciona actualmente una operación de tu empresa y
-            evaluaremos si existe una oportunidad real de automatización.
+            Cuéntanos cómo funciona actualmente un proceso de tu empresa y
+            revisaremos si existe una oportunidad razonable de automatización.
           </p>
         </Reveal>
 
@@ -42,7 +42,7 @@ export default function CTA() {
               location="final_cta"
               className="group inline-flex items-center justify-center gap-2 bg-ink px-7 py-4 text-sm font-semibold text-white transition-colors hover:bg-black focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink"
             >
-              Analizar mi operación
+              Evaluar un proceso
               <span className="transition-transform group-hover:translate-x-0.5">
                 →
               </span>

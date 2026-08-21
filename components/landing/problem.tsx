@@ -44,9 +44,9 @@ export default function Problem() {
 
           <Reveal delay={160}>
             <p className="mt-7 max-w-md text-lg leading-8 text-ink/60">
-              Hay procesos que crecen más rápido que tu equipo. Se repiten cada
-              semana, acumulan volumen y consumen horas que deberían dedicarse a
-              decisiones.
+              Cuando un proceso depende de copiar información, responder
+              solicitudes una por una o revisar datos entre varias herramientas,
+              el volumen puede traducirse en más horas, errores y demoras.
             </p>
           </Reveal>
 
