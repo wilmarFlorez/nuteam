@@ -93,12 +93,12 @@ function AgentPanel() {
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden bg-ink pt-32 sm:pt-36 lg:pt-44">
+    <section className="relative min-h-svh overflow-hidden bg-ink pt-32 sm:pt-36 lg:flex lg:flex-col lg:pt-44">
       <div className="absolute inset-0 bg-dots" />
       <div className="absolute -right-48 top-16 h-[520px] w-[520px] rounded-full bg-volt/[0.05] blur-3xl" />
       <div className="pointer-events-none absolute inset-x-0 bottom-0 h-36 bg-gradient-to-b from-transparent to-ink" />
 
-      <div className="relative mx-auto grid max-w-[1440px] gap-14 px-6 pb-24 lg:grid-cols-12 lg:gap-10 lg:px-10 lg:pb-32">
+      <div className="relative mx-auto grid max-w-[1440px] gap-14 px-6 pb-24 lg:flex-1 lg:items-center lg:grid-cols-12 lg:gap-10 lg:px-10 lg:pb-32">
         <div className="lg:col-span-7 xl:pr-12">
           <Reveal>
             <p className="flex items-center gap-3 font-mono text-[11px] font-medium uppercase tracking-[0.26em] text-white/40">
