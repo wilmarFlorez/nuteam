@@ -7,7 +7,7 @@ export default function Footer() {
             <a href="#" className="flex items-center gap-2.5" aria-label="NuTeam">
               <span className="block h-2.5 w-2.5 bg-volt" />
               <span className="text-lg font-semibold tracking-tight">
-                Nu<span className="text-white/60">Team</span>
+                <span className="text-volt">Nu</span><span>Team</span>
               </span>
             </a>
 

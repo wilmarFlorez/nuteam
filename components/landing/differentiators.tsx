@@ -40,7 +40,7 @@ export default function Differentiators() {
           </Reveal>
 
           <Reveal delay={160}>
-            <div className="mt-10 flex items-center gap-3 font-mono text-[10px] font-medium uppercase tracking-[0.26em] text-white/40">
+            <div className="mt-10 flex items-center gap-3 font-mono text-[10px] font-medium uppercase tracking-[0.26em] text-white/65">
               <span className="h-2 w-2 bg-volt" aria-hidden />
               Enfoque en impacto operativo
             </div>

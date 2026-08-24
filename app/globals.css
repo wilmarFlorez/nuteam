@@ -1,10 +1,13 @@
 @import "tailwindcss";
 
 @theme {
-  --color-ink: #0a0a0b;
-  --color-coal: #131316;
-  --color-paper: #f4f2ec;
-  --color-volt: #ccff00;
+  --color-ink: #181818;
+  --color-coal: #242424;
+  --color-paper: #f5f5f0;
+  --color-volt: #ffb800;
+  --color-muted: #525252;
+  --color-electric: #3b82f6;
+  --color-white: #f5f5f0;
 
   --font-sans: var(--font-archivo);
   --font-mono: var(--font-plex-mono);
@@ -55,20 +58,20 @@ html {
 
 body {
   background-color: var(--color-ink);
-  color: #ffffff;
+  color: var(--color-paper);
   font-family: var(--font-archivo), system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 
 ::selection {
   background: var(--color-volt);
-  color: #0a0a0b;
+  color: var(--color-ink);
 }
 
 .bg-dots {
   background-image: radial-gradient(
     circle at 1px 1px,
-    rgb(255 255 255 / 0.05) 1px,
+    rgb(245 245 240 / 0.06) 1px,
     transparent 0
   );
   background-size: 26px 26px;
@@ -77,7 +80,7 @@ body {
 .bg-dots-dark {
   background-image: radial-gradient(
     circle at 1px 1px,
-    rgb(10 10 11 / 0.07) 1px,
+    rgb(24 24 24 / 0.08) 1px,
     transparent 0
   );
   background-size: 26px 26px;

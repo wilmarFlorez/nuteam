@@ -52,7 +52,7 @@ export default function Process() {
           </div>
 
           <Reveal delay={160}>
-            <p className="max-w-sm border-t border-ink/20 pt-6 leading-7 text-ink/60 lg:max-w-md lg:border-l lg:border-t-0 lg:pl-6 lg:pt-0">
+            <p className="max-w-sm border-t border-ink/20 pt-6 leading-7 text-muted lg:max-w-md lg:border-l lg:border-t-0 lg:pl-6 lg:pt-0">
               Evaluamos si una automatización es viable, qué parte del proceso
               conviene intervenir y cómo medir su resultado.
             </p>
@@ -64,11 +64,11 @@ export default function Process() {
             <Reveal key={step.number} delay={index * 90}>
               <article className="group h-full">
                 <div className="flex items-center gap-4">
-                  <div className="flex h-10 w-10 items-center justify-center border border-ink/25 font-mono text-sm text-ink/60 transition-colors duration-300 group-hover:border-volt group-hover:bg-volt group-hover:text-ink">
+                  <div className="flex h-10 w-10 items-center justify-center border border-ink/25 font-mono text-sm text-muted transition-colors duration-300 group-hover:border-volt group-hover:bg-volt group-hover:text-ink">
                     {step.number}
                   </div>
 
-                  <span className="font-mono text-[10px] font-medium uppercase tracking-[0.22em] text-ink/40">
+                  <span className="font-mono text-[10px] font-medium uppercase tracking-[0.22em] text-muted">
                     {step.tag}
                   </span>
                 </div>
@@ -77,7 +77,7 @@ export default function Process() {
                   {step.title}
                 </h3>
 
-                <p className="mt-4 max-w-xs leading-7 text-ink/55">
+                <p className="mt-4 max-w-xs leading-7 text-muted">
                   {step.description}
                 </p>
               </article>

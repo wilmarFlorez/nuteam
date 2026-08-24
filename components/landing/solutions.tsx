@@ -65,7 +65,7 @@ export default function Solutions() {
               </p>
 
               <div className="mt-10 flex items-center justify-between border-t border-white/10 pt-5">
-                <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/25">
+                <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/55">
                   Canal de ejecución
                 </span>
 

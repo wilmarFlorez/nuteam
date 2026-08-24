@@ -30,7 +30,7 @@ function AgentPanel() {
   return (
     <div className="relative border border-white/10 bg-coal">
       <span className="absolute -left-px -top-px h-3 w-3 border-l border-t border-volt" />
-      <span className="absolute -right-px -top-px h-3 w-3 border-r border-t border-volt" />
+       <span className="absolute -right-px -top-px h-3 w-3 border-r border-t border-electric" />
       <span className="absolute -bottom-px -left-px h-3 w-3 border-b border-l border-volt" />
       <span className="absolute -bottom-px -right-px h-3 w-3 border-b border-r border-volt" />
 
@@ -40,7 +40,7 @@ function AgentPanel() {
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-volt opacity-50" />
             <span className="relative inline-flex h-2 w-2 rounded-full bg-volt" />
           </span>
-          <span className="font-mono text-[10px] font-medium uppercase tracking-[0.22em] text-white/50">
+           <span className="font-mono text-[10px] font-medium uppercase tracking-[0.22em] text-white/75">
             Agente en vivo
           </span>
         </div>
@@ -53,10 +53,10 @@ function AgentPanel() {
       <div className="space-y-2.5 px-5 py-6 font-mono text-[11px] leading-5 sm:text-xs">
         {logLines.map((line) => (
           <p key={line.text} className="flex flex-wrap gap-x-3 gap-y-1">
-            <span className="text-white/25">{line.time}</span>
-            <span className="text-white/60">{line.tag}</span>
+            <span className="text-white/50">{line.time}</span>
+            <span className="text-white/90">{line.tag}</span>
             <span className="text-volt">→</span>
-            <span className="text-white/40">{line.text}</span>
+            <span className="text-white/75">{line.text}</span>
           </p>
         ))}
       </div>
@@ -67,21 +67,21 @@ function AgentPanel() {
 
       <div className="mt-5 grid grid-cols-3 divide-x divide-white/10 border-t border-white/10">
         <div className="px-5 py-4">
-          <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-white/30">
+            <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-white/50">
             Modo
           </p>
           <p className="mt-1 text-sm font-medium text-white/90">Proceso definido</p>
         </div>
 
         <div className="px-5 py-4">
-          <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-white/30">
+            <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-white/50">
             Canales
           </p>
           <p className="mt-1 text-sm font-medium text-white/90">Voz · WhatsApp</p>
         </div>
 
         <div className="px-5 py-4">
-          <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-white/30">
+            <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-white/50">
             Sistemas
           </p>
           <p className="mt-1 text-sm font-medium text-white/90">Por evaluar</p>
@@ -101,7 +101,7 @@ export default function Hero() {
       <div className="relative mx-auto grid max-w-[1440px] gap-14 px-6 pb-24 lg:flex-1 lg:items-center lg:grid-cols-12 lg:gap-10 lg:px-10 lg:pb-32">
         <div className="lg:col-span-7 xl:pr-12">
           <Reveal>
-            <p className="flex items-center gap-3 font-mono text-[11px] font-medium uppercase tracking-[0.26em] text-white/40">
+            <p className="flex items-center gap-3 font-mono text-[11px] font-medium uppercase tracking-[0.26em] text-white/65">
               <span className="h-2 w-2 shrink-0 bg-volt" aria-hidden />
               IA aplicada a operaciones
             </p>
@@ -146,7 +146,7 @@ export default function Hero() {
 
           <Reveal delay={320}>
             <div className="mt-14 flex flex-wrap items-center gap-x-6 gap-y-3 border-t border-white/10 pt-6">
-              <span className="font-mono text-[10px] uppercase tracking-[0.24em] text-white/30">
+              <span className="font-mono text-[10px] uppercase tracking-[0.24em] text-white/55">
                 Canales
               </span>
 

@@ -21,17 +21,17 @@ export default function Navbar() {
 
   return (
     <header className="fixed inset-x-0 top-0 z-50">
-      <div className="border-b border-white/10 bg-ink/85 backdrop-blur-md">
+      <div className="border-b border-white/10 bg-ink/95 text-white backdrop-blur-md">
         <nav className="mx-auto flex h-16 max-w-[1440px] items-center justify-between px-6 lg:h-[72px] lg:px-10">
           <a href="#" className="group flex items-center gap-2.5" aria-label="Nu Team">
             <span className="block h-2.5 w-2.5 bg-volt transition-colors group-hover:bg-white" />
             <span className="text-[19px] font-semibold tracking-tight">
-              Nu<span className="text-white/45">Team</span>
+              <span className="text-volt">Nu</span><span className="text-white">Team</span>
             </span>
           </a>
 
           <div className="hidden items-center gap-8 lg:flex">
-            <span className="font-mono text-[10px] font-medium uppercase tracking-[0.28em] text-white/30">
+            <span className="font-mono text-[10px] font-medium uppercase tracking-[0.28em] text-white/55">
               AI para operaciones
             </span>
 
@@ -39,7 +39,7 @@ export default function Navbar() {
               <a
                 key={item.href}
                 href={item.href}
-                className="font-mono text-[11px] font-medium uppercase tracking-[0.18em] text-white/55 transition-colors hover:text-volt"
+                className="font-mono text-[11px] font-medium uppercase tracking-[0.18em] text-white/75 transition-colors hover:text-white"
               >
                 {item.label}
               </a>
@@ -48,7 +48,7 @@ export default function Navbar() {
             <a
               href="#contacto"
               onClick={() => trackEvent("cta_click", { cta_name: "analizar_operacion", location: "navbar" })}
-              className="group inline-flex items-center gap-2 bg-volt px-5 py-2.5 text-sm font-semibold text-ink transition-colors hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-volt"
+              className="group inline-flex items-center gap-2 bg-volt px-5 py-2.5 text-sm font-semibold text-ink transition-colors hover:bg-paper focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-volt"
             >
               Evaluar un proceso
               <span className="transition-transform group-hover:translate-x-0.5">
@@ -74,13 +74,13 @@ export default function Navbar() {
       </div>
 
       {open && (
-        <div className="fixed inset-0 z-50 bg-ink lg:hidden">
+        <div className="fixed inset-0 z-50 bg-ink text-white lg:hidden">
           <div className="flex h-full flex-col px-6 pb-10 pt-6">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2.5">
                 <span className="block h-2.5 w-2.5 bg-volt" />
                 <span className="text-[19px] font-semibold tracking-tight">
-                  Nu<span className="text-white/45">Team</span>
+                  <span className="text-volt">Nu</span><span className="text-white">Team</span>
                 </span>
               </div>
 
@@ -98,7 +98,7 @@ export default function Navbar() {
             </div>
 
             <nav className="mt-12">
-              <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-white/30">
+              <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-white/55">
                 AI para operaciones
               </p>
 

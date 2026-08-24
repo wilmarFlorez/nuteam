@@ -24,7 +24,7 @@ export default function ContactSection() {
           </Reveal>
 
           <Reveal delay={160}>
-            <p className="mt-6 max-w-md leading-7 text-white/45">
+            <p className="mt-6 max-w-md leading-7 text-white/60">
               Analizaremos el proceso, su volumen y su impacto para determinar
               si existe una oportunidad real de automatización.
             </p>
@@ -49,7 +49,7 @@ export default function ContactSection() {
           </Reveal>
 
           <Reveal delay={320}>
-            <div className="mt-10 flex items-center gap-3 font-mono text-[10px] font-medium uppercase tracking-[0.26em] text-white/30">
+            <div className="mt-10 flex items-center gap-3 font-mono text-[10px] font-medium uppercase tracking-[0.26em] text-white/60">
               <span className="h-2 w-2 bg-volt" aria-hidden />
               Tu operación, el punto de partida
             </div>
@@ -61,7 +61,7 @@ export default function ContactSection() {
             <span className="absolute -left-px -top-px h-3 w-3 border-l border-t border-volt" />
             <span className="absolute -right-px -bottom-px h-3 w-3 border-b border-r border-volt" />
 
-            <p className="font-mono text-[10px] font-medium uppercase tracking-[0.26em] text-white/30">
+            <p className="font-mono text-[10px] font-medium uppercase tracking-[0.26em] text-white/60">
               Análisis de viabilidad
             </p>
 

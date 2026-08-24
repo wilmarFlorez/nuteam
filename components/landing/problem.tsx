@@ -43,21 +43,13 @@ export default function Problem() {
           </Reveal>
 
           <Reveal delay={160}>
-            <p className="mt-7 max-w-md text-lg leading-8 text-ink/60">
+            <p className="mt-7 max-w-md text-lg leading-8 text-muted">
               Cuando un proceso depende de copiar información, responder
               solicitudes una por una o revisar datos entre varias herramientas,
               el volumen puede traducirse en más horas, errores y demoras.
             </p>
           </Reveal>
 
-          <Reveal delay={240}>
-            <div className="mt-10 flex max-w-md items-center gap-4 border border-ink/15 px-5 py-4">
-              <span className="h-2 w-2 shrink-0 bg-volt" />
-              <p className="font-mono text-[11px] font-medium uppercase leading-5 tracking-[0.14em] text-ink/50">
-                Horas de equipo invertidas en trabajo que no crece
-              </p>
-            </div>
-          </Reveal>
         </div>
 
         <div className="lg:col-span-7">
@@ -77,7 +69,7 @@ export default function Problem() {
                     {problem.title}
                   </h3>
 
-                  <p className="leading-7 text-ink/55">{problem.description}</p>
+                  <p className="leading-7 text-muted">{problem.description}</p>
                 </article>
               ))}
             </div>

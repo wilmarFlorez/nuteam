@@ -9,8 +9,8 @@ export default function Eyebrow({
   children,
   tone = "dark",
 }: EyebrowProps) {
-  const muted = tone === "light" ? "text-ink/40" : "text-white/40";
-  const soft = tone === "light" ? "text-ink/25" : "text-white/25";
+  const muted = tone === "light" ? "text-muted" : "text-white/65";
+  const soft = tone === "light" ? "text-muted" : "text-white/45";
 
   return (
     <p className="flex items-center gap-3 font-mono text-[11px] font-medium uppercase tracking-[0.26em]">

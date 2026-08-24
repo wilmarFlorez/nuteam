@@ -7,7 +7,7 @@ const inputClass =
   "w-full border-b border-white/15 bg-transparent pb-3 text-white outline-none transition-colors placeholder:text-white/20 focus:border-volt";
 
 const labelClass =
-  "mb-3 block font-mono text-[10px] font-medium uppercase tracking-[0.2em] text-white/40";
+  "mb-3 block font-mono text-[10px] font-medium uppercase tracking-[0.2em] text-white/65";
 
 export default function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
@@ -101,7 +101,7 @@ export default function ContactForm() {
           contacto contigo.
         </p>
 
-        <p className="mt-8 font-mono text-[10px] font-medium uppercase tracking-[0.22em] text-white/30">
+        <p className="mt-8 font-mono text-[10px] font-medium uppercase tracking-[0.22em] text-white/60">
           Status · En análisis
         </p>
       </div>
@@ -291,7 +291,7 @@ export default function ContactForm() {
         )}
       </button>
 
-      <p className="text-center font-mono text-[11px] leading-5 text-white/30">
+      <p className="text-center font-mono text-[11px] leading-5 text-white/60">
         Al enviar este formulario aceptas ser contactado por Nu Team respecto a
         tu solicitud.
       </p>

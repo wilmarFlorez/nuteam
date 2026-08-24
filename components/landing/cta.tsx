@@ -3,7 +3,7 @@ import TrackedLink from "./tracked_link";
 
 export default function CTA() {
   return (
-    <section className="relative overflow-hidden bg-volt py-24 text-ink lg:py-40">
+    <section className="relative overflow-hidden border-t-4 border-volt bg-paper py-24 text-ink lg:py-40">
       <div
         className="pointer-events-none absolute inset-0"
         style={{
@@ -16,7 +16,7 @@ export default function CTA() {
 
       <div className="relative mx-auto max-w-[1440px] px-6 text-center lg:px-10">
         <Reveal>
-          <p className="font-mono text-[11px] font-medium uppercase tracking-[0.26em] text-ink/50">
+          <p className="font-mono text-[11px] font-medium uppercase tracking-[0.26em] text-muted">
             Empieza por tu operación
           </p>
         </Reveal>
@@ -28,7 +28,7 @@ export default function CTA() {
         </Reveal>
 
         <Reveal delay={160}>
-          <p className="mx-auto mt-8 max-w-2xl text-lg leading-8 text-ink/60">
+          <p className="mx-auto mt-8 max-w-2xl text-lg leading-8 text-muted">
             Cuéntanos cómo funciona actualmente un proceso de tu empresa y
             revisaremos si existe una oportunidad razonable de automatización.
           </p>
@@ -51,7 +51,7 @@ export default function CTA() {
         </Reveal>
 
         <Reveal delay={320}>
-          <div className="mx-auto mt-14 flex max-w-3xl items-center justify-center gap-x-8 gap-y-2 border-t border-ink/20 pt-6 font-mono text-[10px] font-medium uppercase tracking-[0.22em] text-ink/45">
+          <div className="mx-auto mt-14 flex max-w-3xl items-center justify-center gap-x-8 gap-y-2 border-t border-ink/20 pt-6 font-mono text-[10px] font-medium uppercase tracking-[0.22em] text-muted">
             <span>Análisis inicial</span>
             <span className="hidden h-px w-8 bg-ink/30 sm:block" />
             <span>Evaluación de viabilidad</span>
