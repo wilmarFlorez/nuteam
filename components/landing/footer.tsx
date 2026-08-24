@@ -1,3 +1,5 @@
+import Logo from "@/components/landing/logo";
+
 export default function Footer() {
   return (
     <footer className="relative overflow-x-clip border-t border-white/10 bg-ink text-white">
@@ -5,7 +7,7 @@ export default function Footer() {
         <div className="flex flex-col gap-10 lg:flex-row lg:items-start lg:justify-between">
           <div>
             <a href="#" className="flex items-center gap-2.5" aria-label="NuTeam">
-              <span className="block h-2.5 w-2.5 bg-volt" />
+              <Logo className="h-5 w-[26px]" />
               <span className="text-lg font-semibold tracking-tight">
                 <span className="text-volt">Nu</span><span>Team</span>
               </span>

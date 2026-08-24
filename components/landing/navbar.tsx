@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { trackEvent } from "@/lib/analytics";
+import Logo from "@/components/landing/logo";
 
 const links = [
   { label: "Soluciones", href: "#soluciones" },
@@ -24,7 +25,7 @@ export default function Navbar() {
       <div className="border-b border-white/10 bg-ink/95 text-white backdrop-blur-md">
         <nav className="mx-auto flex h-16 max-w-[1440px] items-center justify-between px-6 lg:h-[72px] lg:px-10">
           <a href="#" className="group flex items-center gap-2.5" aria-label="Nu Team">
-            <span className="block h-2.5 w-2.5 bg-volt transition-colors group-hover:bg-white" />
+            <Logo className="h-6 w-[31px]" />
             <span className="text-[19px] font-semibold tracking-tight">
               <span className="text-volt">Nu</span><span className="text-white">Team</span>
             </span>
@@ -78,7 +79,7 @@ export default function Navbar() {
           <div className="flex h-full flex-col px-6 pb-10 pt-6">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2.5">
-                <span className="block h-2.5 w-2.5 bg-volt" />
+                <Logo className="h-6 w-[31px]" />
                 <span className="text-[19px] font-semibold tracking-tight">
                   <span className="text-volt">Nu</span><span className="text-white">Team</span>
                 </span>
