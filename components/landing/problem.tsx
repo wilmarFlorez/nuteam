@@ -1,7 +1,8 @@
 import Eyebrow from "./eyebrow";
 import Reveal from "./reveal";
+import { isEnglish, type Locale } from "@/lib/locale";
 
-const problems = [
+const spanishProblems = [
   {
     title: "Tareas repetitivas",
     description:
@@ -24,29 +25,39 @@ const problems = [
   },
 ];
 
-export default function Problem() {
+export default function Problem({ locale }: { locale: Locale }) {
+  const english = isEnglish(locale);
+  const problems = english
+    ? [
+        { title: "Repetitive tasks", description: "Processes that consume hours of your team's time every week and require little human intervention." },
+        { title: "High volume", description: "Thousands of calls, messages, emails, or requests that need attention." },
+        { title: "Manual processes", description: "Information still copied, reviewed, and transferred between different tools." },
+        { title: "Fragmented operations", description: "Teams working across WhatsApp, email, spreadsheets, CRM, and multiple systems." },
+      ]
+    : spanishProblems;
   return (
     <section className="relative overflow-hidden bg-paper py-24 text-ink lg:py-36">
       <div className="mx-auto grid max-w-[1440px] gap-14 px-6 lg:grid-cols-12 lg:gap-10 lg:px-10">
         <div className="lg:col-span-5">
           <Reveal>
             <Eyebrow index="01" tone="light">
-              El problema
+              {english ? "The problem" : "El problema"}
             </Eyebrow>
           </Reveal>
 
           <Reveal delay={80}>
             <h2 className="mt-7 text-4xl font-semibold tracking-[-0.03em] sm:text-5xl lg:text-[3.4rem] lg:leading-[1.02]">
-              Tu equipo no debería dedicar horas a tareas que una IA puede
-              ejecutar.
+              {english
+                ? "Your team should not spend hours on work that AI can perform."
+                : "Tu equipo no debería dedicar horas a tareas que una IA puede ejecutar."}
             </h2>
           </Reveal>
 
           <Reveal delay={160}>
             <p className="mt-7 max-w-md text-lg leading-8 text-muted">
-              Cuando un proceso depende de copiar información, responder
-              solicitudes una por una o revisar datos entre varias herramientas,
-              el volumen puede traducirse en más horas, errores y demoras.
+              {english
+                ? "When a process relies on copying information, answering requests one by one, or reviewing data across tools, volume can lead to more hours, errors, and delays."
+                : "Cuando un proceso depende de copiar información, responder solicitudes una por una o revisar datos entre varias herramientas, el volumen puede traducirse en más horas, errores y demoras."}
             </p>
           </Reveal>
 

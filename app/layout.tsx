@@ -19,6 +19,10 @@ export const metadata: Metadata = {
   title: "Automatización de procesos operativos con IA | NuTeam",
   description:
     "NuTeam evalúa procesos operativos repetitivos y de alto volumen para determinar dónde una automatización con IA puede ser viable.",
+  alternates: {
+    canonical: "/",
+    languages: { es: "/", en: "/en" },
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

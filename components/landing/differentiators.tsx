@@ -1,7 +1,8 @@
 import Eyebrow from "./eyebrow";
 import Reveal from "./reveal";
+import { isEnglish, type Locale } from "@/lib/locale";
 
-const differentiators = [
+const spanishDifferentiators = [
   {
     title: "Diseñado para tu operación",
     description:
@@ -19,7 +20,15 @@ const differentiators = [
   },
 ];
 
-export default function Differentiators() {
+export default function Differentiators({ locale }: { locale: Locale }) {
+  const english = isEnglish(locale);
+  const differentiators = english
+    ? [
+        { title: "Built for your operation", description: "The solution adapts to your specific processes, rules, and needs." },
+        { title: "Integrated with your systems", description: "AI works with the tools your team already uses." },
+        { title: "Measurable impact", description: "Every implementation should have an operational or economic metric to assess the outcome." },
+      ]
+    : spanishDifferentiators;
   return (
     <section className="relative overflow-hidden bg-ink pb-28 pt-24 text-white lg:pb-40 lg:pt-36">
       <div className="absolute inset-0 bg-dots" />
@@ -28,21 +37,21 @@ export default function Differentiators() {
       <div className="relative mx-auto grid max-w-[1440px] gap-14 px-6 lg:grid-cols-12 lg:gap-10 lg:px-10">
         <div className="lg:col-span-5">
           <Reveal>
-            <Eyebrow index="05">Por qué Nu Team</Eyebrow>
+              <Eyebrow index="05">{english ? "Why NuTeam" : "Por qué Nu Team"}</Eyebrow>
           </Reveal>
 
           <Reveal delay={80}>
             <h2 className="mt-7 text-4xl font-semibold leading-[1.02] tracking-[-0.03em] sm:text-5xl lg:text-6xl">
-              No vendemos IA.
+              {english ? "We do not sell AI." : "No vendemos IA."}
               <br />
-              Automatizamos <span className="text-volt">operaciones.</span>
+              {english ? "We automate " : "Automatizamos "}<span className="text-volt">{english ? "operations." : "operaciones."}</span>
             </h2>
           </Reveal>
 
           <Reveal delay={160}>
             <div className="mt-10 flex items-center gap-3 font-mono text-[10px] font-medium uppercase tracking-[0.26em] text-white/65">
               <span className="h-2 w-2 bg-volt" aria-hidden />
-              Enfoque en impacto operativo
+              {english ? "Focused on operational impact" : "Enfoque en impacto operativo"}
             </div>
           </Reveal>
         </div>

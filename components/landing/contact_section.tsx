@@ -1,32 +1,42 @@
 import ContactForm from "./contact_form";
 import Eyebrow from "./eyebrow";
 import Reveal from "./reveal";
+import { isEnglish, type Locale } from "@/lib/locale";
 
-const outcomes = [
+const spanishOutcomes = [
   "Evaluación de viabilidad sobre tu proceso real",
   "Evaluación preliminar del proceso",
   "Un siguiente paso claro, sin compromisos",
 ];
 
-export default function ContactSection() {
+export default function ContactSection({ locale }: { locale: Locale }) {
+  const english = isEnglish(locale);
+  const outcomes = english
+    ? [
+        "A viability assessment based on your actual process",
+        "A preliminary process assessment",
+        "A clear next step, with no commitment",
+      ]
+    : spanishOutcomes;
   return (
     <section id="contacto" className="bg-ink py-24 text-white lg:py-36">
       <div className="mx-auto grid max-w-[1440px] gap-14 px-6 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20 lg:px-10">
         <div>
           <Reveal>
-            <Eyebrow index="06">Hablemos</Eyebrow>
+            <Eyebrow index="06">{english ? "Let us talk" : "Hablemos"}</Eyebrow>
           </Reveal>
 
           <Reveal delay={80}>
             <h2 className="mt-7 text-4xl font-semibold tracking-[-0.03em] sm:text-5xl">
-              Cuéntanos qué proceso genera más trabajo manual o demoras.
+              {english ? "Tell us which process creates the most manual work or delays." : "Cuéntanos qué proceso genera más trabajo manual o demoras."}
             </h2>
           </Reveal>
 
           <Reveal delay={160}>
             <p className="mt-6 max-w-md leading-7 text-white/60">
-              Analizaremos el proceso, su volumen y su impacto para determinar
-              si existe una oportunidad real de automatización.
+              {english
+                ? "We will assess the process, its volume, and its impact to determine whether a real automation opportunity exists."
+                : "Analizaremos el proceso, su volumen y su impacto para determinar si existe una oportunidad real de automatización."}
             </p>
           </Reveal>
 
@@ -51,7 +61,7 @@ export default function ContactSection() {
           <Reveal delay={320}>
             <div className="mt-10 flex items-center gap-3 font-mono text-[10px] font-medium uppercase tracking-[0.26em] text-white/60">
               <span className="h-2 w-2 bg-volt" aria-hidden />
-              Tu operación, el punto de partida
+              {english ? "Your operation is the starting point" : "Tu operación, el punto de partida"}
             </div>
           </Reveal>
         </div>
@@ -61,12 +71,12 @@ export default function ContactSection() {
             <span className="absolute -left-px -top-px h-3 w-3 border-l border-t border-volt" />
             <span className="absolute -right-px -bottom-px h-3 w-3 border-b border-r border-volt" />
 
-            <p className="font-mono text-[10px] font-medium uppercase tracking-[0.26em] text-white/60">
-              Análisis de viabilidad
+            <p className="font-mono text-[10px] font-medium uppercase tracking-[0.26em] text-white/85">
+              {english ? "Viability assessment" : "Análisis de viabilidad"}
             </p>
 
             <div className="mt-8">
-              <ContactForm />
+              <ContactForm locale={locale} />
             </div>
           </div>
         </Reveal>

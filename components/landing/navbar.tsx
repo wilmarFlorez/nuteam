@@ -2,16 +2,27 @@
 
 import { useEffect, useState } from "react";
 import { trackEvent } from "@/lib/analytics";
+import { isEnglish, type Locale } from "@/lib/locale";
 import Logo from "@/components/landing/logo";
 
-const links = [
-  { label: "Soluciones", href: "#soluciones" },
-  { label: "Casos de uso", href: "#casos-de-uso" },
-  { label: "Cómo funciona", href: "#como-funciona" },
-];
-
-export default function Navbar() {
+export default function Navbar({ locale }: { locale: Locale }) {
   const [open, setOpen] = useState(false);
+  const english = isEnglish(locale);
+  const links = english
+    ? [
+        { label: "Solutions", href: "#soluciones" },
+        { label: "Use cases", href: "#casos-de-uso" },
+        { label: "How it works", href: "#como-funciona" },
+      ]
+    : [
+        { label: "Soluciones", href: "#soluciones" },
+        { label: "Casos de uso", href: "#casos-de-uso" },
+        { label: "Cómo funciona", href: "#como-funciona" },
+      ];
+  const languageHref = english ? "/" : "/en";
+  const languageLabel = english ? "ES" : "EN";
+  const tagline = english ? "AI for operations" : "AI para operaciones";
+  const evaluateLabel = english ? "Evaluate a process" : "Evaluar un proceso";
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
@@ -33,7 +44,7 @@ export default function Navbar() {
 
           <div className="hidden items-center gap-8 lg:flex">
             <span className="font-mono text-[10px] font-medium uppercase tracking-[0.28em] text-white/55">
-              AI para operaciones
+              {tagline}
             </span>
 
             {links.map((item) => (
@@ -47,11 +58,20 @@ export default function Navbar() {
             ))}
 
             <a
+              href={languageHref}
+              lang={english ? "es" : "en"}
+              className="font-mono text-[11px] font-medium uppercase tracking-[0.18em] text-white/75 transition-colors hover:text-volt"
+              aria-label={english ? "Ver sitio en español" : "View site in English"}
+            >
+              {languageLabel}
+            </a>
+
+            <a
               href="#contacto"
               onClick={() => trackEvent("cta_click", { cta_name: "analizar_operacion", location: "navbar" })}
               className="group inline-flex items-center gap-2 bg-volt px-5 py-2.5 text-sm font-semibold text-ink transition-colors hover:bg-paper focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-volt"
             >
-              Evaluar un proceso
+              {evaluateLabel}
               <span className="transition-transform group-hover:translate-x-0.5">
                 →
               </span>
@@ -61,7 +81,7 @@ export default function Navbar() {
           <button
             type="button"
             onClick={() => setOpen(true)}
-            aria-label="Abrir menú"
+            aria-label={english ? "Open menu" : "Abrir menú"}
             aria-expanded={open}
             className="flex h-10 w-10 items-center justify-center lg:hidden"
           >
@@ -88,7 +108,7 @@ export default function Navbar() {
               <button
                 type="button"
                 onClick={() => setOpen(false)}
-                aria-label="Cerrar menú"
+                aria-label={english ? "Close menu" : "Cerrar menú"}
                 className="flex h-10 w-10 items-center justify-center"
               >
                 <span className="relative block h-3.5 w-3.5">
@@ -100,7 +120,7 @@ export default function Navbar() {
 
             <nav className="mt-12">
               <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-white/55">
-                AI para operaciones
+                {tagline}
               </p>
 
               <ul className="mt-2 border-t border-white/10">
@@ -124,6 +144,14 @@ export default function Navbar() {
             </nav>
 
             <a
+              href={languageHref}
+              lang={english ? "es" : "en"}
+              className="mt-8 font-mono text-xs font-medium uppercase tracking-[0.22em] text-volt"
+            >
+              {english ? "Ver en español" : "View in English"}
+            </a>
+
+            <a
               href="#contacto"
               onClick={() => {
                 setOpen(false);
@@ -131,7 +159,7 @@ export default function Navbar() {
               }}
               className="mt-auto inline-flex items-center justify-center gap-2 bg-volt px-7 py-4 text-sm font-semibold text-ink"
             >
-              Evaluar un proceso
+              {evaluateLabel}
               <span>→</span>
             </a>
           </div>

@@ -14,25 +14,25 @@ export default function Home() {
   return (
     <main className="bg-ink">
       <AnalyticsTracker />
-      <Navbar />
+      <Navbar locale="es" />
 
-      <Hero />
+      <Hero locale="es" />
 
-      <Problem />
+      <Problem locale="es" />
 
-      <Solutions />
+      <Solutions locale="es" />
 
-      <UseCases />
+      <UseCases locale="es" />
 
-      <Process />
+      <Process locale="es" />
 
-      <Differentiators />
+      <Differentiators locale="es" />
 
-      <CTA />
+      <CTA locale="es" />
 
-      <ContactSection />
+      <ContactSection locale="es" />
 
-      <Footer />
+      <Footer locale="es" />
     </main>
   );
 }

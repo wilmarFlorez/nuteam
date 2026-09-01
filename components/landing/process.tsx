@@ -1,7 +1,8 @@
 import Eyebrow from "./eyebrow";
 import Reveal from "./reveal";
+import { isEnglish, type Locale } from "@/lib/locale";
 
-const steps = [
+const spanishSteps = [
   {
     number: "01",
     tag: "Diagnóstico",
@@ -32,7 +33,16 @@ const steps = [
   },
 ];
 
-export default function Process() {
+export default function Process({ locale }: { locale: Locale }) {
+  const english = isEnglish(locale);
+  const steps = english
+    ? [
+        { number: "01", tag: "Discovery", title: "We assess your operation", description: "We understand how the process works today and where manual work accumulates." },
+        { number: "02", tag: "Assessment", title: "We identify the opportunity", description: "We determine which tasks AI can perform and its potential impact." },
+        { number: "03", tag: "Implementation", title: "We design and integrate", description: "We build the solution around your processes and connect it to your systems." },
+        { number: "04", tag: "Measurement", title: "We measure the impact", description: "We assess results with specific operational and economic metrics." },
+      ]
+    : spanishSteps;
   return (
     <section id="como-funciona" className="bg-paper py-24 text-ink lg:py-36">
       <div className="mx-auto max-w-[1440px] px-6 lg:px-10">
@@ -40,21 +50,22 @@ export default function Process() {
           <div className="max-w-3xl">
             <Reveal>
               <Eyebrow index="04" tone="light">
-                Cómo funciona
+                {english ? "How it works" : "Cómo funciona"}
               </Eyebrow>
             </Reveal>
 
             <Reveal delay={80}>
               <h2 className="mt-7 text-4xl font-semibold tracking-[-0.03em] sm:text-5xl lg:text-6xl">
-                No empezamos por la tecnología. Empezamos por el problema.
+                {english ? "We do not start with technology. We start with the problem." : "No empezamos por la tecnología. Empezamos por el problema."}
               </h2>
             </Reveal>
           </div>
 
           <Reveal delay={160}>
             <p className="max-w-sm border-t border-ink/20 pt-6 leading-7 text-muted lg:max-w-md lg:border-l lg:border-t-0 lg:pl-6 lg:pt-0">
-              Evaluamos si una automatización es viable, qué parte del proceso
-              conviene intervenir y cómo medir su resultado.
+              {english
+                ? "We assess whether automation is viable, which part of the process to improve, and how to measure the result."
+                : "Evaluamos si una automatización es viable, qué parte del proceso conviene intervenir y cómo medir su resultado."}
             </p>
           </Reveal>
         </div>

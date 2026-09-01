@@ -1,7 +1,8 @@
 import Eyebrow from "./eyebrow";
 import Reveal from "./reveal";
+import { isEnglish, type Locale } from "@/lib/locale";
 
-const solutions = [
+const spanishSolutions = [
   {
     title: "Voz",
     description:
@@ -24,27 +25,37 @@ const solutions = [
   },
 ];
 
-export default function Solutions() {
+export default function Solutions({ locale }: { locale: Locale }) {
+  const english = isEnglish(locale);
+  const solutions = english
+    ? [
+        { title: "Voice", description: "Agents able to make and receive calls to run processes and handle requests." },
+        { title: "WhatsApp", description: "Automate conversations and operational processes directly in the channel your customers already use." },
+        { title: "Email", description: "Process messages, classify requests, and perform actions without manual intervention at every step." },
+        { title: "Workflows", description: "Connect AI agents with the tools and systems your company already uses." },
+      ]
+    : spanishSolutions;
   return (
     <section id="soluciones" className="bg-ink py-24 text-white lg:py-36">
       <div className="mx-auto max-w-[1440px] px-6 lg:px-10">
         <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(18rem,0.48fr)] lg:items-center lg:gap-16">
           <div className="max-w-3xl">
             <Reveal>
-              <Eyebrow index="02">Soluciones</Eyebrow>
+              <Eyebrow index="02">{english ? "Solutions" : "Soluciones"}</Eyebrow>
             </Reveal>
 
             <Reveal delay={80}>
               <h2 className="mt-7 text-4xl font-semibold tracking-[-0.03em] sm:text-5xl lg:text-6xl">
-                Agentes de IA para ejecutar trabajo real.
+                {english ? "AI agents that do real work." : "Agentes de IA para ejecutar trabajo real."}
               </h2>
             </Reveal>
           </div>
 
           <Reveal delay={160}>
             <p className="max-w-sm border-t border-white/15 pt-6 leading-7 text-white/55 lg:max-w-md lg:border-l lg:border-t-0 lg:pl-6 lg:pt-0">
-              Diseñamos soluciones alrededor de procesos concretos, no alrededor
-              de una tecnología genérica.
+              {english
+                ? "We design solutions around specific processes, not generic technology."
+                : "Diseñamos soluciones alrededor de procesos concretos, no alrededor de una tecnología genérica."}
             </p>
           </Reveal>
         </div>
@@ -66,7 +77,7 @@ export default function Solutions() {
 
               <div className="mt-10 flex items-center justify-between border-t border-white/10 pt-5">
                 <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/55">
-                  Canal de ejecución
+                  {english ? "Execution channel" : "Canal de ejecución"}
                 </span>
 
                 <span

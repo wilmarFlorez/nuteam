@@ -1,7 +1,8 @@
 import Eyebrow from "./eyebrow";
 import Reveal from "./reveal";
+import { isEnglish, type Locale } from "@/lib/locale";
 
-const useCases = [
+const spanishUseCases = [
   {
     title: "Atención al cliente",
     description:
@@ -28,27 +29,38 @@ const useCases = [
   },
 ];
 
-export default function UseCases() {
+export default function UseCases({ locale }: { locale: Locale }) {
+  const english = isEnglish(locale);
+  const useCases = english
+    ? [
+        { title: "Customer service", description: "Automate conversations, requests, and support tasks." },
+        { title: "Sales", description: "Qualify leads, answer questions, and follow up." },
+        { title: "Collections", description: "Automate outreach, reminders, and payment follow-up." },
+        { title: "Operations", description: "Perform repetitive tasks across different systems." },
+        { title: "Back office", description: "Process information, documents, and requests automatically." },
+      ]
+    : spanishUseCases;
   return (
     <section id="casos-de-uso" className="border-t border-white/10 bg-coal py-24 text-white lg:py-36">
       <div className="mx-auto max-w-[1440px] px-6 lg:px-10">
         <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(18rem,0.48fr)] lg:items-center lg:gap-16">
           <div className="max-w-3xl">
             <Reveal>
-              <Eyebrow index="03">Casos de uso</Eyebrow>
+              <Eyebrow index="03">{english ? "Use cases" : "Casos de uso"}</Eyebrow>
             </Reveal>
 
             <Reveal delay={80}>
               <h2 className="mt-7 text-4xl font-semibold tracking-[-0.03em] sm:text-5xl">
-                Automatización donde el trabajo manual cuesta dinero.
+                {english ? "Automation where manual work costs money." : "Automatización donde el trabajo manual cuesta dinero."}
               </h2>
             </Reveal>
           </div>
 
           <Reveal delay={160}>
             <p className="max-w-sm border-t border-white/15 pt-6 leading-7 text-white/55 lg:max-w-md lg:border-l lg:border-t-0 lg:pl-6 lg:pt-0">
-              Cada implementación comienza con un proceso concreto y una
-              oportunidad de impacto medible.
+              {english
+                ? "Every implementation starts with a specific process and an opportunity for measurable impact."
+                : "Cada implementación comienza con un proceso concreto y una oportunidad de impacto medible."}
             </p>
           </Reveal>
         </div>

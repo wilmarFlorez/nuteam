@@ -2,18 +2,20 @@
 
 import { FormEvent, useRef, useState } from "react";
 import { getAttribution, trackEvent } from "@/lib/analytics";
+import { isEnglish, type Locale } from "@/lib/locale";
 
 const inputClass =
-  "w-full border-b border-white/15 bg-transparent pb-3 text-white outline-none transition-colors placeholder:text-white/20 focus:border-volt";
+  "min-h-12 w-full border border-white/35 bg-ink px-4 py-3 text-[15px] text-white outline-none transition-[border-color,background-color,box-shadow] placeholder:text-white/55 focus:border-volt focus:bg-ink focus:ring-2 focus:ring-volt/30";
 
 const labelClass =
-  "mb-3 block font-mono text-[10px] font-medium uppercase tracking-[0.2em] text-white/65";
+  "mb-3 block font-mono text-[10px] font-medium uppercase tracking-[0.2em] text-white/85";
 
-export default function ContactForm() {
+export default function ContactForm({ locale }: { locale: Locale }) {
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [hasError, setHasError] = useState(false);
   const hasStarted = useRef(false);
+  const english = isEnglish(locale);
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -93,16 +95,17 @@ export default function ContactForm() {
         </span>
 
         <h3 className="mt-6 text-2xl font-semibold text-white">
-          Solicitud recibida.
+          {english ? "Request received." : "Solicitud recibida."}
         </h3>
 
-        <p className="mx-auto mt-3 max-w-md leading-7 text-white/50">
-          Analizaremos la información que compartiste y nos pondremos en
-          contacto contigo.
+        <p className="mx-auto mt-3 max-w-md leading-7 text-white/75">
+          {english
+            ? "We will review the information you shared and get in touch."
+            : "Analizaremos la información que compartiste y nos pondremos en contacto contigo."}
         </p>
 
         <p className="mt-8 font-mono text-[10px] font-medium uppercase tracking-[0.22em] text-white/60">
-          Status · En análisis
+          {english ? "Status · Under review" : "Status · En análisis"}
         </p>
       </div>
     );
@@ -121,7 +124,7 @@ export default function ContactForm() {
       <div className="grid gap-9 sm:grid-cols-2">
         <div>
           <label htmlFor="name" className={labelClass}>
-            Nombre
+            {english ? "Name" : "Nombre"}
           </label>
 
           <input
@@ -130,13 +133,13 @@ export default function ContactForm() {
             type="text"
             required
             className={inputClass}
-            placeholder="Tu nombre"
+            placeholder={english ? "Your name" : "Tu nombre"}
           />
         </div>
 
         <div>
           <label htmlFor="company" className={labelClass}>
-            Empresa
+            {english ? "Company" : "Empresa"}
           </label>
 
           <input
@@ -145,7 +148,7 @@ export default function ContactForm() {
             type="text"
             required
             className={inputClass}
-            placeholder="Nombre de la empresa"
+            placeholder={english ? "Company name" : "Nombre de la empresa"}
           />
         </div>
       </div>
@@ -153,7 +156,7 @@ export default function ContactForm() {
       <div className="grid gap-9 sm:grid-cols-2">
         <div>
           <label htmlFor="role" className={labelClass}>
-            Cargo
+            {english ? "Role" : "Cargo"}
           </label>
 
           <input
@@ -162,13 +165,13 @@ export default function ContactForm() {
             type="text"
             required
             className={inputClass}
-            placeholder="Tu cargo"
+            placeholder={english ? "Your role" : "Tu cargo"}
           />
         </div>
 
         <div>
           <label htmlFor="email" className={labelClass}>
-            Email corporativo
+            {english ? "Work email" : "Email corporativo"}
           </label>
 
           <input
@@ -184,7 +187,7 @@ export default function ContactForm() {
 
       <div>
         <label htmlFor="phone" className={labelClass}>
-          WhatsApp / teléfono
+            {english ? "WhatsApp / phone" : "WhatsApp / teléfono"}
         </label>
 
         <input
@@ -198,7 +201,9 @@ export default function ContactForm() {
 
       <div>
         <label htmlFor="process" className={labelClass}>
-          ¿Qué proceso genera más trabajo manual o demoras?
+            {english
+              ? "Which process creates the most manual work or delays?"
+              : "¿Qué proceso genera más trabajo manual o demoras?"}
         </label>
 
         <textarea
@@ -207,13 +212,17 @@ export default function ContactForm() {
           required
           rows={5}
           className={`${inputClass} resize-none`}
-          placeholder="Describe qué ocurre hoy, quién participa, con qué frecuencia ocurre y qué parte se repite."
+            placeholder={english
+              ? "Describe what happens today, who is involved, how often it happens, and what part is repeated."
+              : "Describe qué ocurre hoy, quién participa, con qué frecuencia ocurre y qué parte se repite."}
         />
       </div>
 
       <div>
         <label htmlFor="volume" className={labelClass}>
-          ¿Qué volumen maneja aproximadamente este proceso?
+            {english
+              ? "What approximate volume does this process handle?"
+              : "¿Qué volumen maneja aproximadamente este proceso?"}
         </label>
 
         <div className="relative">
@@ -222,30 +231,30 @@ export default function ContactForm() {
             name="volume"
             required
             defaultValue=""
-            className={`${inputClass} appearance-none`}
+            className={`${inputClass} appearance-none pr-10 invalid:text-white/55`}
           >
             <option value="" disabled className="bg-ink">
-              Selecciona una opción
+              {english ? "Select an option" : "Selecciona una opción"}
             </option>
 
             <option value="less-10" className="bg-ink">
-              Menos de 10 horas/semana
+              {english ? "Less than 10 hours/week" : "Menos de 10 horas/semana"}
             </option>
 
             <option value="10-30" className="bg-ink">
-              10–30 horas/semana
+              {english ? "10–30 hours/week" : "10–30 horas/semana"}
             </option>
 
             <option value="30-60" className="bg-ink">
-              30–60 horas/semana
+              {english ? "30–60 hours/week" : "30–60 horas/semana"}
             </option>
 
             <option value="more-60" className="bg-ink">
-              Más de 60 horas/semana
+              {english ? "More than 60 hours/week" : "Más de 60 horas/semana"}
             </option>
 
             <option value="unknown" className="bg-ink">
-              No lo sé
+              {english ? "I do not know" : "No lo sé"}
             </option>
           </select>
 
@@ -260,8 +269,9 @@ export default function ContactForm() {
 
       <div>
         <label htmlFor="impact" className={labelClass}>
-          ¿Qué ocurre cuando este proceso no se ejecuta correctamente o a
-          tiempo?
+          {english
+            ? "What happens when this process is not performed correctly or on time?"
+            : "¿Qué ocurre cuando este proceso no se ejecuta correctamente o a tiempo?"}
         </label>
 
         <textarea
@@ -270,9 +280,20 @@ export default function ContactForm() {
           required
           rows={4}
           className={`${inputClass} resize-none`}
-          placeholder="Ej. pérdida de ventas, retrasos, horas de trabajo..."
+          placeholder={english ? "E.g. lost sales, delays, work hours..." : "Ej. pérdida de ventas, retrasos, horas de trabajo..."}
         />
       </div>
+
+      {hasError && (
+        <p
+          className="border-l-2 border-red-400 bg-red-950/40 px-4 py-3 text-sm leading-6 text-red-100"
+          role="alert"
+        >
+          {english
+            ? "We could not send your request. Check your connection and try again."
+            : "No pudimos enviar tu solicitud. Revisa tu conexión e inténtalo de nuevo."}
+        </p>
+      )}
 
       <button
         type="submit"
@@ -280,11 +301,11 @@ export default function ContactForm() {
         className="group inline-flex w-full items-center justify-center gap-2 bg-volt px-7 py-4 text-sm font-semibold text-ink transition-colors hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-volt disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-60"
       >
         {isSubmitting
-          ? "Enviando..."
+          ? english ? "Sending..." : "Enviando..."
           : hasError
-            ? "No pudimos enviar tu solicitud. Inténtalo nuevamente."
-            : "Evaluar este proceso"}
-        {!isSubmitting && !hasError && (
+            ? english ? "Try sending again" : "Reintentar envío"
+            : english ? "Evaluate this process" : "Evaluar este proceso"}
+        {!isSubmitting && (
           <span className="transition-transform group-hover:translate-x-0.5">
             →
           </span>
@@ -292,8 +313,9 @@ export default function ContactForm() {
       </button>
 
       <p className="text-center font-mono text-[11px] leading-5 text-white/60">
-        Al enviar este formulario aceptas ser contactado por Nu Team respecto a
-        tu solicitud.
+        {english
+          ? "By submitting this form, you agree to be contacted by NuTeam regarding your request."
+          : "Al enviar este formulario aceptas ser contactado por Nu Team respecto a tu solicitud."}
       </p>
     </form>
   );
