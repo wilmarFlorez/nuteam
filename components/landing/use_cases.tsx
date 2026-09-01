@@ -20,7 +20,7 @@ const spanishUseCases = [
   {
     title: "Operaciones",
     description:
-      "Ejecuta tareas repetitivas entre diferentes sistemas.",
+      "Estructura solicitudes, valida datos y conecta procesos entre diferentes sistemas.",
   },
   {
     title: "Backoffice",
@@ -36,7 +36,7 @@ export default function UseCases({ locale }: { locale: Locale }) {
         { title: "Customer service", description: "Automate conversations, requests, and support tasks." },
         { title: "Sales", description: "Qualify leads, answer questions, and follow up." },
         { title: "Collections", description: "Automate outreach, reminders, and payment follow-up." },
-        { title: "Operations", description: "Perform repetitive tasks across different systems." },
+        { title: "Operations", description: "Structure requests, validate data, and connect processes across systems." },
         { title: "Back office", description: "Process information, documents, and requests automatically." },
       ]
     : spanishUseCases;
