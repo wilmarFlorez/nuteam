@@ -93,3 +93,11 @@ Para verificar eventos en producción, usa GA4 > DebugView con una sesión de
 prueba y el panel Network del navegador para confirmar las solicitudes a
 `google-analytics.com`. Para validar atribución, usa una URL con UTM y revisa
 las columnas nuevas de `Leads`.
+
+## Marketing de NuTeam
+
+La estrategia y el registro de campañas están en [`marketing/README.md`](marketing/README.md).
+La campaña NU_01 de Google Search es un borrador, no una campaña confirmada como
+activa. Puede compartir la cuenta de Google Ads con el portafolio de Wilmar, pero
+mantiene su propio destino, conversión y hoja de leads; su presupuesto requiere
+aprobación y coordinación con cualquier otra campaña activa.
