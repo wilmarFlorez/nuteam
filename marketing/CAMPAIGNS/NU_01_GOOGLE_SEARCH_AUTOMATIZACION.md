@@ -1,7 +1,7 @@
 # Borrador NU_01 — Google Ads Search para automatización operativa
 
-**Estado:** propuesta; no consta como campaña creada o activa en Google Ads.  
-**Fecha del borrador:** 1 de octubre de 2026.  
+**Estado:** propuesta; objetivo y presupuesto aprobados, pero no consta como campaña creada o activa en Google Ads. El 6 de octubre es el punto de decisión entre extender la campaña personal o dar `GO` a NU_01; no es fecha de activación confirmada.
+**Fecha del borrador:** 2 de octubre de 2026.
 **Cuenta:** se propone usar la cuenta actual de Google Ads, con una campaña y conversión identificables para NuTeam.
 
 El plan completo, los anuncios candidatos y la calendarización están en [`NU_01_PLAN_DE_LANZAMIENTO.md`](NU_01_PLAN_DE_LANZAMIENTO.md). No activar hasta completar [`NU_01_CHECKLIST_LANZAMIENTO.md`](NU_01_CHECKLIST_LANZAMIENTO.md).
@@ -15,13 +15,13 @@ El plan completo, los anuncios candidatos y la calendarización están en [`NU_0
 | Canal | Google Ads, Red de Búsqueda, en español. |
 | Landing | `https://www.nuteam.ai/`, sujeta a verificar URL final, formulario y analítica de producción. |
 | Conversación/CTA | Evaluar un proceso operativo concreto. Mantener `Evaluar un proceso` solo si NuTeam entregará realmente esa evaluación inicial. |
-| Presupuesto | Pendiente de aprobación. Definir un límite combinado con la campaña personal; no duplicar automáticamente su presupuesto diario de COP 34.000. |
-| Duración | Por definir después de revisar la ventana vigente de la campaña personal y el presupuesto disponible. |
+| Presupuesto NU_01 | Aprobado por Wilmar el 2 de octubre: COP 34.000 diarios promedio y tope operativo de COP 1.000.000 para esta campaña. Es independiente del presupuesto personal; revisar la exposición total de la cuenta si ambas quedan activas. |
+| Duración | Hasta 30 días de pauta activa o hasta alcanzar el tope operativo; la fecha de inicio se fijará solo después del `GO` y del checklist completo. |
 | Responsable | Wilmar Florez Samudio aprueba segmentación, anuncios, gasto y calificación de leads. |
 
-### Meta cuantitativa propuesta, pendiente de aprobación
+### Meta cuantitativa aprobada
 
-La campaña de wlanding fijó como objetivo tres leads cualificados durante 30 días de pauta activa. Se propone usar **3 conversaciones cualificadas en 30 días de pauta activa** como referencia inicial para NU_01, pero Wilmar debe confirmarla antes de activar la campaña. No es un resultado esperado ni una garantía.
+Wilmar aprobó el **2 de octubre de 2026** la meta de **3 conversaciones cualificadas en 30 días de pauta activa** para NU_01. Es una meta de negocio, no un resultado esperado, garantía ni conversión automática de Google Ads.
 
 El formulario enviado y la conversión reportada por Google Ads son señales de embudo, no sustitutos de este objetivo de calidad.
 
@@ -37,7 +37,7 @@ Una nueva campaña también puede cambiar anuncio, configuración, fecha o keywo
 
 **Mensaje central:** empezar por el proceso: qué información entra, qué reglas y excepciones existen, qué sistemas participan y cómo se entrega el resultado al siguiente responsable. Aplicar IA solo cuando aporta; conservar validaciones y revisión humana cuando se requieren.
 
-**Evidencia admisible:** capacidades profesionales verificables y Freight Pilot como demo de portafolio con sus límites expresos. No presentar el flujo visual de NuTeam como ejecución real o caso de cliente si es ilustrativo.
+**Evidencia admisible:** capacidades profesionales verificables y Freight Pilot como demo de portafolio con sus límites expresos. El panel estático de “agente en vivo” se retiró del código actual de la landing (revisión del 2 de octubre de 2026); confirmar la versión publicada antes de pautar y no presentar la antigua interfaz como ejecución real o caso de cliente.
 
 ## Segmentación inicial para revisión
 
@@ -54,12 +54,12 @@ Los aprendizajes de términos visibles apuntan a vigilar intención educativa, e
 
 ## Presupuesto y relación con la campaña personal
 
-La campaña personal tuvo un presupuesto reportado de COP 34.000 diarios y un límite orientativo cercano a COP 1.000.000 durante 30 días. Ese dato no autoriza automáticamente el mismo presupuesto para NU_01.
+Wilmar aprobó para NU_01 COP 34.000 diarios promedio y un tope operativo de COP 1.000.000, independientes del presupuesto personal. Estos importes no representan un tope de gasto combinado de la cuenta.
 
 Antes de activar NU_01, dejar por escrito:
 
-- si la campaña personal seguirá activa;
-- presupuesto diario de cada campaña y límite total que Wilmar autoriza;
+- si la campaña personal seguirá activa y si Wilmar aprueba que ambas campañas coexistan;
+- exposición diaria y acumulada combinada de la cuenta; el presupuesto de wlanding no se modifica desde NU_01;
 - fechas que se compararán y cambios que estarán permitidos;
 - cómo se evitará interpretar como experimento controlado una comparación entre campañas con distintos anuncios o configuraciones.
 
@@ -91,9 +91,12 @@ Google Ads puede entregar impresiones, clics y gasto. Los eventos GA4 requieren 
 
 ## Condiciones de activación
 
-- [ ] Wilmar aprueba el objetivo, el presupuesto total y la distribución con la campaña personal.
+- [x] Objetivo (3 conversaciones cualificadas en 30 días de pauta activa) y presupuesto propio de NU_01 (COP 34.000 diarios promedio; tope operativo COP 1.000.000) aprobados por Wilmar el 2 de octubre de 2026.
+- [ ] En el punto de decisión del 6 de octubre, Wilmar confirma si la campaña personal seguirá activa y qué campañas coexistirán; revisar el gasto combinado de la cuenta antes de activar.
 - [ ] URL final de NuTeam y sufijo UTM probados en Google Ads, sin clics propios en anuncios activos.
 - [ ] Formulario probado en producción; envío visible en la hoja `Leads` y mensaje de éxito coherente con la respuesta del endpoint.
+- [ ] Aviso de privacidad/tratamiento revisado y versión publicada comprobada; retirar enlaces legales no sustituye esta revisión.
+- [ ] Confirmar en producción que el panel estático retirado ya no aparece. La fuente local ya no lo contiene (revisión del 2 de octubre de 2026).
 - [ ] GA4 activo y eventos verificados en DebugView o herramienta equivalente.
 - [ ] Conversión de Ads verificada después del envío exitoso, sin contar también el clic en CTA ni duplicar GA4.
 - [ ] Términos, anuncio, copy y landing revisados contra la oferta real y límites de credibilidad.

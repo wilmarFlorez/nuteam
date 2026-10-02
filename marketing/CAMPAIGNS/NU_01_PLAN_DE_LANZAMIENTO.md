@@ -43,7 +43,7 @@ Una búsqueda de intención comercial que lleva a una landing especializada en o
 
 NuTeam puede anunciarse como marca mientras avanza su formalización, sin afirmar que ya está constituida. Si un prospecto pregunta o tiene requisitos de proveedor, explicar antes de una propuesta cuál es el estado y qué forma de contratación/facturación se puede ofrecer. Registrar si la constitución de una sociedad es requisito de compra; no inferirlo por el clic ni ocultarlo hasta el cierre.
 
-No usar como resultados de clientes la interfaz estática del hero (`Live agent` / `Running`, CRM verificado, ticket creado y respuesta enviada). El contenido está codificado como ejemplo visual. Antes de pagar tráfico, rotularlo en español e inglés como ilustración —por ejemplo, **“Ejemplo ilustrativo · Flujo de atención” / “Illustrative example · Support workflow”**— o sustituirlo por una demostración cuyo estado real pueda verificarse.
+El panel estático del hero con “Live agent” / “Running”, CRM, cliente y ticket fue retirado del código actual de la landing, según revisión del 2 de octubre de 2026. Confirmar que la versión publicada ya no lo muestra antes de pagar tráfico. No reutilizar esa interfaz como resultado de cliente ni como prueba de operación real.
 
 ## Responsables
 

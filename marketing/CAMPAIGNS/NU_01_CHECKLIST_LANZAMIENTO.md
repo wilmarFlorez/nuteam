@@ -20,11 +20,29 @@ Estados sugeridos: `pendiente`, `en curso`, `bloqueado`, `verificado`. Registrar
 ## Bloqueadores de página y formulario
 
 - [x] **Teléfono opcional en producción:** Wilmar confirmó que copió `integrations/google_apps_script.gs`, desplegó una nueva versión de Apps Script y probó el formulario con teléfono vacío y diligenciado. La captura de `Leads` muestra ambos casos guardados. Son filas de QA; excluirlas de métricas comerciales. No se copiaron datos personales a este repositorio.
-- [ ] **Verificación general del formulario en producción:** confirmar que la interfaz solo muestra éxito tras una respuesta `success: true` y que el endpoint y el mapeo general de campos siguen correctos. La prueba específica del teléfono vacío/diligenciado quedó verificada arriba; mantener las filas de QA fuera del conteo comercial.
-- [ ] **Resolver Privacidad y Términos.** En `footer.tsx` ambos enlaces apuntan a `#`. Antes de pagar tráfico y recoger datos de empresa/proceso, publicar destinos reales y revisar que el aviso explique el uso de datos y analítica. Alinear el formulario, Apps Script y política; no guardar PII en Git.
-- [ ] **Identificar la interfaz estática del hero.** El panel contiene texto hardcodeado de agente “en vivo”, “en ejecución”, CRM, cliente y ticket; no es una integración verificada. Rotularlo en español e inglés como ejemplo ilustrativo o sustituirlo por una demo que se pueda demostrar.
+- [ ] **Verificación general del formulario en producción:** seguir el procedimiento de prueba de abajo. Confirmar respuesta `success: true`, mensaje de éxito, mapeo y recepción en la hoja `Leads`. La prueba previa del teléfono vacío/diligenciado quedó confirmada por Wilmar; mantener sus filas de QA fuera del conteo comercial.
+- [x] **Enlaces muertos del footer retirados del código actual:** ya no aparecen los enlaces `#` de Privacidad/Términos en la fuente revisada el 2 de octubre de 2026. La publicación no está verificada.
+- [ ] **Aviso de privacidad y tratamiento de datos:** publicar/revisar información accesible desde el formulario sobre el uso de los datos y la analítica, alineada con el endpoint y la hoja. Requiere revisión humana/legal; retirar enlaces no resuelve este pendiente. No guardar PII en Git. No reponer automáticamente una página de Términos sin confirmar que sea necesaria.
+- [x] **Panel estático del hero retirado del código actual:** ya no está en `hero.tsx` según revisión del 2 de octubre de 2026. Verificar que tampoco aparezca en la versión publicada antes del lanzamiento.
 - [ ] Revisar móvil y escritorio, navegación a `#contacto`, selectores de idioma y todos los enlaces de los anuncios.
 - [ ] Confirmar que la explicación de la oferta no sugiere una entidad constituida, clientes, operación productiva, volúmenes, ahorro o resultados no comprobados.
+
+### Procedimiento de prueba de producción del formulario
+
+La prueba crea un registro real en producción. Avisar antes a quien revise la hoja para que no contacte el registro como si fuera un prospecto. Usar solo datos de prueba controlados por Wilmar, marcar claramente la empresa o el nombre como `QA - EXCLUIR DE MÉTRICAS`, y no introducir nombres de clientes, información operacional real ni datos personales de terceros. No incluir resultados de prueba en reportes comerciales.
+
+1. Confirmar que la política/aviso de privacidad aplicable y el comportamiento de analítica están aprobados antes de enviar información personal. Si falta esa aprobación, no introducir PII en el formulario; limitar la comprobación a una revisión técnica autorizada o esperar.
+2. Abrir directamente `https://www.nuteam.ai/` en una ventana normal, ir a `#contacto` y comprobar que se ve la versión publicada esperada. No llegar desde un anuncio ni hacer clic en anuncios propios.
+3. Para comprobar atribución sin generar clic publicitario, abrir el destino con parámetros de QA, por ejemplo `?utm_source=qa&utm_medium=manual&utm_campaign=qa_form_YYYYMMDD` (sustituir por la fecha de la prueba). No inventar `gclid`/`gbraid` ni usar parámetros de una campaña comercial real.
+4. Enviar una sola prueba con teléfono vacío. Completar los demás campos con valores inequívocos de QA; usar un correo bajo control de Wilmar. En el texto del proceso e impacto, escribir datos ficticios y no sensibles.
+5. En las herramientas de desarrollo del navegador, comprobar que la solicitud al endpoint termina con respuesta `success: true`; la interfaz debe mostrar “Solicitud recibida” solo después de esa respuesta. Revisar la hoja `Leads` de NuTeam —no la de wlanding— y confirmar que llegó una sola fila QA, que los campos quedaron en las columnas esperadas, que teléfono puede quedar vacío y que la atribución QA/timestamp corresponde a la prueba. No guardar ni compartir el cuerpo de la solicitud, el endpoint o capturas con datos personales.
+6. Solo si se necesita revalidar el teléfono diligenciado o cambió el despliegue, hacer una segunda prueba marcada QA con un número controlado. La prueba previa de Wilmar ya confirmó el campo vacío y diligenciado.
+7. Si GA4 está aprobado y configurado, revisar en DebugView que `form_submit` aparezca después del envío exitoso y no al pulsar el botón si la solicitud falla. En la pestaña Network, inspeccionar las solicitudes de Analytics y confirmar que no lleven nombre, email, teléfono, empresa ni texto libre; no habilitar etiquetas hasta validar el consentimiento/configuración aplicable. Si ya existe una conversión de Ads/importación de GA4, registrar que se generó una fila/evento de QA y excluirla del análisis comercial; nunca probar haciendo clic en el anuncio.
+8. Guardar únicamente fecha, navegador/dispositivo, resultado y evidencia redactada (sin PII, credenciales, endpoint ni contenido del proceso) fuera de este repositorio. Mantener la fila identificada como QA o eliminarla solo mediante un procedimiento autorizado y consistente con la política de retención.
+
+**Criterio de aprobación:** formulario y Apps Script confirman éxito, aparece exactamente una fila de QA correcta en la hoja NuTeam, los casos probados con/sin teléfono se comportan según lo esperado y el evento de Analytics (si está autorizado) no contiene PII. Esto valida funcionamiento técnico, no calidad comercial ni convierte la fila QA en lead.
+
+No provoques errores cambiando el endpoint o enviando datos malformados a producción. Si se requiere validar el estado de error del formulario, hacerlo con un endpoint/entorno de prueba controlado.
 
 ## Medición técnica
 
@@ -55,8 +73,8 @@ Estados sugeridos: `pendiente`, `en curso`, `bloqueado`, `verificado`. Registrar
 | Objetivo y criterios de calificación |  |  |
 | Presupuesto diario, tope y solapamiento |  |  |
 | Formulario y Sheets en producción |  |  |
-| Política/enlaces legales funcionales |  |  |
-| Hero identificado como ilustración o reemplazado |  |  |
+| Aviso de privacidad y tratamiento revisados; publicación comprobada |  |  |
+| Panel del hero retirado en código y versión publicada |  |  |
 | GA4 y conversión Ads verificados |  |  |
 | URL, UTMs y campaña Ads revisados |  |  |
 | Copy, anuncios y claims aprobados |  |  |

@@ -1,7 +1,7 @@
 # Marketing de NuTeam
 
 **Estado:** estructura inicial; la campaña pagada de NuTeam aún no se documenta como activa.  
-**Actualizado:** 1 de octubre de 2026.
+**Actualizado:** 2 de octubre de 2026.
 
 Este directorio organiza el posicionamiento, las campañas, los experimentos y las revisiones de marketing de NuTeam. Reutiliza el aprendizaje de la primera campaña en Google Ads del portafolio de Wilmar, sin trasladar sus resultados como si fueran resultados de NuTeam.
 
@@ -47,11 +47,11 @@ Para NU_01, empezar por el [plan de lanzamiento](CAMPAIGNS/NU_01_PLAN_DE_LANZAMI
 
 ## Antes de activar NU_01
 
-- Aprobar el presupuesto total que compartirán las campañas activas; no copiar automáticamente los COP 34.000/día de la campaña personal a otra campaña.
+- El presupuesto de NU_01 ya fue aprobado por Wilmar: COP 34.000 diarios promedio y tope operativo de COP 1.000.000 solo para esta campaña. Antes de activarla, revisar la exposición total de la cuenta si la campaña personal también sigue activa; no duplicar ni cambiar su presupuesto por defecto.
 - Confirmar el destino y las UTMs del anuncio, probar el formulario de NuTeam y verificar que el lead llega a la hoja `Leads`.
 - Confirmar que `NEXT_PUBLIC_GA_MEASUREMENT_ID` está configurado en producción y validar los eventos de NuTeam.
 - Configurar y probar una conversión de Google Ads para el envío exitoso del formulario de NuTeam. El evento `form_submit` de GA4 no debe contarse además como otra conversión primaria sin decidirlo explícitamente.
-- Corregir la validación desalineada del campo teléfono: el formulario lo presenta como opcional y Apps Script lo valida como obligatorio.
-- Sustituir los enlaces `#` de Privacidad/Términos y aclarar que el panel estático del hero es un ejemplo, no un agente productivo.
+- El campo teléfono aparece como opcional y Wilmar confirmó pruebas de producción con el campo vacío y diligenciado; esas filas de QA no cuentan como leads comerciales.
+- Los enlaces de Privacidad/Términos y el panel estático del hero se retiraron del código actual de la landing. Confirmar que la versión publicada refleje el cambio. La retirada de enlaces no sustituye el aviso de privacidad: revisar y publicar la información de tratamiento de datos del formulario antes de comprar tráfico. No se presupone que sea necesario reponer una página de Términos sin revisión.
 - Registrar cómo se califican los leads y qué evento/columnas se usarán para distinguir un prospecto que requiere una sociedad constituida.
 - Revisar la política de privacidad, el tratamiento de datos del formulario y los textos que puedan sugerir clientes, resultados o una entidad legal ya constituida.
