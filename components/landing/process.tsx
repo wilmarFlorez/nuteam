@@ -49,7 +49,7 @@ export default function Process({ locale }: { locale: Locale }) {
           <div className="max-w-3xl">
             <Reveal delay={80}>
               <h2 className="text-4xl font-semibold tracking-[-0.03em] sm:text-5xl lg:text-6xl">
-                {english ? "We do not start with technology. We start with the problem." : "No empezamos por la tecnología. Empezamos por el problema."}
+                {english ? "We do not start with technology. We start with the problem" : "No empezamos por la tecnología. Empezamos por el problema"}
               </h2>
             </Reveal>
           </div>

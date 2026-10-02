@@ -46,7 +46,7 @@ export default function UseCases({ locale }: { locale: Locale }) {
           <div className="max-w-3xl">
             <Reveal delay={80}>
               <h2 className="text-4xl font-semibold tracking-[-0.03em] sm:text-5xl">
-                {english ? "Automation where manual work costs money." : "Automatización donde el trabajo manual cuesta dinero."}
+                {english ? "Automation where manual work costs money" : "Automatización donde el trabajo manual cuesta dinero"}
               </h2>
             </Reveal>
           </div>

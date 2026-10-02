@@ -25,7 +25,7 @@ export default function CTA({ locale }: { locale: Locale }) {
 
         <Reveal delay={80}>
           <h2 className="mx-auto mt-7 max-w-4xl text-5xl font-semibold leading-[1.02] tracking-[-0.04em] sm:text-6xl lg:text-7xl">
-            {english ? "Assess an operational process." : "Evalúa un proceso operativo."}
+            {english ? "Assess an operational process" : "Evalúa un proceso operativo"}
           </h2>
         </Reveal>
 

@@ -101,7 +101,7 @@ export default function ContactForm({ locale }: { locale: Locale }) {
         </span>
 
         <h3 className="mt-6 text-2xl font-semibold text-white">
-          {english ? "Request received." : "Solicitud recibida."}
+          {english ? "Request received" : "Solicitud recibida"}
         </h3>
 
         <p className="mx-auto mt-3 max-w-md leading-7 text-white/75">

@@ -23,7 +23,7 @@ export default function ContactSection({ locale }: { locale: Locale }) {
         <div>
           <Reveal delay={80}>
             <h2 className="text-4xl font-semibold tracking-[-0.03em] sm:text-5xl">
-              {english ? "Tell us which process creates the most manual work or delays." : "Cuéntanos qué proceso genera más trabajo manual o demoras."}
+              {english ? "Tell us which process creates the most manual work or delays" : "Cuéntanos qué proceso genera más trabajo manual o demoras"}
             </h2>
           </Reveal>
 

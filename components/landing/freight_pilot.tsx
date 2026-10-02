@@ -18,12 +18,12 @@ export default function FreightPilot({ locale }: { locale: Locale }) {
               {english ? "Transport operations" : "Operaciones de transporte"}
             </p>
             <h2 className="mt-6 max-w-xl text-3xl font-semibold leading-[1.05] tracking-[-0.03em] sm:text-4xl">
-              Freight <span className="text-volt">Pilot.</span>
+              Freight <span className="text-volt">Pilot</span>
             </h2>
             <h3 className="mt-5 max-w-xl text-xl font-medium leading-tight tracking-tight text-white/90 sm:text-2xl">
               {english
-                ? "From a scattered message to a request ready for quotation."
-                : "De un mensaje disperso a una solicitud lista para cotizar."}
+                ? "From a scattered message to a request ready for quotation"
+                : "De un mensaje disperso a una solicitud lista para cotizar"}
             </h3>
             <p className="mt-5 max-w-xl leading-7 text-white/60">
               {english

@@ -41,8 +41,8 @@ export default function Problem({ locale }: { locale: Locale }) {
           <Reveal delay={80}>
             <h2 className="text-4xl font-semibold tracking-[-0.03em] sm:text-5xl lg:text-[3.4rem] lg:leading-[1.02]">
               {english
-                ? "Your team should not spend hours on work that AI can perform."
-                : "Tu equipo no debería dedicar horas a tareas que una IA puede ejecutar."}
+                ? "Your team should not spend hours on work that AI can perform"
+                : "Tu equipo no debería dedicar horas a tareas que una IA puede ejecutar"}
             </h2>
           </Reveal>
 

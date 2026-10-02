@@ -66,7 +66,7 @@ export default function Solutions({ locale }: { locale: Locale }) {
           <div className="max-w-3xl">
             <Reveal delay={80}>
               <h2 className="text-4xl font-semibold tracking-[-0.03em] sm:text-5xl lg:text-6xl">
-                {english ? "AI agents that do real work." : "Agentes de IA para ejecutar trabajo real."}
+                {english ? "AI agents that do real work" : "Agentes de IA para ejecutar trabajo real"}
               </h2>
             </Reveal>
           </div>

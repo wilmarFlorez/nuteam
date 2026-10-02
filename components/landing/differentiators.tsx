@@ -39,7 +39,7 @@ export default function Differentiators({ locale }: { locale: Locale }) {
             <h2 className="text-4xl font-semibold leading-[1.02] tracking-[-0.03em] sm:text-5xl lg:text-6xl">
               {english ? "We do not sell AI." : "No vendemos IA."}
               <br />
-              {english ? "We automate " : "Automatizamos "}<span className="text-volt">{english ? "operations." : "operaciones."}</span>
+              {english ? "We automate " : "Automatizamos "}<span className="text-volt">{english ? "operations" : "operaciones"}</span>
             </h2>
           </Reveal>
 
