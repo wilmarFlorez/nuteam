@@ -38,7 +38,7 @@ export default function EnglishHome() {
       <Differentiators locale="en" />
       <CTA locale="en" />
       <ContactSection locale="en" />
-      <Footer locale="en" />
+      <Footer />
     </main>
   );
 }

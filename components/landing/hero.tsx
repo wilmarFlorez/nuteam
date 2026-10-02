@@ -136,14 +136,7 @@ export default function Hero({ locale }: { locale: Locale }) {
       <div className="relative mx-auto grid max-w-[1440px] gap-14 px-6 pb-24 lg:flex-1 lg:items-center lg:grid-cols-12 lg:gap-10 lg:px-10 lg:pb-32">
         <div className="lg:col-span-7 xl:pr-12">
           <Reveal>
-            <p className="flex items-center gap-3 font-mono text-[11px] font-medium uppercase tracking-[0.26em] text-white/65">
-              <span className="h-2 w-2 shrink-0 bg-volt" aria-hidden />
-              {english ? "AI for operations" : "IA aplicada a operaciones"}
-            </p>
-          </Reveal>
-
-          <Reveal delay={80}>
-            <h1 className="mt-8 text-[2.75rem] font-semibold leading-[0.95] tracking-[-0.04em] sm:text-6xl lg:text-7xl xl:text-[5.25rem]">
+            <h1 className="text-[2.75rem] font-semibold leading-[0.95] tracking-[-0.04em] sm:text-6xl lg:text-7xl xl:text-[5.25rem]">
               {english
                 ? "How much manual work builds up in your operation?"
                 : "¿Cuánto trabajo manual se acumula en tu operación?"}

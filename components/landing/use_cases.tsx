@@ -1,4 +1,3 @@
-import Eyebrow from "./eyebrow";
 import Reveal from "./reveal";
 import { isEnglish, type Locale } from "@/lib/locale";
 
@@ -45,12 +44,8 @@ export default function UseCases({ locale }: { locale: Locale }) {
       <div className="mx-auto max-w-[1440px] px-6 lg:px-10">
         <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(18rem,0.48fr)] lg:items-center lg:gap-16">
           <div className="max-w-3xl">
-            <Reveal>
-              <Eyebrow index="03">{english ? "Use cases" : "Casos de uso"}</Eyebrow>
-            </Reveal>
-
             <Reveal delay={80}>
-              <h2 className="mt-7 text-4xl font-semibold tracking-[-0.03em] sm:text-5xl">
+              <h2 className="text-4xl font-semibold tracking-[-0.03em] sm:text-5xl">
                 {english ? "Automation where manual work costs money." : "Automatización donde el trabajo manual cuesta dinero."}
               </h2>
             </Reveal>

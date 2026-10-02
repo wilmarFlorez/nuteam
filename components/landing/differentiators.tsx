@@ -1,4 +1,3 @@
-import Eyebrow from "./eyebrow";
 import Reveal from "./reveal";
 import { isEnglish, type Locale } from "@/lib/locale";
 
@@ -36,24 +35,14 @@ export default function Differentiators({ locale }: { locale: Locale }) {
 
       <div className="relative mx-auto grid max-w-[1440px] gap-14 px-6 lg:grid-cols-12 lg:gap-10 lg:px-10">
         <div className="lg:col-span-5">
-          <Reveal>
-              <Eyebrow index="05">{english ? "Why NuTeam" : "Por qué Nu Team"}</Eyebrow>
-          </Reveal>
-
           <Reveal delay={80}>
-            <h2 className="mt-7 text-4xl font-semibold leading-[1.02] tracking-[-0.03em] sm:text-5xl lg:text-6xl">
+            <h2 className="text-4xl font-semibold leading-[1.02] tracking-[-0.03em] sm:text-5xl lg:text-6xl">
               {english ? "We do not sell AI." : "No vendemos IA."}
               <br />
               {english ? "We automate " : "Automatizamos "}<span className="text-volt">{english ? "operations." : "operaciones."}</span>
             </h2>
           </Reveal>
 
-          <Reveal delay={160}>
-            <div className="mt-10 flex items-center gap-3 font-mono text-[10px] font-medium uppercase tracking-[0.26em] text-white/65">
-              <span className="h-2 w-2 bg-volt" aria-hidden />
-              {english ? "Focused on operational impact" : "Enfoque en impacto operativo"}
-            </div>
-          </Reveal>
         </div>
 
         <div className="lg:col-span-7">

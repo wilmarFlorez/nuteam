@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Eyebrow from "./eyebrow";
 import Reveal from "./reveal";
 import TrackedLink from "./tracked_link";
 import { isEnglish, type Locale } from "@/lib/locale";
@@ -13,11 +12,7 @@ export default function FreightPilot({ locale }: { locale: Locale }) {
   return (
     <section id="demo" className="overflow-hidden bg-ink py-24 text-white lg:py-36">
       <div className="mx-auto max-w-[1440px] px-6 lg:px-10">
-        <Reveal>
-          <Eyebrow index="03">{english ? "Featured demo" : "Demo destacada"}</Eyebrow>
-        </Reveal>
-
-        <div className="mt-8 grid border border-white/10 bg-coal lg:grid-cols-[minmax(0,0.9fr)_minmax(20rem,1.1fr)]">
+        <div className="grid border border-white/10 bg-coal lg:grid-cols-[minmax(0,0.9fr)_minmax(20rem,1.1fr)]">
           <Reveal delay={80} className="flex flex-col p-7 sm:p-10 lg:p-12">
             <p className="font-mono text-[10px] font-medium uppercase tracking-[0.24em] text-volt">
               {english ? "Transport operations" : "Operaciones de transporte"}

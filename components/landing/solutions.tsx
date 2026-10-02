@@ -1,25 +1,29 @@
-import Eyebrow from "./eyebrow";
 import Reveal from "./reveal";
 import { isEnglish, type Locale } from "@/lib/locale";
+import { Mail, MessageCircle, Phone, Workflow } from "lucide-react";
 
 const spanishSolutions = [
   {
     title: "Voz",
+    icon: Phone,
     description:
       "Agentes capaces de realizar y recibir llamadas para ejecutar procesos y atender solicitudes.",
   },
   {
     title: "WhatsApp",
+    icon: MessageCircle,
     description:
       "Automatiza conversaciones y procesos operativos directamente desde el canal que tus clientes ya utilizan.",
   },
   {
     title: "Email",
+    icon: Mail,
     description:
       "Procesa mensajes, clasifica solicitudes y ejecuta acciones sin intervención manual en cada paso.",
   },
   {
     title: "Workflows",
+    icon: Workflow,
     description:
       "Conecta agentes de IA con las herramientas y sistemas que ya utiliza tu empresa.",
   },
@@ -29,10 +33,30 @@ export default function Solutions({ locale }: { locale: Locale }) {
   const english = isEnglish(locale);
   const solutions = english
     ? [
-        { title: "Voice", description: "Agents able to make and receive calls to run processes and handle requests." },
-        { title: "WhatsApp", description: "Automate conversations and operational processes directly in the channel your customers already use." },
-        { title: "Email", description: "Process messages, classify requests, and perform actions without manual intervention at every step." },
-        { title: "Workflows", description: "Connect AI agents with the tools and systems your company already uses." },
+        {
+          title: "Voice",
+          icon: Phone,
+          description:
+            "Agents able to make and receive calls to run processes and handle requests.",
+        },
+        {
+          title: "WhatsApp",
+          icon: MessageCircle,
+          description:
+            "Automate conversations and operational processes directly in the channel your customers already use.",
+        },
+        {
+          title: "Email",
+          icon: Mail,
+          description:
+            "Process messages, classify requests, and perform actions without manual intervention at every step.",
+        },
+        {
+          title: "Workflows",
+          icon: Workflow,
+          description:
+            "Connect AI agents with the tools and systems your company already uses.",
+        },
       ]
     : spanishSolutions;
   return (
@@ -40,12 +64,8 @@ export default function Solutions({ locale }: { locale: Locale }) {
       <div className="mx-auto max-w-[1440px] px-6 lg:px-10">
         <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(18rem,0.48fr)] lg:items-center lg:gap-16">
           <div className="max-w-3xl">
-            <Reveal>
-              <Eyebrow index="02">{english ? "Solutions" : "Soluciones"}</Eyebrow>
-            </Reveal>
-
             <Reveal delay={80}>
-              <h2 className="mt-7 text-4xl font-semibold tracking-[-0.03em] sm:text-5xl lg:text-6xl">
+              <h2 className="text-4xl font-semibold tracking-[-0.03em] sm:text-5xl lg:text-6xl">
                 {english ? "AI agents that do real work." : "Agentes de IA para ejecutar trabajo real."}
               </h2>
             </Reveal>
@@ -61,30 +81,23 @@ export default function Solutions({ locale }: { locale: Locale }) {
         </div>
 
         <div className="mt-16 grid gap-px border border-white/10 bg-white/10 md:grid-cols-2">
-          {solutions.map((solution, index) => (
+          {solutions.map((solution) => (
             <Reveal
               key={solution.title}
-              delay={index * 90}
               className="group relative bg-ink p-8 transition-colors hover:bg-coal lg:p-10"
             >
-              <h3 className="mt-6 text-2xl font-semibold tracking-tight lg:text-[1.75rem]">
-                {solution.title}
-              </h3>
+              <div className="flex items-center gap-4">
+                <span className="flex size-10 shrink-0 items-center justify-center border border-volt/35 bg-volt/[0.06] text-volt transition-colors group-hover:border-volt group-hover:bg-volt group-hover:text-ink">
+                  <solution.icon size={20} strokeWidth={1.6} aria-hidden="true" />
+                </span>
+                <h3 className="text-2xl font-semibold tracking-tight lg:text-[1.75rem]">
+                  {solution.title}
+                </h3>
+              </div>
 
               <p className="mt-4 max-w-md leading-7 text-white/50">
                 {solution.description}
               </p>
-
-              <div className="mt-10 flex items-center justify-between border-t border-white/10 pt-5">
-                <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/55">
-                  {english ? "Execution channel" : "Canal de ejecución"}
-                </span>
-
-                <span
-                  className="h-1.5 w-1.5 bg-volt opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-                  aria-hidden
-                />
-              </div>
             </Reveal>
           ))}
         </div>

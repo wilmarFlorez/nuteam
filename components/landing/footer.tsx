@@ -1,8 +1,6 @@
 import Logo from "@/components/landing/logo";
-import { isEnglish, type Locale } from "@/lib/locale";
 
-export default function Footer({ locale }: { locale: Locale }) {
-  const english = isEnglish(locale);
+export default function Footer() {
   return (
     <footer className="relative overflow-x-clip border-t border-white/10 bg-ink text-white">
       <div className="mx-auto max-w-[1440px] px-6 pb-10 pt-14 lg:px-10">
@@ -15,44 +13,10 @@ export default function Footer({ locale }: { locale: Locale }) {
               </span>
             </a>
 
-            <p className="mt-2 font-mono text-[10px] font-medium uppercase tracking-[0.26em] text-white/60">
-              {english ? "AI for operations" : "AI para operaciones"}
-            </p>
-          </div>
-
-          <div>
-            <p className="font-mono text-[10px] font-medium uppercase tracking-[0.26em] text-white/60">
-              {english ? "Legal" : "Legal"}
-            </p>
-
-            <div className="mt-4 flex gap-8">
-              <a
-                href="#"
-                className="text-sm text-white/50 transition-colors hover:text-volt"
-              >
-                {english ? "Privacy" : "Privacidad"}
-              </a>
-
-              <a
-                href="#"
-                className="text-sm text-white/50 transition-colors hover:text-volt"
-              >
-                {english ? "Terms" : "Términos"}
-              </a>
-            </div>
           </div>
 
           <p className="font-mono text-xs text-white/60">
              © {new Date().getFullYear()} NuTeam
-          </p>
-        </div>
-
-        <div className="mt-14 flex items-center gap-3 border-t border-white/10 pt-6">
-          <span className="h-1.5 w-1.5 shrink-0 bg-volt" aria-hidden />
-          <p className="font-mono text-[10px] font-medium uppercase tracking-[0.24em] text-white/60">
-            {english
-              ? "We assess operational processes and automate when viable"
-              : "Evaluamos procesos operativos y automatizamos cuando es viable"}
           </p>
         </div>
 

@@ -35,7 +35,7 @@ export default function Home() {
 
       <ContactSection locale="es" />
 
-      <Footer locale="es" />
+      <Footer />
     </main>
   );
 }

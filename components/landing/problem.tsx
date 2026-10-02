@@ -1,4 +1,3 @@
-import Eyebrow from "./eyebrow";
 import Reveal from "./reveal";
 import { isEnglish, type Locale } from "@/lib/locale";
 
@@ -39,14 +38,8 @@ export default function Problem({ locale }: { locale: Locale }) {
     <section className="relative overflow-hidden bg-paper py-24 text-ink lg:py-36">
       <div className="mx-auto grid max-w-[1440px] gap-14 px-6 lg:grid-cols-12 lg:gap-10 lg:px-10">
         <div className="lg:col-span-5">
-          <Reveal>
-            <Eyebrow index="01" tone="light">
-              {english ? "The problem" : "El problema"}
-            </Eyebrow>
-          </Reveal>
-
           <Reveal delay={80}>
-            <h2 className="mt-7 text-4xl font-semibold tracking-[-0.03em] sm:text-5xl lg:text-[3.4rem] lg:leading-[1.02]">
+            <h2 className="text-4xl font-semibold tracking-[-0.03em] sm:text-5xl lg:text-[3.4rem] lg:leading-[1.02]">
               {english
                 ? "Your team should not spend hours on work that AI can perform."
                 : "Tu equipo no debería dedicar horas a tareas que una IA puede ejecutar."}

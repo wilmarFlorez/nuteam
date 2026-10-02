@@ -1,5 +1,4 @@
 import ContactForm from "./contact_form";
-import Eyebrow from "./eyebrow";
 import Reveal from "./reveal";
 import { isEnglish, type Locale } from "@/lib/locale";
 
@@ -22,12 +21,8 @@ export default function ContactSection({ locale }: { locale: Locale }) {
     <section id="contacto" className="bg-ink py-24 text-white lg:py-36">
       <div className="mx-auto grid max-w-[1440px] gap-14 px-6 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20 lg:px-10">
         <div>
-          <Reveal>
-            <Eyebrow index="06">{english ? "Let us talk" : "Hablemos"}</Eyebrow>
-          </Reveal>
-
           <Reveal delay={80}>
-            <h2 className="mt-7 text-4xl font-semibold tracking-[-0.03em] sm:text-5xl">
+            <h2 className="text-4xl font-semibold tracking-[-0.03em] sm:text-5xl">
               {english ? "Tell us which process creates the most manual work or delays." : "Cuéntanos qué proceso genera más trabajo manual o demoras."}
             </h2>
           </Reveal>
