@@ -1,28 +1,40 @@
 import Reveal from "./reveal";
 import { isEnglish, type Locale } from "@/lib/locale";
+import {
+  CreditCard,
+  FileText,
+  Headset,
+  Network,
+  TrendingUp,
+} from "lucide-react";
 
 const spanishUseCases = [
   {
     title: "Atención al cliente",
+    icon: Headset,
     description:
       "Automatiza conversaciones, solicitudes y tareas de soporte.",
   },
   {
     title: "Ventas",
+    icon: TrendingUp,
     description: "Califica leads, responde preguntas y ejecuta seguimientos.",
   },
   {
     title: "Cobranza",
+    icon: CreditCard,
     description:
       "Automatiza contacto, recordatorios y seguimiento de pagos.",
   },
   {
     title: "Operaciones",
+    icon: Network,
     description:
       "Estructura solicitudes, valida datos y conecta procesos entre diferentes sistemas.",
   },
   {
     title: "Backoffice",
+    icon: FileText,
     description:
       "Procesa información, documentos y solicitudes automáticamente.",
   },
@@ -32,11 +44,34 @@ export default function UseCases({ locale }: { locale: Locale }) {
   const english = isEnglish(locale);
   const useCases = english
     ? [
-        { title: "Customer service", description: "Automate conversations, requests, and support tasks." },
-        { title: "Sales", description: "Qualify leads, answer questions, and follow up." },
-        { title: "Collections", description: "Automate outreach, reminders, and payment follow-up." },
-        { title: "Operations", description: "Structure requests, validate data, and connect processes across systems." },
-        { title: "Back office", description: "Process information, documents, and requests automatically." },
+        {
+          title: "Customer service",
+          icon: Headset,
+          description: "Automate conversations, requests, and support tasks.",
+        },
+        {
+          title: "Sales",
+          icon: TrendingUp,
+          description: "Qualify leads, answer questions, and follow up.",
+        },
+        {
+          title: "Collections",
+          icon: CreditCard,
+          description:
+            "Automate outreach, reminders, and payment follow-up.",
+        },
+        {
+          title: "Operations",
+          icon: Network,
+          description:
+            "Structure requests, validate data, and connect processes across systems.",
+        },
+        {
+          title: "Back office",
+          icon: FileText,
+          description:
+            "Process information, documents, and requests automatically.",
+        },
       ]
     : spanishUseCases;
   return (
@@ -64,6 +99,10 @@ export default function UseCases({ locale }: { locale: Locale }) {
           {useCases.map((useCase, index) => (
             <Reveal key={useCase.title} delay={index * 60}>
               <article className="group flex min-h-56 flex-col bg-coal p-7 transition-colors duration-300 hover:bg-white/[0.04] lg:p-8">
+                <span className="flex size-10 shrink-0 items-center justify-center border border-volt/30 bg-volt/[0.05] text-volt transition-colors duration-300 group-hover:border-volt group-hover:bg-volt group-hover:text-ink">
+                  <useCase.icon size={20} strokeWidth={1.6} aria-hidden="true" />
+                </span>
+
                 <h3 className="mt-auto text-2xl font-semibold tracking-tight transition-colors duration-300 group-hover:text-volt sm:text-[1.75rem]">
                   {useCase.title}
                 </h3>

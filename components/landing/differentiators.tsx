@@ -1,5 +1,6 @@
 import Reveal from "./reveal";
 import { isEnglish, type Locale } from "@/lib/locale";
+import { Check } from "lucide-react";
 
 const spanishDifferentiators = [
   {
@@ -54,8 +55,8 @@ export default function Differentiators({ locale }: { locale: Locale }) {
                   className="group relative grid gap-4 border-b border-white/10 py-8 pl-4 transition-colors duration-300 hover:bg-white/[0.03] md:grid-cols-[40px_1fr] md:gap-6 md:py-10"
                 >
                   <div>
-                    <span className="flex h-8 w-8 items-center justify-center border border-white/20 bg-white/[0.02] font-mono text-sm text-volt transition-colors duration-300 group-hover:border-volt/60 group-hover:bg-volt/[0.06]" aria-hidden>
-                      ✓
+                    <span className="flex h-8 w-8 items-center justify-center border border-white/20 bg-white/[0.02] text-volt transition-colors duration-300 group-hover:border-volt/60 group-hover:bg-volt/[0.06]">
+                      <Check size={16} strokeWidth={1.75} aria-hidden="true" />
                     </span>
                   </div>
 
