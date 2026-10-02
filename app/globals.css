@@ -12,19 +12,8 @@
   --font-sans: var(--font-archivo);
   --font-mono: var(--font-plex-mono);
 
-  --animate-float: float 9s ease-in-out infinite;
   --animate-scan: scan 3.2s linear infinite;
   --animate-fade-up: fade-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
-
-  @keyframes float {
-    0%,
-    100% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(-10px);
-    }
-  }
 
   @keyframes scan {
     0% {
@@ -84,6 +73,30 @@ body {
     transparent 0
   );
   background-size: 26px 26px;
+}
+
+.hero-particle-canvas {
+  mask-image: linear-gradient(90deg, #000 0%, #000 78%, transparent 100%);
+  -webkit-mask-image: linear-gradient(90deg, #000 0%, #000 78%, transparent 100%);
+}
+
+@media (min-width: 64rem) {
+  .hero-particle-canvas {
+    mask-image: linear-gradient(
+      90deg,
+      transparent 0%,
+      #000 22%,
+      #000 78%,
+      transparent 100%
+    );
+    -webkit-mask-image: linear-gradient(
+      90deg,
+      transparent 0%,
+      #000 22%,
+      #000 78%,
+      transparent 100%
+    );
+  }
 }
 
 .reveal {

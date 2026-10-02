@@ -1,140 +1,19 @@
 import Reveal from "./reveal";
+import ParticleNetwork from "./particle_network";
 import TrackedLink from "./tracked_link";
 import { isEnglish, type Locale } from "@/lib/locale";
 
 const channels = ["Voz", "WhatsApp", "Email", "Workflows"];
-
-const spanishLogLines = [
-  {
-    time: "12:41:07",
-    tag: "ENTRADA",
-    text: "WhatsApp · \"¿Estado de mi pedido?\"",
-  },
-  {
-    time: "12:41:08",
-    tag: "CONTEXTO",
-    text: "CRM verificado · cliente #2841",
-  },
-  {
-    time: "12:41:09",
-    tag: "ACCIÓN",
-    text: "Ticket creado · prioridad alta",
-  },
-  {
-    time: "12:41:09",
-    tag: "SALIDA",
-    text: "Respuesta enviada",
-  },
-];
-
-function AgentPanel({ locale }: { locale: Locale }) {
-  const english = isEnglish(locale);
-  const logLines = english
-    ? [
-        { time: "12:41:07", tag: "INPUT", text: "WhatsApp · \"Where is my order?\"" },
-        { time: "12:41:08", tag: "CONTEXT", text: "CRM verified · customer #2841" },
-        { time: "12:41:09", tag: "ACTION", text: "Ticket created · high priority" },
-        { time: "12:41:09", tag: "OUTPUT", text: "Response sent" },
-      ]
-    : spanishLogLines;
-  return (
-    <div className="relative overflow-hidden border border-white/15 bg-coal shadow-[0_24px_80px_rgb(0_0_0_/_0.28)]">
-      <span className="absolute -left-px -top-px h-4 w-4 border-l border-t border-volt" />
-      <span className="absolute -right-px -bottom-px h-4 w-4 border-b border-r border-volt" />
-
-      <div className="flex items-center justify-between border-b border-white/10 bg-white/[0.025] px-5 py-4 sm:px-6">
-        <div className="flex items-center gap-3">
-          <span className="relative flex h-2.5 w-2.5">
-            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-volt opacity-40" />
-            <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-volt shadow-[0_0_12px_#ffb800]" />
-          </span>
-          <div>
-            <span className="font-mono text-[10px] font-medium uppercase tracking-[0.22em] text-white/90">
-              {english ? "Live agent" : "Agente en vivo"}
-            </span>
-            <p className="mt-0.5 font-mono text-[9px] uppercase tracking-[0.16em] text-white/45">
-              {english ? "Order support" : "Atención de pedidos"}
-            </p>
-          </div>
-        </div>
-
-        <span className="border border-volt/35 bg-volt/10 px-2.5 py-1 font-mono text-[9px] font-medium uppercase tracking-[0.16em] text-volt">
-          {english ? "Running" : "En ejecución"}
-        </span>
-      </div>
-
-      <div className="px-5 py-5 sm:px-6">
-        <div className="mb-3 flex items-center justify-between font-mono text-[9px] uppercase tracking-[0.18em] text-white/45">
-          <span>{english ? "Execution trace" : "Traza de ejecución"}</span>
-          <span>{english ? "04 events" : "04 eventos"}</span>
-        </div>
-
-        <div className="relative space-y-1 before:absolute before:bottom-3 before:left-[63px] before:top-3 before:w-px before:bg-white/15 sm:before:left-[71px]">
-          {logLines.map((line, index) => (
-            <div
-              key={line.text}
-              className="relative grid grid-cols-[48px_7px_minmax(0,1fr)] items-start gap-x-3 py-2 sm:grid-cols-[56px_7px_minmax(0,1fr)]"
-            >
-              <span className="pt-1 font-mono text-[10px] tabular-nums text-white/45 sm:text-[11px]">
-                {line.time}
-              </span>
-              <span
-                className={`z-10 mt-1.5 h-2 w-2 border border-coal ${
-                  index === logLines.length - 1 ? "bg-volt shadow-[0_0_8px_#ffb800]" : "bg-white/55"
-                }`}
-              />
-              <div
-                className={`min-w-0 px-2.5 py-1.5 ${
-                  index === logLines.length - 1 ? "border-l-2 border-volt bg-volt/[0.08]" : ""
-                }`}
-              >
-                <div className="flex flex-wrap items-baseline gap-x-2 gap-y-0.5 font-mono text-[10px] leading-5 sm:text-[11px]">
-                  <span className="font-medium tracking-[0.08em] text-white/90">{line.tag}</span>
-                  <span className="text-volt" aria-hidden>→</span>
-                  <span className="text-white/70">{line.text}</span>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      <div className="grid grid-cols-1 divide-y divide-white/10 border-t border-white/10 sm:grid-cols-3 sm:divide-x sm:divide-y-0">
-        <div className="px-5 py-4 sm:px-6">
-          <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-white/55">
-            {english ? "Mode" : "Modo"}
-          </p>
-          <p className="mt-1.5 text-sm font-medium text-white">{english ? "Defined process" : "Proceso definido"}</p>
-        </div>
-
-        <div className="px-5 py-4 sm:px-6">
-          <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-white/55">
-            {english ? "Channels" : "Canales"}
-          </p>
-          <p className="mt-1.5 text-sm font-medium text-white">Voz · WhatsApp</p>
-        </div>
-
-        <div className="px-5 py-4 sm:px-6">
-          <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-white/55">
-            {english ? "Systems" : "Sistemas"}
-          </p>
-          <p className="mt-1.5 text-sm font-medium text-white">{english ? "To be assessed" : "Por evaluar"}</p>
-        </div>
-      </div>
-    </div>
-  );
-}
 
 export default function Hero({ locale }: { locale: Locale }) {
   const english = isEnglish(locale);
   return (
     <section className="relative min-h-svh overflow-hidden bg-ink pt-32 sm:pt-36 lg:flex lg:flex-col lg:pt-44">
       <div className="absolute inset-0 bg-dots" />
-      <div className="absolute -right-48 top-16 h-[520px] w-[520px] rounded-full bg-volt/[0.05] blur-3xl" />
       <div className="pointer-events-none absolute inset-x-0 bottom-0 h-36 bg-gradient-to-b from-transparent to-ink" />
 
       <div className="relative mx-auto grid max-w-[1440px] gap-14 px-6 pb-24 lg:flex-1 lg:items-center lg:grid-cols-12 lg:gap-10 lg:px-10 lg:pb-32">
-        <div className="lg:col-span-7 xl:pr-12">
+        <div className="relative z-10 lg:col-span-7 xl:pr-12">
           <Reveal>
             <h1 className="text-[2.75rem] font-semibold leading-[0.95] tracking-[-0.04em] sm:text-6xl lg:text-7xl xl:text-[5.25rem]">
               {english
@@ -146,8 +25,8 @@ export default function Hero({ locale }: { locale: Locale }) {
           <Reveal delay={160}>
             <p className="mt-8 max-w-xl text-lg leading-8 text-white/55">
               {english
-                ? "We assess repetitive, high-volume processes spread across multiple systems to determine whether AI automation may be viable."
-                : "Evaluamos procesos repetitivos, de alto volumen o repartidos entre varios sistemas para determinar si una automatización con IA puede ser viable."}
+                ? "We design automations with AI for repetitive, high-volume processes that span multiple systems."
+                : "Diseñamos automatizaciones con IA para procesos repetitivos, de alto volumen o distribuidos entre sistemas."}
             </p>
           </Reveal>
 
@@ -192,11 +71,9 @@ export default function Hero({ locale }: { locale: Locale }) {
           </Reveal>
         </div>
 
-        <div className="lg:col-span-5 lg:pt-8">
-          <Reveal delay={200} className="lg:sticky lg:top-28">
-            <div className="animate-float">
-              <AgentPanel locale={locale} />
-            </div>
+        <div className="relative order-2 mx-auto aspect-[1.15/1] w-full max-w-[40rem] lg:absolute lg:inset-y-0 lg:-right-[16vw] lg:z-0 lg:mx-0 lg:aspect-auto lg:w-[70vw] lg:max-w-[90rem]">
+          <Reveal delay={200} className="h-full w-full">
+            <ParticleNetwork />
           </Reveal>
         </div>
       </div>
