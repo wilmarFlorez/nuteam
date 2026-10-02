@@ -10,6 +10,12 @@ const inputClass =
 const labelClass =
   "mb-3 block font-mono text-[10px] font-medium uppercase tracking-[0.2em] text-white/85";
 
+const requiredMarker = (
+  <span aria-hidden="true" className="ml-1 font-bold text-volt">
+    *
+  </span>
+);
+
 export default function ContactForm({ locale }: { locale: Locale }) {
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -121,10 +127,25 @@ export default function ContactForm({ locale }: { locale: Locale }) {
       }}
       className="space-y-9"
     >
+      <p className="font-mono text-xs leading-5 text-white/70">
+        {english ? (
+          <>
+            Fields marked with <span className="font-bold text-volt">*</span> are
+            required. WhatsApp / phone is optional.
+          </>
+        ) : (
+          <>
+            Los campos marcados con <span className="font-bold text-volt">*</span>{" "}
+            son obligatorios. WhatsApp / teléfono es opcional.
+          </>
+        )}
+      </p>
+
       <div className="grid gap-9 sm:grid-cols-2">
         <div>
           <label htmlFor="name" className={labelClass}>
             {english ? "Name" : "Nombre"}
+            {requiredMarker}
           </label>
 
           <input
@@ -140,6 +161,7 @@ export default function ContactForm({ locale }: { locale: Locale }) {
         <div>
           <label htmlFor="company" className={labelClass}>
             {english ? "Company" : "Empresa"}
+            {requiredMarker}
           </label>
 
           <input
@@ -157,6 +179,7 @@ export default function ContactForm({ locale }: { locale: Locale }) {
         <div>
           <label htmlFor="role" className={labelClass}>
             {english ? "Role" : "Cargo"}
+            {requiredMarker}
           </label>
 
           <input
@@ -172,6 +195,7 @@ export default function ContactForm({ locale }: { locale: Locale }) {
         <div>
           <label htmlFor="email" className={labelClass}>
             {english ? "Work email" : "Email corporativo"}
+            {requiredMarker}
           </label>
 
           <input
@@ -187,9 +211,9 @@ export default function ContactForm({ locale }: { locale: Locale }) {
 
       <div>
         <label htmlFor="phone" className={labelClass}>
-            {english
-              ? "WhatsApp / phone (optional)"
-              : "WhatsApp / teléfono (opcional)"}
+          {english
+            ? "WhatsApp / phone (optional)"
+            : "WhatsApp / teléfono (opcional)"}
         </label>
 
         <input
@@ -203,9 +227,10 @@ export default function ContactForm({ locale }: { locale: Locale }) {
 
       <div>
         <label htmlFor="process" className={labelClass}>
-            {english
-              ? "Which process creates the most manual work or delays?"
-              : "¿Qué proceso genera más trabajo manual o demoras?"}
+          {english
+            ? "Which process creates the most manual work or delays?"
+            : "¿Qué proceso genera más trabajo manual o demoras?"}
+          {requiredMarker}
         </label>
 
         <textarea
@@ -214,17 +239,20 @@ export default function ContactForm({ locale }: { locale: Locale }) {
           required
           rows={5}
           className={`${inputClass} resize-none`}
-            placeholder={english
+          placeholder={
+            english
               ? "Describe what happens today, who is involved, how often it happens, and what part is repeated."
-              : "Describe qué ocurre hoy, quién participa, con qué frecuencia ocurre y qué parte se repite."}
+              : "Describe qué ocurre hoy, quién participa, con qué frecuencia ocurre y qué parte se repite."
+          }
         />
       </div>
 
       <div>
         <label htmlFor="volume" className={labelClass}>
-            {english
-              ? "What approximate volume does this process handle?"
-              : "¿Qué volumen maneja aproximadamente este proceso?"}
+          {english
+            ? "What approximate volume does this process handle?"
+            : "¿Qué volumen maneja aproximadamente este proceso?"}
+          {requiredMarker}
         </label>
 
         <div className="relative">
@@ -261,7 +289,7 @@ export default function ContactForm({ locale }: { locale: Locale }) {
           </select>
 
           <span
-            className="pointer-events-none absolute bottom-3 right-0 font-mono text-sm text-volt"
+            className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 font-mono text-sm text-volt"
             aria-hidden
           >
             ▾
@@ -274,6 +302,7 @@ export default function ContactForm({ locale }: { locale: Locale }) {
           {english
             ? "What happens when this process is not performed correctly or on time?"
             : "¿Qué ocurre cuando este proceso no se ejecuta correctamente o a tiempo?"}
+          {requiredMarker}
         </label>
 
         <textarea
