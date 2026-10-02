@@ -187,7 +187,9 @@ export default function ContactForm({ locale }: { locale: Locale }) {
 
       <div>
         <label htmlFor="phone" className={labelClass}>
-            {english ? "WhatsApp / phone" : "WhatsApp / teléfono"}
+            {english
+              ? "WhatsApp / phone (optional)"
+              : "WhatsApp / teléfono (opcional)"}
         </label>
 
         <input

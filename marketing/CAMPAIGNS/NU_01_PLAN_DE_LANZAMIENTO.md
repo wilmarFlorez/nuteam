@@ -1,21 +1,23 @@
 # Plan de lanzamiento — NU_01 Google Search para NuTeam
 
-**Estado:** listo para configurar después de cerrar pendientes; no activado.  
-**Versión:** 1.0 · 1 de octubre de 2026.  
+**Estado:** objetivo y presupuesto de NU_01 aprobados por Wilmar; el 6 de octubre es un punto de decisión entre extender la campaña personal o dar `GO` a NuTeam. La fecha de activación de NU_01 no está confirmada.
+
+**Versión:** 1.2 · 2 de octubre de 2026.
+
 **Identificador propuesto en Google Ads:** `CO_Search_NuTeam_Automatizacion_01`.  
 **Documentos relacionados:** [brief de campaña](NU_01_GOOGLE_SEARCH_AUTOMATIZACION.md), [checklist de lanzamiento](NU_01_CHECKLIST_LANZAMIENTO.md), [experimento entre landings](../EXPERIMENTS/EX_01_WILMAR_VS_NUTEAM.md).
 
-## Decisión que se propone
+## Decisión de campaña
 
 Crear una campaña de Búsqueda separada para NuTeam en la cuenta actual de Google Ads. Enviar sus anuncios a `nuteam.ai`, medir su formulario y leads en los sistemas propios de NuTeam, y no mezclar sus contactos con la hoja del portafolio personal.
 
-La campaña personal todavía tiene una ventana de observación programada hasta el **5 de octubre**, con revisión prevista el **6 de octubre**. La recomendación por defecto es completar esa revisión y después decidir si se pausa la campaña personal de automatización antes de lanzar NU_01. Ambas pueden coexistir solo si se aprueban presupuesto combinado y tratamiento del solapamiento de búsquedas. Mantener dos campañas no crea por sí solo una prueba A/B.
+El **6 de octubre** Wilmar revisará los resultados de la campaña personal y decidirá si la extiende o da `GO` a NU_01. Es un punto de decisión, no una fecha asegurada de activación; si NU_01 recibe `GO`, su inicio se fijará después de completar el checklist y verificar producción. Las campañas y sus presupuestos se administran por separado. Las capturas aportadas por Wilmar muestran `Campaign #1` habilitada/apta, con presupuesto de COP 34.000 diarios promedio; las listas visibles incluyen palabras clave coincidentes con las candidatas de NU_01. El rango de métricas seleccionado es 25 de septiembre–1 de octubre de 2026. NU_01 todavía no está activa, así que no se ha observado solapamiento simultáneo. La decisión del 6 debe evitar que ambas queden activas por defecto; si Wilmar decide hacerlas coexistir, el gasto de la cuenta será la suma de sus presupuestos independientes. Mantener dos campañas no crea por sí solo una prueba A/B.
 
 ## Objetivo, audiencia y oferta
 
 ### Objetivo único
 
-**Meta propuesta, pendiente de aprobación:** conseguir **3 conversaciones cualificadas en 30 días de pauta activa**. Reutiliza la meta de la primera campaña, pero no es una promesa de resultado ni un benchmark validado para NuTeam.
+**Meta aprobada por Wilmar el 2 de octubre de 2026:** conseguir **3 conversaciones cualificadas en 30 días de pauta activa**. Es una meta de negocio, no una conversión automática de Google Ads ni una promesa de resultado o benchmark validado para NuTeam.
 
 Una conversión de formulario indica que el envío llegó correctamente. La conversación se marca como cualificada solo después de verificar un proceso real, entradas identificables, interés en evaluar una implementación y acceso del contacto a la decisión o a quien la toma.
 
@@ -174,12 +176,12 @@ La landing es bilingüe. La campaña inicial se configura en español para Colom
 
 ## Presupuesto, duración y decisión frente a la campaña actual
 
-### Escenario propuesto, pendiente de aprobación
+### Presupuesto aprobado para NU_01
 
-Como punto de partida comparable, considerar **COP 34.000 diarios promedio durante hasta 30 días de pauta activa**, con un **límite operativo de gasto total de COP 1.000.000**. Es una propuesta basada en la escala orientativa usada en la campaña personal, no dinero ya aprobado ni gasto garantizado. El presupuesto diario promedio no es un tope diario rígido ni configura por sí solo un límite total automático en la cuenta; Wilmar debe revisar el gasto acumulado y pausar antes de superar el límite operativo aprobado.
+Wilmar aprobó para NU_01 **COP 34.000 diarios promedio** y un **tope operativo de COP 1.000.000 para esta campaña**, durante hasta 30 días de pauta activa. Es un presupuesto independiente: no se toma del presupuesto personal ni lo comparte. El presupuesto diario promedio no es un tope diario rígido ni configura por sí solo un límite total automático; Wilmar debe revisar el gasto acumulado de NU_01 y pausarla antes de superar su tope operativo. Estos valores no son un límite total de gasto de la cuenta si otra campaña también está activa.
 
-- Si solo NU_01 está activa, ese es el tope propuesto para la prueba.
-- Si ambas campañas corren a la vez, aprobar un **límite combinado** antes de habilitar la segunda; no sumar automáticamente otros COP 34.000/día.
+- El tope de COP 1.000.000 corresponde solo a NU_01; el presupuesto de la campaña personal se administra por separado en su proyecto.
+- Si ambas campañas corren a la vez en la misma cuenta, revisar el gasto diario y acumulado combinado de la cuenta para entender la exposición total. No interpretar el tope de NU_01 como tope de cuenta ni alterar el presupuesto personal desde este plan.
 - Si el presupuesto disponible no permite una prueba completa de 30 días, fijar antes el gasto máximo operativo y describir el período como piloto reducido.
 - No ampliar presupuesto por CTR, recomendaciones automáticas de Google o falta de conversiones sin una decisión documentada.
 
@@ -191,16 +193,16 @@ En el corte del 29–30 de septiembre, el término visible `automatizaciones par
 
 | Momento | Acción | Responsable |
 | --- | --- | --- |
-| 1–5 oct. 2026 | Mantener la ventana de observación vigente de wlanding; preparar assets y corregir bloqueadores de NuTeam sin cambiar la campaña comparada. | Wilmar aprueba; apoyo prepara y revisa |
-| 6 oct. 2026 | Cerrar la revisión documentada de wlanding; decidir pausa/continuidad, presupuesto combinado y fecha de NU_01. | Wilmar |
-| Antes del inicio | Completar checklist, configurar campaña en borrador, probar URL, formulario y conversiones; obtener aprobación final del gasto. | Wilmar; apoyo técnico según tarea |
+| Antes del 6 oct. 2026 | Corregir bloqueadores de NuTeam, probar activos e instrumentación y verificar el estado actual de la otra campaña en Ads sin cambiar su presupuesto desde este plan. | Wilmar; apoyo prepara y revisa |
+| 6 oct. 2026 (punto de decisión) | Revisar los resultados de la campaña personal en su proyecto y decidir si se extiende o se da `GO` a NU_01. Esta fecha no confirma la activación de NuTeam. | Wilmar |
+| Antes del inicio de NU_01 | Si recibe `GO`, completar checklist, configurar campaña en borrador, probar URL, formulario y conversiones, y fijar la fecha de activación. | Wilmar; apoyo técnico según tarea |
 | Día de activación | Activar solo tras checklist completo; guardar captura/exportación de configuración y hora de inicio. | Wilmar |
 | Primeras 48 h | Confirmar estado apto, destino, impresiones, gasto, envío a Sheets y conversión; corregir de inmediato cualquier fallo técnico. No hacer clic en anuncios propios. | Wilmar |
 | Diario | Revisar estado, gasto acumulado y nuevos formularios para respetar el límite operativo; registrar, sin optimizar copy por fluctuaciones de un día. | Wilmar |
 | Día 7 y semanal | Revisar términos visibles, grupos y calidad de formularios; cambiar solo ante evidencia suficiente, fallo o tráfico inequívocamente irrelevante. | Wilmar; apoyo en análisis |
 | Día 30 o al alcanzar el tope | Cerrar ventana, calificar contactos, calcular costo por lead cualificado cuando el denominador exista y documentar decisión. | Wilmar |
 
-La fecha de activación es **pendiente**: no está fijada hasta que se aprueben los pendientes de la revisión del 6 de octubre y el presupuesto.
+La fecha de activación de NU_01 **no está confirmada**. El **6 de octubre de 2026** es el punto para decidir si extender la campaña personal o dar `GO` a NuTeam; la campaña de NuTeam solo se inicia después de esa decisión y de completar el checklist.
 
 ## Medición, conversiones y Sheets
 

@@ -101,3 +101,8 @@ La campaña NU_01 de Google Search es un borrador, no una campaña confirmada co
 activa. Puede compartir la cuenta de Google Ads con el portafolio de Wilmar, pero
 mantiene su propio destino, conversión y hoja de leads; su presupuesto requiere
 aprobación y coordinación con cualquier otra campaña activa.
+
+En este repositorio, OpenCode abre por defecto el agente `Marketing_Director`, que
+revisa el siguiente paso de marketing al iniciar cada sesión. Para una sesión
+centrada en desarrollo, cambia al agente `build` con Tab. Tras cambiar la
+configuración de OpenCode, reinícialo para aplicar el nuevo agente por defecto.

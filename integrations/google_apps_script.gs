@@ -4,7 +4,7 @@ const ALLOWED_FIELDS = [
   "impact", "source", "utm", "attribution",
 ];
 const REQUIRED_FIELDS = [
-  "name", "company", "role", "email", "phone", "process", "volume", "impact",
+  "name", "company", "role", "email", "process", "volume", "impact",
 ];
 const ALLOWED_UTM_FIELDS = ["source", "medium", "campaign", "term", "content"];
 const ALLOWED_ATTRIBUTION_FIELDS = [
@@ -31,7 +31,8 @@ function doPost(event) {
     try {
       sheet.appendRow([
         new Date(), data.name, data.company, data.role, data.email,
-        data.phone, data.process, data.volume, data.impact, data.source || "landing",
+        data.phone ? data.phone.trim() : "", data.process, data.volume, data.impact,
+        data.source || "landing",
         data.utm ? data.utm.source || "" : "",
         data.utm ? data.utm.medium || "" : "",
         data.utm ? data.utm.campaign || "" : "",
@@ -66,6 +67,12 @@ function validateLead(data) {
       throw new Error("El campo " + field + " es obligatorio.");
     }
   });
+  if (
+    data.phone !== undefined &&
+    (typeof data.phone !== "string" || data.phone.length > 50)
+  ) {
+    throw new Error("El teléfono no es válido.");
+  }
   if (!/^\S+@\S+\.\S+$/.test(data.email.trim())) throw new Error("El email no es válido.");
   if (data.source !== undefined && (typeof data.source !== "string" || !data.source.trim())) {
     throw new Error("La fuente no es válida.");
