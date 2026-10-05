@@ -1,10 +1,10 @@
 # Borrador NU_01 — Google Ads Search para automatización operativa
 
-**Estado:** propuesta; objetivo y presupuesto aprobados, pero no consta como campaña creada o activa en Google Ads. El 6 de octubre es el punto de decisión entre extender la campaña personal o dar `GO` a NU_01; no es fecha de activación confirmada.
-**Fecha del borrador:** 2 de octubre de 2026.
+**Estado:** propuesta; objetivo y presupuesto aprobados, pero no consta como campaña creada o activa en Google Ads. Wilmar decidirá al cierre del 5 de octubre si continúa la campaña personal o cambia a NU_01. Confirmó que no estarán activas simultáneamente; el 6 de octubre es una fecha posible de inicio, sujeta al checklist.
+**Fecha del borrador:** 5 de octubre de 2026.
 **Cuenta:** se propone usar la cuenta actual de Google Ads, con una campaña y conversión identificables para NuTeam.
 
-El plan completo, los anuncios candidatos y la calendarización están en [`NU_01_PLAN_DE_LANZAMIENTO.md`](NU_01_PLAN_DE_LANZAMIENTO.md). No activar hasta completar [`NU_01_CHECKLIST_LANZAMIENTO.md`](NU_01_CHECKLIST_LANZAMIENTO.md).
+El plan completo, los anuncios candidatos y la calendarización están en [`NU_01_PLAN_DE_LANZAMIENTO.md`](NU_01_PLAN_DE_LANZAMIENTO.md). Antes de activar, completar las verificaciones operativas y de Ads definidas en [`NU_01_CHECKLIST_LANZAMIENTO.md`](NU_01_CHECKLIST_LANZAMIENTO.md). El aviso de privacidad permanece pendiente y, por decisión de Wilmar, no es un bloqueo comercial; no se registra como legalmente revisado.
 
 ## Decisiones de campaña
 
@@ -15,8 +15,8 @@ El plan completo, los anuncios candidatos y la calendarización están en [`NU_0
 | Canal | Google Ads, Red de Búsqueda, en español. |
 | Landing | `https://www.nuteam.ai/`, sujeta a verificar URL final, formulario y analítica de producción. |
 | Conversación/CTA | Evaluar un proceso operativo concreto. Mantener `Evaluar un proceso` solo si NuTeam entregará realmente esa evaluación inicial. |
-| Presupuesto NU_01 | Aprobado por Wilmar el 2 de octubre: COP 34.000 diarios promedio y tope operativo de COP 1.000.000 para esta campaña. Es independiente del presupuesto personal; revisar la exposición total de la cuenta si ambas quedan activas. |
-| Duración | Hasta 30 días de pauta activa o hasta alcanzar el tope operativo; la fecha de inicio se fijará solo después del `GO` y del checklist completo. |
+| Presupuesto NU_01 | Aprobado por Wilmar el 2 de octubre: COP 34.000 diarios promedio y tope operativo de COP 1.000.000 para esta campaña. Es independiente del presupuesto personal; Wilmar confirmó que las campañas no correrán simultáneamente. |
+| Duración | Hasta 30 días de pauta activa o hasta alcanzar el tope operativo; la fecha de inicio se fijará solo después del `GO` y de completar las verificaciones operativas/de Ads para la salida. |
 | Responsable | Wilmar Florez Samudio aprueba segmentación, anuncios, gasto y calificación de leads. |
 
 ### Meta cuantitativa aprobada
@@ -58,8 +58,8 @@ Wilmar aprobó para NU_01 COP 34.000 diarios promedio y un tope operativo de COP
 
 Antes de activar NU_01, dejar por escrito:
 
-- si la campaña personal seguirá activa y si Wilmar aprueba que ambas campañas coexistan;
-- exposición diaria y acumulada combinada de la cuenta; el presupuesto de wlanding no se modifica desde NU_01;
+- si la campaña personal continúa o se pausa antes de activar NU_01; Wilmar confirmó que no habrá coexistencia;
+- presupuesto y fechas vigentes de la campaña elegida; el presupuesto de wlanding no se modifica desde NU_01;
 - fechas que se compararán y cambios que estarán permitidos;
 - cómo se evitará interpretar como experimento controlado una comparación entre campañas con distintos anuncios o configuraciones.
 
@@ -69,11 +69,11 @@ No aumentar ni duplicar gasto solo para que ambas campañas acumulen tráfico al
 
 ### Eventos de sitio
 
-El código de NuTeam contempla `page_view`, `cta_click`, `form_start`, `form_submit`, `scroll_50` y `scroll_90`. Verificar en producción el ID de GA4, la recepción de eventos y la respuesta real del endpoint. El envío de `form_submit` depende de éxito confirmado por Google Apps Script.
+El código de NuTeam contempla `page_view`, `cta_click`, `form_start`, `form_submit`, `scroll_50` y `scroll_90`. Wilmar confirmó que la variable de medición figura en Vercel para Production y Preview; falta verificar que una versión desplegada reciba eventos y revisar consentimiento. El código carga la etiqueta si el ID está presente en un build de producción; el envío de `form_submit` depende de éxito confirmado por Google Apps Script.
 
 ### Google Ads
 
-Crear o verificar una acción de conversión propia de NuTeam que se active solo al completar correctamente el formulario. Elegir una sola acción primaria por envío; si se importa el evento GA4 y se instala conversión directa de Ads, evitar doble conteo. Revisar configuración de objetivos de campaña, ventana y recuento en la interfaz antes del lanzamiento.
+Crear o verificar una acción de conversión propia de NuTeam que se active solo al completar correctamente el formulario. Elegir una sola acción primaria por envío; si se importa el evento GA4 y se instala conversión directa de Ads, evitar doble conteo. Si se opta por importar la conversión o se requieren informes de Ads dentro de GA4, vincular la cuenta de Google Ads elegida para NU_01 con la propiedad GA4 de NuTeam. Pueden ser logins distintos; hace falta acceso Editor o superior a GA4 y administrador en la cuenta Ads para gestionar el vínculo. Revisar objetivos, ventana y recuento en la interfaz antes del lanzamiento.
 
 ### Atribución y hoja
 
@@ -92,10 +92,10 @@ Google Ads puede entregar impresiones, clics y gasto. Los eventos GA4 requieren 
 ## Condiciones de activación
 
 - [x] Objetivo (3 conversaciones cualificadas en 30 días de pauta activa) y presupuesto propio de NU_01 (COP 34.000 diarios promedio; tope operativo COP 1.000.000) aprobados por Wilmar el 2 de octubre de 2026.
-- [ ] En el punto de decisión del 6 de octubre, Wilmar confirma si la campaña personal seguirá activa y qué campañas coexistirán; revisar el gasto combinado de la cuenta antes de activar.
+- [ ] Al cierre del 5 de octubre, Wilmar decide si continúa la campaña personal o cambia a NuTeam. Si cambia, confirmar que la personal está pausada antes de activar NU_01; las campañas no se solapan.
 - [ ] URL final de NuTeam y sufijo UTM probados en Google Ads, sin clics propios en anuncios activos.
-- [ ] Formulario probado en producción; envío visible en la hoja `Leads` y mensaje de éxito coherente con la respuesta del endpoint.
-- [ ] Aviso de privacidad/tratamiento revisado y versión publicada comprobada; retirar enlaces legales no sustituye esta revisión.
+- [x] Formulario probado en producción el 5 de octubre; el endpoint respondió correctamente, la landing mostró éxito y las filas de prueba llegaron a la hoja `Leads` de NuTeam. Son QA, no leads comerciales.
+- [ ] Aviso de privacidad/tratamiento pendiente por decisión de Wilmar; no se considera bloqueo comercial de campaña, pero tampoco está revisado ni validado. La retirada de enlaces legales no sustituye la revisión.
 - [ ] Confirmar en producción que el panel estático retirado ya no aparece. La fuente local ya no lo contiene (revisión del 2 de octubre de 2026).
 - [ ] GA4 activo y eventos verificados en DebugView o herramienta equivalente.
 - [ ] Conversión de Ads verificada después del envío exitoso, sin contar también el clic en CTA ni duplicar GA4.

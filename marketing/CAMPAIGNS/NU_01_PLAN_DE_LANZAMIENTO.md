@@ -1,8 +1,8 @@
 # Plan de lanzamiento — NU_01 Google Search para NuTeam
 
-**Estado:** objetivo y presupuesto de NU_01 aprobados por Wilmar; el 6 de octubre es un punto de decisión entre extender la campaña personal o dar `GO` a NuTeam. La fecha de activación de NU_01 no está confirmada.
+**Estado:** objetivo y presupuesto de NU_01 aprobados por Wilmar. Wilmar revisará la campaña personal al cierre del 5 de octubre y decidirá si continúa esa campaña o cambia a NuTeam; NU_01 no está activa. Wilmar decidió que el aviso de privacidad pendiente no es un bloqueo comercial para salir con la campaña. Su revisión y el tratamiento de datos siguen pendientes y no se consideran validados; la activación requiere completar las verificaciones operativas y de Ads restantes.
 
-**Versión:** 1.2 · 2 de octubre de 2026.
+**Versión:** 1.3 · 5 de octubre de 2026.
 
 **Identificador propuesto en Google Ads:** `CO_Search_NuTeam_Automatizacion_01`.  
 **Documentos relacionados:** [brief de campaña](NU_01_GOOGLE_SEARCH_AUTOMATIZACION.md), [checklist de lanzamiento](NU_01_CHECKLIST_LANZAMIENTO.md), [experimento entre landings](../EXPERIMENTS/EX_01_WILMAR_VS_NUTEAM.md).
@@ -11,7 +11,7 @@
 
 Crear una campaña de Búsqueda separada para NuTeam en la cuenta actual de Google Ads. Enviar sus anuncios a `nuteam.ai`, medir su formulario y leads en los sistemas propios de NuTeam, y no mezclar sus contactos con la hoja del portafolio personal.
 
-El **6 de octubre** Wilmar revisará los resultados de la campaña personal y decidirá si la extiende o da `GO` a NU_01. Es un punto de decisión, no una fecha asegurada de activación; si NU_01 recibe `GO`, su inicio se fijará después de completar el checklist y verificar producción. Las campañas y sus presupuestos se administran por separado. Las capturas aportadas por Wilmar muestran `Campaign #1` habilitada/apta, con presupuesto de COP 34.000 diarios promedio; las listas visibles incluyen palabras clave coincidentes con las candidatas de NU_01. El rango de métricas seleccionado es 25 de septiembre–1 de octubre de 2026. NU_01 todavía no está activa, así que no se ha observado solapamiento simultáneo. La decisión del 6 debe evitar que ambas queden activas por defecto; si Wilmar decide hacerlas coexistir, el gasto de la cuenta será la suma de sus presupuestos independientes. Mantener dos campañas no crea por sí solo una prueba A/B.
+Al cierre del **5 de octubre**, Wilmar revisará el período completo del 29 de septiembre al 5 de octubre y decidirá si continúa la campaña personal o cambia a NuTeam. Wilmar confirmó que no mantendrá ambas campañas activas simultáneamente: antes de cambiar, la campaña que deja de correr debe estar pausada. El **6 de octubre** es una fecha posible para NU_01, no una activación asegurada. Si Wilmar elige NuTeam, la salida depende de completar las verificaciones operativas y de configuración de Ads que siguen pendientes. Wilmar decidió que el aviso de privacidad aplazado no es un bloqueo comercial; queda registrado como seguimiento no resuelto, no como revisión legal completada. La evidencia guardada para la campaña personal llega al corte del 29–30 de septiembre: aún falta el informe actualizado para tomar la decisión. Las campañas son separadas y no constituyen por sí solas una prueba A/B.
 
 ## Objetivo, audiencia y oferta
 
@@ -193,16 +193,16 @@ En el corte del 29–30 de septiembre, el término visible `automatizaciones par
 
 | Momento | Acción | Responsable |
 | --- | --- | --- |
-| Antes del 6 oct. 2026 | Corregir bloqueadores de NuTeam, probar activos e instrumentación y verificar el estado actual de la otra campaña en Ads sin cambiar su presupuesto desde este plan. | Wilmar; apoyo prepara y revisa |
-| 6 oct. 2026 (punto de decisión) | Revisar los resultados de la campaña personal en su proyecto y decidir si se extiende o se da `GO` a NU_01. Esta fecha no confirma la activación de NuTeam. | Wilmar |
-| Antes del inicio de NU_01 | Si recibe `GO`, completar checklist, configurar campaña en borrador, probar URL, formulario y conversiones, y fijar la fecha de activación. | Wilmar; apoyo técnico según tarea |
-| Día de activación | Activar solo tras checklist completo; guardar captura/exportación de configuración y hora de inicio. | Wilmar |
+| 5 oct. 2026, cierre del día | Revisar la campaña personal del 29 sep.–5 oct. y decidir si continúa o cambia a NuTeam. Las fuentes guardadas revisadas llegan solo al 30 sep.; hacen falta datos recientes de Ads. | Wilmar; apoyo prepara la lectura |
+| 6 oct. 2026, si se elige NuTeam | Activar solo tras completar las verificaciones operativas/de Ads definidas como requisito de salida y confirmar que la campaña personal quedó pausada. El aviso de privacidad permanece pendiente por decisión de Wilmar y no se clasifica como bloqueo comercial; esto no lo marca como revisado. | Wilmar |
+| Antes del inicio de NU_01 | Completar las verificaciones operativas/de Ads para la salida, configurar la campaña en borrador, probar URL y UTMs, verificar conversión y fijar la fecha de activación. Mantener el aviso de privacidad como seguimiento pendiente no bloqueante según decisión de Wilmar. | Wilmar; apoyo técnico según tarea |
+| Día de activación | Activar solo tras verificar los requisitos operativos/de Ads definidos para la salida y confirmar que la campaña personal está pausada; guardar captura/exportación de configuración y hora de inicio. El aviso de privacidad sigue pendiente por decisión de Wilmar y no se clasifica como bloqueo comercial. | Wilmar |
 | Primeras 48 h | Confirmar estado apto, destino, impresiones, gasto, envío a Sheets y conversión; corregir de inmediato cualquier fallo técnico. No hacer clic en anuncios propios. | Wilmar |
 | Diario | Revisar estado, gasto acumulado y nuevos formularios para respetar el límite operativo; registrar, sin optimizar copy por fluctuaciones de un día. | Wilmar |
 | Día 7 y semanal | Revisar términos visibles, grupos y calidad de formularios; cambiar solo ante evidencia suficiente, fallo o tráfico inequívocamente irrelevante. | Wilmar; apoyo en análisis |
 | Día 30 o al alcanzar el tope | Cerrar ventana, calificar contactos, calcular costo por lead cualificado cuando el denominador exista y documentar decisión. | Wilmar |
 
-La fecha de activación de NU_01 **no está confirmada**. El **6 de octubre de 2026** es el punto para decidir si extender la campaña personal o dar `GO` a NuTeam; la campaña de NuTeam solo se inicia después de esa decisión y de completar el checklist.
+La fecha de activación de NU_01 **no está confirmada**. La decisión se tomará al cierre del 5 de octubre; el día 6 es una posibilidad de inicio, no una promesa. La campaña personal y NU_01 no correrán simultáneamente. No activar NU_01 mientras haya verificaciones operativas o de Ads pendientes que impidan medir correctamente o controlar el gasto. El aviso de privacidad sigue pendiente, pero Wilmar decidió que no sea un bloqueo comercial para la salida; no se marca como validado.
 
 ## Medición, conversiones y Sheets
 
@@ -220,7 +220,7 @@ Probar la sustitución de ValueTrack y que los valores llegan a la URL/hoja. No 
 
 ### GA4 y acciones de conversión
 
-El código de NuTeam contempla `page_view`, `cta_click`, `form_start`, `form_submit`, `scroll_50` y `scroll_90`. `form_start` se dispara al primer foco dentro del formulario; no confirma que el visitante haya diligenciado campos. `form_submit` se dispara después de una respuesta exitosa del endpoint. Confirmar la variable `NEXT_PUBLIC_GA_MEASUREMENT_ID` en producción y validar eventos con GA4 DebugView. Los eventos no registran errores de formulario; si se requiere esa métrica, agregarla en otra iteración y no reportarla como si ya existiera.
+El código de NuTeam contempla `page_view`, `cta_click`, `form_start`, `form_submit`, `scroll_50` y `scroll_90`. `form_start` se dispara al primer foco dentro del formulario; no confirma que el visitante haya diligenciado campos. `form_submit` se dispara después de una respuesta exitosa del endpoint. Wilmar mostró el 5 de octubre que `NEXT_PUBLIC_GA_MEASUREMENT_ID` está asignada en Vercel a Production y Preview; esto no prueba recepción en GA4. En el código revisado no se observa una compuerta de consentimiento, y el tracker puede emitir eventos si el despliegue usa el ID. Mantener pendiente la validación de eventos hasta revisar privacidad/consentimiento y confirmar si Preview comparte la propiedad. Los eventos no registran errores de formulario; si se requiere esa métrica, agregarla en otra iteración y no reportarla como si ya existiera.
 
 Configurar una conversión primaria de Ads de NuTeam —por ejemplo, `NU_Lead_Form_Success`— que se dispare después de la respuesta exitosa del formulario/Apps Script, no al clic de CTA ni al inicio del formulario. Para leads, revisar que el recuento esté configurado como una conversión por interacción cuando esa opción esté disponible. Mantener el evento GA4 como diagnóstico o elegir una sola fuente importada; no contar dos conversiones primarias para el mismo envío. No asignar valor monetario inventado. Asegurar que la campaña NU_01 optimice a la acción de NuTeam, no por accidente a una acción de la landing personal.
 
