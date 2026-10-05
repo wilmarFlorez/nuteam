@@ -35,22 +35,26 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${archivo.variable} ${plexMono.variable} h-full antialiased`}
     >
       <body className="min-h-full bg-ink font-sans text-white">
-        {children}
         {measurementId && isProduction ? (
           <>
+            {/* Define the gtag queue before hydration so the initial page_view can be queued. */}
             <Script
-              src={`https://www.googletagmanager.com/gtag/js?id=${measurementId}`}
-              strategy="afterInteractive"
-            />
-            <Script id="google-analytics-init" strategy="afterInteractive">
+              id="google-analytics-init"
+              strategy="beforeInteractive"
+            >
               {`window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 window.gtag = gtag;
 gtag('js', new Date());
 gtag('config', ${JSON.stringify(measurementId)}, { send_page_view: false });`}
             </Script>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${measurementId}`}
+              strategy="afterInteractive"
+            />
           </>
         ) : null}
+        {children}
       </body>
     </html>
   );
