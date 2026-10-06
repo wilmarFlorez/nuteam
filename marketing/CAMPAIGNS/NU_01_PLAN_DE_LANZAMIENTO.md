@@ -1,17 +1,17 @@
 # Plan de lanzamiento — NU_01 Google Search para NuTeam
 
-**Estado:** objetivo y presupuesto de NU_01 aprobados por Wilmar. Wilmar revisará la campaña personal al cierre del 5 de octubre y decidirá si continúa esa campaña o cambia a NuTeam; NU_01 no está activa. Wilmar decidió que el aviso de privacidad pendiente no es un bloqueo comercial para salir con la campaña. Su revisión y el tratamiento de datos siguen pendientes y no se consideran validados; la activación requiere completar las verificaciones operativas y de Ads restantes.
+**Estado:** objetivo y presupuesto aprobados por Wilmar. NU_01 se envió a revisión el 6 de octubre. La captura de Ads muestra la campaña habilitada, pero no apta mientras está en revisión; no hay confirmación de aprobación, entrega o gasto. La fecha prevista de inicio es el 7 de octubre de 2026. La prueba de destino pasó; en la muestra se expandieron `{adgroupid}` y `{creative}`, mientras `utm_term` quedó vacío. No se ha confirmado un clic real ni entrega a Leads. Términos y formalización siguen diferidos por decisión de Wilmar; no afirmar que NuTeam ya está constituida.
 
-**Versión:** 1.3 · 5 de octubre de 2026.
+**Versión:** 1.6 · 6 de octubre de 2026.
 
-**Identificador propuesto en Google Ads:** `CO_Search_NuTeam_Automatizacion_01`.  
+**Identificador en Google Ads:** `CO_Search_NuTeam_Automatizacion_01`.
 **Documentos relacionados:** [brief de campaña](NU_01_GOOGLE_SEARCH_AUTOMATIZACION.md), [checklist de lanzamiento](NU_01_CHECKLIST_LANZAMIENTO.md), [experimento entre landings](../EXPERIMENTS/EX_01_WILMAR_VS_NUTEAM.md).
 
 ## Decisión de campaña
 
-Crear una campaña de Búsqueda separada para NuTeam en la cuenta actual de Google Ads. Enviar sus anuncios a `nuteam.ai`, medir su formulario y leads en los sistemas propios de NuTeam, y no mezclar sus contactos con la hoja del portafolio personal.
+NU_01 se creó como campaña de Búsqueda separada para NuTeam en la cuenta actual de Google Ads y se envió a revisión el 6 de octubre. Sus anuncios dirigen a `nuteam.ai`; el formulario y los leads se miden en los sistemas propios de NuTeam, separados de la hoja del portafolio personal.
 
-Al cierre del **5 de octubre**, Wilmar revisará el período completo del 29 de septiembre al 5 de octubre y decidirá si continúa la campaña personal o cambia a NuTeam. Wilmar confirmó que no mantendrá ambas campañas activas simultáneamente: antes de cambiar, la campaña que deja de correr debe estar pausada. El **6 de octubre** es una fecha posible para NU_01, no una activación asegurada. Si Wilmar elige NuTeam, la salida depende de completar las verificaciones operativas y de configuración de Ads que siguen pendientes. Wilmar decidió que el aviso de privacidad aplazado no es un bloqueo comercial; queda registrado como seguimiento no resuelto, no como revisión legal completada. La evidencia guardada para la campaña personal llega al corte del 29–30 de septiembre: aún falta el informe actualizado para tomar la decisión. Las campañas son separadas y no constituyen por sí solas una prueba A/B.
+El **6 de octubre**, Wilmar confirmó que la campaña personal está pausada, que NU_01 será la siguiente campaña y que su fecha prevista de inicio es el **7 de octubre de 2026**. Las campañas no correrán simultáneamente según esta decisión. Wilmar envió NU_01 a revisión el 6 de octubre; la captura muestra estado habilitado pero no apto, con revisión pendiente, sin confirmar aprobación o entrega. La prueba de destino de Google Ads encontró la página y expandió `{adgroupid}` y `{creative}`; `utm_term` quedó vacío en la muestra. No se ha confirmado clic real ni llegada de UTM desde Ads a Leads. El siguiente control es revisar aprobación y estado real al inicio; no modificar la configuración solo por el término vacío de esta muestra. Wilmar decidió atender Términos y formalización de la empresa más adelante; no son bloqueos comerciales según su decisión, pero siguen pendientes. La situación legal no está validada y no se afirmará que NuTeam está constituida.
 
 ## Objetivo, audiencia y oferta
 
@@ -193,16 +193,15 @@ En el corte del 29–30 de septiembre, el término visible `automatizaciones par
 
 | Momento | Acción | Responsable |
 | --- | --- | --- |
-| 5 oct. 2026, cierre del día | Revisar la campaña personal del 29 sep.–5 oct. y decidir si continúa o cambia a NuTeam. Las fuentes guardadas revisadas llegan solo al 30 sep.; hacen falta datos recientes de Ads. | Wilmar; apoyo prepara la lectura |
-| 6 oct. 2026, si se elige NuTeam | Activar solo tras completar las verificaciones operativas/de Ads definidas como requisito de salida y confirmar que la campaña personal quedó pausada. El aviso de privacidad permanece pendiente por decisión de Wilmar y no se clasifica como bloqueo comercial; esto no lo marca como revisado. | Wilmar |
-| Antes del inicio de NU_01 | Completar las verificaciones operativas/de Ads para la salida, configurar la campaña en borrador, probar URL y UTMs, verificar conversión y fijar la fecha de activación. Mantener el aviso de privacidad como seguimiento pendiente no bloqueante según decisión de Wilmar. | Wilmar; apoyo técnico según tarea |
-| Día de activación | Activar solo tras verificar los requisitos operativos/de Ads definidos para la salida y confirmar que la campaña personal está pausada; guardar captura/exportación de configuración y hora de inicio. El aviso de privacidad sigue pendiente por decisión de Wilmar y no se clasifica como bloqueo comercial. | Wilmar |
+| 6 oct. 2026 | Wilmar confirmó NuTeam como próxima campaña y que la campaña personal está pausada. NU_01 se envió a revisión; Google indica que los anuncios se publicarán tras la revisión, sin confirmar aún aprobación o entrega. | Wilmar; apoyo documenta |
+| Antes de que empiece a servir | Destino probado y encontrado el 6 de octubre; revisar estado de aprobación/aptitud al inicio previsto del 7 de octubre. La muestra dejó `utm_term` vacío; no se trata como fallo ni se cambia el sufijo sin más evidencia. Si Ads rechaza el anuncio, diagnosticar el motivo antes de reanudar. Términos, formalización y aviso de privacidad siguen diferidos por decisión de Wilmar y no se marcan como revisados. | Wilmar; apoyo técnico según tarea |
+| Inicio previsto | Confirmar que el anuncio está apto y que la campaña personal sigue pausada; registrar impresiones y gasto desde la hora real de inicio. | Wilmar |
 | Primeras 48 h | Confirmar estado apto, destino, impresiones, gasto, envío a Sheets y conversión; corregir de inmediato cualquier fallo técnico. No hacer clic en anuncios propios. | Wilmar |
 | Diario | Revisar estado, gasto acumulado y nuevos formularios para respetar el límite operativo; registrar, sin optimizar copy por fluctuaciones de un día. | Wilmar |
 | Día 7 y semanal | Revisar términos visibles, grupos y calidad de formularios; cambiar solo ante evidencia suficiente, fallo o tráfico inequívocamente irrelevante. | Wilmar; apoyo en análisis |
 | Día 30 o al alcanzar el tope | Cerrar ventana, calificar contactos, calcular costo por lead cualificado cuando el denominador exista y documentar decisión. | Wilmar |
 
-La fecha de activación de NU_01 **no está confirmada**. La decisión se tomará al cierre del 5 de octubre; el día 6 es una posibilidad de inicio, no una promesa. La campaña personal y NU_01 no correrán simultáneamente. No activar NU_01 mientras haya verificaciones operativas o de Ads pendientes que impidan medir correctamente o controlar el gasto. El aviso de privacidad sigue pendiente, pero Wilmar decidió que no sea un bloqueo comercial para la salida; no se marca como validado.
+Wilmar confirmó el **6 de octubre** que la fecha prevista de inicio de NU_01 es el **7 de octubre de 2026** y envió la campaña a revisión. La captura de Ads muestra revisión pendiente; aún no hay confirmación de aprobación, entrega o gasto. La prueba de destino pasó, pero `utm_term` quedó vacío en la muestra y no se probó un clic real ni el flujo a Leads. Revisar estado y gasto en Google Ads al inicio previsto. La campaña personal está pausada según la confirmación de Wilmar. Aviso de privacidad, Términos y formalización se difieren por decisión de Wilmar y no son bloqueos comerciales; esto no implica revisión legal ni permite afirmar que la empresa ya está constituida.
 
 ## Medición, conversiones y Sheets
 
@@ -210,19 +209,19 @@ La fecha de activación de NU_01 **no está confirmada**. La decisión se tomar�
 
 Registrar por campaña: impresiones, clics, CTR, CPC, costo, grupos/keywords, términos visibles y conversiones. Mantener autoetiquetado habilitado y verificar URL final y UTMs con las herramientas de Google Ads; no generar `gclid` manual ni hacer clic en anuncios propios.
 
-Sufijo UTM propuesto:
+Sufijo UTM configurado y confirmado por Wilmar:
 
 ```text
 utm_source=google&utm_medium=cpc&utm_campaign=nuteam_automatizacion_co_01&utm_content={adgroupid}_{creative}&utm_term={keyword}
 ```
 
-Probar la sustitución de ValueTrack y que los valores llegan a la URL/hoja. No sobrescribir parámetros configurados en otro nivel de la cuenta.
+El 6 de octubre, Google Ads informó 1 de 1 muestras completadas y encontró la página de destino. La URL de clic copiada fue `https://www.nuteam.ai/?utm_source=google&utm_medium=cpc&utm_campaign=nuteam_automatizacion_co_01&utm_content=199565095814_827230638644&utm_term=`. La muestra sustituyó `{adgroupid}` y `{creative}`; `utm_term` quedó vacío. La documentación de Google indica que `{keyword}` puede quedar vacío cuando el anuncio no se activa mediante una palabra clave; la prueba no fue un clic real de búsqueda y no valida la llegada a Leads. Mantener el sufijo y no hacer clic en anuncios propios. Fuente: [parámetros de ValueTrack](https://support.google.com/google-ads/answer/6305348?hl=es), consultada el 6 de octubre de 2026.
 
 ### GA4 y acciones de conversión
 
-El código de NuTeam contempla `page_view`, `cta_click`, `form_start`, `form_submit`, `scroll_50` y `scroll_90`. `form_start` se dispara al primer foco dentro del formulario; no confirma que el visitante haya diligenciado campos. `form_submit` se dispara después de una respuesta exitosa del endpoint. Wilmar mostró el 5 de octubre que `NEXT_PUBLIC_GA_MEASUREMENT_ID` está asignada en Vercel a Production y Preview; esto no prueba recepción en GA4. En el código revisado no se observa una compuerta de consentimiento, y el tracker puede emitir eventos si el despliegue usa el ID. Mantener pendiente la validación de eventos hasta revisar privacidad/consentimiento y confirmar si Preview comparte la propiedad. Los eventos no registran errores de formulario; si se requiere esa métrica, agregarla en otra iteración y no reportarla como si ya existiera.
+El código de NuTeam contempla `page_view`, `cta_click`, `form_start`, `form_submit`, `scroll_50` y `scroll_90`. `form_start` se dispara al primer foco dentro del formulario; no confirma que el visitante haya diligenciado campos. `form_submit` se dispara después de una respuesta exitosa del endpoint. Las capturas de Vercel confirman el ID para Production y Preview; las capturas de Tag Assistant/DebugView del 5–6 de octubre confirman recepción de `page_view`, `form_submit` y otros eventos desde QA en producción. No son resultados comerciales. Falta revisar separación de Preview. La revisión de privacidad/consentimiento está diferida por decisión de Wilmar y no se considera validada. Los eventos no registran errores de formulario; si se requiere esa métrica, agregarla en otra iteración.
 
-Configurar una conversión primaria de Ads de NuTeam —por ejemplo, `NU_Lead_Form_Success`— que se dispare después de la respuesta exitosa del formulario/Apps Script, no al clic de CTA ni al inicio del formulario. Para leads, revisar que el recuento esté configurado como una conversión por interacción cuando esa opción esté disponible. Mantener el evento GA4 como diagnóstico o elegir una sola fuente importada; no contar dos conversiones primarias para el mismo envío. No asignar valor monetario inventado. Asegurar que la campaña NU_01 optimice a la acción de NuTeam, no por accidente a una acción de la landing personal.
+El evento GA4 `form_submit`, que el frontend envía tras `success: true`, fue importado como acción principal dentro del objetivo Contacto. El resumen final de NU_01 muestra Contactos; la ficha confirma recuento de una y sin valor monetario. Se conserva intacta la acción `Enviar formulario de clientes potenciales` del portafolio personal. NU_01 se envió a revisión el 6 de octubre; “Esperando conversiones” no prueba conversión atribuida ni que la campaña esté sirviendo. No contar un clic de CTA o `form_start` como conversión.
 
 ### Google Sheets y calificación
 

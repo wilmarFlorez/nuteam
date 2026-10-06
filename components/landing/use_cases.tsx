@@ -5,6 +5,7 @@ import {
   FileText,
   Headset,
   Network,
+  ShoppingCart,
   TrendingUp,
 } from "lucide-react";
 
@@ -37,6 +38,12 @@ const spanishUseCases = [
     icon: FileText,
     description:
       "Procesa información, documentos y solicitudes automáticamente.",
+  },
+  {
+    title: "Compras",
+    icon: ShoppingCart,
+    description:
+      "Estructura solicitudes, valida datos y dirige cada caso al flujo de aprobación.",
   },
 ];
 
@@ -72,6 +79,12 @@ export default function UseCases({ locale }: { locale: Locale }) {
           description:
             "Process information, documents, and requests automatically.",
         },
+        {
+          title: "Procurement",
+          icon: ShoppingCart,
+          description:
+            "Structure requests, validate details, and route each case into the approval flow.",
+        },
       ]
     : spanishUseCases;
   return (
@@ -95,15 +108,15 @@ export default function UseCases({ locale }: { locale: Locale }) {
           </Reveal>
         </div>
 
-        <div className="mt-16 grid gap-px border-y border-white/10 bg-white/10 lg:grid-cols-3">
+        <div className="mt-16 grid gap-px border-y border-white/10 bg-white/10 md:grid-cols-2 lg:grid-cols-3">
           {useCases.map((useCase, index) => (
-            <Reveal key={useCase.title} delay={index * 60}>
-              <article className="group flex min-h-56 flex-col bg-coal p-7 transition-colors duration-300 hover:bg-white/[0.04] lg:p-8">
+            <Reveal key={useCase.title} className="flex" delay={index * 60}>
+              <article className="group flex min-h-56 flex-1 flex-col bg-coal p-7 transition-colors duration-300 hover:bg-white/[0.04] lg:p-8">
                 <span className="flex size-10 shrink-0 items-center justify-center border border-volt/30 bg-volt/[0.05] text-volt transition-colors duration-300 group-hover:border-volt group-hover:bg-volt group-hover:text-ink">
                   <useCase.icon size={20} strokeWidth={1.6} aria-hidden="true" />
                 </span>
 
-                <h3 className="mt-auto text-2xl font-semibold tracking-tight transition-colors duration-300 group-hover:text-volt sm:text-[1.75rem]">
+                <h3 className="mt-6 text-2xl font-semibold tracking-tight transition-colors duration-300 group-hover:text-volt sm:text-[1.75rem]">
                   {useCase.title}
                 </h3>
 

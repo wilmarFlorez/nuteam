@@ -1,7 +1,7 @@
 # Estrategia de marketing de NuTeam
 
 **Estado:** base de trabajo; validar oferta, presupuesto y estado legal antes de publicar claims nuevos.  
-**Actualizado:** 5 de octubre de 2026.
+**Actualizado:** 6 de octubre de 2026.
 
 ## Propósito
 
@@ -64,18 +64,18 @@ La fuente completa —incluidos CSV y capturas— es `wlanding/marketing_firts_c
 
 Se puede usar la misma cuenta de Google Ads y mantener campañas separadas por marca, destino, audiencia y conversión. No hace falta abrir otra cuenta para organizar esta prueba.
 
-- Usar nombres distintos y explícitos; por ejemplo, `CO_Search_NuTeam_Automatizacion_01` para la campaña borrador de este repositorio.
-- Wilmar confirmó el 5 de octubre que las campañas personal y NU_01 no correrán simultáneamente. Antes de cambiar de una a otra, verificar en Ads que la primera esté pausada; no duplicar presupuestos ni asumir que NU_01 hereda la configuración de la campaña personal.
+- Usar nombres distintos y explícitos. NU_01 se creó en Google Ads como `CO_Search_NuTeam_Automatizacion_01`; no llamarla `Campaign #1`, que pertenece al historial del portafolio personal.
+- Wilmar confirmó el 6 de octubre que la campaña personal está pausada y que NuTeam será la siguiente campaña; no correrán simultáneamente según esa decisión. Verificar el estado de la campaña saliente si cambia el calendario; no duplicar presupuestos ni asumir que se hereda su configuración. La comparación secuencial será observacional, no una prueba A/B.
 - Si dos campañas quedan habilitadas para las mismas búsquedas, audiencias y fechas, no asumir que el tráfico queda repartido de manera controlada. Para probar solo la landing, valorar un experimento de Google Ads o un diseño de comparación explícito. Una comparación entre campañas distintas es direccional si también cambian anuncios, keywords, puja o fechas.
 - Las campañas de contratación y las de automatización deben conservar objetivos, anuncios, destinos y calificación separados.
 
 ## Medición común, registros separados
 
-El código de NuTeam contiene eventos GA4 para `page_view`, `cta_click`, `form_start`, `form_submit`, `scroll_50` y `scroll_90`. `form_submit` se dispara después de una respuesta exitosa del endpoint. Wilmar compartió el 5 de octubre una captura de Vercel donde `NEXT_PUBLIC_GA_MEASUREMENT_ID` figura para Production y Preview. Esto confirma la variable configurada, no la recepción de eventos por GA4 ni qué versión está desplegada. En el código revisado no se observa una barrera de consentimiento: si la versión usa el ID y corre en modo producción, puede cargar gtag y emitir eventos. Wilmar decidió que el aviso de privacidad pendiente no es bloqueo comercial para la campaña; no equivale a que el aviso, consentimiento o tratamiento de datos estén revisados o validados. Confirmar qué eventos llegan antes de basar decisiones en ellos.
+El código de NuTeam contiene eventos GA4 para `page_view`, `cta_click`, `form_start`, `form_submit`, `scroll_50` y `scroll_90`. `form_submit` se dispara después de una respuesta exitosa del endpoint. Wilmar confirmó el ID de medición en Vercel para Production y Preview, y las capturas de DebugView/Tag Assistant del 5–6 de octubre confirman que `page_view`, `form_submit`, CTA y scroll llegan desde la sesión de prueba en producción. Son eventos QA, no resultados comerciales. Aún falta comprobar que Preview no mezcle sus datos con Production. En el código revisado no se observa una barrera de consentimiento; Wilmar decidió que el aviso pendiente no es bloqueo comercial, pero el tratamiento/consentimiento siguen sin revisión ni validación legal.
 
 El formulario de NuTeam captura UTMs y atribución y envía el lead a su hoja `Leads`. La hoja del portafolio personal sigue siendo distinta. Conservar los dos registros, pero aplicar los mismos estados de calificación para poder comparar agregados.
 
-Google Ads debe contar como conversión de NuTeam un envío exitoso, no un clic en CTA. Confirmar si se configurará una acción directa de Ads o se importará `form_submit` desde GA4. Evitar contar ambas como conversiones primarias para el mismo envío. El ID de medición identifica un flujo web de GA4, no el usuario de Google que administra el sitio; la cuenta Ads puede tener otro propietario/login. Si se importan conversiones GA4 o se requieren informes de Ads en GA4, vincular la cuenta Ads que se usará para NU_01 con la propiedad de NuTeam. La recepción de eventos GA4 y la conversión Ads siguen pendientes de verificación. La variable de Vercel también está habilitada para Preview; revisar si esas visitas podrían mezclarse con Production antes de usar los datos para decisiones. La privacidad sigue como asunto de seguimiento, no como bloqueo de campaña según la decisión de Wilmar del 5 de octubre.
+Google Ads debe contar como conversión de NuTeam un envío exitoso, no un clic en CTA. `form_submit` se recibió en DebugView, se marcó como evento clave, se importó a la cuenta Ads vinculada y Wilmar lo guardó como principal dentro del objetivo **Contacto** el 6 de octubre. El resumen de NU_01 muestra ese objetivo; la acción conserva recuento de una conversión y no utiliza valor monetario. No crear una conversión directa que duplique el mismo envío. El ID de medición identifica un flujo web de GA4, no el usuario de Google que administra el sitio; la cuenta Ads puede tener otro propietario/login. La variable de Vercel también está habilitada para Preview; revisar si esas visitas podrían mezclarse con Production antes de usar datos para decisiones. Privacidad, Términos y formalización siguen como seguimiento diferido por decisión de Wilmar, no como bloqueos comerciales ni como aspectos legalmente revisados.
 
 ### Criterio heredado para calificar una conversación
 

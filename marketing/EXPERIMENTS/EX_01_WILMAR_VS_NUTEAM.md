@@ -16,7 +16,7 @@ Fuente detallada: repositorio `wlanding`, `marketing_firts_campaing/`, en partic
 - **21–27 sep. 2026, antes de la reestructuración:** las capturas registran 1.052 impresiones, 80 clics, 7,60 % de CTR, COP 273.250 y 0 conversiones. El CSV del mismo período registra 996 impresiones, 79 clics, 7,93 % de CTR, COP 269.070 y 0 conversiones. Conservar las fuentes separadas; no se determinó la causa de la diferencia.
 - **29–30 sep. 2026, después de cambios de estructura/anuncios:** 299 impresiones, 18 clics, 6,02 % de CTR, COP 60.147 y una conversión real de formulario. El contacto aún no estaba calificado; el registro documenta 0 leads cualificados confirmados.
 - El segundo corte es solo de dos días y siguió a cambios en anuncios y estructura. No atribuir la conversión a una nueva landing, un cambio de marca o una variable específica.
-- La evaluación de la campaña personal se hará al cierre del 5 de octubre sobre la ventana del 29 de septiembre al 5 de octubre. Conservar y cerrar ese registro en `wlanding`; no reescribirlo desde NuTeam.
+- El 6 de octubre Wilmar confirmó que la campaña personal está pausada y que NuTeam será la siguiente campaña cuando esté lista. El cierre de resultados de la campaña personal corresponde a `wlanding`; no reescribirlo desde NuTeam. La comparación sigue sin concluirse.
 
 ## Diseño recomendado
 
@@ -30,7 +30,7 @@ No activar dos campañas idénticas y con presupuesto independiente para llamarl
 
 Crear una campaña identificable para NuTeam en la misma cuenta de Google Ads y usar su propia conversión y hoja `Leads`. Esta separación facilita operar y reportar cada destino, pero, si cambian también keywords, anuncios, puja o fechas, los resultados no prueban que la landing de NuTeam causó la diferencia.
 
-Wilmar confirmó el 5 de octubre que no activará ambas campañas simultáneamente. Si esa decisión cambiara, registrar la superposición y el gasto combinado; no suponer reparto aleatorio del tráfico ni añadir otra vez COP 34.000 diarios sin autorización. Al ejecutarlas de forma secuencial, cualquier comparación será observacional, no una prueba A/B, y puede reflejar diferencias de fecha, anuncios, keywords, puja y landing.
+Wilmar confirmó el 6 de octubre que la campaña personal está pausada y que NuTeam será la siguiente cuando esté lista; no correrán simultáneamente. Si esa decisión cambiara, registrar la superposición y el gasto combinado; no suponer reparto aleatorio del tráfico ni añadir otra vez COP 34.000 diarios sin autorización. Al ejecutarlas de forma secuencial, cualquier comparación será observacional, no una prueba A/B, y puede reflejar diferencias de fecha, anuncios, keywords, puja y landing.
 
 ## Calificación comparable
 
@@ -41,7 +41,7 @@ Añadir a la revisión —no asumir a partir de un formulario— si el prospecto
 ## Instrumentación que debe verificarse
 
 - En wlanding, Google Ads tiene una acción de conversión web que se dispara tras una respuesta exitosa del formulario; su hoja y captura de atribución son independientes.
-- En NuTeam, el código contempla eventos GA4 y envía atribución al formulario/hoja `Leads`. Wilmar mostró el 5 de octubre que la variable de medición existe en Vercel para Production y Preview; no consta una validación de recepción de eventos ni una acción de conversión de Google Ads equivalente. Wilmar decidió que aplazar el aviso de privacidad no bloquea comercialmente el lanzamiento; la revisión del tratamiento/consentimiento permanece pendiente y no se considera validada.
+- En NuTeam, el código contempla eventos GA4 y envía atribución al formulario/hoja `Leads`. Vercel muestra la variable para Production y Preview; capturas de DebugView/Tag Assistant del 5–6 de octubre confirman recepción de `page_view` y `form_submit` durante QA. `form_submit` ya se importó a Ads, pero aún no se configuró como acción primaria para NU_01; la separación de Preview queda por revisar. Wilmar decidió que aplazar aviso, Términos y formalización no bloquea comercialmente el lanzamiento; los asuntos legales permanecen pendientes, no validados.
 - Antes de comparar, verificar ambos recorridos de extremo a extremo, incluyendo UTM, envío exitoso, conversión Ads y fila de la hoja respectiva. Elegir una conversión primaria por envío para evitar duplicados.
 - wlanding no tiene, en la evidencia revisada, medición de sesiones, CTA o inicio de formulario; NuTeam sí tiene eventos en código, pendientes de verificar en producción. No comparar esas métricas hasta confirmar que están habilitadas y usan definiciones compatibles.
 
