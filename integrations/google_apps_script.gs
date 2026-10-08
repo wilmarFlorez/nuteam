@@ -1,4 +1,5 @@
 const SHEET_NAME = "Leads";
+const NOTIFICATION_EMAIL_PROPERTY = "LEAD_NOTIFICATION_EMAIL";
 const ALLOWED_FIELDS = [
   "name", "company", "role", "email", "phone", "process", "volume",
   "impact", "source", "utm", "attribution",
@@ -15,6 +16,12 @@ function doGet() {
   return jsonResponse({ success: true, message: "Endpoint activo." });
 }
 
+function authorizeLeadNotificationEmail() {
+  getLeadNotificationEmail();
+  MailApp.getRemainingDailyQuota();
+  Logger.log("Autorización de notificaciones por email completada.");
+}
+
 function doPost(event) {
   try {
     if (!event || !event.postData || !event.postData.contents) {
@@ -26,11 +33,12 @@ function doPost(event) {
     const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(SHEET_NAME);
     if (!sheet) throw new Error("No existe la hoja Leads.");
 
+    const receivedAt = new Date();
     const lock = LockService.getScriptLock();
     lock.waitLock(10000);
     try {
       sheet.appendRow([
-        new Date(), data.name, data.company, data.role, data.email,
+        receivedAt, data.name, data.company, data.role, data.email,
         data.phone ? data.phone.trim() : "", data.process, data.volume, data.impact,
         data.source || "landing",
         data.utm ? data.utm.source || "" : "",
@@ -46,13 +54,68 @@ function doPost(event) {
       lock.releaseLock();
     }
 
-    return jsonResponse({ success: true });
+    let notificationSent = false;
+    try {
+      sendLeadNotification(data, receivedAt);
+      notificationSent = true;
+    } catch (notificationError) {
+      const message = notificationError && notificationError.message
+        ? notificationError.message
+        : String(notificationError);
+      Logger.log("No se pudo enviar la notificación del lead: " + message);
+    }
+
+    return jsonResponse({ success: true, notificationSent: notificationSent });
   } catch (error) {
     return jsonResponse({
       success: false,
       error: error instanceof Error ? error.message : "Error al guardar el lead.",
     });
   }
+}
+
+function getLeadNotificationEmail() {
+  const recipient = PropertiesService.getScriptProperties()
+    .getProperty(NOTIFICATION_EMAIL_PROPERTY);
+  if (!recipient || !/^\S+@\S+\.\S+$/.test(recipient.trim())) {
+    throw new Error("Configura un email válido en la propiedad LEAD_NOTIFICATION_EMAIL.");
+  }
+  return recipient.trim();
+}
+
+function sendLeadNotification(data, receivedAt) {
+  const recipient = getLeadNotificationEmail();
+  const utm = data.utm || {};
+  const attribution = data.attribution || {};
+  const timezone = Session.getScriptTimeZone();
+  const lines = [
+    "Se recibió un nuevo lead en NuTeam.",
+    "",
+    "Fecha: " + Utilities.formatDate(receivedAt, timezone, "yyyy-MM-dd HH:mm:ss"),
+    "Nombre: " + data.name,
+    "Empresa: " + data.company,
+    "Cargo: " + data.role,
+    "Email: " + data.email,
+    "Teléfono: " + (data.phone || "No indicado"),
+    "Proceso: " + data.process,
+    "Volumen: " + data.volume,
+    "Impacto: " + data.impact,
+    "Fuente: " + (data.source || "landing"),
+    "Fuente UTM: " + (utm.source || ""),
+    "Medio UTM: " + (utm.medium || ""),
+    "Campaña UTM: " + (utm.campaign || ""),
+    "Término UTM: " + (utm.term || ""),
+    "Contenido UTM: " + (utm.content || ""),
+    "Landing page: " + (attribution.landing_page || ""),
+    "Referrer: " + (attribution.referrer || ""),
+    "Timestamp de atribución: " + (attribution.timestamp || ""),
+  ];
+
+  MailApp.sendEmail(
+    recipient,
+    "Nuevo lead recibido — NuTeam",
+    lines.join("\n"),
+  );
 }
 
 function validateLead(data) {

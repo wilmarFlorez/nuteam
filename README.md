@@ -54,17 +54,26 @@ NEXT_PUBLIC_GOOGLE_SHEETS_ENDPOINT=https://script.google.com/macros/s/TU_DEPLOYM
 3. En el Sheet abre `Extensiones > Apps Script`.
 4. Reemplaza el contenido del editor con el código de
    [`integrations/google_apps_script.gs`](integrations/google_apps_script.gs) y guarda.
-5. Selecciona `Implementar > Nueva implementación`, elige `Aplicación web`,
-   configura `Ejecutar como: Yo` y `Quién tiene acceso: Cualquier persona`, y
-   pulsa `Implementar`.
-6. Autoriza el acceso solicitado a Google Sheets y copia la URL que termina en
-   `/exec`.
-7. Crea `.env.local` en la raíz y pega allí la URL en
+5. En `Configuración del proyecto > Propiedades del script`, agrega la propiedad
+   `LEAD_NOTIFICATION_EMAIL` con la dirección que recibirá los avisos.
+6. En el editor selecciona y ejecuta `authorizeLeadNotificationEmail`; acepta
+   los permisos de Google Sheets y envío de correo solicitados.
+7. Para una integración ya publicada, abre
+   `Implementar > Gestionar implementaciones`, edita la implementación activa,
+   selecciona `Nueva versión` y pulsa `Implementar`. Así se conserva la URL
+   `/exec` actual. Para una instalación nueva, usa `Nueva implementación` y elige
+   `Aplicación web`, con `Ejecutar como: Yo` y `Quién tiene acceso: Cualquier persona`.
+8. Si es una instalación nueva, copia la URL que termina en `/exec`. Crea
+   `.env.local` en la raíz y pega allí la URL en
    `NEXT_PUBLIC_GOOGLE_SHEETS_ENDPOINT`.
 
 El script valida los campos permitidos y obligatorios, genera `Fecha` en el
 servidor y agrega una fila. `Fuente` es `landing` por defecto. La atribución se
-captura en `sessionStorage` y se envía junto al lead sin incluirla en GA4.
+captura en `sessionStorage` y se envía junto al lead sin incluirla en GA4. Tras
+guardar la fila, envía un email con los datos del lead a `LEAD_NOTIFICATION_EMAIL`.
+Si el email falla, el lead permanece guardado y el formulario no invita a
+reenviarlo; el fallo queda registrado en el registro de ejecuciones de Apps
+Script.
 
 ### Probar localmente
 
@@ -76,8 +85,9 @@ pnpm dev
 
 Abre `http://localhost:3000/?utm_source=prueba#contacto`, completa el formulario
 y envíalo. Comprueba `Enviando...`, el mensaje de éxito tras recibir
-`{ "success": true }` y una nueva fila en `Leads` con la atribución. Si falla,
-el botón muestra el error y permite reintentar sin borrar los campos.
+`{ "success": true }`, una nueva fila en `Leads` con la atribución y el aviso en
+la bandeja de entrada configurada. Si falla el guardado, el botón muestra el
+error y permite reintentar sin borrar los campos.
 
 ## Google Analytics 4
 
