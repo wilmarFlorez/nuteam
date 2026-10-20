@@ -1,7 +1,7 @@
 # Estrategia de marketing de NuTeam
 
 **Estado:** base de trabajo; validar oferta, presupuesto y estado legal antes de publicar claims nuevos.  
-**Actualizado:** 6 de octubre de 2026.
+**Actualizado:** 8 de octubre de 2026.
 
 ## Propósito
 
@@ -46,7 +46,7 @@ El CTA actual de la landing, `Evaluar un proceso`, solo debe mantenerse si ese a
 
 Puede utilizarse la experiencia profesional de Wilmar y sus capacidades verificables. Freight Pilot puede presentarse como **demo desplegada de portafolio**, no como producto comercial validado, cliente, implementación productiva o prueba de resultado económico. No calcula precios, crea cotizaciones ni asigna vehículos.
 
-El panel estático del hero que simulaba un agente “en vivo” se retiró del código actual de la landing, según la revisión del 2 de octubre de 2026. Confirmar en la URL publicada antes de pautar. No reutilizar una traza ilustrativa como si acreditara una operación de cliente.
+El panel estático del hero que simulaba un agente “en vivo” se retiró del código actual de la landing, según la revisión del 2 de octubre de 2026. La captura de producción aportada por Wilmar el 6 de octubre tampoco lo muestra. No reutilizar una traza ilustrativa como si acreditara una operación de cliente.
 
 No inventar clientes, logos, testimonios, cifras, ahorro, ROI, usuarios, tiempos, certificaciones, sector atendido ni estado legal.
 
