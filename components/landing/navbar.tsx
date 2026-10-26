@@ -21,7 +21,6 @@ export default function Navbar({ locale }: { locale: Locale }) {
       ];
   const languageHref = english ? "/" : "/en";
   const languageLabel = english ? "ES" : "EN";
-  const tagline = english ? "AI for operations" : "AI para operaciones";
   const evaluateLabel = english ? "Evaluate a process" : "Evaluar un proceso";
 
   useEffect(() => {
@@ -43,10 +42,6 @@ export default function Navbar({ locale }: { locale: Locale }) {
           </a>
 
           <div className="hidden items-center gap-8 lg:flex">
-            <span className="font-mono text-[10px] font-medium uppercase tracking-[0.28em] text-white/55">
-              {tagline}
-            </span>
-
             {links.map((item) => (
               <a
                 key={item.href}
@@ -119,10 +114,6 @@ export default function Navbar({ locale }: { locale: Locale }) {
             </div>
 
             <nav className="mt-12">
-              <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-white/55">
-                {tagline}
-              </p>
-
               <ul className="mt-2 border-t border-white/10">
                 {links.map((item, index) => (
                   <li key={item.href} className="border-b border-white/10">
