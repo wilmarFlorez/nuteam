@@ -3,7 +3,7 @@ import Reveal from "./reveal";
 import TrackedLink from "./tracked_link";
 import { isEnglish, type Locale } from "@/lib/locale";
 
-const demoUrl = "https://freight-pilot-flame.vercel.app/";
+const demoUrl = "https://freight.nuteam.ai/";
 const repositoryUrl = "https://github.com/wilmarFlorez/freight_pilot";
 
 export default function FreightPilot({ locale }: { locale: Locale }) {
