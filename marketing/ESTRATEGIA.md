@@ -1,7 +1,7 @@
 # Estrategia de marketing de NuTeam
 
 **Estado:** base de trabajo; validar oferta, presupuesto y estado legal antes de publicar claims nuevos.  
-**Actualizado:** 8 de octubre de 2026.
+**Actualizado:** 8 de noviembre de 2026.
 
 ## Propósito
 
@@ -13,7 +13,7 @@ NuTeam es una marca enfocada en evaluar y construir automatizaciones operativas 
 
 La experiencia y capacidad técnica de Wilmar pueden respaldar la conversación. La colaboración de otro desarrollador puede describirse según su participación real y disponibilidad en cada proyecto; no inferir a partir de ello una plantilla permanente o capacidad ilimitada.
 
-NuTeam todavía no está constituida como empresa. Se puede promocionar la marca mientras avanza su formalización, pero el sitio, los anuncios y las conversaciones no deben afirmar que ya existe una entidad legal registrada. Aclarar la forma de contratación/facturación aplicable antes de preparar una propuesta formal y confirmar que cumple los requisitos del prospecto. No registrar datos legales, fiscales ni fechas de constitución en este documento hasta que se verifiquen.
+El certificado de existencia y representación legal de la Cámara de Comercio, expedido el 4 de noviembre de 2026, indica que NUTEAM S.A.S. fue constituida e inscrita en el Libro IX en esa fecha. El mismo certificado advierte que hay peticiones en trámite y refleja una inscripción de situación de control en el Libro XIII; la Cámara comunicó que debe corregirla mediante revocatoria y nueva inscripción en el Libro IX. No afirmar que esa corrección ya terminó ni que el contenido registral está libre de asuntos pendientes. Antes de una propuesta formal, confirmar la forma de contratación y facturación disponible y que cumpla los requisitos del prospecto. No incluir identificadores fiscales, documentos personales ni datos de contacto en estos materiales.
 
 ## Audiencia y exclusiones
 
@@ -75,7 +75,7 @@ El código de NuTeam contiene eventos GA4 para `page_view`, `cta_click`, `form_s
 
 El formulario de NuTeam captura UTMs y atribución y envía el lead a su hoja `Leads`. La hoja del portafolio personal sigue siendo distinta. Conservar los dos registros, pero aplicar los mismos estados de calificación para poder comparar agregados.
 
-Google Ads debe contar como conversión de NuTeam un envío exitoso, no un clic en CTA. `form_submit` se recibió en DebugView, se marcó como evento clave, se importó a la cuenta Ads vinculada y Wilmar lo guardó como principal dentro del objetivo **Contacto** el 6 de octubre. El resumen de NU_01 muestra ese objetivo; la acción conserva recuento de una conversión y no utiliza valor monetario. No crear una conversión directa que duplique el mismo envío. El ID de medición identifica un flujo web de GA4, no el usuario de Google que administra el sitio; la cuenta Ads puede tener otro propietario/login. La variable de Vercel también está habilitada para Preview; revisar si esas visitas podrían mezclarse con Production antes de usar datos para decisiones. Privacidad, Términos y formalización siguen como seguimiento diferido por decisión de Wilmar, no como bloqueos comerciales ni como aspectos legalmente revisados.
+Google Ads debe contar como conversión de NuTeam un envío exitoso, no un clic en CTA. `form_submit` se recibió en DebugView, se marcó como evento clave, se importó a la cuenta Ads vinculada y Wilmar lo guardó como principal dentro del objetivo **Contacto** el 6 de octubre. El resumen de NU_01 mostraba ese objetivo; no crear una conversión directa que duplique el mismo envío. En un corte posterior del 7–13 de octubre, Ads muestra 1 conversión, pero la captura no identifica la acción ni prueba un envío comercial en `Leads`; no calificarla como lead ni como conversación. Las capturas del 8 de noviembre muestran identidad del anunciante verificada; capturas posteriores de Campañas/Grupos muestran NU_01 y su grupo **Apto** con COP 60.000 diarios. El corte sigue en 699 impresiones, 60 clics y COP 220.284, sin evidencia de entrega nueva aún; no calificar la conversión como lead. El ID de medición identifica un flujo web de GA4, no el usuario de Google que administra el sitio; revisar si Preview mezcla sus datos con Production. La verificación de privacidad/consentimiento y los Términos siguen sin revisión documentada.
 
 ### Criterio heredado para calificar una conversación
 

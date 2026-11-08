@@ -1,10 +1,10 @@
 # Brief NU_01 — Google Ads Search para automatización operativa
 
-**Estado:** objetivo y presupuesto aprobados. NU_01 inició el 7 de octubre de 2026. En el corte de Ads 7–8 oct. hay 230 impresiones, 15 clics, COP 58.676 de gasto y cero conversiones; no hay envíos reales en `Leads`. Para el 7, Ads registra 8 clics y GA4 8 sesiones de campaña, sin CTA ni eventos de formulario. La lectura GA4 del 8 (1 sesión) es preliminar. La cuenta no tiene fecha final; el tope operativo requiere control manual. Ver la [revisión inicial](NU_01_REVISION_2026-10-07_08.md).
-**Actualizado:** 8 de octubre de 2026.
+**Estado (8 de noviembre de 2026):** NU_01 inició el 7 de octubre. La vista Ads del 7 oct.–8 nov. muestra 699 impresiones, 60 clics, COP 220.284 y 1 conversión reportada, pendiente de reconciliar con un envío real; coincide con el corte 7–13 de octubre. La identidad del anunciante figura verificada. Capturas posteriores muestran NU_01 y su grupo en verde/**Apto**, con presupuesto de COP 60.000 diarios; no reflejan gasto adicional aún. Ver la [revisión de seguimiento](NU_01_REVISION_2026-11-08.md).
+**Actualizado:** 8 de noviembre de 2026.
 **Cuenta:** se usa la cuenta actual de Google Ads, con una campaña y conversión identificables para NuTeam.
 
-El plan completo y el seguimiento están en [`NU_01_PLAN_DE_LANZAMIENTO.md`](NU_01_PLAN_DE_LANZAMIENTO.md), el [`checklist`](NU_01_CHECKLIST_LANZAMIENTO.md) y la [revisión del 7–8 de octubre](NU_01_REVISION_2026-10-07_08.md). El CSV original de términos se conserva sin editar. Wilmar difiere aviso de privacidad, Términos y formalización; decidió que no sean bloqueos comerciales, pero no se registran como revisados ni como entidad legal completada.
+El plan completo y el seguimiento están en [`NU_01_PLAN_DE_LANZAMIENTO.md`](NU_01_PLAN_DE_LANZAMIENTO.md), el [`checklist`](NU_01_CHECKLIST_LANZAMIENTO.md), la [revisión inicial](NU_01_REVISION_2026-10-07_08.md) y los [seguimientos del 4](NU_01_REVISION_2026-11-04.md) y [8 de noviembre](NU_01_REVISION_2026-11-08.md). El certificado de Cámara de Comercio indica que NUTEAM S.A.S. quedó constituida e inscrita; el propio certificado advierte peticiones en trámite y la Cámara notificó una corrección pendiente de la situación de control. Privacidad y Términos siguen sin revisión legal documentada.
 
 ## Decisiones de campaña
 
@@ -13,10 +13,10 @@ El plan completo y el seguimiento están en [`NU_01_PLAN_DE_LANZAMIENTO.md`](NU_
 | Objetivo único | Generar conversaciones cualificadas sobre un proceso operativo que podría automatizarse. |
 | Audiencia | Empresas y equipos en Colombia que buscan evaluar o implementar automatización de procesos, documentos, mensajes o integraciones. |
 | Canal | Google Ads, Red de Búsqueda, en español. |
-| Landing | `https://www.nuteam.ai/`; la prueba de URL encontró el destino el 6 de octubre. GA4 muestra sesiones bajo el nombre de NU_01 el 7 y el 8, pero sin `cta_click`, `form_start` o `form_submit` en esas filas. No hay envíos reales; la llegada de UTMs a `Leads` desde un formulario comercial sigue sin validarse. Las pruebas manuales previas fueron QA. |
+| Landing | `https://www.nuteam.ai/`; la prueba de URL encontró el destino el 6 de octubre. En las filas GA4 de NU_01 del 7–8 oct. no aparecían `cta_click`, `form_start` ni `form_submit`; hasta ese corte Wilmar confirmó cero envíos comerciales. No se compartió un estado posterior de `Leads`; la conversión Ads del corte 7–13 aún no está reconciliada con un envío real. Las pruebas manuales previas fueron QA. |
 | Conversación/CTA | Evaluar un proceso operativo concreto. Mantener `Evaluar un proceso` solo si NuTeam entregará realmente esa evaluación inicial. |
 | Presupuesto NU_01 | Aprobado por Wilmar el 2 de octubre: COP 34.000 diarios promedio y tope operativo de COP 1.000.000 para esta campaña. Es independiente del presupuesto personal; Wilmar confirmó que las campañas no correrán simultáneamente. |
-| Duración | Hasta 30 días de pauta activa o hasta alcanzar el tope operativo. Inicio real confirmado: 7 de octubre de 2026. Ads no tiene fecha final establecida; Wilmar debe vigilar el tope y duración y pausar manualmente. |
+| Duración | Hasta 30 días de pauta activa o hasta alcanzar el tope operativo. Inicio real confirmado: 7 de octubre de 2026. Ads no tiene fecha final establecida; Wilmar debe vigilar el tope y duración y pausar manualmente. La cuenta de días activos requiere confirmación del período detenido y de cualquier reanudación. |
 | Responsable | Wilmar Florez Samudio aprueba segmentación, anuncios, gasto y calificación de leads. |
 
 ### Meta cuantitativa aprobada
@@ -96,7 +96,7 @@ Google Ads puede entregar impresiones, clics y gasto. Los eventos GA4 requieren 
 - [x] Prueba de URL/sufijo en Google Ads completada el 6 de octubre; encontró el destino (1 de 1 muestras). La muestra expandió `{adgroupid}` y `{creative}`; `utm_term` quedó vacío y no hubo un clic real de búsqueda.
 - [ ] Confirmar la llegada de UTMs desde un formulario comercial legítimo si ocurre; el corte actual tiene sesiones atribuidas a NU_01, pero no envíos comerciales en `Leads`. El dato GA4 del 8 de octubre debe revisarse de nuevo tras el procesamiento. No hacer clic en anuncios propios ni tratar el `utm_term` vacío de la muestra de prueba como fallo por sí solo.
 - [x] Formulario probado en producción el 5 de octubre; el endpoint respondió correctamente, la landing mostró éxito y las filas de prueba llegaron a la hoja `Leads` de NuTeam. Son QA, no leads comerciales.
-- [ ] Aviso de privacidad/tratamiento, Términos y formalización quedan diferidos por decisión de Wilmar; no son bloqueos comerciales, pero tampoco están revisados/validados. La retirada de enlaces no resuelve esos pendientes.
+- [ ] Aviso de privacidad/tratamiento y Términos siguen diferidos por decisión de Wilmar; no están revisados/validados. El certificado registra la constitución de NUTEAM S.A.S., pero la corrección de la situación de control continúa pendiente según la evidencia recibida. La retirada de enlaces no resuelve los pendientes legales.
 - [x] Panel estático del hero ausente en la captura de producción aportada por Wilmar el 6 de octubre.
 - [x] ID de GA4 configurado en Vercel y `page_view`/`form_submit` verificados en DebugView/Tag Assistant en producción mediante pruebas QA (5–6 oct. 2026); excluir esos hits de resultados comerciales. Separación de datos Preview/Production sigue pendiente.
 - [x] `form_submit` importado y guardado como principal dentro de Contactos; no contar clic CTA, `form_start` ni una acción directa duplicada. La captura del 8 de octubre registra cero conversiones; confirmar que NU_01 sigue usando el objetivo específico Contactos, dado que la acción no está incluida en los objetivos a nivel de cuenta.
