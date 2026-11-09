@@ -8,7 +8,6 @@ import Process from "@/components/landing/process";
 import Differentiators from "@/components/landing/differentiators";
 import CTA from "@/components/landing/cta";
 import ContactSection from "@/components/landing/contact_section";
-import WhatsappContact from "@/components/landing/whatsapp_contact";
 import Footer from "@/components/landing/footer";
 import AnalyticsTracker from "@/components/analytics_tracker";
 
@@ -37,7 +36,6 @@ export default function Home() {
       <ContactSection locale="es" />
 
       <Footer />
-      <WhatsappContact locale="es" />
     </main>
   );
 }
