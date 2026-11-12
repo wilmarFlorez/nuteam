@@ -10,13 +10,13 @@ import CTA from "@/components/landing/cta";
 import ContactSection from "@/components/landing/contact_section";
 import Footer from "@/components/landing/footer";
 import AnalyticsTracker from "@/components/analytics_tracker";
-import DevChatWidget from "@/components/landing/dev_chat_widget";
+import ChatWidget from "@/components/landing/chat_widget";
 
 export default function Home() {
   return (
     <main className="bg-ink">
       <AnalyticsTracker />
-      <DevChatWidget />
+      <ChatWidget />
       <Navbar locale="es" />
 
       <Hero locale="es" />
