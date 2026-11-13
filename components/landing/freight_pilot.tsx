@@ -4,7 +4,6 @@ import TrackedLink from "./tracked_link";
 import { isEnglish, type Locale } from "@/lib/locale";
 
 const demoUrl = "https://freight.nuteam.ai/";
-const repositoryUrl = "https://github.com/wilmarFlorez/freight_pilot";
 
 export default function FreightPilot({ locale }: { locale: Locale }) {
   const english = isEnglish(locale);
@@ -31,7 +30,7 @@ export default function FreightPilot({ locale }: { locale: Locale }) {
                 : "Extrae datos de transporte con IA, los normaliza, aplica reglas de negocio y envía las solicitudes incompletas o ambiguas a revisión del operador."}
             </p>
 
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <div className="mt-8">
               <TrackedLink
                 href={demoUrl}
                 target="_blank"
@@ -45,14 +44,6 @@ export default function FreightPilot({ locale }: { locale: Locale }) {
                   ↗
                 </span>
               </TrackedLink>
-              <a
-                href={repositoryUrl}
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center justify-center border border-white/20 px-6 py-3.5 text-sm font-medium text-white transition-colors hover:border-white/40 hover:bg-white/5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-volt"
-              >
-                {english ? "View source code" : "Ver código fuente"}
-              </a>
             </div>
           </Reveal>
 
