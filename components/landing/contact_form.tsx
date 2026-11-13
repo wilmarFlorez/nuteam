@@ -1,14 +1,15 @@
 "use client";
 
 import { FormEvent, useRef, useState } from "react";
+import Link from "next/link";
 import { getAttribution, trackEvent } from "@/lib/analytics";
 import { isEnglish, type Locale } from "@/lib/locale";
 
 const inputClass =
-  "min-h-12 w-full border border-white/35 bg-ink px-4 py-3 text-[15px] text-white outline-none transition-[border-color,background-color,box-shadow] placeholder:text-white/55 focus:border-volt focus:bg-ink focus:ring-2 focus:ring-volt/30";
+  "min-h-12 w-full border border-white/25 bg-ink px-4 py-3 text-[15px] text-white outline-none transition-[border-color,background-color,box-shadow] placeholder:text-white/55 focus:border-volt focus:bg-ink focus:ring-2 focus:ring-volt/30";
 
 const labelClass =
-  "mb-3 block font-mono text-[10px] font-medium uppercase tracking-[0.2em] text-white/85";
+  "mb-3 block font-mono text-[11px] font-medium uppercase tracking-[0.16em] text-white/85";
 
 const requiredMarker = (
   <span aria-hidden="true" className="ml-1 font-bold text-volt">
@@ -131,12 +132,12 @@ export default function ContactForm({ locale }: { locale: Locale }) {
         {english ? (
           <>
             Fields marked with <span className="font-bold text-volt">*</span> are
-            required. WhatsApp / phone is optional.
+            required. Role, WhatsApp / phone, process volume, and impact are optional.
           </>
         ) : (
           <>
             Los campos marcados con <span className="font-bold text-volt">*</span>{" "}
-            son obligatorios. WhatsApp / teléfono es opcional.
+            son obligatorios. Cargo, WhatsApp / teléfono, volumen e impacto son opcionales.
           </>
         )}
       </p>
@@ -159,6 +160,24 @@ export default function ContactForm({ locale }: { locale: Locale }) {
         </div>
 
         <div>
+          <label htmlFor="email" className={labelClass}>
+            {english ? "Work email" : "Email corporativo"}
+            {requiredMarker}
+          </label>
+
+          <input
+            id="email"
+            name="email"
+            type="email"
+            required
+            className={inputClass}
+            placeholder="nombre@empresa.com"
+          />
+        </div>
+      </div>
+
+      <div className="grid gap-9 sm:grid-cols-2">
+        <div>
           <label htmlFor="company" className={labelClass}>
             {english ? "Company" : "Empresa"}
             {requiredMarker}
@@ -173,38 +192,18 @@ export default function ContactForm({ locale }: { locale: Locale }) {
             placeholder={english ? "Company name" : "Nombre de la empresa"}
           />
         </div>
-      </div>
 
-      <div className="grid gap-9 sm:grid-cols-2">
         <div>
           <label htmlFor="role" className={labelClass}>
-            {english ? "Role" : "Cargo"}
-            {requiredMarker}
+            {english ? "Role (optional)" : "Cargo (opcional)"}
           </label>
 
           <input
             id="role"
             name="role"
             type="text"
-            required
             className={inputClass}
             placeholder={english ? "Your role" : "Tu cargo"}
-          />
-        </div>
-
-        <div>
-          <label htmlFor="email" className={labelClass}>
-            {english ? "Work email" : "Email corporativo"}
-            {requiredMarker}
-          </label>
-
-          <input
-            id="email"
-            name="email"
-            type="email"
-            required
-            className={inputClass}
-            placeholder="nombre@empresa.com"
           />
         </div>
       </div>
@@ -237,8 +236,8 @@ export default function ContactForm({ locale }: { locale: Locale }) {
           id="process"
           name="process"
           required
-          rows={5}
-          className={`${inputClass} resize-none`}
+          rows={4}
+          className={`${inputClass} resize-y`}
           placeholder={
             english
               ? "Describe what happens today, who is involved, how often it happens, and what part is repeated."
@@ -250,16 +249,14 @@ export default function ContactForm({ locale }: { locale: Locale }) {
       <div>
         <label htmlFor="volume" className={labelClass}>
           {english
-            ? "What approximate volume does this process handle?"
-            : "¿Qué volumen maneja aproximadamente este proceso?"}
-          {requiredMarker}
+            ? "Approximate process volume (optional)"
+            : "Volumen aproximado del proceso (opcional)"}
         </label>
 
         <div className="relative">
           <select
             id="volume"
             name="volume"
-            required
             defaultValue=""
             className={`${inputClass} appearance-none pr-10 invalid:text-white/55`}
           >
@@ -300,17 +297,15 @@ export default function ContactForm({ locale }: { locale: Locale }) {
       <div>
         <label htmlFor="impact" className={labelClass}>
           {english
-            ? "What happens when this process is not performed correctly or on time?"
-            : "¿Qué ocurre cuando este proceso no se ejecuta correctamente o a tiempo?"}
-          {requiredMarker}
+            ? "What happens when the process runs incorrectly or late? (optional)"
+            : "¿Qué ocurre cuando el proceso no se ejecuta bien o a tiempo? (opcional)"}
         </label>
 
         <textarea
           id="impact"
           name="impact"
-          required
-          rows={4}
-          className={`${inputClass} resize-none`}
+          rows={3}
+          className={`${inputClass} resize-y`}
           placeholder={english ? "E.g. lost sales, delays, work hours..." : "Ej. pérdida de ventas, retrasos, horas de trabajo..."}
         />
       </div>
@@ -345,8 +340,14 @@ export default function ContactForm({ locale }: { locale: Locale }) {
 
       <p className="text-center font-mono text-[11px] leading-5 text-white/60">
         {english
-          ? "By submitting this form, you agree to be contacted by NuTeam regarding your request."
-          : "Al enviar este formulario aceptas ser contactado por Nu Team respecto a tu solicitud."}
+          ? "By submitting this form, you agree that NuTeam may contact you about your request. "
+          : "Al enviar este formulario, aceptas que NuTeam te contacte respecto a tu solicitud. "}
+        <Link
+          href={english ? "/en/privacy" : "/privacidad"}
+          className="text-white/85 underline decoration-white/30 underline-offset-4 transition-colors hover:text-volt hover:decoration-volt focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-volt"
+        >
+          {english ? "Read our privacy policy." : "Consulta la política de privacidad."}
+        </Link>
       </p>
     </form>
   );
