@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 import { trackEvent } from "@/lib/analytics";
 import { isEnglish, type Locale } from "@/lib/locale";
-import Logo from "@/components/landing/logo";
 
 export default function Navbar({ locale }: { locale: Locale }) {
   const [open, setOpen] = useState(false);
@@ -34,11 +33,8 @@ export default function Navbar({ locale }: { locale: Locale }) {
     <header className="fixed inset-x-0 top-0 z-50">
       <div className="border-b border-white/10 bg-ink/95 text-white backdrop-blur-md">
         <nav className="mx-auto flex h-16 max-w-[1440px] items-center justify-between px-6 lg:h-[72px] lg:px-10">
-          <a href="#" className="group flex items-center gap-2.5" aria-label="Nu Team">
-            <Logo className="h-6 w-[31px]" />
-            <span className="text-[19px] font-semibold tracking-tight">
-              <span className="text-volt">Nu</span><span className="text-white">Team</span>
-            </span>
+          <a href="#" className="text-[19px] font-semibold tracking-tight">
+            <span className="text-volt">Nu</span><span className="text-white">Team</span>
           </a>
 
           <div className="hidden items-center gap-8 lg:flex">
@@ -93,12 +89,9 @@ export default function Navbar({ locale }: { locale: Locale }) {
         <div className="fixed inset-0 z-50 bg-ink text-white lg:hidden">
           <div className="flex h-full flex-col px-6 pb-10 pt-6">
             <div className="flex items-center justify-between">
-              <div className="flex items-center gap-2.5">
-                <Logo className="h-6 w-[31px]" />
-                <span className="text-[19px] font-semibold tracking-tight">
-                  <span className="text-volt">Nu</span><span className="text-white">Team</span>
-                </span>
-              </div>
+              <span className="text-[19px] font-semibold tracking-tight">
+                <span className="text-volt">Nu</span><span className="text-white">Team</span>
+              </span>
 
               <button
                 type="button"

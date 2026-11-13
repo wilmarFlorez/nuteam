@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Logo from "@/components/landing/logo";
 import type { Locale } from "@/lib/locale";
 
 export default function Footer({ locale }: { locale: Locale }) {
@@ -12,13 +11,9 @@ export default function Footer({ locale }: { locale: Locale }) {
           <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
             <Link
               href={isEnglish ? "/en" : "/"}
-              className="flex w-fit items-center gap-2.5"
-              aria-label="NuTeam"
+              className="w-fit text-lg font-semibold tracking-tight"
             >
-              <Logo className="h-5 w-[26px]" />
-              <span className="text-lg font-semibold tracking-tight">
-                <span className="text-volt">Nu</span><span>Team</span>
-              </span>
+              <span className="text-volt">Nu</span><span>Team</span>
             </Link>
 
             <nav aria-label={isEnglish ? "Legal" : "Información legal"}>
