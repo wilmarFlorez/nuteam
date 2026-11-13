@@ -7,12 +7,12 @@ export default function Footer({ locale }: { locale: Locale }) {
 
   return (
     <footer className="relative overflow-x-clip border-t border-white/10 bg-ink text-white">
-      <div className="mx-auto max-w-[1440px] px-6 pb-10 pt-14 lg:px-10">
-        <div className="flex flex-col gap-10 lg:flex-row lg:items-start lg:justify-between">
-          <div>
+      <div className="mx-auto max-w-[1440px] px-6 py-8 lg:px-10 lg:py-9">
+        <div className="flex flex-col gap-6">
+          <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
             <Link
               href={isEnglish ? "/en" : "/"}
-              className="flex items-center gap-2.5"
+              className="flex w-fit items-center gap-2.5"
               aria-label="NuTeam"
             >
               <Logo className="h-5 w-[26px]" />
@@ -20,32 +20,33 @@ export default function Footer({ locale }: { locale: Locale }) {
                 <span className="text-volt">Nu</span><span>Team</span>
               </span>
             </Link>
+
+            <nav aria-label={isEnglish ? "Legal" : "Información legal"}>
+              <Link
+                href={isEnglish ? "/en/privacy" : "/privacidad"}
+                className="text-sm text-white/70 underline decoration-white/25 underline-offset-4 transition-colors hover:text-volt hover:decoration-volt focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-volt"
+              >
+                {isEnglish ? "Privacy Policy" : "Política de privacidad"}
+              </Link>
+            </nav>
           </div>
 
-          <nav aria-label="Legal" className="space-y-3">
-            <h2 className="font-mono text-[10px] font-medium uppercase tracking-[0.2em] text-white/50">
-              Legal
-            </h2>
-            <Link
-              href={isEnglish ? "/en/privacy" : "/privacidad"}
-              className="block text-sm text-white/75 underline decoration-white/25 underline-offset-4 transition-colors hover:text-volt hover:decoration-volt focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-volt"
-            >
-              {isEnglish ? "Privacy Policy" : "Política de privacidad"}
-            </Link>
-          </nav>
-
-          <p className="font-mono text-xs text-white/60">
-            © {new Date().getFullYear()} NuTeam
-          </p>
-        </div>
-
-        <div className="pointer-events-none mt-12 select-none">
-          <p
-            className="whitespace-nowrap text-center text-[clamp(4rem,14vw,13rem)] font-bold leading-[0.9] tracking-[-0.05em] text-white/[0.35]"
-            aria-hidden
-          >
-            NuTeam
-          </p>
+          <div className="flex flex-col gap-3 border-t border-white/10 pt-4 font-mono text-[10px] text-white/45 sm:flex-row sm:items-center sm:justify-between">
+            <p>
+              © {new Date().getFullYear()} <span aria-hidden="true">·</span> NUTEAM S.A.S.
+            </p>
+            <p className="flex items-center gap-2">
+              <span
+                aria-hidden="true"
+                className="flex h-2 w-3 flex-col overflow-hidden rounded-[1px]"
+              >
+                <span className="h-1 bg-[#fcd116]" />
+                <span className="h-0.5 bg-[#003893]" />
+                <span className="h-0.5 bg-[#ce1126]" />
+              </span>
+              {isEnglish ? "Colombian company" : "Empresa colombiana"}
+            </p>
+          </div>
         </div>
       </div>
     </footer>
