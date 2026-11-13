@@ -132,12 +132,12 @@ export default function ContactForm({ locale }: { locale: Locale }) {
         {english ? (
           <>
             Fields marked with <span className="font-bold text-volt">*</span> are
-            required. Role, WhatsApp / phone, process volume, and impact are optional.
+            required. WhatsApp / phone is optional.
           </>
         ) : (
           <>
             Los campos marcados con <span className="font-bold text-volt">*</span>{" "}
-            son obligatorios. Cargo, WhatsApp / teléfono, volumen e impacto son opcionales.
+            son obligatorios. WhatsApp / teléfono es opcional.
           </>
         )}
       </p>
@@ -195,13 +195,15 @@ export default function ContactForm({ locale }: { locale: Locale }) {
 
         <div>
           <label htmlFor="role" className={labelClass}>
-            {english ? "Role (optional)" : "Cargo (opcional)"}
+            {english ? "Role" : "Cargo"}
+            {requiredMarker}
           </label>
 
           <input
             id="role"
             name="role"
             type="text"
+            required
             className={inputClass}
             placeholder={english ? "Your role" : "Tu cargo"}
           />
@@ -249,14 +251,16 @@ export default function ContactForm({ locale }: { locale: Locale }) {
       <div>
         <label htmlFor="volume" className={labelClass}>
           {english
-            ? "Approximate process volume (optional)"
-            : "Volumen aproximado del proceso (opcional)"}
+            ? "What approximate volume does this process handle?"
+            : "¿Qué volumen maneja aproximadamente este proceso?"}
+          {requiredMarker}
         </label>
 
         <div className="relative">
           <select
             id="volume"
             name="volume"
+            required
             defaultValue=""
             className={`${inputClass} appearance-none pr-10 invalid:text-white/55`}
           >
@@ -297,13 +301,15 @@ export default function ContactForm({ locale }: { locale: Locale }) {
       <div>
         <label htmlFor="impact" className={labelClass}>
           {english
-            ? "What happens when the process runs incorrectly or late? (optional)"
-            : "¿Qué ocurre cuando el proceso no se ejecuta bien o a tiempo? (opcional)"}
+            ? "What happens when this process is not performed correctly or on time?"
+            : "¿Qué ocurre cuando este proceso no se ejecuta correctamente o a tiempo?"}
+          {requiredMarker}
         </label>
 
         <textarea
           id="impact"
           name="impact"
+          required
           rows={3}
           className={`${inputClass} resize-y`}
           placeholder={english ? "E.g. lost sales, delays, work hours..." : "Ej. pérdida de ventas, retrasos, horas de trabajo..."}
