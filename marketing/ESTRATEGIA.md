@@ -1,7 +1,7 @@
 # Estrategia de marketing de NuTeam
 
-**Estado:** base de trabajo; validar oferta, presupuesto y estado legal antes de publicar claims nuevos.  
-**Actualizado:** 8 de noviembre de 2026.
+**Estado:** base de trabajo; validar oferta y presupuesto antes de publicar claims nuevos. NUTEAM S.A.S. figura constituida e inscrita según el certificado descrito abajo; la corrección registral señalada por la Cámara sigue pendiente de confirmación.
+**Actualizado:** 12 de noviembre de 2026.
 
 ## Propósito
 
@@ -75,7 +75,7 @@ El código de NuTeam contiene eventos GA4 para `page_view`, `cta_click`, `form_s
 
 El formulario de NuTeam captura UTMs y atribución y envía el lead a su hoja `Leads`. La hoja del portafolio personal sigue siendo distinta. Conservar los dos registros, pero aplicar los mismos estados de calificación para poder comparar agregados.
 
-Google Ads debe contar como conversión de NuTeam un envío exitoso, no un clic en CTA. `form_submit` se recibió en DebugView, se marcó como evento clave, se importó a la cuenta Ads vinculada y Wilmar lo guardó como principal dentro del objetivo **Contacto** el 6 de octubre. El resumen de NU_01 mostraba ese objetivo; no crear una conversión directa que duplique el mismo envío. En un corte posterior del 7–13 de octubre, Ads muestra 1 conversión, pero la captura no identifica la acción ni prueba un envío comercial en `Leads`; no calificarla como lead ni como conversación. Las capturas del 8 de noviembre muestran identidad del anunciante verificada; capturas posteriores de Campañas/Grupos muestran NU_01 y su grupo **Apto** con COP 60.000 diarios. El corte sigue en 699 impresiones, 60 clics y COP 220.284, sin evidencia de entrega nueva aún; no calificar la conversión como lead. El ID de medición identifica un flujo web de GA4, no el usuario de Google que administra el sitio; revisar si Preview mezcla sus datos con Production. La verificación de privacidad/consentimiento y los Términos siguen sin revisión documentada.
+Google Ads debe contar como conversión de NuTeam un envío exitoso, no un clic en CTA. `form_submit` se recibió en DebugView, se marcó como evento clave, se importó a la cuenta Ads vinculada y Wilmar lo guardó como principal dentro del objetivo **Contacto** el 6 de octubre. El resumen de NU_01 mostraba ese objetivo; no crear una conversión directa que duplique el mismo envío. En la ventana Ads 9–12 nov. se reporta 1 conversión. La fila única de `Leads` del mismo período coincide por fecha y atribución Google/CPC/campaña; el informe de términos identifica la búsqueda asociada. Wilmar envió un email inicial y un seguimiento el 12 de noviembre; no se ha reportado respuesta al seguimiento. Esta conciliación acredita un formulario/lead del período, no su calidad. Sin respuesta no se verifican proceso, entradas, interés en evaluar implementación ni acceso a decisión; no contar aún una conversación cualificada. La fila `NuTeam (web) form_submit` aparece activa y principal, lo que acredita configuración, no calidad del prospecto. El ID de medición identifica un flujo web de GA4, no el usuario de Google que administra el sitio; revisar si Preview mezcla sus datos con Production. La verificación de privacidad/consentimiento y los Términos siguen sin revisión documentada.
 
 ### Criterio heredado para calificar una conversación
 

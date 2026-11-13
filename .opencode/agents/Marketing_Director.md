@@ -35,7 +35,7 @@ La proactividad ocurre durante las sesiones de OpenCode: no tienes ejecución en
 ## Contexto de negocio que debes proteger
 
 - NuTeam es una marca orientada a evaluar y construir automatizaciones operativas e integraciones para procesos concretos. No la presentes como un SaaS listo para comprar ni como una agencia con resultados ya demostrados.
-- NuTeam todavía está en proceso de formalización. Puede promocionarse como marca según la decisión de Wilmar, pero nunca afirmes que ya es una sociedad registrada. Cuando un prospecto pregunte o avance a propuesta, ayuda a explicar el estado y a confirmar si la forma de contratación/facturación disponible cumple sus requisitos.
+- NUTEAM S.A.S. ya está constituida e inscrita, según el certificado de existencia y representación legal de la Cámara de Comercio expedido el 4 de noviembre de 2026; no describirla como no registrada ni en proceso de formalización. El certificado también refleja peticiones en trámite y una inscripción de situación de control que la Cámara informó que debe corregir; no afirmar que esa corrección ya terminó ni que el estado registral está libre de asuntos pendientes. Antes de una propuesta, confirmar la forma de contratación y facturación disponible y que cumpla los requisitos del prospecto. No inferir identificadores fiscales, licencias ni revisión legal completa a partir de la inscripción.
 - Wilmar lidera el trabajo. Puede sumarse un desarrollador junior por proyecto según el alcance y la disponibilidad acordados; no describas a esa persona como empleado permanente ni prometas una capacidad de equipo que no se haya confirmado.
 - La audiencia prioritaria son equipos de empresa que evalúan automatizar trabajo repetitivo, información que pasa entre canales o sistemas, documentos, atención u operaciones. La contratación de Wilmar para roles pertenece al recorrido del portafolio personal; no la mezcles con la campaña de NuTeam.
 - La IA es una capacidad aplicada cuando aporta al proceso, no un requisito universal ni una promesa de autonomía sin controles. Al hablar de una solución, especifica entradas, procesamiento, reglas, excepciones, revisión humana cuando aplique y entrega/siguiente paso.
@@ -48,7 +48,7 @@ La proactividad ocurre durante las sesiones de OpenCode: no tienes ejecución en
 La fuente operativa de NuTeam es `marketing/`:
 
 - `marketing/README.md` establece cómo se relacionan las campañas de NuTeam con las de Wilmar.
-- `marketing/ESTRATEGIA.md` contiene audiencia, propuesta, evidencia permitida y criterio para calificar conversaciones.
+- `marketing/ESTRATEGIA.md` contiene audiencia, propuesta, evidencia permitida, el estado registral documentado y criterio para calificar conversaciones.
 - `marketing/CAMPAIGNS/NU_01_PLAN_DE_LANZAMIENTO.md` y `NU_01_CHECKLIST_LANZAMIENTO.md` contienen el plan y los bloqueadores de Google Ads Search.
 - `marketing/EXPERIMENTS/EX_01_WILMAR_VS_NUTEAM.md` guarda la hipótesis de comparación; no la llames experimento concluido.
 - La primera campaña de Google Ads vive en el repositorio `wlanding`. Usa sus informes originales, pero no mezcles ni atribuyas esos resultados a NuTeam.

@@ -1,10 +1,10 @@
 # Brief NU_01 — Google Ads Search para automatización operativa
 
-**Estado (8 de noviembre de 2026):** NU_01 inició el 7 de octubre. La vista Ads del 7 oct.–8 nov. muestra 699 impresiones, 60 clics, COP 220.284 y 1 conversión reportada, pendiente de reconciliar con un envío real; coincide con el corte 7–13 de octubre. La identidad del anunciante figura verificada. Capturas posteriores muestran NU_01 y su grupo en verde/**Apto**, con presupuesto de COP 60.000 diarios; no reflejan gasto adicional aún. Ver la [revisión de seguimiento](NU_01_REVISION_2026-11-08.md).
-**Actualizado:** 8 de noviembre de 2026.
+**Estado (12 de noviembre de 2026):** NU_01 inició el 7 de octubre. La tabla de keywords del 9–12 nov. muestra 690 impresiones, 75 clics, COP 238.145 y 1 conversión. La fila única de `Leads` del período coincide por fecha/atribución Google/CPC/campaña; el término fue una búsqueda de recurso gratuito. Wilmar envió un email inicial y un seguimiento, sin respuesta reportada al segundo; no está cualificado. El grupo figura **Apto**; el último presupuesto visible es COP 60.000 diarios. La promoción muestra COP 1.059.560 de COP 1.250.432, con COP 190.872 pendientes. Ver [seguimiento del 12 de noviembre](NU_01_REVISION_2026-11-12.md).
+**Actualizado:** 12 de noviembre de 2026.
 **Cuenta:** se usa la cuenta actual de Google Ads, con una campaña y conversión identificables para NuTeam.
 
-El plan completo y el seguimiento están en [`NU_01_PLAN_DE_LANZAMIENTO.md`](NU_01_PLAN_DE_LANZAMIENTO.md), el [`checklist`](NU_01_CHECKLIST_LANZAMIENTO.md), la [revisión inicial](NU_01_REVISION_2026-10-07_08.md) y los [seguimientos del 4](NU_01_REVISION_2026-11-04.md) y [8 de noviembre](NU_01_REVISION_2026-11-08.md). El certificado de Cámara de Comercio indica que NUTEAM S.A.S. quedó constituida e inscrita; el propio certificado advierte peticiones en trámite y la Cámara notificó una corrección pendiente de la situación de control. Privacidad y Términos siguen sin revisión legal documentada.
+El plan completo y el seguimiento están en [`NU_01_PLAN_DE_LANZAMIENTO.md`](NU_01_PLAN_DE_LANZAMIENTO.md), el [`checklist`](NU_01_CHECKLIST_LANZAMIENTO.md), la [revisión inicial](NU_01_REVISION_2026-10-07_08.md) y los [seguimientos del 4](NU_01_REVISION_2026-11-04.md), [8](NU_01_REVISION_2026-11-08.md) y [12 de noviembre](NU_01_REVISION_2026-11-12.md). El certificado de Cámara de Comercio indica que NUTEAM S.A.S. quedó constituida e inscrita; el propio certificado advierte peticiones en trámite y la Cámara notificó una corrección pendiente de la situación de control. Privacidad y Términos siguen sin revisión legal documentada.
 
 ## Decisiones de campaña
 

@@ -1,7 +1,7 @@
 # Marketing de NuTeam
 
-**Estado (8 de noviembre de 2026):** NU_01 inició el 7 de octubre. La captura Ads del 7 oct.–8 nov. muestra 699 impresiones, 60 clics, COP 220.284 de costo y 1 conversión reportada, sin reconciliar con un envío comercial. Capturas posteriores muestran la campaña y el grupo en verde/**Apto**, con COP 60.000 diarios promedio; las métricas no muestran gasto nuevo aún. La identidad del anunciante figura verificada. Ver [seguimiento del 8 de noviembre](CAMPAIGNS/NU_01_REVISION_2026-11-08.md).
-**Actualizado:** 8 de noviembre de 2026.
+**Estado (12 de noviembre de 2026):** Ads muestra 690 impresiones, 75 clics, COP 238.145 y 1 conversión en la tabla de keywords del período 9–12 nov. La fila única de `Leads` de ese período coincide por fecha y atribución Google/CPC/campaña; el informe de términos identifica una búsqueda de recurso gratuito. Wilmar envió un email inicial y un seguimiento; no se ha reportado respuesta al seguimiento y el lead aún no está cualificado. Hay cinco negativas de frase confirmadas a nivel de NU_01; no se bloqueó `gratis` en general. La promoción marca COP 1.059.560 de COP 1.250.432; faltan COP 190.872. Ver [seguimiento del 12 de noviembre](CAMPAIGNS/NU_01_REVISION_2026-11-12.md).
+**Actualizado:** 12 de noviembre de 2026.
 
 Este directorio organiza el posicionamiento, las campañas, los experimentos y las revisiones de marketing de NuTeam. Reutiliza el aprendizaje de la primera campaña en Google Ads del portafolio de Wilmar, sin trasladar sus resultados como si fueran resultados de NuTeam.
 
@@ -10,7 +10,7 @@ Este directorio organiza el posicionamiento, las campañas, los experimentos y l
 - **Objetivo común para automatización:** generar conversaciones cualificadas sobre procesos operativos que podrían automatizarse.
 - **Marcas y recorridos separados:** el portafolio de Wilmar conserva el recorrido de roles y colaboraciones profesionales; NuTeam se enfoca en empresas que evalúan automatización operativa.
 - **Medición separada:** cada campaña tiene su propia URL, acción de conversión, atribución y registro de leads. La comparación entre marcas se hace con un criterio común de calificación, no sumando formularios sin distinguir su origen.
-- **Presupuesto coordinado:** Wilmar confirmó el 6 de octubre que la campaña personal estaba pausada y que NuTeam sería la siguiente, sin solapamiento. NU_01 tuvo entrega inicial y luego Wilmar la pausó; antes de reanudar, comprobar si hay una restricción de cuenta vigente. Cada campaña conserva su presupuesto; verificar el estado de la saliente si cambia el calendario.
+- **Presupuesto coordinado:** Wilmar confirmó el 6 de octubre que la campaña personal estaba pausada y que NuTeam sería la siguiente, sin solapamiento. NU_01 se pausó inicialmente y luego volvió a estar Apta; las capturas del 9–12 nov. muestran entrega reciente. Cada campaña conserva su presupuesto; verificar el estado de la campaña personal antes de cambiar el calendario.
 
 La campaña y sus fuentes originales están en el repositorio `wlanding`, en `marketing_firts_campaing/`. Allí se conserva el historial de la campaña que dirigió tráfico al sitio personal. No mover ni reescribir esos datos desde este repositorio.
 
@@ -24,10 +24,13 @@ marketing/
 │   ├── NU_01_GOOGLE_SEARCH_AUTOMATIZACION.md
 │   ├── NU_01_PLAN_DE_LANZAMIENTO.md
 │   ├── NU_01_CHECKLIST_LANZAMIENTO.md
-│   ├── 7_8_octubre_2026.csv
+│   ├── informes_de_terminos_de_busqueda/
+│   │   ├── 7_8_octubre_2026.csv
+│   │   └── 9_12_noviembre_2026.csv
 │   ├── NU_01_REVISION_2026-10-07_08.md
 │   ├── NU_01_REVISION_2026-11-04.md
-│   └── NU_01_REVISION_2026-11-08.md
+│   ├── NU_01_REVISION_2026-11-08.md
+│   └── NU_01_REVISION_2026-11-12.md
 ├── EXPERIMENTS/
 │   └── EX_01_WILMAR_VS_NUTEAM.md
 └── TEMPLATES/
@@ -39,7 +42,7 @@ marketing/
 - `EXPERIMENTS/`: pruebas que cruzan marcas o páginas. Aquí se documenta la comparación con la landing personal; no se considera un experimento concluido.
 - `TEMPLATES/`: formato para reportar ventanas de campaña sin confundir clics, envíos de formulario y leads cualificados.
 
-Para NU_01, consultar el [plan](CAMPAIGNS/NU_01_PLAN_DE_LANZAMIENTO.md), el [checklist](CAMPAIGNS/NU_01_CHECKLIST_LANZAMIENTO.md), la [revisión inicial](CAMPAIGNS/NU_01_REVISION_2026-10-07_08.md), el [seguimiento del 4 de noviembre](CAMPAIGNS/NU_01_REVISION_2026-11-04.md) y el [seguimiento del 8 de noviembre](CAMPAIGNS/NU_01_REVISION_2026-11-08.md). Registrar fecha y fuente de cada actualización; no extrapolar cortes parciales a resultados sostenidos.
+Para NU_01, consultar el [plan](CAMPAIGNS/NU_01_PLAN_DE_LANZAMIENTO.md), el [checklist](CAMPAIGNS/NU_01_CHECKLIST_LANZAMIENTO.md), la [revisión inicial](CAMPAIGNS/NU_01_REVISION_2026-10-07_08.md) y los [seguimientos del 4](CAMPAIGNS/NU_01_REVISION_2026-11-04.md), [8](CAMPAIGNS/NU_01_REVISION_2026-11-08.md) y [12 de noviembre](CAMPAIGNS/NU_01_REVISION_2026-11-12.md). Registrar fecha y fuente de cada actualización; no extrapolar cortes parciales a resultados sostenidos.
 
 ## Convenciones de registro
 
@@ -51,14 +54,14 @@ Para NU_01, consultar el [plan](CAMPAIGNS/NU_01_PLAN_DE_LANZAMIENTO.md), el [che
 
 ## Estado de NU_01 y pendientes
 
-- Presupuesto inicial de NU_01: COP 34.000 diarios promedio y tope operativo manual de COP 1.000.000. Las capturas del 8 de noviembre muestran COP 60.000 diarios promedio configurados, campaña/grupo en **Apto** y un costo del período de COP 220.284 (22,0 % del tope), igual al corte previo. Apto no prueba que haya entrega nueva; verificar el costo e impresiones tras un día completo. Revisar el acumulado y pausar manualmente antes del tope; el presupuesto diario promedio no impone un límite total automático. No cambiar el presupuesto personal.
+- Presupuesto inicial de NU_01: COP 34.000 diarios promedio y tope operativo manual de COP 1.000.000. El último presupuesto visible es COP 60.000 diarios (8 nov.) y el grupo aparece **Apto**. La tabla de keywords 9–12 nov. confirma entrega: 690 impresiones, 75 clics y COP 238.145. Revisar el acumulado y pausar manualmente antes del tope; el presupuesto diario promedio no impone un límite total automático. No cambiar el presupuesto personal.
 - Google Ads informó el 6 de octubre que la muestra de prueba encontró la página de destino. La URL de prueba incluyó los UTM; `{adgroupid}` y `{creative}` se sustituyeron por IDs y `utm_term` quedó vacío. Esto no valida un clic real ni el envío a `Leads`; la ausencia de término en esta muestra no es por sí sola un error. Mantener el sufijo actual y no hacer clic en anuncios propios.
-- La captura del 7–8 de octubre es histórica. El corte posterior 7–13 registra 699 impresiones, 60 clics, CTR 8,58 %, CPC promedio COP 3.671 y gasto COP 220.284. La misma vista muestra 1 conversión reportada, pendiente de comprobar contra la acción y el registro comercial. La captura del 8 de noviembre muestra NU_01 detenida; su período de métricas no está visible y los ceros de esa vista no representan necesariamente el total histórico.
-- El CSV de términos del 7–8 de octubre informa 3 clics y COP 14.762 en términos reportados, y 12 clics y COP 43.914 en “Otros términos”. No incluye filas con consultas individuales; no atribuir intención a “Otros” ni añadir negativas sin evidencia.
+- La tabla de keywords más reciente del 9–12 nov. muestra 690 impresiones, 75 clics, CTR 10,87 %, CPC promedio COP 3.175, gasto COP 238.145 y 1 conversión. La fila única de `Leads` de la fecha coincide por fuente, medio y campaña; la consulta atribuida en Ads fue una búsqueda de recurso gratuito. El Nivel de calidad 2/10 de `"automatización de procesos"` es diagnóstico, no KPI. Los términos reportados suman 39 clics/COP 123.095; “Otros términos” agrupa 36 clics/COP 115.050 sin revelar consultas; no inferir intención.
+- La captura más reciente confirma cinco negativas de frase a nivel de NU_01: `"qué es"`, `"que es"`, `"n8n descargar"` y las variantes con/sin tilde de `"automatización industrial"`. No se agregó `"n8n español gratis"`, que originó el lead real; Wilmar ya envió un seguimiento y se espera su resultado antes de decidir. No excluir en bloque `n8n`, `RPA`, `pdf` ni `industrial` en general. El CSV histórico 7–8 oct. es agregado y no sustituye el actual.
 - `form_submit` se importó desde GA4 como acción principal dentro de **Contactos**, con recuento de una conversión y sin valor monetario. El resumen de NU_01 del 6 de octubre mostraba Contactos; la captura de acciones del 8 de octubre no incluye esta acción en objetivos a nivel de cuenta, lo cual puede ser coherente con el objetivo específico de campaña. Confirmar que NU_01 siga usando Contactos, sin cambiarlo si ya está configurado. No instalar una etiqueta `AW` ni crear una conversión directa duplicada.
-- Wilmar confirmó que las filas de QA se eliminaron y que no había envíos comerciales hasta el 8 de octubre. No se ha compartido un estado posterior de `Leads`; la conversión Ads del corte 7–13 no prueba por sí sola que exista un lead. `NEXT_PUBLIC_GA_MEASUREMENT_ID` está configurada para Production y Preview; falta comprobar que Preview no mezcle datos con Production. La revisión de privacidad/consentimiento sigue diferida.
+- Wilmar confirmó que las filas de QA se eliminaron. El único lead del 9–12 coincide por fecha/fuente con la conversión de Ads; los otros dos leads son de octubre. Wilmar envió un email inicial y un seguimiento el 12 nov.; aún no se ha reportado respuesta al seguimiento, por lo que sigue sin cualificar. No copiar datos personales ni texto operacional a este repositorio. `NEXT_PUBLIC_GA_MEASUREMENT_ID` está configurada para Production y Preview; falta comprobar que Preview no mezcle datos con Production. La revisión de privacidad/consentimiento sigue diferida.
 - En las capturas GA4 del 7–8 oct. había 0 `cta_click`, `form_start` y `form_submit` en las filas de NU_01; el dato del 8 era preliminar. Esa observación es histórica. Confirmar objetivo Contactos de la campaña antes de optimizar cuando Ads permita revisar el estado.
 - El teléfono es opcional y se probó vacío y diligenciado. No conservar datos personales de prueba ni de prospectos en este repositorio.
 - El certificado de Cámara de Comercio expedido el 4 de noviembre indica la constitución e inscripción de NUTEAM S.A.S. en el Libro IX. También advierte que hay peticiones en trámite y refleja una inscripción de situación de control que la Cámara informó que debe corregir; no registrar esa corrección como completada. Aclarar condiciones de contratación y facturación antes de una propuesta formal. Privacidad y Términos siguen sin revisión legal documentada.
-- La captura de Campañas/Grupos del 8 de noviembre muestra punto verde, estado **Apto** y presupuesto de COP 60.000 diarios para NU_01 y su grupo. Esto confirma la configuración visible, no entrega nueva: el corte 7 oct.–8 nov. aún muestra COP 220.284 y 60 clics, igual al corte anterior. La identidad del anunciante está verificada y D&B/afiliación ya no se requieren. Mantener el tope manual de COP 1.000.000; no modificar la estrategia ni el presupuesto personal.
-- La última cifra promocional compartida muestra requisito de COP 1.250.432 antes del 15 nov. 2026 para otorgar COP 1.250.433 de crédito futuro; el progreso era COP 802.055 y faltaban COP 448.377, sin crédito otorgado. Las capturas nuevas no muestran el contador: refrescar Promociones antes de recalcular el ritmo diario. El crédito no es deuda ni reembolso del gasto inicial; caduca 60 días después de otorgarse. No atribuir todo el progreso a NU_01. Para ritmo/calendario y estados, ver [seguimiento de NU_01 al 8 de noviembre](CAMPAIGNS/NU_01_REVISION_2026-11-08.md).
+- El estado **Apto** fue visto en Campañas/Grupos el 8 y 12 nov.; el presupuesto diario de COP 60.000 se vio el 8 nov. El tope manual sigue en COP 1.000.000; no modificar el presupuesto personal.
+- La captura de Promociones del 12 nov. marca COP 1.059.560 de COP 1.250.432 requeridos antes del 15 nov.; faltan COP 190.872. No se observa crédito otorgado. El crédito futuro caduca 60 días después de otorgarse y no reembolsa el gasto para calificar. La página advierte que los anuncios siguen publicándose tras agotarse el crédito; detener campañas manualmente para evitar más costos. No atribuir todo el progreso a NU_01; ver el [seguimiento del 12 de noviembre](CAMPAIGNS/NU_01_REVISION_2026-11-12.md).
