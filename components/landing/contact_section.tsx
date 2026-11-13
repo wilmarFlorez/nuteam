@@ -1,6 +1,7 @@
 import ContactForm from "./contact_form";
 import Reveal from "./reveal";
 import { isEnglish, type Locale } from "@/lib/locale";
+import { Check } from "lucide-react";
 
 const spanishOutcomes = [
   "Evaluación de viabilidad sobre tu proceso real",
@@ -37,13 +38,13 @@ export default function ContactSection({ locale }: { locale: Locale }) {
 
           <Reveal delay={240}>
             <ul className="mt-10 border-t border-white/10">
-              {outcomes.map((outcome, index) => (
+              {outcomes.map((outcome) => (
                 <li
                   key={outcome}
-                  className="flex items-baseline gap-4 border-b border-white/10 py-4"
+                  className="flex items-center gap-4 border-b border-white/10 py-4"
                 >
-                  <span className="font-mono text-xs text-volt">
-                    0{index + 1}
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center border border-white/20 bg-white/[0.02] text-volt">
+                    <Check size={16} strokeWidth={1.75} aria-hidden="true" />
                   </span>
                   <span className="text-sm leading-6 text-white/60">
                     {outcome}
@@ -51,13 +52,6 @@ export default function ContactSection({ locale }: { locale: Locale }) {
                 </li>
               ))}
             </ul>
-          </Reveal>
-
-          <Reveal delay={320}>
-            <div className="mt-10 flex items-center gap-3 font-mono text-[10px] font-medium uppercase tracking-[0.26em] text-white/60">
-              <span className="h-2 w-2 bg-volt" aria-hidden />
-              {english ? "Your operation is the starting point" : "Tu operación, el punto de partida"}
-            </div>
           </Reveal>
         </div>
 
