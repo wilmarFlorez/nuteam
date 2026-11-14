@@ -71,7 +71,7 @@ export default function Hero({ locale }: { locale: Locale }) {
           </Reveal>
         </div>
 
-        <div className="relative order-2 mx-auto aspect-[1.15/1] w-full max-w-[40rem] lg:absolute lg:inset-y-0 lg:-right-[16vw] lg:z-0 lg:mx-0 lg:aspect-auto lg:w-[70vw] lg:max-w-[90rem]">
+        <div className="relative order-2 mx-auto hidden aspect-[1.15/1] w-full max-w-[40rem] lg:absolute lg:inset-y-0 lg:-right-[16vw] lg:z-0 lg:mx-0 lg:block lg:aspect-auto lg:w-[70vw] lg:max-w-[90rem]">
           <Reveal delay={200} className="h-full w-full">
             <ParticleNetwork />
           </Reveal>

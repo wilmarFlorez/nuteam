@@ -32,8 +32,8 @@ export default function Navbar({ locale }: { locale: Locale }) {
   return (
     <header className="fixed inset-x-0 top-0 z-50">
       <div className="border-b border-white/10 bg-ink/95 text-white backdrop-blur-md">
-        <nav className="mx-auto flex h-16 max-w-[1440px] items-center justify-between px-6 lg:h-[72px] lg:px-10">
-          <a href="#" className="text-[19px] font-semibold tracking-tight">
+        <nav className="mx-auto flex h-[72px] max-w-[1440px] items-center justify-between px-6 sm:h-[84px] sm:px-8 lg:h-[72px] lg:px-10">
+          <a href="#" className="text-[22px] font-semibold tracking-tight sm:text-2xl lg:text-[19px]">
             <span className="text-volt">Nu</span><span className="text-white">Team</span>
           </a>
 
@@ -74,12 +74,11 @@ export default function Navbar({ locale }: { locale: Locale }) {
             onClick={() => setOpen(true)}
             aria-label={english ? "Open menu" : "Abrir menú"}
             aria-expanded={open}
-            className="flex h-10 w-10 items-center justify-center lg:hidden"
+            className="flex h-11 w-11 items-center justify-center rounded-full transition-colors hover:bg-white/5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-volt lg:hidden"
           >
-            <span className="relative block h-3 w-6">
-              <span className="absolute left-0 top-0 block h-px w-full bg-white" />
-              <span className="absolute left-0 top-1/2 block h-px w-full -translate-y-1/2 bg-white" />
-              <span className="absolute bottom-0 left-0 block h-px w-full bg-white" />
+            <span className="relative block h-4 w-8">
+              <span className="absolute left-0 top-1 block h-px w-full bg-white" />
+              <span className="absolute bottom-1 left-0 block h-px w-full bg-white" />
             </span>
           </button>
         </nav>
@@ -89,7 +88,7 @@ export default function Navbar({ locale }: { locale: Locale }) {
         <div className="fixed inset-0 z-50 bg-ink text-white lg:hidden">
           <div className="flex h-full flex-col px-6 pb-10 pt-6">
             <div className="flex items-center justify-between">
-              <span className="text-[19px] font-semibold tracking-tight">
+              <span className="text-[22px] font-semibold tracking-tight sm:text-2xl">
                 <span className="text-volt">Nu</span><span className="text-white">Team</span>
               </span>
 
