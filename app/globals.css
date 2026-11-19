@@ -83,7 +83,7 @@ body {
 }
 
 .whatsapp-button--above-chat {
-  bottom: calc(4.75rem + env(safe-area-inset-bottom, 0px));
+  bottom: calc(6rem + env(safe-area-inset-bottom, 0px));
 }
 
 @media (prefers-reduced-motion: reduce) {
