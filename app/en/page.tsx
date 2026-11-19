@@ -12,6 +12,7 @@ import CTA from "@/components/landing/cta";
 import ContactSection from "@/components/landing/contact_section";
 import Footer from "@/components/landing/footer";
 import AnalyticsTracker from "@/components/analytics_tracker";
+import WhatsAppButton from "@/components/landing/whatsapp_button";
 
 export const metadata: Metadata = {
   title: "AI-Powered Operational Process Automation | NuTeam",
@@ -28,6 +29,7 @@ export default function EnglishHome() {
     <main className="bg-ink">
       <LanguageSetter />
       <AnalyticsTracker />
+      <WhatsAppButton locale="en" />
       <Navbar locale="en" />
       <Hero locale="en" />
       <Problem locale="en" />

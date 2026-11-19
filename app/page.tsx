@@ -11,12 +11,14 @@ import ContactSection from "@/components/landing/contact_section";
 import Footer from "@/components/landing/footer";
 import AnalyticsTracker from "@/components/analytics_tracker";
 import ChatWidget from "@/components/landing/chat_widget";
+import WhatsAppButton from "@/components/landing/whatsapp_button";
 
 export default function Home() {
   return (
     <main className="bg-ink">
       <AnalyticsTracker />
       <ChatWidget />
+      <WhatsAppButton locale="es" chatWidgetVisible />
       <Navbar locale="es" />
 
       <Hero locale="es" />
