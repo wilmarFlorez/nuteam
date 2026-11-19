@@ -86,6 +86,12 @@ body {
   bottom: calc(6rem + env(safe-area-inset-bottom, 0px));
 }
 
+@media (min-width: 64rem) {
+  .whatsapp-button--above-chat {
+    bottom: calc(7rem + env(safe-area-inset-bottom, 0px));
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .whatsapp-button {
     transition: none;
