@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Archivo, IBM_Plex_Mono } from "next/font/google";
 import Script from "next/script";
+import { SITE_ORIGIN } from "@/lib/seo_metadata";
 import "./globals.css";
 
 const archivo = Archivo({
@@ -16,13 +17,28 @@ const plexMono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Solicitudes de transporte y automatización | NuTeam",
-  description:
-    "NuTeam evalúa cómo preparar solicitudes de transporte de carga y qué partes del proceso podrían automatizarse con reglas y revisión del equipo.",
-  alternates: {
-    canonical: "/",
-    languages: { es: "/", en: "/en" },
-  },
+  metadataBase: new URL(SITE_ORIGIN),
+};
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": `${SITE_ORIGIN}/#organization`,
+      name: "NuTeam",
+      legalName: "NUTEAM S.A.S.",
+      url: `${SITE_ORIGIN}/`,
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${SITE_ORIGIN}/#website`,
+      name: "NuTeam",
+      url: `${SITE_ORIGIN}/`,
+      publisher: { "@id": `${SITE_ORIGIN}/#organization` },
+      inLanguage: ["es", "en"],
+    },
+  ],
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -35,6 +51,12 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${archivo.variable} ${plexMono.variable} h-full antialiased`}
     >
       <body className="min-h-full bg-ink font-sans text-white">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(structuredData).replace(/</g, "\\u003c"),
+          }}
+        />
         {measurementId && isProduction ? (
           <>
             {/* Define the gtag queue before hydration so the initial page_view can be queued. */}

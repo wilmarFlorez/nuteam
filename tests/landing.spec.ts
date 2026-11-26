@@ -6,7 +6,10 @@ test("la landing en español presenta el flujo logístico y conserva sus destino
   await page.goto("/");
   await expect(page.locator("body")).not.toContainText(/[→↗↘←↑↓↙↖➜➝➞➤]/);
 
-  await expect(page).toHaveTitle(/Solicitudes de transporte.*NuTeam/);
+  await expect(page).toHaveTitle(
+    "Agentes de IA para solicitudes de transporte | NuTeam",
+  );
+  await expect(page.locator("main")).toHaveAttribute("lang", "es");
   await expect(
     page.getByRole("heading", {
       level: 1,
@@ -114,7 +117,10 @@ test("la landing en inglés mantiene el mismo enfoque logístico", async ({
   await page.goto("/en");
   await expect(page.locator("body")).not.toContainText(/[→↗↘←↑↓↙↖➜➝➞➤]/);
 
-  await expect(page).toHaveTitle(/Freight Request Process Automation.*NuTeam/);
+  await expect(page).toHaveTitle(
+    "AI Agents for Freight Request Automation | NuTeam",
+  );
+  await expect(page.locator("main")).toHaveAttribute("lang", "en");
   await expect(
     page.getByRole("heading", {
       level: 1,
@@ -156,6 +162,124 @@ test("la landing en inglés mantiene el mismo enfoque logístico", async ({
     page.getByText("Describe the steps your team follows and what it needs to check."),
   ).toHaveCount(0);
   await expect(page.getByRole("button", { name: "Close form" })).toBeVisible();
+});
+
+test("metadatos SEO localizados describen cada ruta pública", async ({
+  page,
+}) => {
+  const routes = [
+    {
+      path: "/",
+      title: "Agentes de IA para solicitudes de transporte | NuTeam",
+      description:
+        "NuTeam diseña agentes de IA para preparar solicitudes de transporte de carga en Colombia y evalúa qué partes podrían automatizarse con reglas y revisión humana.",
+      canonical: "https://www.nuteam.ai",
+      alternateLanguage: "en",
+      alternateUrl: "https://www.nuteam.ai/en",
+      locale: "es_CO",
+      card: "summary_large_image",
+      language: "es",
+    },
+    {
+      path: "/en",
+      title: "AI Agents for Freight Request Automation | NuTeam",
+      description:
+        "NuTeam assesses workflows for freight requests in Colombia and designs AI agents to structure details, flag gaps and keep exceptions under human review.",
+      canonical: "https://www.nuteam.ai/en",
+      alternateLanguage: "es",
+      alternateUrl: "https://www.nuteam.ai",
+      locale: "en_US",
+      card: "summary_large_image",
+      language: "en",
+    },
+    {
+      path: "/privacidad",
+      title: "Política de privacidad | NuTeam",
+      description:
+        "Conoce cómo NuTeam trata los datos del sitio, el formulario, la analítica, el chat, WhatsApp y la plataforma autenticada.",
+      canonical: "https://www.nuteam.ai/privacidad",
+      alternateLanguage: "en",
+      alternateUrl: "https://www.nuteam.ai/en/privacy",
+      locale: "es_CO",
+      card: "summary",
+      language: "es",
+    },
+    {
+      path: "/en/privacy",
+      title: "Privacy Policy | NuTeam",
+      description:
+        "Learn how NuTeam handles information from the website, form, analytics, chat, WhatsApp and its authenticated platform.",
+      canonical: "https://www.nuteam.ai/en/privacy",
+      alternateLanguage: "es",
+      alternateUrl: "https://www.nuteam.ai/privacidad",
+      locale: "en_US",
+      card: "summary",
+      language: "en",
+    },
+  ];
+
+  for (const route of routes) {
+    await page.goto(route.path);
+    await expect(page).toHaveTitle(route.title);
+    await expect(page.locator("main")).toHaveAttribute("lang", route.language);
+    await expect(page.locator('meta[name="description"]')).toHaveAttribute(
+      "content",
+      route.description,
+    );
+    await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
+      "href",
+      route.canonical,
+    );
+    await expect(
+      page.locator(
+        `link[rel="alternate"][hreflang="${route.alternateLanguage}"]`,
+      ),
+    ).toHaveAttribute("href", route.alternateUrl);
+    await expect(page.locator('meta[property="og:locale"]')).toHaveAttribute(
+      "content",
+      route.locale,
+    );
+    await expect(page.locator('meta[name="twitter:card"]')).toHaveAttribute(
+      "content",
+      route.card,
+    );
+  }
+
+  const structuredData = JSON.parse(
+    (await page.locator('script[type="application/ld+json"]').textContent()) ??
+      "null",
+  ) as { "@graph": Array<Record<string, string>> };
+  expect(structuredData["@graph"]).toEqual(
+    expect.arrayContaining([
+      expect.objectContaining({
+        "@type": "Organization",
+        name: "NuTeam",
+        legalName: "NUTEAM S.A.S.",
+      }),
+      expect.objectContaining({ "@type": "WebSite", name: "NuTeam" }),
+    ]),
+  );
+});
+
+test("robots y sitemap exponen las rutas canónicas en ambos idiomas", async ({
+  request,
+}) => {
+  const [robotsResponse, sitemapResponse] = await Promise.all([
+    request.get("/robots.txt"),
+    request.get("/sitemap.xml"),
+  ]);
+
+  expect(robotsResponse.ok()).toBe(true);
+  expect(await robotsResponse.text()).toContain(
+    "Sitemap: https://www.nuteam.ai/sitemap.xml",
+  );
+
+  expect(sitemapResponse.ok()).toBe(true);
+  const sitemap = await sitemapResponse.text();
+  for (const path of ["/", "/en", "/privacidad", "/en/privacy"]) {
+    expect(sitemap).toContain(`https://www.nuteam.ai${path}`);
+  }
+  expect(sitemap).toContain('hreflang="x-default"');
 });
 
 test("el formulario conserva sus campos y el envío confirmado muestra éxito", async ({

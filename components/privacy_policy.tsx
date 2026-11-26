@@ -220,7 +220,7 @@ export default function PrivacyPolicy({ locale }: { locale: Locale }) {
   return (
     <>
       {isEnglish && <LanguageSetter />}
-      <main className="min-h-screen bg-ink text-white">
+      <main lang={locale} className="min-h-screen bg-ink text-white">
         <div className="mx-auto max-w-4xl px-5 pb-24 pt-8 sm:px-6 sm:pt-12 lg:px-10">
           <nav
             aria-label={isEnglish ? "Page navigation" : "Navegación de página"}

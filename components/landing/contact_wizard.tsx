@@ -561,7 +561,7 @@ export default function ContactWizard({ locale }: { locale: Locale }) {
             <button
               type="button"
               onClick={goToNextStep}
-              className="inline-flex min-h-12 cursor-pointer items-center justify-center rounded-full border-2 border-volt bg-transparent px-7 py-3.5 text-sm font-semibold text-ink transition-colors duration-200 hover:border-volt hover:bg-volt focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-volt"
+              className="inline-flex min-h-12 cursor-pointer items-center justify-center rounded-full border border-volt bg-volt px-7 py-3.5 text-sm font-semibold text-ink focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-volt"
             >
               {english ? "Continue" : "Continuar"}
             </button>
@@ -569,7 +569,7 @@ export default function ContactWizard({ locale }: { locale: Locale }) {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="inline-flex min-h-12 cursor-pointer items-center justify-center rounded-full border-2 border-volt bg-transparent px-7 py-3.5 text-sm font-semibold text-ink transition-colors duration-200 hover:border-volt hover:bg-volt focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-volt disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-60"
+              className="inline-flex min-h-12 cursor-pointer items-center justify-center rounded-full border border-volt bg-volt px-7 py-3.5 text-sm font-semibold text-ink focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-volt disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-60"
             >
               {isSubmitting
                 ? english
