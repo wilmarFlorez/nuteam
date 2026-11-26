@@ -9,7 +9,7 @@ import UseCases from "@/components/landing/use_cases";
 import Process from "@/components/landing/process";
 import Differentiators from "@/components/landing/differentiators";
 import CTA from "@/components/landing/cta";
-import ContactSection from "@/components/landing/contact_section";
+import ContactModal from "@/components/landing/contact_modal";
 import Footer from "@/components/landing/footer";
 import AnalyticsTracker from "@/components/analytics_tracker";
 import WhatsAppButton from "@/components/landing/whatsapp_button";
@@ -39,7 +39,7 @@ export default function EnglishHome() {
       <Process locale="en" />
       <Differentiators locale="en" />
       <CTA locale="en" />
-      <ContactSection locale="en" />
+      <ContactModal locale="en" />
       <Footer locale="en" />
     </main>
   );

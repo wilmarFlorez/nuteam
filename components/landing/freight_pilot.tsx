@@ -9,22 +9,25 @@ export default function FreightPilot({ locale }: { locale: Locale }) {
   const english = isEnglish(locale);
 
   return (
-    <section id="demo" className="overflow-hidden bg-ink py-24 text-white lg:py-36">
-      <div className="mx-auto max-w-[1440px] px-6 lg:px-10">
-        <div className="grid border border-white/10 bg-coal lg:grid-cols-[minmax(0,0.9fr)_minmax(20rem,1.1fr)]">
-          <Reveal delay={80} className="flex flex-col p-7 sm:p-10 lg:p-12">
-            <p className="font-mono text-[10px] font-medium uppercase tracking-[0.24em] text-volt">
+    <section id="demo" className="overflow-hidden bg-ink py-24 text-white sm:py-28 lg:py-40">
+      <div className="mx-auto max-w-[1440px] px-5 sm:px-6 lg:px-10">
+        <div className="grid gap-4 lg:grid-cols-[minmax(0,0.88fr)_minmax(20rem,1.12fr)]">
+          <Reveal
+            delay={80}
+            className="flex flex-col rounded-[1.75rem] border border-white/10 bg-coal/75 p-7 sm:p-9 lg:rounded-[2rem] lg:p-12"
+          >
+            <p className="font-mono text-[10px] font-medium uppercase tracking-[0.18em] text-white/55">
               {english ? "Transport operations" : "Operaciones de transporte"}
             </p>
-            <h2 className="mt-6 max-w-xl text-3xl font-semibold leading-[1.05] tracking-[-0.03em] sm:text-4xl">
+            <h2 className="mt-4 max-w-xl text-4xl font-semibold leading-[1.02] tracking-[-0.05em] sm:text-5xl">
               Freight <span className="text-volt">Pilot</span>
             </h2>
-            <h3 className="mt-5 max-w-xl text-xl font-medium leading-tight tracking-tight text-white/90 sm:text-2xl">
+            <h3 className="mt-5 max-w-xl text-xl font-medium leading-tight tracking-[-0.025em] text-white/90 sm:text-2xl">
               {english
                 ? "From a scattered message to structured information for review"
                 : "De un mensaje disperso a información estructurada para revisión"}
             </h3>
-            <p className="mt-5 max-w-xl leading-7 text-white/60">
+            <p className="mt-5 max-w-xl leading-7 text-white/65 sm:text-[17px] sm:leading-8">
               {english
                 ? "This portfolio demo extracts and normalizes transport details, applies business rules, and flags incomplete or ambiguous requests for an operator to review. It does not calculate rates, create quotes, or assign vehicles."
                 : "Esta demo de portafolio extrae y normaliza datos de transporte, aplica reglas de negocio y señala las solicitudes incompletas o ambiguas para que las revise un operador. No calcula tarifas, crea cotizaciones ni asigna vehículos."}
@@ -37,27 +40,30 @@ export default function FreightPilot({ locale }: { locale: Locale }) {
                 rel="noreferrer"
                 ctaName="ver_demo_freight_pilot"
                 location="freight_pilot"
-                className="inline-flex items-center justify-center bg-volt px-6 py-3.5 text-sm font-semibold text-ink transition-colors hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-volt"
+                className="inline-flex min-h-12 items-center justify-center rounded-full bg-volt px-6 py-3.5 text-sm font-semibold text-ink transition-transform duration-200 hover:scale-[1.03] hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-volt"
               >
                 {english ? "View Freight Pilot demo" : "Ver demo de Freight Pilot"}
               </TrackedLink>
             </div>
           </Reveal>
 
-          <Reveal delay={140} className="border-t border-white/10 p-4 sm:p-6 lg:border-l lg:border-t-0 lg:p-8">
+          <Reveal
+            delay={140}
+            className="rounded-[1.75rem] border border-white/10 bg-coal/45 p-3 sm:p-4 lg:rounded-[2rem] lg:p-5"
+          >
             <TrackedLink
               href={demoUrl}
               target="_blank"
               rel="noreferrer"
               ctaName="ver_demo_freight_pilot"
               location="freight_pilot_preview"
-              className="group relative block overflow-hidden border border-white/10 bg-paper shadow-[0_20px_50px_rgb(0_0_0_/_0.2)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-volt"
+              className="group relative block overflow-hidden rounded-[1.25rem] border border-white/10 bg-paper shadow-[0_28px_80px_-36px_rgba(0,0,0,0.65)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-volt sm:rounded-[1.5rem]"
             >
-                <div className="flex items-center justify-between border-b border-ink/10 px-5 py-3 text-ink sm:px-6">
-                  <span className="font-mono text-[10px] font-medium uppercase tracking-[0.22em]">
+              <div className="flex items-center justify-between border-b border-ink/10 px-4 py-3 text-ink sm:px-6 sm:py-4">
+                <span className="font-mono text-[9px] font-medium uppercase tracking-[0.18em] text-muted sm:text-[10px] sm:tracking-[0.22em]">
                     {english ? "Operator review" : "Revisión del operador"}
                 </span>
-                <span className="font-mono text-[10px] font-medium uppercase tracking-[0.18em] text-muted transition-colors group-hover:text-ink">
+                <span className="rounded-full bg-ink px-3 py-1.5 font-mono text-[9px] font-medium uppercase tracking-[0.12em] text-paper transition-colors group-hover:bg-volt group-hover:text-ink sm:text-[10px]">
                   {english ? "Open demo" : "Abrir demo"}
                 </span>
               </div>
@@ -69,7 +75,7 @@ export default function FreightPilot({ locale }: { locale: Locale }) {
                     : "Pantalla de revisión del operador de Freight Pilot con una solicitud de transporte estructurada y sus datos extraídos."}
                   fill
                   sizes="(max-width: 1024px) 100vw, 55vw"
-                  className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.01]"
+                  className="object-cover object-top transition-transform duration-700 group-hover:scale-[1.015]"
                 />
               </div>
             </TrackedLink>

@@ -221,37 +221,37 @@ export default function PrivacyPolicy({ locale }: { locale: Locale }) {
     <>
       {isEnglish && <LanguageSetter />}
       <main className="min-h-screen bg-ink text-white">
-        <div className="mx-auto max-w-4xl px-6 pb-24 pt-10 sm:pt-14 lg:px-10">
+        <div className="mx-auto max-w-4xl px-5 pb-24 pt-8 sm:px-6 sm:pt-12 lg:px-10">
           <nav
             aria-label={isEnglish ? "Page navigation" : "Navegación de página"}
-            className="flex items-center justify-between border-b border-white/10 pb-6 font-mono text-[10px] font-medium uppercase tracking-[0.16em] text-white/55"
+            className="flex items-center justify-between border-b border-white/10 pb-5 text-sm text-white/65"
           >
             <Link
               href={isEnglish ? "/en" : "/"}
-              className="transition-colors hover:text-volt focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-volt"
+              className="rounded-full border border-white/10 px-4 py-2 transition-colors hover:border-white/25 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-volt"
             >
               {copy.homeLabel}
             </Link>
             <Link
               href={copy.languageHref}
               lang={isEnglish ? "es" : "en"}
-              className="transition-colors hover:text-volt focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-volt"
+              className="rounded-full border border-white/10 px-4 py-2 transition-colors hover:border-white/25 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-volt"
             >
               {copy.languageLabel}
             </Link>
           </nav>
 
           <header className="border-b border-white/10 py-12 sm:py-16">
-            <p className="font-mono text-[10px] font-medium uppercase tracking-[0.22em] text-volt">
+            <p className="inline-flex rounded-full border border-volt/20 bg-volt/[0.08] px-3.5 py-2 font-mono text-[10px] font-medium uppercase tracking-[0.16em] text-volt">
               {copy.eyebrow}
             </p>
-            <h1 className="mt-5 text-4xl font-semibold tracking-[-0.04em] sm:text-5xl">
+            <h1 className="mt-6 text-balance text-4xl font-semibold leading-[1.02] tracking-[-0.05em] sm:text-5xl lg:text-6xl">
               {copy.title}
             </h1>
-            <p className="mt-5 max-w-3xl text-base leading-7 text-white/70 sm:text-lg sm:leading-8">
+            <p className="mt-6 max-w-3xl text-base leading-7 text-white/65 sm:text-lg sm:leading-8">
               {copy.introduction}
             </p>
-            <p className="mt-6 font-mono text-[11px] uppercase tracking-[0.12em] text-white/45">
+            <p className="mt-6 text-sm text-white/45">
               {copy.updated}
             </p>
           </header>
@@ -259,7 +259,7 @@ export default function PrivacyPolicy({ locale }: { locale: Locale }) {
           <article className="divide-y divide-white/10">
             {copy.sections.map((section) => (
               <section key={section.title} className="space-y-5 py-9 sm:py-11">
-                <h2 className="text-xl font-semibold tracking-tight text-white sm:text-2xl">
+                <h2 className="text-xl font-semibold tracking-[-0.025em] text-white sm:text-2xl">
                   {section.title}
                 </h2>
                 {section.paragraphs?.map((paragraph, index) => (

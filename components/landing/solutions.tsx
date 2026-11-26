@@ -44,12 +44,12 @@ export default function Solutions({ locale }: { locale: Locale }) {
   const steps = english ? englishSteps : spanishSteps;
 
   return (
-    <section id="soluciones" className="bg-ink py-24 text-white lg:py-36">
-      <div className="mx-auto max-w-[1440px] px-6 lg:px-10">
+    <section id="soluciones" className="bg-ink py-24 text-white sm:py-28 lg:py-40">
+      <div className="mx-auto max-w-[1440px] px-5 sm:px-6 lg:px-10">
         <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(18rem,0.48fr)] lg:items-end lg:gap-16">
           <div className="max-w-3xl">
             <Reveal delay={80}>
-              <h2 className="text-4xl font-semibold tracking-[-0.03em] sm:text-5xl lg:text-6xl">
+              <h2 className="text-balance text-4xl font-semibold leading-[1.02] tracking-[-0.045em] sm:text-5xl lg:text-6xl">
                 {english
                   ? "From an incoming request to a clear next step"
                   : "De una solicitud recibida a un siguiente paso claro"}
@@ -58,7 +58,7 @@ export default function Solutions({ locale }: { locale: Locale }) {
           </div>
 
           <Reveal delay={160}>
-            <p className="max-w-md border-t border-white/15 pt-6 leading-7 text-white/60 lg:border-l lg:border-t-0 lg:pl-6 lg:pt-0">
+            <p className="max-w-md border-t border-white/15 pt-5 leading-7 text-white/60 lg:border-l lg:border-t-0 lg:pl-6 lg:pt-0">
               {english
                 ? "A possible flow—not a ready-made product. The channels, data, rules, and handoffs depend on how your operation works."
                 : "Un flujo posible, no un producto prediseñado. Los canales, datos, reglas y traspasos dependen de cómo funciona tu operación."}
@@ -66,20 +66,21 @@ export default function Solutions({ locale }: { locale: Locale }) {
           </Reveal>
         </div>
 
-        <ol className="mt-16 grid gap-3 md:grid-cols-2 lg:grid-cols-4">
+        <ol className="mt-12 grid gap-3 sm:mt-16 md:grid-cols-2 lg:grid-cols-4">
           {steps.map((step, index) => (
             <li key={step.title}>
               <Reveal className="h-full" delay={index * 60}>
-                <article className="group relative h-full border border-white/10 bg-coal p-6 transition-colors duration-300 hover:border-volt/40 hover:bg-white/[0.04] lg:min-h-64 lg:p-7">
-                  <div className="flex items-center justify-between border-b border-white/10 pb-5">
-                    <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-white/35">
+                <article className="group relative h-full rounded-[1.5rem] border border-white/10 bg-coal/70 p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] transition-all duration-300 hover:-translate-y-1 hover:border-volt/35 hover:bg-coal lg:min-h-64 lg:rounded-[1.75rem] lg:p-7">
+                  <div className="flex items-center gap-3 border-b border-white/10 pb-5">
+                    <span aria-hidden="true" className="size-1.5 rounded-full bg-volt/80" />
+                    <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-white/50">
                       {english ? `Step ${index + 1}` : `Paso ${index + 1}`}
                     </span>
                   </div>
-                  <h3 className="mt-7 text-2xl font-semibold tracking-tight transition-colors group-hover:text-volt">
+                  <h3 className="mt-7 text-2xl font-semibold tracking-[-0.035em] transition-colors group-hover:text-volt">
                     {step.title}
                   </h3>
-                  <p className="mt-3 max-w-xs leading-7 text-white/55">
+                  <p className="mt-3 max-w-xs leading-7 text-white/60">
                     {step.description}
                   </p>
                 </article>

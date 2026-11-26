@@ -35,11 +35,11 @@ export default function Problem({ locale }: { locale: Locale }) {
       ]
     : spanishProblems;
   return (
-    <section className="relative overflow-hidden bg-paper py-24 text-ink lg:py-36">
-      <div className="mx-auto grid max-w-[1440px] gap-14 px-6 lg:grid-cols-12 lg:gap-10 lg:px-10">
+    <section className="relative overflow-hidden bg-paper py-24 text-ink sm:py-28 lg:py-40">
+      <div className="mx-auto grid max-w-[1440px] gap-12 px-5 sm:px-6 lg:grid-cols-12 lg:gap-14 lg:px-10">
         <div className="lg:col-span-5">
           <Reveal delay={80}>
-            <h2 className="text-4xl font-semibold tracking-[-0.03em] sm:text-5xl lg:text-[3.4rem] lg:leading-[1.02]">
+            <h2 className="text-balance text-4xl font-semibold leading-[1.04] tracking-[-0.045em] sm:text-5xl lg:text-[3.75rem]">
               {english
                 ? "A freight request often needs work before it is ready for review"
                 : "Una solicitud de transporte puede requerir trabajo antes de quedar lista para revisión"}
@@ -47,7 +47,7 @@ export default function Problem({ locale }: { locale: Locale }) {
           </Reveal>
 
           <Reveal delay={160}>
-            <p className="mt-7 max-w-md text-lg leading-8 text-muted">
+            <p className="mt-6 max-w-md text-base leading-7 text-muted sm:mt-8 sm:text-lg sm:leading-8">
               {english
                 ? "This is an example of a workflow to assess, not a claim that every logistics operation works the same way. The useful starting point is understanding what your team receives and what it needs to check."
                 : "Este es un ejemplo de flujo para evaluar, no una afirmación de que todas las operaciones logísticas funcionen igual. El punto de partida es entender qué recibe tu equipo y qué necesita revisar."}
@@ -57,27 +57,22 @@ export default function Problem({ locale }: { locale: Locale }) {
         </div>
 
         <div className="lg:col-span-7">
-          <Reveal delay={120}>
-            <div className="border-t border-ink/15">
-              {problems.map((problem) => (
-                <article
-                  key={problem.title}
-                  className="group relative grid gap-2 border-b border-ink/15 py-7 pl-6 transition-colors hover:bg-ink/[0.02] md:grid-cols-[230px_1fr] md:items-baseline md:gap-6 md:py-8"
-                >
+          <div className="grid gap-3 sm:grid-cols-2 sm:gap-4">
+            {problems.map((problem, index) => (
+              <Reveal key={problem.title} delay={index * 60}>
+                <article className="group h-full rounded-[1.5rem] border border-ink/10 bg-white/[0.42] p-6 transition-all duration-300 hover:-translate-y-1 hover:bg-white/70 hover:shadow-[0_24px_50px_-42px_rgba(24,24,24,0.4)] sm:p-7">
                   <span
-                    className="absolute left-0 top-0 h-full w-[2px] origin-top scale-y-0 bg-volt transition-transform duration-300 group-hover:scale-y-100"
-                    aria-hidden
+                    aria-hidden="true"
+                    className="mb-8 block h-1 w-9 rounded-full bg-volt transition-all duration-300 group-hover:w-14"
                   />
-
-                  <h3 className="text-xl font-semibold tracking-tight sm:text-2xl">
+                  <h3 className="text-xl font-semibold leading-tight tracking-[-0.025em] sm:text-2xl">
                     {problem.title}
                   </h3>
-
-                  <p className="leading-7 text-muted">{problem.description}</p>
+                  <p className="mt-3 leading-7 text-muted">{problem.description}</p>
                 </article>
-              ))}
-            </div>
-          </Reveal>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </div>
     </section>

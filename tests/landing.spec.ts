@@ -38,6 +38,7 @@ test("la landing en español presenta el flujo logístico y conserva sus destino
     page.locator("#como-funciona").getByText(/^(01|02|03|04)$/, { exact: true }),
   ).toHaveCount(0);
   await expect(page.locator("#contacto")).toBeAttached();
+  await expect(page.locator("#contacto")).not.toHaveAttribute("open", "");
 
   await expect(
     page.getByText("Demo de portafolio · no es una implementación de cliente"),
@@ -99,6 +100,15 @@ test("la landing en inglés mantiene el mismo enfoque logístico", async ({
   await expect(page.locator("#casos-de-uso")).toBeAttached();
   await expect(page.locator("#como-funciona")).toBeAttached();
   await expect(page.locator("#contacto")).toBeAttached();
+  await page.getByRole("link", { name: "Evaluate my process" }).first().click();
+  await expect(page.locator("#contacto")).toHaveAttribute("open", "");
+  await expect(page.getByText("Step 1 of 4", { exact: true })).toBeVisible();
+  await expect(page.getByText("Process assessment", { exact: true })).toHaveCount(0);
+  await expect(page.getByText(/^\d+%$/, { exact: true })).toHaveCount(0);
+  await expect(
+    page.getByText("Describe the steps your team follows and what it needs to check."),
+  ).toHaveCount(0);
+  await expect(page.getByRole("button", { name: "Close form" })).toBeVisible();
 });
 
 test("el formulario conserva sus campos y el envío confirmado muestra éxito", async ({
@@ -125,23 +135,50 @@ test("el formulario conserva sus campos y el envío confirmado muestra éxito", 
 
   await page.goto("/");
   await page.waitForLoadState("networkidle");
+  await page.getByRole("link", { name: "Evaluar mi proceso" }).first().click();
+  await expect(page.locator("#contacto")).toHaveAttribute("open", "");
+  await expect(page.getByText("Evaluación del proceso", { exact: true })).toHaveCount(0);
+  await expect(page.getByText(/^\d+%$/, { exact: true })).toHaveCount(0);
+  await expect(
+    page.getByText(
+      "No incluyas datos personales de clientes o conductores ni documentos confidenciales.",
+    ),
+  ).toHaveCount(0);
   await page.locator("#contacto form").scrollIntoViewIfNeeded();
   await page.waitForLoadState("networkidle");
-  await expect(page.getByLabel("Nombre")).toBeVisible();
+  await expect(
+    page.getByText("Paso 1 de 4", { exact: true }),
+  ).toBeVisible();
+  await expect(
+    page.getByText(
+      "Describe los pasos que sigue tu equipo y qué información necesita revisar.",
+    ),
+  ).toHaveCount(0);
+  await page
+    .getByLabel("¿Cómo llegan y se preparan las solicitudes de transporte para revisión?")
+    .fill("Llegan por correo y el equipo revisa la información.");
+  await page.getByRole("button", { name: "Continuar" }).click();
+  await page
+    .getByLabel("¿Cuántas horas por semana dedica aproximadamente tu equipo a este proceso?")
+    .selectOption("10-30");
+  await page.getByRole("button", { name: "Continuar" }).click();
+  await page
+    .getByLabel("¿Qué ocurre cuando una solicitud está incompleta o tarda en revisarse?")
+    .fill("El equipo solicita la información faltante.");
+  await page.getByRole("button", { name: "Volver" }).click();
+  await expect(
+    page.getByLabel("¿Cuántas horas por semana dedica aproximadamente tu equipo a este proceso?"),
+  ).toHaveValue("10-30");
+  await page.getByRole("button", { name: "Continuar" }).click();
+  await expect(
+    page.getByLabel("¿Qué ocurre cuando una solicitud está incompleta o tarda en revisarse?"),
+  ).toHaveValue("El equipo solicita la información faltante.");
+  await page.getByRole("button", { name: "Continuar" }).click();
 
   await page.getByLabel("Nombre").fill("Prueba");
   await page.getByLabel("Email corporativo").fill("prueba@example.com");
   await page.getByLabel("Empresa").fill("Operador de prueba");
   await page.getByLabel("Cargo").fill("Operaciones");
-  await page
-    .getByLabel("¿Cómo llegan y se preparan las solicitudes de transporte para revisión?")
-    .fill("Llegan por correo y el equipo revisa la información.");
-  await page
-    .getByLabel("¿Cuántas horas por semana dedica aproximadamente tu equipo a este proceso?")
-    .selectOption("10-30");
-  await page
-    .getByLabel("¿Qué ocurre cuando una solicitud está incompleta o tarda en revisarse?")
-    .fill("El equipo solicita la información faltante.");
 
   expect(
     await page.locator("#contacto form").evaluate((form: HTMLFormElement) =>
@@ -166,4 +203,19 @@ test("el formulario conserva sus campos y el envío confirmado muestra éxito", 
     source: "landing",
   });
   expect(payload).toHaveProperty("utm");
+});
+
+test("el modal de contacto se puede cerrar y volver a abrir", async ({ page }) => {
+  await page.goto("/");
+  await page.getByRole("link", { name: "Evaluar mi proceso" }).first().click();
+
+  const modal = page.locator("#contacto");
+  await expect(modal).toHaveAttribute("open", "");
+  await page.getByRole("button", { name: "Cerrar formulario" }).click();
+  await expect(modal).not.toHaveAttribute("open", "");
+
+  await page.getByRole("link", { name: "Evaluar mi proceso" }).first().click();
+  await expect(modal).toHaveAttribute("open", "");
+  await page.keyboard.press("Escape");
+  await expect(modal).not.toHaveAttribute("open", "");
 });

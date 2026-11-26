@@ -30,14 +30,16 @@ export default function Differentiators({ locale }: { locale: Locale }) {
       ]
     : spanishDifferentiators;
   return (
-    <section className="relative overflow-hidden bg-ink pb-28 pt-24 text-white lg:pb-40 lg:pt-36">
-      <div className="absolute inset-0 bg-dots" />
-      <div className="absolute -left-48 bottom-0 h-[460px] w-[460px] rounded-full bg-volt/[0.04] blur-3xl" />
+    <section className="relative isolate overflow-hidden bg-ink py-24 text-white sm:py-28 lg:py-40">
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -left-48 bottom-0 size-[30rem] rounded-full bg-volt/[0.05] blur-3xl"
+      />
 
-      <div className="relative mx-auto grid max-w-[1440px] gap-14 px-6 lg:grid-cols-12 lg:gap-10 lg:px-10">
+      <div className="relative mx-auto grid max-w-[1440px] gap-12 px-5 sm:px-6 lg:grid-cols-12 lg:gap-14 lg:px-10">
         <div className="lg:col-span-5">
           <Reveal delay={80}>
-            <h2 className="text-4xl font-semibold leading-[1.02] tracking-[-0.03em] sm:text-5xl lg:text-6xl">
+            <h2 className="text-balance text-4xl font-semibold leading-[1.02] tracking-[-0.05em] sm:text-5xl lg:text-6xl">
               {english ? "Automation does not mean" : "Automatizar no significa"}
               <br />
               {english ? "taking people out of the " : "sacar al equipo de la "}
@@ -47,33 +49,25 @@ export default function Differentiators({ locale }: { locale: Locale }) {
 
         </div>
 
-        <div className="lg:col-span-7">
-          <Reveal delay={120}>
-            <div className="border-t border-white/10">
-              {differentiators.map((item) => (
-                <article
-                  key={item.title}
-                  className="group relative grid gap-4 border-b border-white/10 py-8 pl-4 transition-colors duration-300 hover:bg-white/[0.03] md:grid-cols-[40px_1fr] md:gap-6 md:py-10"
-                >
-                  <div>
-                    <span className="flex h-8 w-8 items-center justify-center border border-white/20 bg-white/[0.02] text-volt transition-colors duration-300 group-hover:border-volt/60 group-hover:bg-volt/[0.06]">
-                      <Check size={16} strokeWidth={1.75} aria-hidden="true" />
-                    </span>
-                  </div>
+        <div className="grid gap-3 lg:col-span-7 lg:gap-4">
+          {differentiators.map((item, index) => (
+            <Reveal key={item.title} delay={index * 80}>
+              <article className="group grid gap-4 rounded-[1.5rem] border border-white/10 bg-white/[0.025] p-6 transition-colors duration-300 hover:border-white/20 hover:bg-white/[0.05] sm:grid-cols-[2.75rem_1fr] sm:items-start sm:gap-5 sm:p-7">
+                <span className="flex size-10 items-center justify-center rounded-full border border-volt/25 bg-volt/[0.06] text-volt transition-colors duration-300 group-hover:bg-volt group-hover:text-ink">
+                  <Check size={16} strokeWidth={1.75} aria-hidden="true" />
+                </span>
 
-                  <div>
-                    <h3 className="text-xl font-semibold tracking-tight transition-colors duration-300 group-hover:text-volt sm:text-2xl">
-                      {item.title}
-                    </h3>
-
-                    <p className="mt-3 max-w-xl leading-7 text-white/60">
-                      {item.description}
-                    </p>
-                  </div>
-                </article>
-              ))}
-            </div>
-          </Reveal>
+                <div>
+                  <h3 className="text-xl font-semibold tracking-[-0.03em] transition-colors duration-300 group-hover:text-volt sm:text-2xl">
+                    {item.title}
+                  </h3>
+                  <p className="mt-3 max-w-xl leading-7 text-white/60">
+                    {item.description}
+                  </p>
+                </div>
+              </article>
+            </Reveal>
+          ))}
         </div>
       </div>
     </section>

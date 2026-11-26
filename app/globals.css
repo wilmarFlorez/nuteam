@@ -12,17 +12,7 @@
   --font-sans: var(--font-archivo);
   --font-mono: var(--font-plex-mono);
 
-  --animate-scan: scan 3.2s linear infinite;
   --animate-fade-up: fade-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
-
-  @keyframes scan {
-    0% {
-      transform: translateX(-110%);
-    }
-    100% {
-      transform: translateX(320%);
-    }
-  }
 
   @keyframes fade-up {
     from {
@@ -121,36 +111,12 @@ body {
   background-size: 26px 26px;
 }
 
-.hero-particle-canvas {
-  mask-image: linear-gradient(90deg, #000 0%, #000 78%, transparent 100%);
-  -webkit-mask-image: linear-gradient(90deg, #000 0%, #000 78%, transparent 100%);
-}
-
-@media (min-width: 64rem) {
-  .hero-particle-canvas {
-    mask-image: linear-gradient(
-      90deg,
-      transparent 0%,
-      #000 22%,
-      #000 78%,
-      transparent 100%
-    );
-    -webkit-mask-image: linear-gradient(
-      90deg,
-      transparent 0%,
-      #000 22%,
-      #000 78%,
-      transparent 100%
-    );
-  }
-}
-
 .reveal {
   opacity: 0;
-  transform: translateY(28px);
+  transform: translateY(20px);
   transition:
-    opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
-    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.7s cubic-bezier(0.2, 0.65, 0.3, 1),
+    transform 0.7s cubic-bezier(0.2, 0.65, 0.3, 1),
     background-color 0.3s ease;
   will-change: opacity, transform;
 }
