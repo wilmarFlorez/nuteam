@@ -497,61 +497,6 @@ export default function ContactWizard({ locale }: { locale: Locale }) {
         </div>
       </div>
 
-      {hasError && (
-        <p
-          className="rounded-xl border border-red-400/30 bg-red-950/30 px-4 py-3 text-sm leading-6 text-red-100"
-          role="alert"
-        >
-          {english
-            ? "We could not send your request. Check your connection and try again."
-            : "No pudimos enviar tu solicitud. Revisa tu conexión e inténtalo de nuevo."}
-        </p>
-      )}
-
-      <div
-        className={`grid gap-3 ${
-          currentStep === 0 ? "grid-cols-1" : "grid-cols-[auto_minmax(0,1fr)]"
-        }`}
-      >
-        {currentStep > 0 && (
-          <button
-            type="button"
-            onClick={goToPreviousStep}
-            className="inline-flex min-h-12 items-center justify-center rounded-full border border-ink/15 px-6 py-3.5 text-sm font-medium text-ink/75 transition-colors hover:border-ink/30 hover:bg-ink/[0.04] hover:text-ink focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-volt"
-          >
-            {english ? "Back" : "Volver"}
-          </button>
-        )}
-
-        {currentStep < totalSteps - 1 ? (
-          <button
-            type="button"
-            onClick={goToNextStep}
-            className="inline-flex min-h-12 items-center justify-center rounded-full bg-volt px-7 py-3.5 text-sm font-semibold text-ink transition-transform duration-200 hover:scale-[1.01] hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-volt"
-          >
-            {english ? "Continue" : "Continuar"}
-          </button>
-        ) : (
-          <button
-            type="submit"
-            disabled={isSubmitting}
-            className="inline-flex min-h-12 items-center justify-center rounded-full bg-volt px-7 py-3.5 text-sm font-semibold text-ink transition-transform duration-200 hover:scale-[1.01] hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-volt disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-60"
-          >
-            {isSubmitting
-              ? english
-                ? "Sending..."
-                : "Enviando..."
-              : hasError
-                ? english
-                  ? "Try sending again"
-                  : "Reintentar envío"
-                : english
-                  ? "Evaluate this process"
-                  : "Evaluar este proceso"}
-          </button>
-        )}
-      </div>
-
       {currentStep === totalSteps - 1 && (
         <>
           <p className="text-center text-sm leading-6 text-muted">
@@ -584,6 +529,63 @@ export default function ContactWizard({ locale }: { locale: Locale }) {
           </p>
         </>
       )}
+
+      {hasError && (
+        <p
+          className="rounded-xl border border-red-400/30 bg-red-950/30 px-4 py-3 text-sm leading-6 text-red-100"
+          role="alert"
+        >
+          {english
+            ? "We could not send your request. Check your connection and try again."
+            : "No pudimos enviar tu solicitud. Revisa tu conexión e inténtalo de nuevo."}
+        </p>
+      )}
+
+      <footer className="-mx-5 -mb-5 grid gap-3 border-t border-ink/10 bg-paper px-5 py-5 text-ink sm:-mx-8 sm:-mb-8 sm:px-8 sm:py-6">
+        <div
+          className={`grid gap-3 ${
+            currentStep === 0 ? "grid-cols-1" : "grid-cols-[auto_minmax(0,1fr)]"
+          }`}
+        >
+          {currentStep > 0 && (
+            <button
+              type="button"
+              onClick={goToPreviousStep}
+              className="inline-flex min-h-12 cursor-pointer items-center justify-center rounded-full border border-ink/15 px-6 py-3.5 text-sm font-medium text-ink/75 transition-colors hover:border-ink/30 hover:bg-ink/[0.04] hover:text-ink focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-volt"
+            >
+              {english ? "Back" : "Volver"}
+            </button>
+          )}
+
+          {currentStep < totalSteps - 1 ? (
+            <button
+              type="button"
+              onClick={goToNextStep}
+              className="inline-flex min-h-12 cursor-pointer items-center justify-center rounded-full border-2 border-volt bg-transparent px-7 py-3.5 text-sm font-semibold text-ink transition-colors duration-200 hover:border-volt hover:bg-volt focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-volt"
+            >
+              {english ? "Continue" : "Continuar"}
+            </button>
+          ) : (
+            <button
+              type="submit"
+              disabled={isSubmitting}
+              className="inline-flex min-h-12 cursor-pointer items-center justify-center rounded-full border-2 border-volt bg-transparent px-7 py-3.5 text-sm font-semibold text-ink transition-colors duration-200 hover:border-volt hover:bg-volt focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-volt disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-60"
+            >
+              {isSubmitting
+                ? english
+                  ? "Sending..."
+                  : "Enviando..."
+                : hasError
+                  ? english
+                    ? "Try sending again"
+                    : "Reintentar envío"
+                  : english
+                    ? "Evaluate this process"
+                    : "Evaluar este proceso"}
+            </button>
+          )}
+        </div>
+      </footer>
     </form>
   );
 }

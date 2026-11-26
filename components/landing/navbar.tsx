@@ -11,12 +11,10 @@ export default function Navbar({ locale }: { locale: Locale }) {
   const links = english
     ? [
         { label: "The workflow", href: "#soluciones" },
-        { label: "Related processes", href: "#casos-de-uso" },
         { label: "How we work", href: "#como-funciona" },
       ]
     : [
         { label: "El flujo", href: "#soluciones" },
-        { label: "Procesos relacionados", href: "#casos-de-uso" },
         { label: "Cómo trabajamos", href: "#como-funciona" },
       ];
   const languageHref = english ? "/" : "/en";

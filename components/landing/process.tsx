@@ -1,4 +1,5 @@
 import Reveal from "./reveal";
+import CTA from "./cta";
 import { isEnglish, type Locale } from "@/lib/locale";
 
 const spanishSteps = [
@@ -43,28 +44,18 @@ export default function Process({ locale }: { locale: Locale }) {
       ]
       : spanishSteps;
   return (
-    <section id="como-funciona" className="bg-paper py-24 text-ink sm:py-28 lg:py-40">
+    <section
+      id="como-funciona"
+      className="bg-paper pt-24 pb-16 text-ink sm:pt-28 sm:pb-20 lg:pt-40 lg:pb-24"
+    >
       <div className="mx-auto max-w-[1440px] px-5 sm:px-6 lg:px-10">
-        <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(18rem,0.48fr)] lg:items-center lg:gap-16">
-          <div className="max-w-3xl">
-            <Reveal delay={80}>
-              <p className="mb-5 font-mono text-[10px] font-medium uppercase tracking-[0.2em] text-muted">
-                {english ? "How the conversation works" : "Cómo es la conversación"}
-              </p>
-              <h2 className="text-balance text-4xl font-semibold leading-[1.02] tracking-[-0.045em] sm:text-5xl lg:text-6xl">
-                {english
-                  ? "First, understand how the request moves through your operation"
-                  : "Primero entendemos cómo avanza una solicitud en tu operación"}
-              </h2>
-            </Reveal>
-          </div>
-
-          <Reveal delay={160}>
-            <p className="max-w-sm border-t border-ink/20 pt-5 leading-7 text-muted lg:max-w-md lg:border-l lg:border-t-0 lg:pl-6 lg:pt-0">
+        <div className="max-w-3xl">
+          <Reveal delay={80}>
+            <h2 className="text-balance text-4xl font-semibold leading-[1.02] tracking-[-0.045em] sm:text-5xl lg:text-6xl">
               {english
-                ? "The first step is understanding your actual inputs, rules, handoffs, and exceptions."
-                : "El primer paso es entender las entradas, reglas, traspasos y excepciones reales."}
-            </p>
+                ? "First, understand how the request moves through your operation"
+                : "Primero entendemos cómo avanza una solicitud en tu operación"}
+            </h2>
           </Reveal>
         </div>
 
@@ -93,6 +84,8 @@ export default function Process({ locale }: { locale: Locale }) {
             </Reveal>
           ))}
         </div>
+
+        <CTA locale={locale} />
       </div>
     </section>
   );

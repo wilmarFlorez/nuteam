@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Reveal from "./reveal";
 import TrackedLink from "./tracked_link";
 import { isEnglish, type Locale } from "@/lib/locale";
@@ -5,13 +6,25 @@ import { isEnglish, type Locale } from "@/lib/locale";
 export default function Hero({ locale }: { locale: Locale }) {
   const english = isEnglish(locale);
   return (
-    <section className="relative isolate overflow-hidden bg-ink pb-10 pt-28 sm:pt-32 lg:pb-14 lg:pt-40">
+    <section className="relative isolate flex min-h-svh flex-col justify-center overflow-hidden bg-ink pb-10 pt-16 lg:pb-14">
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0">
+        <Image
+          src="/images/hero-freight-terminal.webp"
+          alt=""
+          fill
+          sizes="100vw"
+          preload
+          className="object-cover object-[62%_center] opacity-55"
+        />
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(24,24,24,0.72)_0%,rgba(24,24,24,0.72)_48%,#181818_100%)]" />
+      </div>
+
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-x-0 top-0 h-[38rem] bg-[radial-gradient(ellipse_at_50%_0%,rgba(255,184,0,0.12),transparent_68%)]"
       />
 
-      <div className="relative mx-auto max-w-[1440px] px-5 sm:px-6 lg:px-10">
+      <div className="relative z-10 mx-auto max-w-[1440px] px-5 sm:px-6 lg:px-10">
         <div className="mx-auto max-w-6xl text-center">
           <Reveal>
             <h1 className="mx-auto max-w-6xl text-balance text-[2.8rem] font-semibold leading-[0.98] tracking-[-0.055em] sm:text-6xl md:text-7xl xl:text-[6.25rem]">

@@ -111,7 +111,7 @@ export default function ContactModal({ locale }: { locale: Locale }) {
         <div
           ref={panelRef}
           data-contact-modal-panel=""
-          className="my-auto w-full max-w-3xl overflow-hidden rounded-[1.5rem] border border-ink/10 bg-paper text-ink shadow-[0_35px_100px_-35px_rgba(0,0,0,0.65)] sm:rounded-[2rem]"
+          className="my-auto w-full max-w-3xl overflow-hidden rounded-[1.5rem] bg-paper text-ink shadow-[0_35px_100px_-35px_rgba(0,0,0,0.65)] sm:rounded-[2rem]"
         >
           <header className="flex items-start justify-between gap-5 border-b border-ink/10 px-5 py-5 sm:px-8 sm:py-6">
             <div className="max-w-xl">

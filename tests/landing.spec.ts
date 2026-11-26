@@ -14,20 +14,23 @@ test("la landing en español presenta el flujo logístico y conserva sus destino
     }),
   ).toBeVisible();
   await expect(
+    page.getByRole("heading", {
+      name: /Automatizar no significa sacar al equipo de la operación/,
+    }),
+  ).toHaveCount(0);
+  await expect(
     page.getByRole("link", { name: "Evaluar mi proceso" }).first(),
   ).toHaveAttribute("href", "#contacto");
   await expect(
     page.getByRole("link", { name: "Ver la demo de Freight Pilot" }).first(),
   ).toHaveAttribute("href", "#demo");
   await expect(page.locator("#soluciones")).toBeAttached();
-  await expect(page.locator("#soluciones").getByText("Paso 1")).toBeVisible();
-  await expect(page.locator("#soluciones").getByText("Paso 01")).toHaveCount(0);
-  await expect(
-    page.locator("#soluciones li").first().getByText("01", { exact: true }),
-  ).toHaveCount(0);
+  await expect(page.locator("#soluciones")).toContainText("Servicio de carga");
+  await expect(page.locator("#soluciones")).toContainText("Por confirmar");
+  await expect(page.locator("#soluciones [data-flow-step]")).toHaveCount(0);
   await expect(page.getByText("Un flujo para evaluar")).toHaveCount(0);
   await expect(page.getByText("Un traspaso frecuente")).toHaveCount(0);
-  await expect(page.locator("#casos-de-uso")).toBeAttached();
+  await expect(page.locator("#casos-de-uso")).toHaveCount(0);
   await expect(page.locator("#como-funciona")).toBeAttached();
   for (const number of ["1", "2", "3", "4"]) {
     await expect(
@@ -44,15 +47,7 @@ test("la landing en español presenta el flujo logístico y conserva sus destino
     page.getByText("Demo de portafolio · no es una implementación de cliente"),
   ).toHaveCount(0);
   await expect(
-    page.getByRole("heading", { name: "Otros procesos que podríamos evaluar" }),
-  ).toBeVisible();
-  await expect(page.getByText("Procesos relacionados")).toHaveCount(0);
-  await expect(page.getByText("Para operaciones de transporte de carga")).toHaveCount(0);
-  await expect(page.getByText("Por explorar", { exact: true })).toHaveCount(0);
-  await expect(
-    page.getByText(
-      "Son ejemplos para conversar con tu equipo, no funciones prediseñadas ni afirmaciones sobre implementaciones con clientes.",
-    ),
+    page.getByRole("link", { name: "Procesos relacionados" }),
   ).toHaveCount(0);
   await expect(
     page.getByRole("link", { name: "Ver demo de Freight Pilot" }).last(),
@@ -66,12 +61,11 @@ test("con movimiento reducido el contenido permanece visible", async ({ page }) 
   await expect(
     page.locator("[data-motion-reveal]").first(),
   ).toHaveCSS("opacity", "1");
-  await expect(
-    page.locator("#soluciones [data-flow-step]").first(),
-  ).toHaveCSS("opacity", "1");
-  await expect(
-    page.locator("#casos-de-uso [data-motion-reveal]").first(),
-  ).toHaveCSS("opacity", "1");
+  await expect(page.locator("#soluciones ol")).toBeVisible();
+  await expect(page.locator("#como-funciona [data-motion-reveal]").first()).toHaveCSS(
+    "opacity",
+    "1",
+  );
   await expect(
     page.getByRole("heading", {
       level: 1,
@@ -102,25 +96,16 @@ test("el modal y el wizard respetan el movimiento reducido", async ({
   await expect(stepPanel).toHaveCSS("transform", "none");
 });
 
-test("las tarjetas del flujo entran en secuencia al desplazarse", async ({
+test("el flujo de solicitud señala el dato pendiente y la revisión humana", async ({
   page,
 }) => {
-  await page.emulateMedia({ reducedMotion: "no-preference" });
   await page.goto("/");
 
-  const steps = page.locator("#soluciones [data-flow-step]");
-  await expect(steps).toHaveCount(4);
-  await expect
-    .poll(() => steps.last().evaluate((element) => getComputedStyle(element).opacity))
-    .toBe("0");
-
-  for (let index = 0; index < 4; index += 1) {
-    const step = steps.nth(index);
-    await step.scrollIntoViewIfNeeded();
-    await expect
-      .poll(() => step.evaluate((element) => getComputedStyle(element).opacity))
-      .toBe("1");
-  }
+  const requestFlow = page.locator("#soluciones");
+  await expect(requestFlow).toContainText("Peso de la carga");
+  await expect(requestFlow).toContainText("Por confirmar");
+  await expect(requestFlow).toContainText("Revisión del operador");
+  await expect(requestFlow.locator("[data-flow-step]")).toHaveCount(0);
 });
 
 test("la landing en inglés mantiene el mismo enfoque logístico", async ({
@@ -137,11 +122,14 @@ test("la landing en inglés mantiene el mismo enfoque logístico", async ({
     }),
   ).toBeVisible();
   await expect(
-    page.getByText("Portfolio demo · not a customer implementation"),
+    page.getByRole("heading", {
+      name: /Automation does not mean taking people out of the process/,
+    }),
   ).toHaveCount(0);
   await expect(
-    page.getByRole("heading", { name: "Other processes we could assess" }),
-  ).toBeVisible();
+    page.getByText("Portfolio demo · not a customer implementation"),
+  ).toHaveCount(0);
+  await expect(page.locator("#casos-de-uso")).toHaveCount(0);
   for (const number of ["1", "2", "3", "4"]) {
     await expect(
       page.locator("#como-funciona").getByText(number, { exact: true }),
@@ -150,18 +138,13 @@ test("la landing en inglés mantiene el mismo enfoque logístico", async ({
   await expect(
     page.locator("#como-funciona").getByText(/^(01|02|03|04)$/, { exact: true }),
   ).toHaveCount(0);
-  await expect(page.getByText("Related processes")).toHaveCount(0);
-  await expect(page.getByText("For freight transport operations")).toHaveCount(0);
-  await expect(page.getByText("To explore", { exact: true })).toHaveCount(0);
   await expect(
-    page.getByText(
-      "These are examples to explore with your team, not packaged features or claims about existing customer deployments.",
-    ),
+    page.getByRole("link", { name: "Related processes" }),
   ).toHaveCount(0);
-  await expect(page.locator("#soluciones").getByText("Step 1")).toBeVisible();
-  await expect(page.locator("#soluciones").getByText("Step 01")).toHaveCount(0);
   await expect(page.locator("#soluciones")).toBeAttached();
-  await expect(page.locator("#casos-de-uso")).toBeAttached();
+  await expect(page.locator("#soluciones")).toContainText("Freight shipment");
+  await expect(page.locator("#soluciones")).toContainText("To confirm");
+  await expect(page.locator("#soluciones [data-flow-step]")).toHaveCount(0);
   await expect(page.locator("#como-funciona")).toBeAttached();
   await expect(page.locator("#contacto")).toBeAttached();
   await page.getByRole("link", { name: "Evaluate my process" }).first().click();

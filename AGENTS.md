@@ -30,5 +30,5 @@ Static landing page for NuTeam ("diseñamos agentes de IA"). Next.js 16.3.1 App 
 
 - All UI copy is **Spanish** (e.g. "Soluciones", "Casos de uso"). Write new copy in Spanish.
 - Components are server components by default; only add `"use client"` when state/events are needed (see `navbar.tsx`).
-- Dark theme: black backgrounds, white text, `backdrop-blur`, rounded-full white CTA buttons. Section anchors: `#soluciones`, `#casos-de-uso`, `#como-funciona`, `#contacto`.
+- Dark theme: black backgrounds, white text, `backdrop-blur`, rounded-full white CTA buttons. Section anchors: `#soluciones`, `#como-funciona`, `#contacto`.
 - Root layout uses the typed-routes `LayoutProps<"/">` — Next 16 feature; check `node_modules/next/dist/docs/` before touching it.

@@ -3,12 +3,8 @@ import LanguageSetter from "@/components/language_setter";
 import Navbar from "@/components/landing/navbar";
 import Hero from "@/components/landing/hero";
 import Problem from "@/components/landing/problem";
-import Solutions from "@/components/landing/solutions";
 import FreightPilot from "@/components/landing/freight_pilot";
-import UseCases from "@/components/landing/use_cases";
 import Process from "@/components/landing/process";
-import Differentiators from "@/components/landing/differentiators";
-import CTA from "@/components/landing/cta";
 import ContactModal from "@/components/landing/contact_modal";
 import Footer from "@/components/landing/footer";
 import AnalyticsTracker from "@/components/analytics_tracker";
@@ -33,12 +29,8 @@ export default function EnglishHome() {
       <Navbar locale="en" />
       <Hero locale="en" />
       <Problem locale="en" />
-      <Solutions locale="en" />
       <FreightPilot locale="en" />
-      <UseCases locale="en" />
       <Process locale="en" />
-      <Differentiators locale="en" />
-      <CTA locale="en" />
       <ContactModal locale="en" />
       <Footer locale="en" />
     </main>

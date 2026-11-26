@@ -51,20 +51,10 @@ export default function FreightPilot({ locale }: { locale: Locale }) {
             delay={140}
             className="rounded-[1.75rem] border border-white/10 bg-coal/45 p-3 sm:p-4 lg:rounded-[2rem] lg:p-5"
           >
-            <TrackedLink
-              href={demoUrl}
-              target="_blank"
-              rel="noreferrer"
-              ctaName="ver_demo_freight_pilot"
-              location="freight_pilot_preview"
-              className="group relative block overflow-hidden rounded-[1.25rem] border border-white/10 bg-paper shadow-[0_28px_80px_-36px_rgba(0,0,0,0.65)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-volt sm:rounded-[1.5rem]"
-            >
-              <div className="flex items-center justify-between border-b border-ink/10 px-4 py-3 text-ink sm:px-6 sm:py-4">
+            <div className="relative overflow-hidden rounded-[1.25rem] border border-white/10 bg-paper shadow-[0_28px_80px_-36px_rgba(0,0,0,0.65)] sm:rounded-[1.5rem]">
+              <div className="flex items-center border-b border-ink/10 px-4 py-3 text-ink sm:px-6 sm:py-4">
                 <span className="font-mono text-[9px] font-medium uppercase tracking-[0.18em] text-muted sm:text-[10px] sm:tracking-[0.22em]">
-                    {english ? "Operator review" : "Revisión del operador"}
-                </span>
-                <span className="rounded-full bg-ink px-3 py-1.5 font-mono text-[9px] font-medium uppercase tracking-[0.12em] text-paper transition-colors group-hover:bg-volt group-hover:text-ink sm:text-[10px]">
-                  {english ? "Open demo" : "Abrir demo"}
+                  {english ? "Operator review" : "Revisión del operador"}
                 </span>
               </div>
               <div className="relative aspect-[1106/789] overflow-hidden">
@@ -75,10 +65,10 @@ export default function FreightPilot({ locale }: { locale: Locale }) {
                     : "Pantalla de revisión del operador de Freight Pilot con una solicitud de transporte estructurada y sus datos extraídos."}
                   fill
                   sizes="(max-width: 1024px) 100vw, 55vw"
-                  className="object-cover object-top transition-transform duration-700 group-hover:scale-[1.015]"
+                  className="object-cover object-top"
                 />
               </div>
-            </TrackedLink>
+            </div>
           </Reveal>
         </div>
       </div>
