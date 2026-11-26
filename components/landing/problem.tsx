@@ -129,22 +129,24 @@ export default function Problem({ locale }: { locale: Locale }) {
         </div>
 
         <Reveal delay={180}>
-          <figure className="relative aspect-[5/4] overflow-hidden rounded-[1.5rem] bg-ink shadow-[0_30px_80px_-48px_rgba(24,24,24,0.5)] sm:rounded-[1.75rem]">
-            <Image
-              src="/images/problem-dispatch-desk.webp"
-              alt={
-                english
-                  ? "Freight coordinator working between a phone, laptop, and printed transport requests."
-                  : "Coordinadora de transporte trabajando entre el teléfono, la computadora y solicitudes impresas."
-              }
-              fill
-              sizes="(max-width: 1023px) calc(100vw - 2.5rem), (max-width: 1440px) 50vw, 720px"
-              className="object-cover"
-            />
-            <div
-              aria-hidden="true"
-              className="absolute inset-0 bg-gradient-to-t from-ink/65 via-ink/10 to-ink/15 sm:bg-gradient-to-r sm:from-transparent sm:via-ink/10 sm:to-ink/70"
-            />
+          <figure className="relative overflow-visible lg:aspect-[5/4] lg:overflow-hidden lg:rounded-[1.75rem] lg:bg-ink lg:shadow-[0_30px_80px_-48px_rgba(24,24,24,0.5)]">
+            <div className="relative aspect-[16/10] overflow-hidden rounded-[1.5rem] bg-ink shadow-[0_30px_80px_-48px_rgba(24,24,24,0.5)] sm:rounded-[1.75rem] lg:absolute lg:inset-0 lg:aspect-auto lg:rounded-none lg:shadow-none">
+              <Image
+                src="/images/problem-dispatch-desk.webp"
+                alt={
+                  english
+                    ? "Freight coordinator working between a phone, laptop, and printed transport requests."
+                    : "Coordinadora de transporte trabajando entre el teléfono, la computadora y solicitudes impresas."
+                }
+                fill
+                sizes="(max-width: 1023px) calc(100vw - 2.5rem), (max-width: 1440px) 50vw, 720px"
+                className="object-cover"
+              />
+              <div
+                aria-hidden="true"
+                className="absolute inset-0 bg-gradient-to-t from-ink/65 via-ink/10 to-ink/15 sm:bg-gradient-to-r sm:from-transparent sm:via-ink/10 sm:to-ink/70"
+              />
+            </div>
 
             <ol
               aria-label={
@@ -152,7 +154,7 @@ export default function Problem({ locale }: { locale: Locale }) {
                   ? "Transport request received by email, structured with a missing shipment weight flagged for operator review"
                   : "Solicitud de transporte recibida por correo, estructurada con el peso de carga pendiente para revisión del operador"
               }
-              className="absolute inset-0 z-10 m-0 list-none p-0"
+              className="relative z-10 m-0 -mt-8 list-none p-0 lg:absolute lg:inset-0 lg:mt-0"
             >
               <li className="sr-only xl:not-sr-only xl:absolute xl:right-[7%] xl:top-[8%] xl:z-20 xl:w-[43%] xl:max-w-[18rem]">
                 <article className="rounded-2xl border border-white/15 bg-ink/90 p-3.5 text-white shadow-[0_20px_50px_-24px_rgba(0,0,0,0.8)] backdrop-blur-xl xl:p-4">
@@ -173,7 +175,7 @@ export default function Problem({ locale }: { locale: Locale }) {
                 </article>
               </li>
 
-              <li className="absolute inset-x-3 bottom-3 xl:inset-x-auto xl:right-[4%] xl:top-[31%] xl:bottom-auto xl:z-30 xl:w-[53%] xl:max-w-[25rem]">
+              <li className="relative mx-3 lg:absolute lg:inset-x-3 lg:bottom-3 lg:mx-0 xl:inset-x-auto xl:right-[4%] xl:top-[31%] xl:bottom-auto xl:z-30 xl:w-[53%] xl:max-w-[25rem]">
                 <span
                   aria-hidden="true"
                   className="absolute -top-7 right-8 z-0 hidden h-7 w-px bg-volt/65 xl:block"
@@ -207,7 +209,7 @@ export default function Problem({ locale }: { locale: Locale }) {
                             : "border-ink/10 bg-white/65"
                         }`}
                       >
-                        <dt className="truncate text-[8px] uppercase tracking-[0.08em] text-muted sm:text-[9px]">
+                        <dt className="break-words text-[8px] leading-tight uppercase tracking-[0.08em] text-muted sm:text-[9px]">
                           {field.label}
                         </dt>
                         <dd

@@ -129,9 +129,9 @@ export default function Navbar({ locale }: { locale: Locale }) {
             <a
               href={languageHref}
               lang={english ? "es" : "en"}
-              className="mt-8 text-sm font-medium text-volt"
+              className="mt-8 inline-flex min-h-11 items-center text-sm font-medium text-volt"
             >
-              {english ? "Ver en español" : "View in English"}
+              {english ? "View in Spanish" : "Ver en inglés"}
             </a>
 
             <a

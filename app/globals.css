@@ -64,6 +64,13 @@ body {
   bottom: calc(6rem + env(safe-area-inset-bottom, 0px));
 }
 
+@media (max-width: 48rem) and (max-height: 52rem) {
+  /* Avoid overlapping page content on short mobile viewports. */
+  .whatsapp-button {
+    display: none;
+  }
+}
+
 @media (min-width: 64rem) {
   .whatsapp-button--above-chat {
     bottom: calc(7rem + env(safe-area-inset-bottom, 0px));
