@@ -1,6 +1,13 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
+import { useGSAP } from "@gsap/react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(useGSAP, ScrollTrigger);
+}
 
 type RevealProps = {
   children: React.ReactNode;
@@ -14,48 +21,44 @@ export default function Reveal({
   delay = 0,
 }: RevealProps) {
   const ref = useRef<HTMLDivElement>(null);
-  // Keep the initial render identical on the server and the client.
-  const [visible, setVisible] = useState(false);
 
-  useEffect(() => {
-    const el = ref.current;
-    if (!el || visible) return;
+  useGSAP(
+    () => {
+      const element = ref.current;
+      if (!element || typeof window === "undefined") return;
 
-    let frame = 0;
-    let observer: IntersectionObserver | null = null;
+      const motion = gsap.matchMedia();
 
-    // Deferring to the next frame guarantees the observer callback runs after
-    // hydration completes, avoiding a server/client class mismatch on mount.
-    frame = requestAnimationFrame(() => {
-      if (!("IntersectionObserver" in window)) {
-        setVisible(true);
-        return;
-      }
+      motion.add("(prefers-reduced-motion: no-preference)", () => {
+        gsap.fromTo(
+          element,
+          { autoAlpha: 0, y: 20 },
+          {
+            autoAlpha: 1,
+            y: 0,
+            clearProps: "opacity,transform,visibility",
+            delay: delay / 1000,
+            duration: 0.68,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: element,
+              start: "top 88%",
+              once: true,
+            },
+          },
+        );
+      });
 
-      observer = new IntersectionObserver(
-        (entries) => {
-          if (entries[0].isIntersecting) {
-            setVisible(true);
-            observer?.disconnect();
-          }
-        },
-        { threshold: 0.12, rootMargin: "0px 0px -48px 0px" },
-      );
-
-      observer.observe(el);
-    });
-
-    return () => {
-      cancelAnimationFrame(frame);
-      observer?.disconnect();
-    };
-  }, [visible]);
+      return () => motion.revert();
+    },
+    { scope: ref, dependencies: [delay], revertOnUpdate: true },
+  );
 
   return (
     <div
       ref={ref}
-      className={`reveal ${visible ? "is-visible" : ""} ${className}`}
-      style={{ transitionDelay: `${delay}ms` }}
+      data-motion-reveal=""
+      className={className}
     >
       {children}
     </div>

@@ -59,6 +59,24 @@ test("la landing en español presenta el flujo logístico y conserva sus destino
   ).toHaveAttribute("href", "https://freight.nuteam.ai/");
 });
 
+test("con movimiento reducido el contenido permanece visible", async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await page.goto("/");
+
+  await expect(
+    page.locator("[data-motion-reveal]").first(),
+  ).toHaveCSS("opacity", "1");
+  await expect(
+    page.locator("#casos-de-uso [data-motion-reveal]").first(),
+  ).toHaveCSS("opacity", "1");
+  await expect(
+    page.getByRole("heading", {
+      level: 1,
+      name: "De solicitudes de transporte dispersas a datos listos para revisión",
+    }),
+  ).toBeVisible();
+});
+
 test("la landing en inglés mantiene el mismo enfoque logístico", async ({
   page,
 }) => {
