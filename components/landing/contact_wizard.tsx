@@ -8,8 +8,14 @@ import {
   useState,
 } from "react";
 import Link from "next/link";
+import { useGSAP } from "@gsap/react";
+import { gsap } from "gsap";
 import { getAttribution, trackEvent } from "@/lib/analytics";
 import { isEnglish, type Locale } from "@/lib/locale";
+
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(useGSAP);
+}
 
 const inputClass =
   "min-h-12 w-full rounded-xl border border-ink/15 bg-ink/[0.025] px-4 py-3 text-[15px] text-ink outline-none transition-[border-color,background-color,box-shadow] placeholder:text-muted/70 focus:border-volt/80 focus:bg-white/70 focus:ring-2 focus:ring-volt/25";
@@ -49,11 +55,13 @@ export default function ContactWizard({ locale }: { locale: Locale }) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [hasError, setHasError] = useState(false);
   const [currentStep, setCurrentStep] = useState(0);
+  const [stepDirection, setStepDirection] = useState<1 | -1>(1);
   const [values, setValues] = useState(initialValues);
   const hasStarted = useRef(false);
   const hasMovedStep = useRef(false);
   const formRef = useRef<HTMLFormElement>(null);
   const stepHeadingRef = useRef<HTMLHeadingElement>(null);
+  const stepPanelRef = useRef<HTMLDivElement>(null);
   const english = isEnglish(locale);
 
   const stepTitles = english
@@ -93,6 +101,37 @@ export default function ContactWizard({ locale }: { locale: Locale }) {
     stepHeadingRef.current?.focus();
   }, [currentStep]);
 
+  useGSAP(
+    () => {
+      if (!hasMovedStep.current) return;
+      const panel = stepPanelRef.current;
+      if (!panel) return;
+
+      const motion = gsap.matchMedia();
+      motion.add("(prefers-reduced-motion: no-preference)", () => {
+        gsap.fromTo(
+          panel,
+          { opacity: 0, x: stepDirection * 14, scale: 0.99 },
+          {
+            opacity: 1,
+            x: 0,
+            scale: 1,
+            clearProps: "opacity,transform,visibility",
+            duration: 0.3,
+            ease: "power2.out",
+          },
+        );
+      });
+
+      return () => motion.revert();
+    },
+    {
+      scope: formRef,
+      dependencies: [currentStep, stepDirection],
+      revertOnUpdate: true,
+    },
+  );
+
   function handleFieldChange(
     event: ChangeEvent<
       HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
@@ -104,7 +143,13 @@ export default function ContactWizard({ locale }: { locale: Locale }) {
 
   function goToNextStep() {
     if (!formRef.current?.reportValidity()) return;
+    setStepDirection(1);
     setCurrentStep((step) => Math.min(step + 1, totalSteps - 1));
+  }
+
+  function goToPreviousStep() {
+    setStepDirection(-1);
+    setCurrentStep((step) => Math.max(step - 1, 0));
   }
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
@@ -237,7 +282,11 @@ export default function ContactWizard({ locale }: { locale: Locale }) {
         ))}
       </div>
 
-      <div key={currentStep} className="animate-fade-up">
+      <div
+        key={currentStep}
+        ref={stepPanelRef}
+        data-wizard-step-panel=""
+      >
         <h3
           ref={stepHeadingRef}
           tabIndex={-1}
@@ -467,7 +516,7 @@ export default function ContactWizard({ locale }: { locale: Locale }) {
         {currentStep > 0 && (
           <button
             type="button"
-            onClick={() => setCurrentStep((step) => Math.max(step - 1, 0))}
+            onClick={goToPreviousStep}
             className="inline-flex min-h-12 items-center justify-center rounded-full border border-ink/15 px-6 py-3.5 text-sm font-medium text-ink/75 transition-colors hover:border-ink/30 hover:bg-ink/[0.04] hover:text-ink focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-volt"
           >
             {english ? "Back" : "Volver"}

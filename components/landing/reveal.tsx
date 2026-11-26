@@ -32,9 +32,9 @@ export default function Reveal({
       motion.add("(prefers-reduced-motion: no-preference)", () => {
         gsap.fromTo(
           element,
-          { autoAlpha: 0, y: 20 },
+          { opacity: 0, y: 20 },
           {
-            autoAlpha: 1,
+            opacity: 1,
             y: 0,
             clearProps: "opacity,transform,visibility",
             delay: delay / 1000,

@@ -1,4 +1,5 @@
 import Reveal from "./reveal";
+import WorkflowSequence from "./workflow_sequence";
 import { isEnglish, type Locale } from "@/lib/locale";
 
 const spanishSteps = [
@@ -66,28 +67,30 @@ export default function Solutions({ locale }: { locale: Locale }) {
           </Reveal>
         </div>
 
-        <ol className="mt-12 grid gap-3 sm:mt-16 md:grid-cols-2 lg:grid-cols-4">
+        <WorkflowSequence className="mt-12 grid gap-3 sm:mt-16 md:grid-cols-2 lg:grid-cols-4">
           {steps.map((step, index) => (
-            <li key={step.title}>
-              <Reveal className="h-full" delay={index * 60}>
-                <article className="group relative h-full rounded-[1.5rem] border border-white/10 bg-coal/70 p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] transition-all duration-300 hover:-translate-y-1 hover:border-volt/35 hover:bg-coal lg:min-h-64 lg:rounded-[1.75rem] lg:p-7">
-                  <div className="flex items-center gap-3 border-b border-white/10 pb-5">
-                    <span aria-hidden="true" className="size-1.5 rounded-full bg-volt/80" />
-                    <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-white/50">
-                      {english ? `Step ${index + 1}` : `Paso ${index + 1}`}
-                    </span>
-                  </div>
-                  <h3 className="mt-7 text-2xl font-semibold tracking-[-0.035em] transition-colors group-hover:text-volt">
-                    {step.title}
-                  </h3>
-                  <p className="mt-3 max-w-xs leading-7 text-white/60">
-                    {step.description}
-                  </p>
-                </article>
-              </Reveal>
+            <li key={step.title} data-flow-step="">
+              <article className="group relative h-full rounded-[1.5rem] border border-white/10 bg-coal/70 p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] transition-all duration-300 hover:-translate-y-1 hover:border-volt/35 hover:bg-coal lg:min-h-64 lg:rounded-[1.75rem] lg:p-7">
+                <div className="flex items-center gap-3 border-b border-white/10 pb-5">
+                  <span
+                    aria-hidden="true"
+                    data-flow-marker=""
+                    className="size-1.5 rounded-full bg-volt/80"
+                  />
+                  <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-white/50">
+                    {english ? `Step ${index + 1}` : `Paso ${index + 1}`}
+                  </span>
+                </div>
+                <h3 className="mt-7 text-2xl font-semibold tracking-[-0.035em] transition-colors group-hover:text-volt">
+                  {step.title}
+                </h3>
+                <p className="mt-3 max-w-xs leading-7 text-white/60">
+                  {step.description}
+                </p>
+              </article>
             </li>
           ))}
-        </ol>
+        </WorkflowSequence>
       </div>
     </section>
   );

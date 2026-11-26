@@ -67,6 +67,9 @@ test("con movimiento reducido el contenido permanece visible", async ({ page }) 
     page.locator("[data-motion-reveal]").first(),
   ).toHaveCSS("opacity", "1");
   await expect(
+    page.locator("#soluciones [data-flow-step]").first(),
+  ).toHaveCSS("opacity", "1");
+  await expect(
     page.locator("#casos-de-uso [data-motion-reveal]").first(),
   ).toHaveCSS("opacity", "1");
   await expect(
@@ -75,6 +78,49 @@ test("con movimiento reducido el contenido permanece visible", async ({ page }) 
       name: "De solicitudes de transporte dispersas a datos listos para revisión",
     }),
   ).toBeVisible();
+});
+
+test("el modal y el wizard respetan el movimiento reducido", async ({
+  page,
+}) => {
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await page.goto("/");
+  await page.getByRole("link", { name: "Evaluar mi proceso" }).first().click();
+
+  const modalPanel = page.locator("[data-contact-modal-panel]");
+  await expect(modalPanel).toHaveCSS("opacity", "1");
+  await expect(modalPanel).toHaveCSS("transform", "none");
+
+  await page
+    .getByLabel(
+      "¿Cómo llegan y se preparan las solicitudes de transporte para revisión?",
+    )
+    .fill("Llegan por correo.");
+  await page.getByRole("button", { name: "Continuar" }).click();
+  const stepPanel = page.locator("[data-wizard-step-panel]");
+  await expect(stepPanel).toHaveCSS("opacity", "1");
+  await expect(stepPanel).toHaveCSS("transform", "none");
+});
+
+test("las tarjetas del flujo entran en secuencia al desplazarse", async ({
+  page,
+}) => {
+  await page.emulateMedia({ reducedMotion: "no-preference" });
+  await page.goto("/");
+
+  const steps = page.locator("#soluciones [data-flow-step]");
+  await expect(steps).toHaveCount(4);
+  await expect
+    .poll(() => steps.last().evaluate((element) => getComputedStyle(element).opacity))
+    .toBe("0");
+
+  for (let index = 0; index < 4; index += 1) {
+    const step = steps.nth(index);
+    await step.scrollIntoViewIfNeeded();
+    await expect
+      .poll(() => step.evaluate((element) => getComputedStyle(element).opacity))
+      .toBe("1");
+  }
 });
 
 test("la landing en inglés mantiene el mismo enfoque logístico", async ({
@@ -235,5 +281,10 @@ test("el modal de contacto se puede cerrar y volver a abrir", async ({ page }) =
   await page.getByRole("link", { name: "Evaluar mi proceso" }).first().click();
   await expect(modal).toHaveAttribute("open", "");
   await page.keyboard.press("Escape");
+  await expect(modal).not.toHaveAttribute("open", "");
+
+  await page.getByRole("link", { name: "Evaluar mi proceso" }).first().click();
+  await expect(modal).toHaveAttribute("open", "");
+  await page.mouse.click(8, 8);
   await expect(modal).not.toHaveAttribute("open", "");
 });
