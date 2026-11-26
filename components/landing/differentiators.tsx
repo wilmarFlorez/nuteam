@@ -4,19 +4,19 @@ import { Check } from "lucide-react";
 
 const spanishDifferentiators = [
   {
-    title: "Diseñado para tu operación",
+    title: "Reglas definidas con tu equipo",
     description:
-      "La solución se adapta a tus procesos, reglas y necesidades específicas.",
+      "Los campos y validaciones dependen de cómo tu operación determina que una solicitud está completa.",
   },
   {
-    title: "Integrado con tus sistemas",
+    title: "Revisión cuando hace falta",
     description:
-      "La IA trabaja con las herramientas que tu equipo ya utiliza.",
+      "Los datos ambiguos o incompletos pueden quedar en manos de una persona antes de avanzar.",
   },
   {
-    title: "Impacto medible",
+    title: "IA cuando aporta",
     description:
-      "Cada implementación debe tener una métrica operativa o económica que permita evaluar el resultado.",
+      "La automatización se evalúa según el proceso; no todo paso necesita un agente de IA.",
   },
 ];
 
@@ -24,9 +24,9 @@ export default function Differentiators({ locale }: { locale: Locale }) {
   const english = isEnglish(locale);
   const differentiators = english
     ? [
-        { title: "Built for your operation", description: "The solution adapts to your specific processes, rules, and needs." },
-        { title: "Integrated with your systems", description: "AI works with the tools your team already uses." },
-        { title: "Measurable impact", description: "Every implementation should have an operational or economic metric to assess the outcome." },
+        { title: "Rules defined with your team", description: "Fields and validations depend on how your operation determines that a request is complete." },
+        { title: "Human review when needed", description: "Ambiguous or incomplete details can be handed to a person before moving forward." },
+        { title: "AI where it helps", description: "Automation is assessed against the process; not every step needs an AI agent." },
       ]
     : spanishDifferentiators;
   return (
@@ -38,9 +38,10 @@ export default function Differentiators({ locale }: { locale: Locale }) {
         <div className="lg:col-span-5">
           <Reveal delay={80}>
             <h2 className="text-4xl font-semibold leading-[1.02] tracking-[-0.03em] sm:text-5xl lg:text-6xl">
-              {english ? "We do not sell AI." : "No vendemos IA."}
+              {english ? "Automation does not mean" : "Automatizar no significa"}
               <br />
-              {english ? "We automate " : "Automatizamos "}<span className="text-volt">{english ? "operations" : "operaciones"}</span>
+              {english ? "taking people out of the " : "sacar al equipo de la "}
+              <span className="text-volt">{english ? "process" : "operación"}</span>
             </h2>
           </Reveal>
 

@@ -1,127 +1,71 @@
 import Reveal from "./reveal";
 import { isEnglish, type Locale } from "@/lib/locale";
-import {
-  CreditCard,
-  FileText,
-  Headset,
-  Network,
-  ShoppingCart,
-  TrendingUp,
-} from "lucide-react";
+import { FileText, Network } from "lucide-react";
 
-const spanishUseCases = [
+const relatedCases = [
   {
-    title: "Atención al cliente",
-    icon: Headset,
+    title: "Documentación pendiente",
     description:
-      "Automatiza conversaciones, solicitudes y tareas de soporte.",
-  },
-  {
-    title: "Ventas",
-    icon: TrendingUp,
-    description: "Califica leads, responde preguntas y ejecuta seguimientos.",
-  },
-  {
-    title: "Cobranza",
-    icon: CreditCard,
-    description:
-      "Automatiza contacto, recordatorios y seguimiento de pagos.",
-  },
-  {
-    title: "Operaciones",
-    icon: Network,
-    description:
-      "Estructura solicitudes, valida datos y conecta procesos entre diferentes sistemas.",
-  },
-  {
-    title: "Backoffice",
+      "Evaluar cómo identificar documentos faltantes y dirigir cada solicitud al siguiente responsable.",
     icon: FileText,
-    description:
-      "Procesa información, documentos y solicitudes automáticamente.",
   },
   {
-    title: "Compras",
-    icon: ShoppingCart,
+    title: "Excepciones por revisar",
     description:
-      "Estructura solicitudes, valida datos y dirige cada caso al flujo de aprobación.",
+      "Entender cómo se detectan datos fuera de regla y cómo recibe el equipo los casos que requieren criterio.",
+    icon: Network,
+  },
+];
+
+const relatedCasesEn = [
+  {
+    title: "Missing documentation",
+    description:
+      "Assess how to identify missing documents and route each request to the next person responsible.",
+    icon: FileText,
+  },
+  {
+    title: "Exceptions to review",
+    description:
+      "Understand how out-of-rule details are detected and how the team receives cases that need judgment.",
+    icon: Network,
   },
 ];
 
 export default function UseCases({ locale }: { locale: Locale }) {
   const english = isEnglish(locale);
-  const useCases = english
-    ? [
-        {
-          title: "Customer service",
-          icon: Headset,
-          description: "Automate conversations, requests, and support tasks.",
-        },
-        {
-          title: "Sales",
-          icon: TrendingUp,
-          description: "Qualify leads, answer questions, and follow up.",
-        },
-        {
-          title: "Collections",
-          icon: CreditCard,
-          description:
-            "Automate outreach, reminders, and payment follow-up.",
-        },
-        {
-          title: "Operations",
-          icon: Network,
-          description:
-            "Structure requests, validate data, and connect processes across systems.",
-        },
-        {
-          title: "Back office",
-          icon: FileText,
-          description:
-            "Process information, documents, and requests automatically.",
-        },
-        {
-          title: "Procurement",
-          icon: ShoppingCart,
-          description:
-            "Structure requests, validate details, and route each case into the approval flow.",
-        },
-      ]
-    : spanishUseCases;
-  return (
-    <section id="casos-de-uso" className="border-t border-white/10 bg-coal py-24 text-white lg:py-36">
-      <div className="mx-auto max-w-[1440px] px-6 lg:px-10">
-        <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(18rem,0.48fr)] lg:items-center lg:gap-16">
-          <div className="max-w-3xl">
-            <Reveal delay={80}>
-              <h2 className="text-4xl font-semibold tracking-[-0.03em] sm:text-5xl">
-                {english ? "Automation where manual work costs money" : "Automatización donde el trabajo manual cuesta dinero"}
-              </h2>
-            </Reveal>
-          </div>
+  const cases = english ? relatedCasesEn : relatedCases;
 
-          <Reveal delay={160}>
-            <p className="max-w-sm border-t border-white/15 pt-6 leading-7 text-white/55 lg:max-w-md lg:border-l lg:border-t-0 lg:pl-6 lg:pt-0">
+  return (
+    <section
+      id="casos-de-uso"
+      className="border-t border-white/10 bg-coal py-24 text-white lg:py-36"
+    >
+      <div className="mx-auto max-w-[1440px] px-6 lg:px-10">
+        <div className="max-w-3xl">
+          <Reveal delay={80}>
+            <h2 className="text-4xl font-semibold tracking-[-0.03em] sm:text-5xl">
               {english
-                ? "Every implementation starts with a specific process and an opportunity for measurable impact."
-                : "Cada implementación comienza con un proceso concreto y una oportunidad de impacto medible."}
-            </p>
+                ? "Other processes we could assess"
+                : "Otros procesos que podríamos evaluar"}
+            </h2>
           </Reveal>
         </div>
 
-        <div className="mt-16 grid gap-px border-y border-white/10 bg-white/10 md:grid-cols-2 lg:grid-cols-3">
-          {useCases.map((useCase, index) => (
-            <Reveal key={useCase.title} className="flex" delay={index * 60}>
-              <article className="group flex min-h-56 flex-1 flex-col bg-coal p-7 transition-colors duration-300 hover:bg-white/[0.04] lg:p-8">
-                <span className="flex size-10 shrink-0 items-center justify-center border border-volt/30 bg-volt/[0.05] text-volt transition-colors duration-300 group-hover:border-volt group-hover:bg-volt group-hover:text-ink">
-                  <useCase.icon size={20} strokeWidth={1.6} aria-hidden="true" />
-                </span>
-
-                <h3 className="mt-6 text-2xl font-semibold tracking-tight transition-colors duration-300 group-hover:text-volt sm:text-[1.75rem]">
-                  {useCase.title}
+        <div className="mt-14 grid gap-3 md:grid-cols-2">
+          {cases.map((item, index) => (
+            <Reveal key={item.title} delay={index * 80}>
+              <article className="group h-full border border-white/10 bg-ink p-7 transition-colors duration-300 hover:border-volt/40 hover:bg-white/[0.03] lg:p-9">
+                <div className="flex items-center">
+                  <span className="flex size-11 items-center justify-center border border-volt/30 bg-volt/[0.05] text-volt transition-colors group-hover:bg-volt group-hover:text-ink">
+                    <item.icon size={20} strokeWidth={1.6} aria-hidden="true" />
+                  </span>
+                </div>
+                <h3 className="mt-8 text-2xl font-semibold tracking-tight transition-colors group-hover:text-volt">
+                  {item.title}
                 </h3>
-
                 <p className="mt-3 max-w-lg leading-7 text-white/55">
-                  {useCase.description}
+                  {item.description}
                 </p>
               </article>
             </Reveal>

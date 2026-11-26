@@ -230,7 +230,7 @@ export default function PrivacyPolicy({ locale }: { locale: Locale }) {
               href={isEnglish ? "/en" : "/"}
               className="transition-colors hover:text-volt focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-volt"
             >
-              ← {copy.homeLabel}
+              {copy.homeLabel}
             </Link>
             <Link
               href={copy.languageHref}

@@ -3,8 +3,6 @@ import ParticleNetwork from "./particle_network";
 import TrackedLink from "./tracked_link";
 import { isEnglish, type Locale } from "@/lib/locale";
 
-const channels = ["Voz", "WhatsApp", "Email", "Workflows"];
-
 export default function Hero({ locale }: { locale: Locale }) {
   const english = isEnglish(locale);
   return (
@@ -17,16 +15,16 @@ export default function Hero({ locale }: { locale: Locale }) {
           <Reveal>
             <h1 className="text-[2.75rem] font-semibold leading-[0.95] tracking-[-0.04em] sm:text-6xl lg:text-7xl xl:text-[5.25rem]">
               {english
-                ? "How much manual work builds up in your operation?"
-                : "¿Cuánto trabajo manual se acumula en tu operación?"}
+                ? "From scattered freight requests to information ready for review"
+                : "De solicitudes de transporte dispersas a datos listos para revisión"}
             </h1>
           </Reveal>
 
           <Reveal delay={160}>
             <p className="mt-8 max-w-xl text-lg leading-8 text-white/55">
               {english
-                ? "We design automations with AI for repetitive, high-volume processes that span multiple systems."
-                : "Diseñamos automatizaciones con IA para procesos repetitivos, de alto volumen o distribuidos entre sistemas."}
+                ? "If requests arrive by email or message and your team has to organize the details before reviewing them, we can assess which parts of that process may be worth automating."
+                : "Si las solicitudes llegan por mensajes o correo y tu equipo debe ordenar los datos antes de revisarlas, evaluamos qué parte del proceso podría convenir automatizar."}
             </p>
           </Reveal>
 
@@ -36,37 +34,32 @@ export default function Hero({ locale }: { locale: Locale }) {
                 href="#contacto"
                 ctaName="analizar_operacion"
                 location="hero"
-                className="group inline-flex items-center justify-center gap-2 bg-volt px-7 py-4 text-sm font-semibold text-ink transition-colors hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-volt"
+                className="inline-flex items-center justify-center bg-volt px-7 py-4 text-sm font-semibold text-ink transition-colors hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-volt"
               >
-                {english ? "Evaluate a process" : "Evaluar un proceso"}
-                <span className="transition-transform group-hover:translate-x-0.5">
-                  →
-                </span>
+                {english ? "Evaluate my process" : "Evaluar mi proceso"}
               </TrackedLink>
 
               <a
-                href="#como-funciona"
-                className="inline-flex items-center justify-center gap-2 border border-white/20 px-7 py-4 text-sm font-medium text-white transition-colors hover:border-white/40 hover:bg-white/5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-volt"
+                href="#demo"
+                className="inline-flex items-center justify-center border border-white/20 px-7 py-4 text-sm font-medium text-white transition-colors hover:border-white/40 hover:bg-white/5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-volt"
               >
-                {english ? "How it works" : "Cómo funciona"}
+                {english ? "See the Freight Pilot demo" : "Ver la demo de Freight Pilot"}
               </a>
             </div>
           </Reveal>
 
           <Reveal delay={320}>
-            <div className="mt-14 flex flex-wrap items-center gap-x-6 gap-y-3 border-t border-white/10 pt-6">
-              <span className="font-mono text-[10px] uppercase tracking-[0.24em] text-white/55">
-                {english ? "Channels" : "Canales"}
+            <div className="mt-14 border-t border-white/10 pt-6">
+              <span className="font-mono text-[10px] uppercase tracking-[0.24em] text-white/50">
+                {english ? "A process we can assess" : "Un flujo que podemos evaluar"}
               </span>
-
-              {channels.map((channel) => (
-                <span
-                  key={channel}
-                  className="font-mono text-xs font-medium text-white/60"
-                >
-                  {channel}
-                </span>
-              ))}
+              <div className="mt-4 flex flex-wrap items-center gap-x-3 gap-y-2 font-mono text-[10px] font-medium uppercase tracking-[0.16em] text-white/75 sm:text-xs">
+                <span>{english ? "Request" : "Solicitud"}</span>
+                <span className="text-volt" aria-hidden="true">·</span>
+                <span>{english ? "Structured details" : "Datos ordenados"}</span>
+                <span className="text-volt" aria-hidden="true">·</span>
+                <span>{english ? "Team review" : "Revisión del equipo"}</span>
+              </div>
             </div>
           </Reveal>
         </div>

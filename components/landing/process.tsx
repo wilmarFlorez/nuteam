@@ -3,53 +3,58 @@ import { isEnglish, type Locale } from "@/lib/locale";
 
 const spanishSteps = [
   {
-    number: "01",
-    tag: "Diagnóstico",
-    title: "Analizamos tu operación",
+    number: "1",
+    tag: "Flujo actual",
+    title: "Mapeamos el recorrido",
     description:
-      "Entendemos cómo funciona actualmente el proceso y dónde se concentra el trabajo manual.",
+      "Qué información llega, por qué canal y quién participa antes de atender la solicitud.",
   },
   {
-    number: "02",
-    tag: "Análisis",
-    title: "Identificamos la oportunidad",
+    number: "2",
+    tag: "Reglas",
+    title: "Aclaramos qué debe revisarse",
     description:
-      "Determinamos qué tareas pueden ser ejecutadas por IA y cuál sería su impacto potencial.",
+      "Qué datos son obligatorios, cómo se validan y qué situaciones requieren confirmación.",
   },
   {
-    number: "03",
-    tag: "Implementación",
-    title: "Diseñamos e integramos",
+    number: "3",
+    tag: "Viabilidad",
+    title: "Separamos tareas y excepciones",
     description:
-      "Construimos la solución alrededor de tus procesos y la conectamos con tus sistemas.",
+      "Revisamos qué partes podrían automatizarse y cuáles necesitan criterio humano.",
   },
   {
-    number: "04",
-    tag: "Medición",
-    title: "Medimos el impacto",
+    number: "4",
+    tag: "Siguiente paso",
+    title: "Definimos si tiene sentido avanzar",
     description:
-      "Evaluamos resultados mediante métricas operativas y económicas concretas.",
+      "Si hay encaje, conversamos sobre alcance, sistemas involucrados y cómo evaluar el resultado.",
   },
 ];
 
 export default function Process({ locale }: { locale: Locale }) {
   const english = isEnglish(locale);
   const steps = english
-    ? [
-        { number: "01", tag: "Discovery", title: "We assess your operation", description: "We understand how the process works today and where manual work accumulates." },
-        { number: "02", tag: "Assessment", title: "We identify the opportunity", description: "We determine which tasks AI can perform and its potential impact." },
-        { number: "03", tag: "Implementation", title: "We design and integrate", description: "We build the solution around your processes and connect it to your systems." },
-        { number: "04", tag: "Measurement", title: "We measure the impact", description: "We assess results with specific operational and economic metrics." },
+      ? [
+        { number: "1", tag: "Current workflow", title: "Map the process", description: "What information arrives, through which channel, and who is involved before the request is handled." },
+        { number: "2", tag: "Rules", title: "Clarify what needs checking", description: "Required details, how they are validated, and which situations need confirmation." },
+        { number: "3", tag: "Feasibility", title: "Separate tasks from exceptions", description: "Review which parts could be automated and which need human judgment." },
+        { number: "4", tag: "Next step", title: "Decide whether to move forward", description: "If there is a fit, discuss scope, systems involved, and how to assess the result." },
       ]
-    : spanishSteps;
+      : spanishSteps;
   return (
     <section id="como-funciona" className="bg-paper py-24 text-ink lg:py-36">
       <div className="mx-auto max-w-[1440px] px-6 lg:px-10">
         <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(18rem,0.48fr)] lg:items-center lg:gap-16">
           <div className="max-w-3xl">
             <Reveal delay={80}>
+              <p className="mb-5 font-mono text-[10px] font-medium uppercase tracking-[0.24em] text-muted">
+                {english ? "How the conversation works" : "Cómo es la conversación"}
+              </p>
               <h2 className="text-4xl font-semibold tracking-[-0.03em] sm:text-5xl lg:text-6xl">
-                {english ? "We do not start with technology. We start with the problem" : "No empezamos por la tecnología. Empezamos por el problema"}
+                {english
+                  ? "First, understand how the request moves through your operation"
+                  : "Primero entendemos cómo avanza una solicitud en tu operación"}
               </h2>
             </Reveal>
           </div>
@@ -57,8 +62,8 @@ export default function Process({ locale }: { locale: Locale }) {
           <Reveal delay={160}>
             <p className="max-w-sm border-t border-ink/20 pt-6 leading-7 text-muted lg:max-w-md lg:border-l lg:border-t-0 lg:pl-6 lg:pt-0">
               {english
-                ? "We assess whether automation is viable, which part of the process to improve, and how to measure the result."
-                : "Evaluamos si una automatización es viable, qué parte del proceso conviene intervenir y cómo medir su resultado."}
+                ? "The first step is understanding your actual inputs, rules, handoffs, and exceptions."
+                : "El primer paso es entender las entradas, reglas, traspasos y excepciones reales."}
             </p>
           </Reveal>
         </div>

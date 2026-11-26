@@ -229,8 +229,8 @@ export default function ContactForm({ locale }: { locale: Locale }) {
       <div>
         <label htmlFor="process" className={labelClass}>
           {english
-            ? "Which process creates the most manual work or delays?"
-            : "¿Qué proceso genera más trabajo manual o demoras?"}
+            ? "How do freight requests arrive and get prepared for review?"
+            : "¿Cómo llegan y se preparan las solicitudes de transporte para revisión?"}
           {requiredMarker}
         </label>
 
@@ -239,20 +239,26 @@ export default function ContactForm({ locale }: { locale: Locale }) {
           name="process"
           required
           rows={4}
+          aria-describedby="process-hint"
           className={`${inputClass} resize-y`}
           placeholder={
             english
-              ? "Describe what happens today, who is involved, how often it happens, and what part is repeated."
-              : "Describe qué ocurre hoy, quién participa, con qué frecuencia ocurre y qué parte se repite."
+              ? "Describe the steps your team follows, who is involved, and what details they need to check."
+              : "Describe los pasos que sigue tu equipo, quién participa y qué información necesita revisar."
           }
         />
+        <p id="process-hint" className="mt-3 text-xs leading-5 text-white/60">
+          {english
+            ? "Please do not include personal information about customers or drivers, or confidential documents."
+            : "No incluyas datos personales de clientes o conductores ni documentos confidenciales."}
+        </p>
       </div>
 
       <div>
         <label htmlFor="volume" className={labelClass}>
           {english
-            ? "What approximate volume does this process handle?"
-            : "¿Qué volumen maneja aproximadamente este proceso?"}
+            ? "About how many hours per week does your team spend on this process?"
+            : "¿Cuántas horas por semana dedica aproximadamente tu equipo a este proceso?"}
           {requiredMarker}
         </label>
 
@@ -301,19 +307,23 @@ export default function ContactForm({ locale }: { locale: Locale }) {
       <div>
         <label htmlFor="impact" className={labelClass}>
           {english
-            ? "What happens when this process is not performed correctly or on time?"
-            : "¿Qué ocurre cuando este proceso no se ejecuta correctamente o a tiempo?"}
+            ? "What happens when a request is incomplete or takes longer to review?"
+            : "¿Qué ocurre cuando una solicitud está incompleta o tarda en revisarse?"}
           {requiredMarker}
         </label>
 
-        <textarea
-          id="impact"
-          name="impact"
-          required
-          rows={3}
-          className={`${inputClass} resize-y`}
-          placeholder={english ? "E.g. lost sales, delays, work hours..." : "Ej. pérdida de ventas, retrasos, horas de trabajo..."}
-        />
+          <textarea
+            id="impact"
+            name="impact"
+            required
+            rows={3}
+            className={`${inputClass} resize-y`}
+            placeholder={
+              english
+                ? "For example: extra follow-up, a delayed handoff, or another step for the team."
+                : "Por ejemplo: seguimiento adicional, un traspaso tardío u otro paso para el equipo."
+            }
+          />
       </div>
 
       {hasError && (
@@ -330,18 +340,13 @@ export default function ContactForm({ locale }: { locale: Locale }) {
       <button
         type="submit"
         disabled={isSubmitting}
-        className="group inline-flex w-full items-center justify-center gap-2 bg-volt px-7 py-4 text-sm font-semibold text-ink transition-colors hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-volt disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-60"
+        className="inline-flex w-full items-center justify-center bg-volt px-7 py-4 text-sm font-semibold text-ink transition-colors hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-volt disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-60"
       >
         {isSubmitting
           ? english ? "Sending..." : "Enviando..."
           : hasError
             ? english ? "Try sending again" : "Reintentar envío"
             : english ? "Evaluate this process" : "Evaluar este proceso"}
-        {!isSubmitting && (
-          <span className="transition-transform group-hover:translate-x-0.5">
-            →
-          </span>
-        )}
       </button>
 
       <p className="text-center font-mono text-[11px] leading-5 text-white/60">

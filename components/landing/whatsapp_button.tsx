@@ -11,10 +11,12 @@ export default function WhatsAppButton({
 }) {
   const english = isEnglish(locale);
   const message = english
-    ? "Hello, I'd like to learn how NuTeam can help me organize our processes."
-    : "Hola, quiero conocer cómo NuTeam puede ayudarme a organizar mis procesos.";
+    ? "Hello, I'd like to discuss how our team handles freight transport requests."
+    : "Hola, quiero conversar sobre cómo gestionamos las solicitudes de transporte de carga.";
   const href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
-  const label = english ? "Message NuTeam on WhatsApp" : "Escríbenos por WhatsApp a NuTeam";
+  const label = english
+    ? "Message NuTeam on WhatsApp about freight requests"
+    : "Escríbenos por WhatsApp sobre solicitudes de transporte";
 
   return (
     <a

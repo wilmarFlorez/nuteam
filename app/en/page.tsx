@@ -15,9 +15,9 @@ import AnalyticsTracker from "@/components/analytics_tracker";
 import WhatsAppButton from "@/components/landing/whatsapp_button";
 
 export const metadata: Metadata = {
-  title: "AI-Powered Operational Process Automation | NuTeam",
+  title: "Freight Request Process Automation | NuTeam",
   description:
-    "NuTeam evaluates repetitive, high-volume operational processes to determine where AI automation may be viable.",
+    "NuTeam assesses how freight requests are prepared and which parts of the process may be automated with clear rules and team review.",
   alternates: {
     canonical: "/en",
     languages: { es: "/", en: "/en" },

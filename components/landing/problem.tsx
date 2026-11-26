@@ -3,24 +3,24 @@ import { isEnglish, type Locale } from "@/lib/locale";
 
 const spanishProblems = [
   {
-    title: "Tareas repetitivas",
+    title: "Solicitudes por varios canales",
     description:
-      "Procesos que consumen horas de tu equipo cada semana y requieren poca intervención humana.",
+      "Los datos del servicio pueden llegar por correo, mensajes o formularios y quedar repartidos entre conversaciones.",
   },
   {
-    title: "Alto volumen",
+    title: "Información que falta",
     description:
-      "Miles de llamadas, mensajes, correos o solicitudes que necesitan ser atendidos.",
+      "Antes de continuar, alguien debe identificar qué dato falta o qué parte necesita confirmación.",
   },
   {
-    title: "Procesos manuales",
+    title: "Datos que se vuelven a escribir",
     description:
-      "Información que todavía se copia, revisa y transfiere entre diferentes herramientas.",
+      "Un operador puede tener que copiar la información recibida a otra plantilla o sistema.",
   },
   {
-    title: "Operaciones fragmentadas",
+    title: "Revisión antes de avanzar",
     description:
-      "Equipos trabajando entre WhatsApp, correo, Excel, CRM y múltiples sistemas.",
+      "Los casos incompletos o ambiguos requieren criterio del equipo antes de pasar al siguiente paso.",
   },
 ];
 
@@ -28,10 +28,10 @@ export default function Problem({ locale }: { locale: Locale }) {
   const english = isEnglish(locale);
   const problems = english
     ? [
-        { title: "Repetitive tasks", description: "Processes that consume hours of your team's time every week and require little human intervention." },
-        { title: "High volume", description: "Thousands of calls, messages, emails, or requests that need attention." },
-        { title: "Manual processes", description: "Information still copied, reviewed, and transferred between different tools." },
-        { title: "Fragmented operations", description: "Teams working across WhatsApp, email, spreadsheets, CRM, and multiple systems." },
+        { title: "Requests across channels", description: "Service details may arrive by email, message, or form and remain scattered across conversations." },
+        { title: "Missing information", description: "Before moving forward, someone has to identify what is missing or needs confirmation." },
+        { title: "Details entered more than once", description: "An operator may need to copy received information into another template or system." },
+        { title: "Review before the next step", description: "Incomplete or ambiguous requests need a team member's judgment before they can move forward." },
       ]
     : spanishProblems;
   return (
@@ -41,16 +41,16 @@ export default function Problem({ locale }: { locale: Locale }) {
           <Reveal delay={80}>
             <h2 className="text-4xl font-semibold tracking-[-0.03em] sm:text-5xl lg:text-[3.4rem] lg:leading-[1.02]">
               {english
-                ? "Your team should not spend hours on work that AI can perform"
-                : "Tu equipo no debería dedicar horas a tareas que una IA puede ejecutar"}
+                ? "A freight request often needs work before it is ready for review"
+                : "Una solicitud de transporte puede requerir trabajo antes de quedar lista para revisión"}
             </h2>
           </Reveal>
 
           <Reveal delay={160}>
             <p className="mt-7 max-w-md text-lg leading-8 text-muted">
               {english
-                ? "When a process relies on copying information, answering requests one by one, or reviewing data across tools, volume can lead to more hours, errors, and delays."
-                : "Cuando un proceso depende de copiar información, responder solicitudes una por una o revisar datos entre varias herramientas, el volumen puede traducirse en más horas, errores y demoras."}
+                ? "This is an example of a workflow to assess, not a claim that every logistics operation works the same way. The useful starting point is understanding what your team receives and what it needs to check."
+                : "Este es un ejemplo de flujo para evaluar, no una afirmación de que todas las operaciones logísticas funcionen igual. El punto de partida es entender qué recibe tu equipo y qué necesita revisar."}
             </p>
           </Reveal>
 

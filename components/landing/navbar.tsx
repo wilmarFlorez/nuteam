@@ -9,18 +9,18 @@ export default function Navbar({ locale }: { locale: Locale }) {
   const english = isEnglish(locale);
   const links = english
     ? [
-        { label: "Solutions", href: "#soluciones" },
-        { label: "Use cases", href: "#casos-de-uso" },
-        { label: "How it works", href: "#como-funciona" },
+        { label: "The workflow", href: "#soluciones" },
+        { label: "Related processes", href: "#casos-de-uso" },
+        { label: "How we work", href: "#como-funciona" },
       ]
     : [
-        { label: "Soluciones", href: "#soluciones" },
-        { label: "Casos de uso", href: "#casos-de-uso" },
-        { label: "Cómo funciona", href: "#como-funciona" },
+        { label: "El flujo", href: "#soluciones" },
+        { label: "Procesos relacionados", href: "#casos-de-uso" },
+        { label: "Cómo trabajamos", href: "#como-funciona" },
       ];
   const languageHref = english ? "/" : "/en";
   const languageLabel = english ? "ES" : "EN";
-  const evaluateLabel = english ? "Evaluate a process" : "Evaluar un proceso";
+  const evaluateLabel = english ? "Evaluate my process" : "Evaluar mi proceso";
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
@@ -60,12 +60,9 @@ export default function Navbar({ locale }: { locale: Locale }) {
             <a
               href="#contacto"
               onClick={() => trackEvent("cta_click", { cta_name: "analizar_operacion", location: "navbar" })}
-              className="group inline-flex items-center gap-2 bg-volt px-5 py-2.5 text-sm font-semibold text-ink transition-colors hover:bg-paper focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-volt"
+              className="inline-flex items-center bg-volt px-5 py-2.5 text-sm font-semibold text-ink transition-colors hover:bg-paper focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-volt"
             >
               {evaluateLabel}
-              <span className="transition-transform group-hover:translate-x-0.5">
-                →
-              </span>
             </a>
           </div>
 
@@ -140,10 +137,9 @@ export default function Navbar({ locale }: { locale: Locale }) {
                 setOpen(false);
                 trackEvent("cta_click", { cta_name: "analizar_operacion", location: "navbar_mobile" });
               }}
-              className="mt-auto inline-flex items-center justify-center gap-2 bg-volt px-7 py-4 text-sm font-semibold text-ink"
+              className="mt-auto inline-flex items-center justify-center bg-volt px-7 py-4 text-sm font-semibold text-ink"
             >
               {evaluateLabel}
-              <span>→</span>
             </a>
           </div>
         </div>

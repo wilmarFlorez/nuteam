@@ -4,18 +4,18 @@ import { isEnglish, type Locale } from "@/lib/locale";
 import { Check } from "lucide-react";
 
 const spanishOutcomes = [
-  "Evaluación de viabilidad sobre tu proceso real",
-  "Evaluación preliminar del proceso",
-  "Un siguiente paso claro, sin compromisos",
+  "Revisaremos cómo llegan y se preparan las solicitudes",
+  "Tendremos en cuenta los datos, reglas y excepciones que describas",
+  "Conversaremos sobre un posible siguiente paso, sin compromiso",
 ];
 
 export default function ContactSection({ locale }: { locale: Locale }) {
   const english = isEnglish(locale);
   const outcomes = english
-    ? [
-        "A viability assessment based on your actual process",
-        "A preliminary process assessment",
-        "A clear next step, with no commitment",
+      ? [
+        "We’ll review how requests arrive and are prepared",
+        "We’ll consider the details, rules, and exceptions you describe",
+        "We’ll discuss a possible next step, with no commitment",
       ]
     : spanishOutcomes;
   return (
@@ -24,15 +24,17 @@ export default function ContactSection({ locale }: { locale: Locale }) {
         <div>
           <Reveal delay={80}>
             <h2 className="text-4xl font-semibold tracking-[-0.03em] sm:text-5xl">
-              {english ? "Tell us which process creates the most manual work or delays" : "Cuéntanos qué proceso genera más trabajo manual o demoras"}
+              {english
+                ? "Tell us how your team handles freight requests"
+                : "Cuéntanos cómo gestiona tu equipo las solicitudes de transporte"}
             </h2>
           </Reveal>
 
           <Reveal delay={160}>
             <p className="mt-6 max-w-md leading-7 text-white/60">
               {english
-                ? "We will assess the process, its volume, and its impact to determine whether a real automation opportunity exists."
-                : "Analizaremos el proceso, su volumen y su impacto para determinar si existe una oportunidad real de automatización."}
+                ? "Describe how the request arrives, what information your team checks, and what happens when something is missing. We’ll review what you share and get in touch."
+                : "Describe por dónde llega la solicitud, qué información revisa tu equipo y qué ocurre cuando falta algo. Revisaremos lo que compartas y nos pondremos en contacto."}
             </p>
           </Reveal>
 
@@ -61,7 +63,7 @@ export default function ContactSection({ locale }: { locale: Locale }) {
             <span className="absolute -right-px -bottom-px h-3 w-3 border-b border-r border-volt" />
 
             <p className="font-mono text-[10px] font-medium uppercase tracking-[0.26em] text-white/85">
-              {english ? "Viability assessment" : "Análisis de viabilidad"}
+              {english ? "Tell us about the workflow" : "Cuéntanos sobre el flujo"}
             </p>
 
             <div className="mt-8">

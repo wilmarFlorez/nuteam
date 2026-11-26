@@ -16,9 +16,9 @@ const plexMono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Automatización de procesos operativos con IA | NuTeam",
+  title: "Solicitudes de transporte y automatización | NuTeam",
   description:
-    "NuTeam evalúa procesos operativos repetitivos y de alto volumen para determinar dónde una automatización con IA puede ser viable.",
+    "NuTeam evalúa cómo preparar solicitudes de transporte de carga y qué partes del proceso podrían automatizarse con reglas y revisión del equipo.",
   alternates: {
     canonical: "/",
     languages: { es: "/", en: "/en" },
