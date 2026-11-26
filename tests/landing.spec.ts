@@ -10,7 +10,7 @@ test("la landing en español presenta el flujo logístico y conserva sus destino
   await expect(
     page.getByRole("heading", {
       level: 1,
-      name: "De solicitudes de transporte dispersas a datos listos para revisión",
+      name: "Agentes de IA para organizar solicitudes de transporte.",
     }),
   ).toBeVisible();
   await expect(
@@ -75,7 +75,7 @@ test("con movimiento reducido el contenido permanece visible", async ({ page }) 
   await expect(
     page.getByRole("heading", {
       level: 1,
-      name: "De solicitudes de transporte dispersas a datos listos para revisión",
+      name: "Agentes de IA para organizar solicitudes de transporte.",
     }),
   ).toBeVisible();
 });
@@ -133,7 +133,7 @@ test("la landing en inglés mantiene el mismo enfoque logístico", async ({
   await expect(
     page.getByRole("heading", {
       level: 1,
-      name: "From scattered freight requests to information ready for review",
+      name: "AI agents for organizing freight requests.",
     }),
   ).toBeVisible();
   await expect(

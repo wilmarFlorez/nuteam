@@ -16,16 +16,16 @@ export default function Hero({ locale }: { locale: Locale }) {
           <Reveal>
             <h1 className="mx-auto max-w-6xl text-balance text-[2.8rem] font-semibold leading-[0.98] tracking-[-0.055em] sm:text-6xl md:text-7xl xl:text-[6.25rem]">
               {english
-                ? "From scattered freight requests to information ready for review"
-                : "De solicitudes de transporte dispersas a datos listos para revisión"}
+                ? "AI agents for organizing freight requests."
+                : "Agentes de IA para organizar solicitudes de transporte."}
             </h1>
           </Reveal>
 
           <Reveal delay={140}>
             <p className="mx-auto mt-7 max-w-3xl text-base leading-7 text-white/60 sm:mt-8 sm:text-lg sm:leading-8">
               {english
-                ? "If requests arrive by email or message and your team has to organize the details before reviewing them, we can assess which parts of that process may be worth automating."
-                : "Si las solicitudes llegan por mensajes o correo y tu equipo debe ordenar los datos antes de revisarlas, evaluamos qué parte del proceso podría convenir automatizar."}
+                ? "At NuTeam, we design agents to help structure request details and flag missing information according to your operation’s rules. Your team reviews exceptions and ambiguous cases; together, we decide what makes sense to automate."
+                : "En NuTeam diseñamos agentes que ayudan a estructurar los datos de cada solicitud y a señalar lo que falta, según las reglas de tu operación. Tu equipo revisa las excepciones y los casos ambiguos; juntos definimos qué conviene automatizar."}
             </p>
           </Reveal>
 
